@@ -1,0 +1,20 @@
+@for $number from 12 to 32{
+  .text-size-#{number} {
+		font-size: #{$number} px;
+  };
+};
+
+.semi-bold{
+	font-weight: 500;
+};
+
+.bold {
+	font-weight: 600;
+  color: var(--ion-color-cinza-step-950) ;
+
+}
+small {
+  font-size: 10px;
+  font-weight: lighter;
+  color: var(--ion-color-cinza-step-650) ;
+}
