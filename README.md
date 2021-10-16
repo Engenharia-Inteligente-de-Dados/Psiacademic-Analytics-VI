@@ -5,6 +5,11 @@ Esse projeto tem como objetivo a visualização de informação do Psiacademic A
 
 ## **Estrutura**
 
+
+## **Implementações Futuras**
+ 
+- [ ] Dark Mode
+
 ### Commits
 
 
