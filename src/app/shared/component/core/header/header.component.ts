@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MAIN_ROUTES } from './mainRoutes.const';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public routes = MAIN_ROUTES
   constructor() { }
 
   ngOnInit(): void {
