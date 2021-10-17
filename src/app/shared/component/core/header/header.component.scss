@@ -28,7 +28,7 @@
         margin: 5px;
         padding: 5px;
 
-        a:hover,:active{
+        a:hover,a.active{
           font-style: italic;
           border-bottom: solid 2px  transparent;
           border-image:linear-gradient(90deg, #F0D280 0%, #E0A500 100%);
