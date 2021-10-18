@@ -1,0 +1,7 @@
+$list: center, start, end, flex-start, flex-end, left, right;
+@each $var in $list {
+  .justify-content-#{$var} {
+    display: flex;
+    justify-content: $var;
+  }
+}
