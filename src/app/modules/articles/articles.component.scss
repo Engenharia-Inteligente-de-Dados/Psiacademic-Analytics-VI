@@ -1,0 +1,33 @@
+#src {
+  height: auto;
+  width: 330px;
+  margin-top: 10%;
+}
+
+.searchbar {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  &_input {
+    display: flex;
+    width: 100%;
+    border: 1px solid var(--psi-color-cinza-step-350);
+    border-radius: 15px;
+    height: 45px;
+    input {
+      display: flex;
+      width: 100%;
+      margin-left: 10px;
+      font-size: 15px;
+      &::placeholder {
+        color: var(--psi-color-cinza-step-350);
+      }
+    }
+
+    img {
+      width: auto;
+      height: 25px;
+      margin: auto 10px;
+    }
+  }
+}
