@@ -1,8 +1,9 @@
 @for $number from 12 to 32{
-  .text-size-#{number} {
-		font-size: #{$number} px;
+  .text-size-#{$number} {
+		font-size: #{$number}px;
   };
 };
+
 
 .semi-bold{
 	font-weight: 500;
