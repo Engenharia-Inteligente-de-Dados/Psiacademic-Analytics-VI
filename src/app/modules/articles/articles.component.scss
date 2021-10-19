@@ -3,7 +3,7 @@
   width: 330px;
   margin-top: 10%;
 }
-
+//componentizar
 .searchbar {
   display: flex;
   width: 90%;
@@ -28,6 +28,20 @@
       width: auto;
       height: 25px;
       margin: auto 10px;
+    }
+  }
+}
+
+ion-row{
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  ion-col{
+    span{
+      margin-left: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--psi-color-cinza-step-600)!important;
     }
   }
 }

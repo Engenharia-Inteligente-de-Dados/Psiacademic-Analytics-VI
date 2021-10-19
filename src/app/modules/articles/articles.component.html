@@ -4,20 +4,55 @@
       id="src"
       src="../assets/img/svg/Search engines-rafiki.svg"
       alt=""
-      srcset=""/>
+      srcset=""
+    />
   </div>
-  <div class="justify-content-center">
+  <!-- componentizar busca -->
+  <div class="justify-content-center m-b-10">
     <div class="searchbar">
       <div class="searchbar_input">
-        <input type="text" placeholder="oque você está procurando hoje?"/>
+        <input type="text" placeholder="oque você está procurando hoje?" />
         <img src="./assets/icons/search.svg" alt="question-mark" />
       </div>
       <div>
         <img src="./assets/icons/question.svg" alt="question-mark" />
       </div>
     </div>
-    <div class="resultado"></div>
   </div>
+  <div class="resultado">
+    <ion-list>
+      <ion-card>
+        <ion-card-header class="m-l-5">
+          <ion-card-title>
+            <h3>
+              Qualidade de vida relacionada à saúde de pacientes em hemodiálise
+              no município de Guarapuava-PR
+            </h3>
+          </ion-card-title>
+          <ion-row>
+            <ion-col size="2">
+              <span>Autor:</span> Fulana
+            </ion-col>
+            <ion-col>
+              <span>Data</span> 18/04/1998
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2">
+              <span>Repositorio:</span> CEULP
+            </ion-col>
+            <ion-col>
+              <span>Tipo</span> Dissertação
+            </ion-col>
+          </ion-row>
+          <ion-row class="justify-content-end m-r-5">
+            <psi-badge label='Qualidade de Vida' size='size-14'></psi-badge>
+          </ion-row>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+  </div>
+  <!-- componentizar resultado -->
 </div>
 
 <!-- <a href="https://storyset.com/web">Web illustrations by Storyset</a> -->
