@@ -1,0 +1,26 @@
+$list: primary,secondary,tertiary,tertiary,quaternary,fifth,success,warning,danger;
+
+@each $color in $list {
+  .#{$color}{
+    background: var(--ion-color-#{$color}-shade);
+  };
+};
+
+@for $i from 10 to 33 {
+  .size-#{$i} {
+    font-size: #{$i}px !important;
+  };
+};
+
+span {
+  display: inline-block;
+  padding: 3px 8px 3px 8px;
+  border-radius: 15px;
+  min-width: 10px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  contain: content;
+  vertical-align: baseline;
+};
