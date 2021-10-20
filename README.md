@@ -9,6 +9,7 @@ Esse projeto tem como objetivo a visualização de informação do Psiacademic A
 ## **Implementações Futuras**
  
 - [ ] Dark Mode
+- [ ] Internacionalização
 
 ### Commits
 
