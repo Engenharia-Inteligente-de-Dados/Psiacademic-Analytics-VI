@@ -1,11 +1,6 @@
-:root{
-  display: flex;
-}
-
 #main{
-  min-height: 100vh;
   max-width: 1080px;
   margin-right: auto;
   margin-left: auto;
-  overflow: hidden;
+  display: flex;
 }
