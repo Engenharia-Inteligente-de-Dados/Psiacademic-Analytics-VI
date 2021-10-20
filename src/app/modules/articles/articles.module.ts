@@ -4,11 +4,15 @@ import { CommonModule } from '@angular/common';
 import { ArticlesRoutingModule } from './articles-routing.module';
 import { ArticlesComponent } from './articles.component';
 import { PsiBadgeModule } from '../../shared/components/psi-badge/psi-badge.module';
+import { SearchComponent } from './search/search.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 @NgModule({
   declarations: [
-    ArticlesComponent
+    ArticlesComponent,
+    SearchComponent,
+    SearchResultComponent
   ],
   imports: [
     CommonModule,
