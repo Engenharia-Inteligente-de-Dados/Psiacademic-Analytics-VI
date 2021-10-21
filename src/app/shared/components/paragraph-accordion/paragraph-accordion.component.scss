@@ -1,0 +1,35 @@
+.paragraph {
+  text-align: justify;
+  width: auto;
+  &_p{
+    margin-right: 10px;
+    cursor:default;
+  }
+
+  &_p:hover{
+    border-radius: 15px;
+    background-color:var(--psi-color-bege-step-250);
+  }
+
+  &_inline{
+    display: inline-flex;
+  }
+
+  &_img{
+    width: 22px;
+    height: auto;
+    transition: 0.3s;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  &_img:hover{
+    border: 1px solid var(--ion-color-primary);
+    border-radius: 15px;
+  }
+
+  .invert{
+    transform: rotate(180deg)
+  }
+}
+
