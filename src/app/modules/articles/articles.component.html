@@ -1,5 +1,5 @@
 <div>
-  <div class="justify-content-center" *ngIf="false">
+  <div #imgsEl class="justify-content-center" *ngIf="!search_init">
     <img
       id="src"
       src="../assets/img/svg/Search engines-rafiki.svg"
@@ -7,7 +7,7 @@
       srcset=""
     />
   </div>
-    <psi-search></psi-search>
+    <psi-search (search_init)="remove_img($event)"></psi-search>
     <psi-search-result></psi-search-result>
 </div>
 

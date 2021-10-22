@@ -7,6 +7,7 @@ import { PsiBadgeModule } from '../../shared/components/psi-badge/psi-badge.modu
 import { SearchComponent } from './search/search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ParagraphAccordionModule } from '../../shared/components/paragraph-accordion/paragraph-accordion.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { ParagraphAccordionModule } from '../../shared/components/paragraph-acco
     CommonModule,
     ArticlesRoutingModule,
     PsiBadgeModule,
-    ParagraphAccordionModule
+    ParagraphAccordionModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

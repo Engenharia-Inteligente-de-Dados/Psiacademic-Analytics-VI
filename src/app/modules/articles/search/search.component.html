@@ -1,7 +1,13 @@
 <div class="justify-content-center m-b-10">
   <div class="searchbar">
     <div class="searchbar_input">
-      <input type="text" placeholder="oque você está procurando hoje?" />
+      <input
+        type="search"
+        placeholder="Oque você está procurando hoje?"
+        [formControl]="searchInput"
+        (onkeypress)="getInput($event)"
+        (keyup)="getInput($event)"
+      />
       <img src="./assets/icons/search.svg" alt="question-mark" />
     </div>
     <div>
