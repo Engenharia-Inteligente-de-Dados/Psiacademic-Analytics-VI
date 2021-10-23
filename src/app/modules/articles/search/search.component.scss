@@ -16,6 +16,9 @@
       &::placeholder {
         color: var(--psi-color-cinza-step-350);
       }
+      &:focus{
+        border-color: red;
+      }
     }
 
     img {
