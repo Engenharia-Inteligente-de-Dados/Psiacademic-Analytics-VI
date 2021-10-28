@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Ichart, IChartColumns, IChartData, IchartOptions, IChartType } from '../../interfaces/chart.interfaces';
 
 @Component({
   selector: 'psi-card-chart',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-chart.component.scss']
 })
 export class CardChartComponent implements OnInit {
+
+  @Input() actions?: boolean = true;
+  @Input() chartData?: IChartData;
+  @Input() chartType?: IChartType;
+  @Input() columnNames?: IChartColumns;
+  @Input() options?: IchartOptions;
+
 
   constructor() { }
 
