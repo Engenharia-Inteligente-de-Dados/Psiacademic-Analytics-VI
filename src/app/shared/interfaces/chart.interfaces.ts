@@ -1,10 +1,11 @@
+import { Row } from "angular-google-charts";
+
 export interface Ichart {
-  chartTitle: IchartTitle;
-  chartData: IChartData;
+  chartTitle?: IchartTitle;
+  chartData: IChartData["chartData"];
   chartType: IChartType;
   columnNames:string[];
   options: IchartOptions;
-  chartColumns : IChartColumns;
 }
 
 export interface IchartOptions  {
@@ -12,10 +13,18 @@ export interface IchartOptions  {
   height?:number,
   weith?:number,
   is3D?:boolean,
+  hAxis?:{
+    title?:string,
+  },
+  vAxis?:{
+    title?:string,
+  }
+  seriesType?:any,
+  series?:any,
 }
 
 export interface IChartData {
-  chartData: [] | any;
+  chartData: any;
 }
 
 export interface IChartColumns {
@@ -23,7 +32,7 @@ export interface IChartColumns {
 }
 
 export interface IChartType {
-  chartType: string;
+  chartType:any;
 }
 
 export interface IchartTitle {
