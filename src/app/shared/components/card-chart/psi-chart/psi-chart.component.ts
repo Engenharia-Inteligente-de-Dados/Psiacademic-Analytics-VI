@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Row } from 'angular-google-charts';
 import {
-  IChartColumns,
-  IChartData,
   IchartOptions,
 } from 'src/app/shared/interfaces/chart.interfaces';
 @Component({
@@ -10,11 +9,10 @@ import {
   styleUrls: ['./psi-chart.component.scss'],
 })
 export class PsiChartComponent implements OnInit {
-  @Input() chartData!: IChartData['chartData'];
-  @Input() chartType!: any;
-  @Input() columnNames!: any;
-  @Input() options?: IchartOptions;
-  @Input() hasOptions: boolean = false;
+  @Input() chartData: any = [];
+  @Input() chartType: any;
+  @Input() columnNames: any;
+  @Input() options?: IchartOptions['option'] = {};
 
 
   public option: any;
@@ -22,6 +20,10 @@ export class PsiChartComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    console.log(`chartData - ${this.chartData}`)
+    console.log(`columnNames - ${this.columnNames}`)
+    console.log(`options - ${this.options}`)
+    console.log(`chartType - ${this.chartType}`)
   }
 
   onReady(event: any) {

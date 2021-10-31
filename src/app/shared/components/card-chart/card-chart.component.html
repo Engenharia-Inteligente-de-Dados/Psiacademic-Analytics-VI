@@ -2,25 +2,24 @@
   <div class="card_header">
     <div class="card_header_title">
       <h6>
-        {{chart.chartTitle}}
+        {{chart?.chartTitle}}
       </h6>
     </div>
     <div class="card_header_actions" *ngIf="actions">
-      <button>
+      <button (click)="openConfig()">
         <img src="../../../assets/icons/cog.svg" alt="configuração">
       </button>
-      <button>
+      <button  (click)="expand()">
         <img src="../../../assets/icons/open_new.svg" alt="nova pagina">
       </button>
     </div>
   </div>
   <div class="card_content">
     <psi-chart
-    [chartData]="chart.chartData"
-    [chartType]="chart.chartType"
-    [columnNames]="chart.columnNames"
-    [options]="chart.options"
-    [hasOptions]="hasOptions"
+    [chartData]="chart?.chartData"
+    [chartType]="chart?.chartType"
+    [columnNames]="chart?.columnNames"
+    [options]="chart?.options"
     >
     </psi-chart>
   </div>

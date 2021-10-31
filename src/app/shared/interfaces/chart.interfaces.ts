@@ -1,14 +1,15 @@
-import { Row } from "angular-google-charts";
-
-export interface Ichart {
-  chartTitle?: IchartTitle;
-  chartData: IChartData["chartData"];
-  chartType: IChartType;
-  columnNames:string[];
-  options: IchartOptions;
+export interface Ichart{
+  id: string;
+  chartTitle?: string;
+  chartData: any;
+  chartType:any;
+  columnNames:string[] | {type:string, role:string}[] | [];
+  options: IchartOptions["option"] | any
 }
 
+export interface Icharts extends Array<Ichart>{}
 export interface IchartOptions  {
+ option: {
   colors?:string[],
   height?:number,
   weith?:number,
@@ -20,21 +21,5 @@ export interface IchartOptions  {
     title?:string,
   }
   seriesType?:any,
-  series?:any,
-}
-
-export interface IChartData {
-  chartData: any;
-}
-
-export interface IChartColumns {
-  chartColumns: string[] | {type:string, role:string}[] | [];
-}
-
-export interface IChartType {
-  chartType:any;
-}
-
-export interface IchartTitle {
-  chartTitle: string;
+  series?:any,}
 }

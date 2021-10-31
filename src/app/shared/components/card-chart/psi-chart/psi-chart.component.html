@@ -1,5 +1,4 @@
 
-<ng-container *ngIf="hasOptions">
   <google-chart #chart
   [type]="chartType"
   [data]="chartData"
@@ -8,15 +7,3 @@
   (ready)="onReady($event)"
   >
 </google-chart>
-</ng-container>
-
-
-<ng-container *ngIf="!hasOptions">
-  <google-chart #chart
-  [type]="chartType"
-  [data]="chartData"
-  [columnNames]="columnNames"
-  (ready)="onReady($event)"
-  >
-</google-chart>
-</ng-container>

@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ichart } from '../../interfaces/chart.interfaces';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'psi-card-chart',
@@ -9,22 +11,27 @@ import { Ichart } from '../../interfaces/chart.interfaces';
 export class CardChartComponent implements OnInit {
 
   @Input() actions?: boolean = true;
-  @Input() chart!: Ichart;
-  hasOptions =  true
+  @Input() chart: Ichart | undefined;
+  @Input() index?: number;
+
+  @Output() redirect = new EventEmitter()
   public options:boolean = false;
-  constructor() {
-    this.hasOptions =this.chart.options ? this.options = true : this.options = false;
-   }
+
+  constructor(
+    private modalSvc: ModalService,
+    ) { }
 
   ngOnInit(): void {
   }
 
 
-  config(){
+  openConfig(){
+   const modal = this.modalSvc.show("psi-config",{});
     console.log(`open cofig`)
   }
 
   expand(){
+    this.redirect.emit();
     console.log(`expand`)
   }
 
