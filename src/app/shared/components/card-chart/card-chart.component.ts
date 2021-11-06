@@ -26,8 +26,8 @@ export class CardChartComponent implements OnInit {
 
 
   openConfig(){
-   const modal = this.modalSvc.show("psi-config",{});
-    console.log(`open cofig`)
+   const modal = this.modalSvc.showConfig({});
+    console.log(`open cofig`,modal)
   }
 
   expand(){

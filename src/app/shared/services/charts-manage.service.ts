@@ -15,7 +15,6 @@ export class ChartsManageService {
     this.chartList$.next(this._chartsList);
   }
 
-
   get charts(): Icharts {
     return this._chartsList;
   }

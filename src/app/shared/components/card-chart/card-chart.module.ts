@@ -7,7 +7,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
-    CardChartComponent,PsiChartComponent
+    CardChartComponent,
+    PsiChartComponent
   ],
   imports: [
     CommonModule,
