@@ -1,14 +1,19 @@
-<div>
-  <div #imgsEl class="justify-content-center" *ngIf="!search_init">
-    <img
-      id="src"
-      src="../assets/img/svg/Search engines-rafiki.svg"
-      alt=""
-      srcset=""
-    />
+<div id="outer">
+  <div id="inner_fixed">
+    <div #imgsEl class="justify-content-center" *ngIf="!search_init" >
+      <img
+        id="src"
+        src="../assets/img/svg/Search engines-rafiki.svg"
+        alt=""
+        srcset=""
+      />
+    </div>
+      <psi-search (search_init)="remove_img($event)"></psi-search>
   </div>
-    <psi-search (search_init)="remove_img($event)"></psi-search>
+  <div  id="inner_remaining">
     <psi-search-result></psi-search-result>
+  </div>
+    
 </div>
 
 <!-- <a href="https://storyset.com/web">Web illustrations by Storyset</a> -->
