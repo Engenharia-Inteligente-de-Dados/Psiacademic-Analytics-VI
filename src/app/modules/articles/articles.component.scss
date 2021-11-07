@@ -12,7 +12,7 @@
 
 #inner_remaining {
   flex-grow : 1;
-  overflow: scroll;
+  overflow-y: auto;
 }
 .animate {
   -webkit-animation-duration: 1.2s;
