@@ -43,14 +43,14 @@ const LISTCHARTS:Icharts = [
       chartTitle: 'Chart 3',
       chartType: `BubbleChart`,
       chartData: [
-        ["", 8, 12],
-        ["", 4, 5.5],
-        ["", 11, 14],
-        ["", 3, 3.5],
-        ["", 6.5, 7]
+        ["Hemodialise", 10, 2],
+        ["Luto", 16, 6],
+        ["Qualidade de vida", 12, 6],
+        ["Idoso", 10, 3],
+        ["Criançãs", 6, 3]
       ],
       options:{},
-      columnNames: [`Id`,`Produção`,'Universidade']
+      columnNames: [`Id`,`Total de produção`,'Media Anual']
     },
 
   ]

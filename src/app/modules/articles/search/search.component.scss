@@ -2,30 +2,69 @@
   display: flex;
   width: 90%;
   align-items: center;
-  &_input {
+
+  &_container {
     display: flex;
     width: 100%;
     border: 1px solid var(--psi-color-cinza-step-350);
     border-radius: 15px;
     height: 45px;
-    input {
+    align-items: center;
+    justify-content: space-between;
+
+    &_input {
       display: flex;
       width: 100%;
-      margin-left: 10px;
-      font-size: 15px;
-      &::placeholder {
-        color: var(--psi-color-cinza-step-350);
+      span {
+        font-size: 15px;
+        margin-left: 15px;
+        width: auto;
       }
-      &:focus{
-        border-color: red;
+      input{
+        display: flex;
+        width: 100%;
+        margin-left: 10px;
+        font-size: 15px;
+        &::placeholder {
+          color: var(--psi-color-cinza-step-350);
+        }
       }
     }
 
-    img {
-      width: auto;
-      height: 25px;
-      margin: auto 10px;
+    &_actions {
+      display: flex;
+      align-items: center;
+      button{
+        margin: 5px;
+        border: 1px solid transparent;
+        transition: 1ms ease-out;
+
+        ion-icon{
+          font-size: x-large;
+          margin: auto 15px;
+          color: var(--psi-color-cinza-step-350) !important;
+          transition: 1ms ease-out
+
+        }
+      }
+
+      button:hover{
+        margin: 5px;
+        ion-icon{
+          color:var( --ion-color-success)!important;
+        }
+      }
+
+      img {
+        width: auto;
+        height: 25px;
+        margin: auto 10px;
+      }
     }
   }
 }
 
+.template_else {
+  display: flex;
+  align-items: center;
+}

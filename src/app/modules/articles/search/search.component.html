@@ -1,17 +1,52 @@
 <div class="justify-content-center m-b-10">
   <div class="searchbar">
-    <div class="searchbar_input">
-      <input
+    <div class="searchbar_container">
+      <div class="searchbar_container_input">
+        <input
+        *ngIf="!inputSelected; else elseInput"
         type="search"
+        list="atributes"
         placeholder="Oque você está procurando hoje?"
+        (keyup)="selectInputType($event)"
         [formControl]="searchInput"
-        (onkeypress)="getInput($event)"
-        (keyup)="getInput($event)"
+        #simpleInput
       />
-      <img src="./assets/icons/search.svg" alt="question-mark" />
+
+      <datalist id="atributes">
+        <ng-container *ngFor="let item of alternativas">
+          <option
+            [value]="item.key"
+            [label]="item.label"
+            *ngIf="!item.hidden"
+          ></option>
+        </ng-container>
+      </datalist>
+
+      <ng-template #elseInput class="template_else">
+        <span>{{ inputSelected?.key }}:</span>
+        <input
+          placeholder="Outro input carai"
+          [type]="inputSelected.type"
+          [(ngModel)]="inputSelected[inputSelected?.key]"
+          (keyup)="inputHandler($event)"
+          #compostInput
+        />
+
+      </ng-template>
+      </div>
+      <div class="searchbar_container_actions">
+        <button>
+          <ion-icon name="search-sharp"></ion-icon>
+        </button>
+      </div>
     </div>
+
     <div>
       <img src="./assets/icons/question.svg" alt="question-mark" />
     </div>
   </div>
+</div>
+<!-- Local Temporario ate criar as badges -->
+<div class="search_badge" *ngFor="let item of arrayInputs; let i = index">
+  <span> {{ item?.label }} : {{ item[item?.key] }} - {{i}} </span>
 </div>
