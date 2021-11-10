@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    this.search_init.emit(true)
   }
 
   selectInputType(event:KeyboardEvent){
@@ -49,9 +50,9 @@ inputHandler(event:KeyboardEvent){
   }
 }
 
-  getInput(event:KeyboardEvent){
+searchInit(event:KeyboardEvent){
     clearInterval(this.bounceInput)
-    if((this.searchInput.value.length || this.searchInput.touched)&& this.arrayInputs.length > 1){
+    if((this.searchInput.value.length || this.searchInput.touched) || this.arrayInputs.length >= 1){
         this.bounceInput = setTimeout(() => {
           this.search_init.emit(true)
           this.pesquisar()

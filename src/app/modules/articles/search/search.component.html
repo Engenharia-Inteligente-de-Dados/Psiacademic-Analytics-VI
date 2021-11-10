@@ -8,6 +8,7 @@
         list="atributes"
         placeholder="Oque você está procurando hoje?"
         (keyup)="selectInputType($event)"
+        (keyup)="searchInit($event)"
         [formControl]="searchInput"
         #simpleInput
       />
@@ -31,11 +32,10 @@
           (keyup)="inputHandler($event)"
           #compostInput
         />
-
       </ng-template>
       </div>
       <div class="searchbar_container_actions">
-        <button>
+        <button (click)="pesquisar()">
           <ion-icon name="search-sharp"></ion-icon>
         </button>
       </div>
