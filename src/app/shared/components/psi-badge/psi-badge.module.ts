@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PsiBadgeComponent } from './psi-badge.component';
 
@@ -13,6 +13,9 @@ import { PsiBadgeComponent } from './psi-badge.component';
   ],
   exports:[
     PsiBadgeComponent
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class PsiBadgeModule { }
