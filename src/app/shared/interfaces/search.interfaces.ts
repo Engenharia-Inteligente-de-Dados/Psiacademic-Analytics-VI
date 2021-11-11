@@ -1,11 +1,6 @@
-import { SearchAttribute } from "../enums/SearchAttibute.enum";
-
-export interface IOptionSearch {
-  [SearchAttribute.TITLE]?: string;
-  [SearchAttribute.WORDS]?: string;
-  [SearchAttribute.AUTHOR]?: string;
-  [SearchAttribute.MAX_YEAR]?: string;
-  [SearchAttribute.MIN_YEAR]?: string;
+import { SearchAttribute } from "../enums/SearchAttribute.enum";
+import { IAttribute } from './atribute.interfaces';
+export interface IOptionSearch extends IAttribute{
   label: string;
   key: string;
   value?: string;

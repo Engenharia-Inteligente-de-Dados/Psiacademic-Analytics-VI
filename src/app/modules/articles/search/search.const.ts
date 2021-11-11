@@ -1,4 +1,4 @@
-import { SearchAttribute } from "src/app/shared/enums/SearchAttibute.enum";
+import { SearchAttribute } from "src/app/shared/enums/SearchAttribute.enum";
 import { IOptionSearch } from "src/app/shared/interfaces/search.interfaces";
 
 export const OPTIONS_SEARCH : IOptionSearch[]= [
