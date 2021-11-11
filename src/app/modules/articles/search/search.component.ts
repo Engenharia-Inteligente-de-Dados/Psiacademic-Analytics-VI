@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { SearchAttribute } from 'src/app/shared/enums/SearchAttribute.enum';
+import { IOptionSearch } from 'src/app/shared/interfaces/search.interfaces';
 import { OPTIONS_SEARCH } from './search.const';
 
 
@@ -16,7 +18,7 @@ export class SearchComponent implements OnInit {
   @Output() search_init = new EventEmitter()
   private bounceInput!: ReturnType<typeof setTimeout>;
   public searchInput: FormControl = new FormControl()
-  public inputSelected: any
+  public inputSelected?: any
   public arrayInputs: any[] = []
   public alternativas = OPTIONS_SEARCH
   constructor(private ref: ChangeDetectorRef) {}
@@ -62,6 +64,23 @@ searchInit(event:KeyboardEvent){
   }
 
   pesquisar(){
+  }
+
+  remove(event:any){
+    console.log(event)
+    const old = this.arrayInputs.splice(event.index,1);
+    this.changeStatusSearchOptions(old[0].id)
+    this.clearAttr(old[0].id)
+    this.ref.detectChanges();
+  }
+
+  clearAttr(id:number){
+    this.alternativas.forEach((option)=>{
+      if(option.id === id){
+        const key = option.key as SearchAttribute
+        option[key] = ''
+      }
+    })
   }
 
   changeStatusSearchOptions(id:number){

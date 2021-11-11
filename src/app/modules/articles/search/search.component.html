@@ -47,6 +47,16 @@
   </div>
 </div>
 <!-- Local Temporario ate criar as badges -->
-<div class="search_badge" *ngFor="let item of arrayInputs; let i = index">
-  <span> {{ item?.label }} : {{ item[item?.key] }} - {{i}} </span>
+<div class="searchbar_badge">
+    <psi-badge
+    *ngFor="let item of arrayInputs; let i = index"
+    size="size-15"
+    cursor="pointer"
+    icon='trash-outline'
+    animate='animate'
+    [label]="item?.label+': '+item[item?.key]"
+    [index]="i"
+    (onClick)=remove($event)
+    ></psi-badge>
+
 </div>
