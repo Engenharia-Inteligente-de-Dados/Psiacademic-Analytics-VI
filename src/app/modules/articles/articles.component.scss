@@ -3,7 +3,17 @@
   width: 330px;
   margin-top: 10%;
 }
+#outer {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
 
+
+#inner_remaining {
+  flex-grow : 1;
+  overflow-y: auto;
+}
 .animate {
   -webkit-animation-duration: 1.2s;
   animation-duration: 1.2s;
