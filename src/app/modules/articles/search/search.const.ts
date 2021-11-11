@@ -44,4 +44,4 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   }
 ];
 
-
+export const MULT_ATRIBUTE_SEARCH = false;

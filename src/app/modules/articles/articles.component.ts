@@ -18,6 +18,10 @@ export class ArticlesComponent implements OnInit {
 
   }
 
+  pesquisar(event:any){
+    console.log(event)
+    const {attributes,search} = event?.detail
+  }
   remove_img(event:any){
     if(event && !this.search_init){
       console.log(this.imgsEl?.nativeElement)

@@ -7,10 +7,9 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { SearchAttribute } from 'src/app/shared/enums/SearchAttribute.enum';
-import { IOptionSearch } from 'src/app/shared/interfaces/search.interfaces';
-import { OPTIONS_SEARCH } from './search.const';
+import { MULT_ATRIBUTE_SEARCH, OPTIONS_SEARCH } from './search.const';
 
 @Component({
   selector: 'psi-search',
@@ -20,34 +19,35 @@ import { OPTIONS_SEARCH } from './search.const';
 export class SearchComponent implements OnInit {
   @ViewChild('simpleInput') simpleInput!: ElementRef;
   @ViewChild('compostInput') compostInput!: ElementRef;
+  @Output() searchEmit = new EventEmitter();
 
-  @Output() search_init = new EventEmitter();
-  private bounceInput!: ReturnType<typeof setTimeout>;
+  public multAtributeSearch = MULT_ATRIBUTE_SEARCH;
   public searchInput: FormControl = new FormControl();
   public inputSelected?: any;
   public arrayInputs: any[] = [];
   public alternativas = OPTIONS_SEARCH;
   constructor(private ref: ChangeDetectorRef) {}
 
-  ngOnInit(): void {
-    this.search_init.emit(true);
-  }
+  ngOnInit(): void {}
 
-  selectInputType(event: KeyboardEvent) {
-    this.inputSelected = this.alternativas.find((option) => {
-      return option.key == this.searchInput.value;
-    });
-    this.ref.detectChanges();
-    this.compostInput?.nativeElement.focus();
-    if (event.key === 'Enter' && !this.inputSelected) {
-      console.log(
-        `adicionar caso não seja por datalist condição para formatar apartir de uma string unica o objeto`
-      );
+  InputSelect(event: KeyboardEvent) {
+    if(this.multAtributeSearch){
+      this.inputSelected = this.alternativas.find((option) => {
+        return option.key == this.searchInput.value;
+      });
+      this.ref.detectChanges();
+      this.compostInput?.nativeElement.focus();
+      if (event.key === 'Enter' && !this.inputSelected) {
+      }
+    }
+    else{
+      if (event.key === 'Enter') {
+        this.pesquisar();
+      }
     }
   }
 
   inputHandler(event: KeyboardEvent) {
-    console.log(event);
     if (
       event.key === 'Enter' &&
       this.inputSelected[this.inputSelected?.key].length > 0
@@ -65,22 +65,9 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  searchInit(event: KeyboardEvent) {
-    clearInterval(this.bounceInput);
-    if (
-      this.searchInput.value.length ||
-      this.searchInput.touched ||
-      this.arrayInputs.length >= 1
-    ) {
-      this.bounceInput = setTimeout(() => {
-        this.search_init.emit(true);
-        this.pesquisar();
-      }, 1500);
-      console.log(this.searchInput);
-    }
+  pesquisar() {
+    this.searchEmit.emit({detail:{attributes: this.arrayInputs, search: this.searchInput.value}});
   }
-
-  pesquisar() {}
 
   remove(event: any) {
     console.log(event);
@@ -93,6 +80,7 @@ export class SearchComponent implements OnInit {
   clearAttr(id: number) {
     this.alternativas.forEach((option) => {
       if (option.id === id) {
+        //esse tipagem do SearchAttribute para poder ter acesso ao key de option
         const key = option.key as SearchAttribute;
         option[key] = '';
       }

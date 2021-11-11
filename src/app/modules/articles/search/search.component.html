@@ -7,13 +7,12 @@
         type="search"
         list="atributes"
         placeholder="Oque você está procurando hoje?"
-        (keyup)="selectInputType($event)"
-        (keyup)="searchInit($event)"
+        (keyup)="InputSelect($event)"
         [formControl]="searchInput"
         #simpleInput
       />
 
-      <datalist id="atributes">
+      <datalist id="atributes" *ngIf="multAtributeSearch">
         <ng-container *ngFor="let item of alternativas">
           <option
             [value]="item.key"
@@ -26,13 +25,14 @@
       <ng-template #elseInput class="template_else">
         <span>{{ inputSelected?.key }}:</span>
         <input
-          placeholder="Outro input carai"
+          placeholder="Oque você está procurando hoje?"
           [type]="inputSelected.type"
           [(ngModel)]="inputSelected[inputSelected?.key]"
           (keyup)="inputHandler($event)"
           #compostInput
         />
       </ng-template>
+
       </div>
       <div class="searchbar_container_actions">
         <button (click)="pesquisar()">
@@ -40,7 +40,6 @@
         </button>
       </div>
     </div>
-
     <div>
       <img src="./assets/icons/question.svg" alt="question-mark" />
     </div>
