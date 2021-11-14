@@ -6,5 +6,4 @@ export interface IAttribute {
   [SearchAttribute.AUTHOR]?: string;
   [SearchAttribute.MAX_YEAR]?: string;
   [SearchAttribute.MIN_YEAR]?: string;
-
 }
