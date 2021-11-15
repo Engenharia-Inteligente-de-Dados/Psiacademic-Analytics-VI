@@ -27,6 +27,16 @@ export const artigoMock = () => {
       "url": "https://repositorio.ufpb.br/jspui/handle/123456789/12145"
     }
 }
-export const artigosMock = () =>{
-  return [ artigoMock(), artigoMock(), artigoMock() ]
+export const artigosMock = (qtd?:number) =>{
+  if(qtd){
+    const artigos = []
+    for(let i = 0; i < qtd; i++){
+      artigos.push(artigoMock())
+    }
+    return artigos
+  }
+    else{
+
+      return [ artigoMock(), artigoMock(), artigoMock() ]
+    }
 }

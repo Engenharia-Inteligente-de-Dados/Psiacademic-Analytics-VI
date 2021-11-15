@@ -66,7 +66,7 @@ export class SearchComponent implements OnInit {
   }
 
   pesquisar() {
-    this.searchEmit.emit({detail:{attributes: this.arrayInputs, search: this.searchInput.value}});
+    this.searchEmit.emit({detail:{attributes: this.arrayInputs, palavras: this.searchInput.value}});
   }
 
   remove(event: any) {

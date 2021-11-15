@@ -5,37 +5,54 @@ import { IOptionSearch } from '../interfaces/search.interfaces';
 import { IArticle } from '../../modules/articles/article.interfaces';
 import { artigosMock } from '../../modules/articles/search-result/search-result.mock';
 import { sleep } from '../utils/mock.utils';
+import { Subject } from 'rxjs';
 
+
+interface ISRC{
+  palavras?: string;
+  attrubutes?: any;
+  paginacao: {
+    pagina: number;
+    limite: number;
+  };
+}
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
+  private palavras?:string;
+  private attrubutes?:IOptionSearch[]
+  private paginacao?:{pagina?:number, limite?:number}
+  public searchArticles$: Subject<ISRC> = new Subject<ISRC>();
   constructor(private http:BaseHttpProvider) { }
 
 
-  async search(search:string,attributos:IOptionSearch[], paginacao?: { pagina?:number, limite?:number}):Promise<any>{
-    if(attributos.length > 0){
-      console.log(`console.log`,attributos);
-      let params = this.paramsToURLSearch(attributos)
-      return await this.http.get(`${API}/palavras/chave`,{palavras:search, params, ...paginacao})
+  async search(palavras?:string,attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
+    if(attributes.length > 0){
+      console.log(`console.log`,attributes);
+      let params = this.paramsToURLSearch(attributes)
+      return await this.http.get(`${API}/palavras/chave`,{palavras:palavras, params, ...paginacao})
     }
     else{
-      return await this.http.get(`${API}/palavras/chave`,{palavras:search, ...paginacao});
+      return await this.http.get(`${API}/palavras/chave`,{palavras:palavras, ...paginacao});
     }
 
   }
 
-  async searchMock(search:string,attributos:IOptionSearch[], paginacao?: { pagina?:number, limite?:number}):Promise<any>{
-    if(attributos.length > 0){
-      console.log(`console.log`,attributos);
-      let params = this.paramsToURLSearch(attributos)
-      console.log(`${API}/palavras/chave`,{palavras:search, params, ...paginacao})
+  async searchMock(palavras?:string,attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
+    if(attributes?.length > 0){
+      console.log(`console.log`,attributes);
+      let params = this.paramsToURLSearch(attributes)
+      console.log(`${API}/palavras/chave`,{palavras:palavras, params, ...paginacao})
+      if(paginacao && paginacao.pagina > 1){
+        return artigosMock(paginacao.pagina)
+      }
       await sleep()
       return artigosMock()
     }
     else{
-      console.log(`${API}/palavras/chave`,{palavras:search, ...paginacao})
+      console.log(`${API}/palavras/chave`,{palavras:palavras, ...paginacao})
       await sleep()
       return artigosMock()
     }

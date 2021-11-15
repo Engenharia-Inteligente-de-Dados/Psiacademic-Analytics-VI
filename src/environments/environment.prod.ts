@@ -1,3 +1,5 @@
+export const API = 'http://api-saude-mental.herokuapp.com'
 export const environment = {
-  production: true
+  production: false,
+  api:API
 };

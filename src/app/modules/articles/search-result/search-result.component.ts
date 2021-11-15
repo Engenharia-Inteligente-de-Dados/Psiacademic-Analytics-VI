@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { IArticle } from '../article.interfaces';
 
 @Component({
@@ -8,19 +8,16 @@ import { IArticle } from '../article.interfaces';
 })
 export class SearchResultComponent implements OnInit {
   @Input() articles?:IArticle[];
-
-  public ArrayArticles: IArticle[] = [];
+  @Output() resquestMoreArticles: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if(changes.articles){
-      this.ArrayArticles.push(...changes.articles.currentValue);
-    }
+  loadData(event: any) {
+    this.resquestMoreArticles.emit({artigosAtuais: this.articles, IonEvent:event});
+}
 
-  }
 
 }

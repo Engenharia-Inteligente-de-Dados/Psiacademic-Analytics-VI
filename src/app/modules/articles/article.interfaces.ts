@@ -1,7 +1,7 @@
 import { IOptionSearch } from '../../shared/interfaces/search.interfaces';
 export interface ISearchEvent {
   detail: {
-    search: string;
+    palavras: string;
     attributes: IOptionSearch[];
   };
 }

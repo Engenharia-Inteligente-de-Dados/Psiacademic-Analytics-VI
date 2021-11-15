@@ -1,39 +1,42 @@
-    <ion-list *ngFor="let artigo of ArrayArticles; let i = index">
-      <ion-card class="card">
-          <ion-card-header>
-            <ion-card-title>
-              <h5 class="m-l-5">
-               {{artigo?.titulo}}
-              </h5>
-              <a href="artigo.url" target="_blank" rel="Link para a pagina do artgo">{{artigo?.url}}</a>
-            </ion-card-title>
-            <ion-row>
-              <ion-col size="6">
-                <span class="bold-card">Autores:</span>
-                <span> {{artigo?.autores | inlineAutores }}</span>
-              </ion-col>
-              <ion-col size="6">
-                <span class="bold-card">Data:</span> {{artigo.data.$date | date:'dd/MM/yyyy'}}
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="3">
-                <span class="bold-card">Repositorio:</span> {{artigo?.repositorio}}
-              </ion-col>
-              <ion-col size="3">
-                <span class="bold-card">Tipo:</span> {{artigo?.tipo}}
-              </ion-col>
-            </ion-row>
-            <ion-row class="justify-content-end m-r-5">
-              <psi-badge *ngFor="let palavra of artigo?.palavrachave" [label]='palavra' size='size-14'></psi-badge>
-            </ion-row>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-row>
-              <span class="bold-card">Resumo</span>
-            </ion-row>
-            <psi-paragraph-accordion [resume]="artigo.resumo"></psi-paragraph-accordion>
-          </ion-card-content>
-        </ion-card>
-      </ion-list>
-
+<ion-list *ngFor="let artigo of articles; let i = index">
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>
+        <h5 class="m-l-5">
+          {{artigo?.titulo}}
+        </h5>
+        <a href="artigo.url" target="_blank" rel="Link para a pagina do artgo">{{artigo?.url}}</a>
+      </ion-card-title>
+      <ion-row>
+        <ion-col size="6">
+          <span class="bold-card">Autores:</span>
+          <span> {{artigo?.autores | inlineAutores }}</span>
+        </ion-col>
+        <ion-col size="6">
+          <span class="bold-card">Data:</span> {{artigo.data.$date | date:'dd/MM/yyyy'}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <span class="bold-card">Repositorio:</span> {{artigo?.repositorio}}
+        </ion-col>
+        <ion-col size="6">
+          <span class="bold-card">Tipo:</span> {{artigo?.tipo}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="justify-content-end m-r-5">
+        <psi-badge *ngFor="let palavra of artigo?.palavrachave" [label]='palavra' size='size-14'></psi-badge>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <span class="bold-card">Resumo</span>
+      </ion-row>
+      <psi-paragraph-accordion [resume]="artigo.resumo"></psi-paragraph-accordion>
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

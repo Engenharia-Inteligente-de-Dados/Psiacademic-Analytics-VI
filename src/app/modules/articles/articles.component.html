@@ -1,22 +1,28 @@
-<div style="margin: 5px;">
-  <ion-progress-bar *ngIf="loading"></ion-progress-bar>
-</div>
-<div>
-  <div id="inner_fixed">
-    <div #imgsEl class="justify-content-center" *ngIf="articles.length == 0" >
-      <img
+<ion-content>
+
+  <div style="margin: 5px;">
+    <ion-progress-bar *ngIf="loading"></ion-progress-bar>
+  </div>
+  <div>
+    <div id="inner_fixed">
+      <div #imgsEl class="justify-content-center" *ngIf="articles.length == 0" >
+        <img
         id="src"
         src="../assets/img/svg/Search engines-rafiki.svg"
         alt=""
         srcset=""
-      />
-    </div>
+        />
+      </div>
       <psi-search (searchEmit)="pesquisar($event)"></psi-search>
-  </div>
+    </div>
   <div  id="inner_remaining">
-    <psi-search-result [articles]="articles"></psi-search-result>
+    <psi-search-result
+    [articles]="articles"
+    (resquestMoreArticles)="resquestMoreArticles($event)"
+    ></psi-search-result>
   </div>
 
 </div>
+</ion-content>
 
 <!-- <a href="https://storyset.com/web">Web illustrations by Storyset</a> -->
