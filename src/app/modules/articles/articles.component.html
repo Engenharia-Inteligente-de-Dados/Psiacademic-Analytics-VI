@@ -1,9 +1,9 @@
 <div style="margin: 5px;">
-  <ion-progress-bar *ngIf="!loading"></ion-progress-bar>
+  <ion-progress-bar *ngIf="loading"></ion-progress-bar>
 </div>
-<div id="outer">
+<div>
   <div id="inner_fixed">
-    <div #imgsEl class="justify-content-center" *ngIf="!search_init" >
+    <div #imgsEl class="justify-content-center" *ngIf="articles.length == 0" >
       <img
         id="src"
         src="../assets/img/svg/Search engines-rafiki.svg"

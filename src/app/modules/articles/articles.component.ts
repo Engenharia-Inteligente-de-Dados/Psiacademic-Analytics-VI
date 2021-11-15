@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { SearchService } from 'src/app/shared/services/search.service';
 import { IArticle, ISearchEvent } from './article.interfaces';
 import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
@@ -17,7 +17,7 @@ export class ArticlesComponent implements OnInit {
   };
 
   public loading = false;
-  public articles?: IArticle[];
+  public articles: IArticle[] = [];
 
   constructor(
     private searchService: SearchService,
@@ -25,6 +25,13 @@ export class ArticlesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(`ngChanges Articles`,changes);
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+
+  }
 
   async pesquisar(event: ISearchEvent) {
     this.loading = true;

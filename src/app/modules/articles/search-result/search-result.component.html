@@ -1,18 +1,19 @@
-    <ion-list *ngFor="let artigo of arrayArticles; let i = index">
+    <ion-list *ngFor="let artigo of ArrayArticles; let i = index">
       <ion-card class="card">
           <ion-card-header>
             <ion-card-title>
-              <h3 class="m-l-5" [href]="artigo.url">
+              <h5 class="m-l-5">
                {{artigo?.titulo}}
-              </h3>
+              </h5>
+              <a href="artigo.url" target="_blank" rel="Link para a pagina do artgo">{{artigo?.url}}</a>
             </ion-card-title>
             <ion-row>
-              <ion-col size="3">
+              <ion-col size="6">
                 <span class="bold-card">Autores:</span>
-                <span *ngFor="let autor of artigo?.autores">{{autor}}</span>
+                <span> {{artigo?.autores | inlineAutores }}</span>
               </ion-col>
-              <ion-col size="3">
-                <span class="bold-card">Data:</span> {{artigo.data.$date}}
+              <ion-col size="6">
+                <span class="bold-card">Data:</span> {{artigo.data.$date | date:'dd/MM/yyyy'}}
               </ion-col>
             </ion-row>
             <ion-row>
@@ -23,8 +24,8 @@
                 <span class="bold-card">Tipo:</span> {{artigo?.tipo}}
               </ion-col>
             </ion-row>
-            <ion-row class="justify-content-end m-r-5" *ngFor="let item of palavrachave">
-              <psi-badge [label]='palavra' size='size-14'></psi-badge>
+            <ion-row class="justify-content-end m-r-5">
+              <psi-badge *ngFor="let palavra of artigo?.palavrachave" [label]='palavra' size='size-14'></psi-badge>
             </ion-row>
           </ion-card-header>
           <ion-card-content>

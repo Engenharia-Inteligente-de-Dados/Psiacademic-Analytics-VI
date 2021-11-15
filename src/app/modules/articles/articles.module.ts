@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ParagraphAccordionModule } from '../../shared/components/paragraph-accordion/paragraph-accordion.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InlineAutoresModule } from '../../shared/pipes/inlineAutores/inline-autores.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PsiBadgeModule,
     ParagraphAccordionModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InlineAutoresModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

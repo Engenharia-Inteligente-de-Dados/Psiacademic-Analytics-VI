@@ -5,7 +5,7 @@ export const artigoMock = () => {
         "$oid": "5e4803cb98e462a6e03e69bb"
       },
       "autores": [
-        "Cunha, Maria Tereza de Souza Neves da"
+        "Cunha, Maria Tereza de Souza Neves da alves"
       ],
       "data": {
         "$date": 1414627200000
