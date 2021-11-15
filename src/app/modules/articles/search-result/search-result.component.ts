@@ -17,7 +17,10 @@ export class SearchResultComponent implements OnInit {
 
   loadData(event: any) {
     this.resquestMoreArticles.emit({artigosAtuais: this.articles, IonEvent:event});
-}
+  }
 
+  gotTo(url: string) {
+    window.open(url, '_blank');
+  }
 
 }
