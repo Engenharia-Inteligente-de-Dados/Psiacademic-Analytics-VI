@@ -3,6 +3,8 @@ import { API } from 'src/environments/environment';
 import { BaseHttpProvider } from '../providers/base-http.provider';
 import { IOptionSearch } from '../interfaces/search.interfaces';
 import { IArticle } from '../../modules/articles/article.interfaces';
+import { artigosMock } from '../../modules/articles/search-result/search-result.mock';
+import { sleep } from '../utils/mock.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class SearchService {
   constructor(private http:BaseHttpProvider) { }
 
 
-  async search(search:string,attributos:IOptionSearch[], paginacao?: { pagina?:number, limite?:number}):Promise<IArticle[]>{
+  async search(search:string,attributos:IOptionSearch[], paginacao?: { pagina?:number, limite?:number}):Promise<any>{
     if(attributos.length > 0){
       console.log(`console.log`,attributos);
       let params = this.paramsToURLSearch(attributos)
@@ -24,6 +26,21 @@ export class SearchService {
 
   }
 
+  async searchMock(search:string,attributos:IOptionSearch[], paginacao?: { pagina?:number, limite?:number}):Promise<any>{
+    if(attributos.length > 0){
+      console.log(`console.log`,attributos);
+      let params = this.paramsToURLSearch(attributos)
+      console.log(`${API}/palavras/chave`,{palavras:search, params, ...paginacao})
+      await sleep()
+      return artigosMock()
+    }
+    else{
+      console.log(`${API}/palavras/chave`,{palavras:search, ...paginacao})
+      await sleep()
+      return artigosMock()
+    }
+
+  }
 
 
   /***

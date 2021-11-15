@@ -1,31 +1,30 @@
-    <ion-list>
+    <ion-list *ngFor="let artigo of arrayArticles; let i = index">
       <ion-card class="card">
           <ion-card-header>
             <ion-card-title>
-              <h3 class="m-l-5">
-                Qualidade de vida relacionada à saúde de pacientes em hemodiálise
-                no município de Guarapuava-PR
+              <h3 class="m-l-5" [href]="artigo.url">
+               {{artigo?.titulo}}
               </h3>
             </ion-card-title>
             <ion-row>
               <ion-col size="3">
-                <span class="bold-card">Autor:</span> Fulana
+                <span class="bold-card">Autores:</span>
+                <span *ngFor="let autor of artigo?.autores">{{autor}}</span>
               </ion-col>
               <ion-col size="3">
-                <span class="bold-card">Data:</span> 18/04/1998
+                <span class="bold-card">Data:</span> {{artigo.data.$date}}
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size="3">
-                <span class="bold-card">Repositorio:</span> CEULP
+                <span class="bold-card">Repositorio:</span> {{artigo?.repositorio}}
               </ion-col>
               <ion-col size="3">
-                <span class="bold-card">Tipo:</span> Dissertação
+                <span class="bold-card">Tipo:</span> {{artigo?.tipo}}
               </ion-col>
             </ion-row>
-            <ion-row class="justify-content-end m-r-5">
-              <psi-badge label='Qualidade de Vida' size='size-14'></psi-badge>
-              <psi-badge label='Qualidade de Vida' size='size-14'></psi-badge>
+            <ion-row class="justify-content-end m-r-5" *ngFor="let item of palavrachave">
+              <psi-badge [label]='palavra' size='size-14'></psi-badge>
             </ion-row>
           </ion-card-header>
           <ion-card-content>

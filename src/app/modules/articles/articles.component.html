@@ -1,3 +1,6 @@
+<div style="margin: 5px;">
+  <ion-progress-bar *ngIf="!loading"></ion-progress-bar>
+</div>
 <div id="outer">
   <div id="inner_fixed">
     <div #imgsEl class="justify-content-center" *ngIf="!search_init" >
@@ -11,7 +14,7 @@
       <psi-search (searchEmit)="pesquisar($event)"></psi-search>
   </div>
   <div  id="inner_remaining">
-    <psi-search-result></psi-search-result>
+    <psi-search-result [articles]="articles"></psi-search-result>
   </div>
 
 </div>

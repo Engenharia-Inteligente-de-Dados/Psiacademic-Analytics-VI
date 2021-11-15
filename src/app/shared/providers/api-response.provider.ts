@@ -31,7 +31,7 @@ export class ApiResponseProvider {
         return msg;
       }
     }
-    private async toast(message:string,position:any='top',color:string, header?:string, duration:number = 53000) {
+    private async toast(message:string,position:any='top',color:string, header?:string, duration:number = 3000) {
       const toast = await this.toastController.create({
         header: header,
         message: message,

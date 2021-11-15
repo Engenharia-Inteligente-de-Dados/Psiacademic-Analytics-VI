@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { artigoMock } from './search-result.mock';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { IArticle } from '../article.interfaces';
 
 @Component({
   selector: 'psi-search-result',
@@ -7,12 +7,20 @@ import { artigoMock } from './search-result.mock';
   styleUrls: ['./search-result.component.scss']
 })
 export class SearchResultComponent implements OnInit {
+  @Input() articles?:IArticle[];
 
-  public artigo = artigoMock()
+  public ArrayArticles: IArticle[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes.articles){
+      this.ArrayArticles.push(...changes.articles.currentValue);
+    }
+
   }
 
 }
