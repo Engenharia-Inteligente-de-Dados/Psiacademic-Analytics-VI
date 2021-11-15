@@ -30,18 +30,22 @@
   }
 }
 
-$colors: primary, secondary, tertiary, quartenary, fifth, success, warning, danger;
+$colors: primary, secondary, tertiary, quaternary, fifth, success, warning, danger;
 @each $color in $colors{
   .btn_line_#{$color} {
     background: transparent;
     border: 1.5px solid;
+    border-radius: 15px;
     border-color: var(--ion-color-#{$color});
-    color: var(--ion-color-#{$color});
+    color: var(--ion-color-#{$color})!important;
+    padding: 0.3em;
+    align-items: center;
+    text-align: center;
   }
 
   .btn_line_#{$color}:hover:not(:disabled){
     background: var(--ion-color-#{$color});
-		color: var(--ion-color-#{$color});
+		color: var(--ion-color-#{$color}-contrast)!important;
     border-color: var(--ion-color-#{$color});
   }
 }
