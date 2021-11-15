@@ -1,0 +1,59 @@
+.btn{
+  cursor: pointer;
+  background: var(--ion-color-primary);
+  font-weight: bolder;
+  border-radius: 10px;
+  transition: all 0.5s;
+  padding: 5px 15px;
+  margin: 5px;
+  &:hover:not(:disabled){
+    opacity: 0.8;
+  }
+
+  &:disabled{
+    background-color: var(--psi-color-cinza-step-550);
+  }
+  &_full{
+    width: calc(100% - 20px) ;
+  }
+
+  &_right{
+    display: table;
+    margin-left: auto;
+  }
+  &_right{
+    display: table;
+    text-align: center;
+    padding: 30px;
+    min-width: 250px;
+    font-weight: normal;
+  }
+}
+
+$colors: primary, secondary, tertiary, quaternary, fifth, success, warning, danger;
+@each $color in $colors{
+  .btn_line_#{$color} {
+    background: transparent;
+    border: 1.5px solid;
+    border-radius: 15px;
+    border-color: var(--ion-color-#{$color});
+    color: var(--ion-color-#{$color})!important;
+    padding: 0.3em;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn_line_#{$color}:hover:not(:disabled){
+    background: var(--ion-color-#{$color});
+		color: var(--ion-color-#{$color}-contrast)!important;
+    border-color: var(--ion-color-#{$color});
+  }
+}
+
+@each $color in $colors{
+  .btn_fill_#{$color} {
+    background: var(--ion-color-#{$color}-tint);
+    border: 1.5px solid;
+    border-color: var(--ion-color-#{$color});
+  }
+}

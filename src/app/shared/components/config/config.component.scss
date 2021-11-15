@@ -1,0 +1,63 @@
+form{
+  margin: 15px;
+  div{
+    margin: 10px;
+    label{
+      margin-top: 2px;
+      margin-bottom: 3px;
+    }
+  }
+}
+
+.form{
+  &_header{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    ion-icon{
+      color: var(--psi-color-cinza-step-300) !important;
+      font-size: x-large !important;
+      cursor:pointer;
+      transition: 1ms ease-in
+    }
+
+    ion-icon:hover{
+      color: var(--ion-color-danger) !important;
+    }
+  }
+
+  &_bottom{
+    margin-top: 10% !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+input {
+  margin: 5px;
+  border-bottom: 1px solid var(--psi-color-cinza-step-300);
+  width: 100%;
+  padding-bottom: 3px;
+  transition: border-color 0.2s;
+
+  &:focus{
+    @extend .changes
+  }
+}
+
+select {
+    margin: 5px;
+    width: 50%;
+    border-bottom: 1px solid var(--psi-color-cinza-step-300);
+
+    &:focus{
+      @extend .changes
+    }
+}
+
+.changes{
+  border-bottom: 1px solid var(--ion-color-primary-tint);
+}

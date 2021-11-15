@@ -1,0 +1,21 @@
+<div>
+
+  <div *ngIf="collapse && resume" class="paragraph paragraph_inline">
+    <p class="paragraph_p" (click)="toogleAccordion()">
+      {{resume | resumePipe}}
+    </p>
+    <img class="paragraph_img" src="../../../../assets/icons/collapse-arrow.svg" alt="seta para baixo" (click)="toogleAccordion()">
+  </div>
+
+  <div *ngIf="!collapse && resume" class="paragraph"  (click)="toogleAccordion()">
+    <p class="paragraph_p">
+      {{resume}}
+    </p>
+    <img class="paragraph_img invert" src="../../../../assets/icons/collapse-arrow.svg" alt="seta para cima" (click)="toogleAccordion()">
+  </div>
+
+  <div *ngIf="!resume" class="justify-content-center">
+      <h4>Não Possui Resumo</h4>
+  </div>
+
+</div>

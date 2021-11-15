@@ -1,0 +1,8 @@
+  <div class="cards_grid">
+      <ng-container *ngFor="let chart of chartList; let i = index">
+        <psi-card-chart [chart]="chart" (redirect)="redirect($event,i)"></psi-card-chart>
+      </ng-container>
+      <button  class="card-button">
+        <img src="../../../assets/icons/more_graph.svg" alt="" srcset="">
+      </button>
+  </div>

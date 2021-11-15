@@ -1,0 +1,63 @@
+$list: primary, secondary, tertiary, tertiary, quaternary, fifth, success, warning, danger;
+$cursors: default, pointer;
+@each $color in $list {
+  .#{$color} {
+    background: var(--ion-color-#{$color}-shade);
+  }
+}
+
+@each $cursor in $cursors {
+  .#{$cursor} {
+    cursor: #{$cursor};
+  }
+}
+
+@for $i from 10 to 33 {
+  .size-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+.animate{
+  transition: 5ms ease-out;
+}
+.animate:hover{
+  opacity: 0.6;
+}
+
+div {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  margin: 3px 8px 3px 8px;
+  border: 1px transparent;
+  border-radius: 15px;
+
+  ion-icon {
+    //background-color: var();
+    padding-left: 4px;
+    border-radius: 15px 0px 0px 15px;
+  }
+  span {
+    padding-left: 4px;
+    min-width: 10px;
+    font-weight: bold;
+    padding-right: 4px;
+    margin: 2px;
+  }
+}
+
+
+// span {
+//   display: inline-block;
+//   padding: 3px 8px 3px 8px;
+//   border-radius: 15px;
+//   min-width: 10px;
+//   font-weight: bold;
+//   line-height: 1;
+//   text-align: center;
+//   white-space: nowrap;
+//   contain: content;
+//   vertical-align: baseline;
+//   margin: 1px 5px 1px 5px;
+// }

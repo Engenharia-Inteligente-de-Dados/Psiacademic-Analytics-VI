@@ -1,0 +1,31 @@
+.cards_grid{
+  display: grid;
+  grid-gap: 1rem;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 500px)) !important;
+  grid-auto-rows: 250px;
+  justify-items: stretch;
+  justify-content: center;
+}
+
+
+.card-button{
+    margin: 5% 10%;
+    border-radius: 15px;
+    background: transparent;
+    border: 1px solid var(--psi-color-cinza-step-250);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: clamp(25%, auto, 50%);
+      height: auto;
+    }
+}
+
+.card-button:hover {
+  border: 1px solid var(--ion-color-primary);
+  transition: all 0.5s linear;
+  box-shadow: 0px 4px 4px 0px rgba(255, 204, 0, 0.2);
+}

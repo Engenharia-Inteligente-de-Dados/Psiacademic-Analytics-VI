@@ -1,0 +1,12 @@
+<header id="header">
+  <div>
+    <img src="/assets/img/png/logo1.png" alt="logo psiacademic-analytics" />
+  </div>
+  <nav class="nav">
+    <ul class="nav_list">
+      <li class="nav_list_item" *ngFor="let route of routes">
+        <a [routerLink]="route.route" routerLinkActive="active">{{route.label}}</a>
+      </li>
+    </ul>
+  </nav>
+</header>

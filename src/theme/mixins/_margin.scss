@@ -1,0 +1,27 @@
+@for $number from 1 to 100{
+  .m-l-#{$number} {
+		margin-left: #{$number}px;
+  };
+};
+
+@for $number from 1 to 100{
+  .m-r-#{$number} {
+		margin-right: #{$number}px;
+  };
+};
+
+@for $number from 1 to 100{
+  .m-t-#{$number} {
+		margin-top: #{$number}px;
+  };
+};
+
+@for $number from 1 to 100{
+  .m-b-#{$number} {
+		margin-bottom: #{$number}px;
+  };
+};
+
+.m-auto {
+	margin: auto;
+};

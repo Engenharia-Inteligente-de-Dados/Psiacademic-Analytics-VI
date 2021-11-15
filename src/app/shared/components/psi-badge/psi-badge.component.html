@@ -1,0 +1,4 @@
+  <div [class]="[color, size, cursor, animate]" (click)="onClickEvent($event)">
+    <ion-icon *ngIf="icon" slot="start" [name]="icon" [Class]="[color]"></ion-icon>
+    <span>{{label}}</span>
+  </div>
