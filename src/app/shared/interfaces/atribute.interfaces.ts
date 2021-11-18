@@ -4,6 +4,9 @@ export interface IAttribute {
   [SearchAttribute.TITLE]?: string;
   [SearchAttribute.WORDS]?: string;
   [SearchAttribute.AUTHOR]?: string;
-  [SearchAttribute.MAX_YEAR]?: string;
-  [SearchAttribute.MIN_YEAR]?: string;
+  [SearchAttribute.FINAL_YEAR]?: string;
+  [SearchAttribute.INITIAL_YEAR]?: string;
+  [SearchAttribute.TYPE]?: string;
+  [SearchAttribute.REP]?: string;
+  [SearchAttribute.RESUME]?: string;
 }

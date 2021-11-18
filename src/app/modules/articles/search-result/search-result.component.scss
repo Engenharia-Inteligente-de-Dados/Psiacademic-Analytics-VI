@@ -2,3 +2,9 @@
   width: clamp(auto, auto, 1050px);
   cursor: default;
 }
+a{
+cursor: pointer;
+}
+a:hover{
+  text-decoration: underline;
+}

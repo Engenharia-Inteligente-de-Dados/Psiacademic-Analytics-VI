@@ -35,10 +35,10 @@ export class SearchComponent implements OnInit {
       this.inputSelected = this.alternativas.find((option) => {
         return option.key == this.searchInput.value;
       });
-      this.ref.detectChanges();
-      this.compostInput?.nativeElement.focus();
       if (event.key === 'Enter' && !this.inputSelected) {
       }
+      this.ref.detectChanges();
+      this.compostInput?.nativeElement.focus();
     }
     else{
       if (event.key === 'Enter') {
@@ -52,23 +52,33 @@ export class SearchComponent implements OnInit {
       event.key === 'Enter' &&
       this.inputSelected[this.inputSelected?.key].length > 0
     ) {
-      this.changeStatusSearchOptions(this.inputSelected.id);
-      this.arrayInputs.push(this.inputSelected);
-      this.resetForms();
+      this.addAttr(this.inputSelected);
     }
     if (
       event.key === 'Backspace' &&
       this.inputSelected[this.inputSelected?.key].length === 0
     ) {
-      this.changeStatusSearchOptions(this.inputSelected.id);
       this.resetForms();
     }
   }
 
   pesquisar() {
-    this.searchEmit.emit({detail:{attributes: this.arrayInputs, palavras: this.searchInput.value}});
+    if(this.inputSelected && this.inputSelected[this.inputSelected?.key]?.length > 0){
+      this.addAttr(this.inputSelected);
+      this.searchEmit.emit({detail:{attributes: this.arrayInputs, palavras: this.searchInput.value}})
+    }
+    else{
+      this.searchEmit.emit({detail:{attributes: this.arrayInputs, palavras: this.searchInput.value}});
+    }
   }
 
+  addAttr(attr: any) {
+    if(attr[attr?.key] && attr[attr?.key].length > 0){
+      this.arrayInputs.push(attr);
+      this.changeStatusSearchOptions(attr.id);
+      this.resetForms();
+    }
+  }
   remove(event: any) {
     console.log(event);
     const old = this.arrayInputs.splice(event.index, 1);

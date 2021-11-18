@@ -2,10 +2,11 @@
   <ion-card class="card">
     <ion-card-header>
       <ion-card-title>
+        <a (click)=gotTo(artigo?.url) rel="Link para a pagina do artgo">
         <h5 class="m-l-5">
           {{artigo?.titulo}}
         </h5>
-        <a href="artigo.url" target="_blank" rel="Link para a pagina do artgo">{{artigo?.url}}</a>
+        </a>
       </ion-card-title>
       <ion-row>
         <ion-col size="6">

@@ -1,7 +1,10 @@
 export enum SearchAttribute {
-  TITLE = 'title',
-  AUTHOR = 'author',
-  MAX_YEAR = 'max_year',
-  MIN_YEAR = 'min_year',
-  WORDS = 'palavra',
+  TITLE = 'titulo',
+  AUTHOR = 'autor',
+  WORDS = 'palavras',
+  RESUME = 'resumo',
+  TYPE = 'tipo',
+  REP= 'repositorio',
+  INITIAL_YEAR= 'inicio',
+  FINAL_YEAR= 'fim',
 }
