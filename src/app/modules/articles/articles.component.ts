@@ -88,8 +88,8 @@ export class ArticlesComponent implements OnInit {
   async requestArticles(palavras: string, attributes: IOptionSearch[], paginacao: any) {
    this.loading = true;
     try {
-      if (palavras) {
-        const articles = await this.searchService.searchMock(
+      if (attributes.length > 0) {
+        const articles = await this.searchService.search(
           palavras,
           attributes,
           paginacao

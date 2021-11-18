@@ -5,7 +5,7 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   {
     [SearchAttribute.TITLE]: '',
     key: SearchAttribute.TITLE,
-    label: 'Titulo',
+    label: 'Titulo do trabalho',
     hidden: false,
     type: 'text',
     id:1,
@@ -13,35 +13,51 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   {
     [SearchAttribute.AUTHOR]: '',
     key: SearchAttribute.AUTHOR,
-    label: 'Autor',
+    label: 'Autor(a) do trabalho',
     hidden: false,
     type: 'text',
     id:2,
   },
   {
-    [SearchAttribute.MAX_YEAR]: '',
-    key: SearchAttribute.MAX_YEAR,
-    label: 'Ano Maximo',
-    hidden: false,
+    [SearchAttribute.INITIAL_YEAR]: '',
+    key: SearchAttribute.INITIAL_YEAR,
+    label: 'Ano Inicial',
+    hidden: true,
     type: 'text',
     id:3,
   },
   {
-    [SearchAttribute.MIN_YEAR]: '',
-    key: SearchAttribute.MIN_YEAR,
-    label: 'Ano Minino',
-    hidden: false,
+    [SearchAttribute.FINAL_YEAR]: '',
+    key: SearchAttribute.FINAL_YEAR,
+    label: 'Ano Final',
+    hidden: true,
     type: 'text',
     id:4,
   },
   {
     [SearchAttribute.WORDS]: '',
     key: SearchAttribute.WORDS,
-    label: 'Ano Minino',
-    hidden: true,
+    label: 'Palavra Chave',
+    hidden: false,
     type: 'text',
     id: 5,
+  },
+  {
+    [SearchAttribute.REP]: '',
+    key: SearchAttribute.REP,
+    label: 'Repositório que se encontra o trabalho',
+    hidden: true,
+    type: 'text',
+    id: 6,
+  },
+  {
+    [SearchAttribute.TYPE]: '',
+    key: SearchAttribute.TYPE,
+    label: 'Tipo do trabalho',
+    hidden: false,
+    type: 'text',
+    id: 7,
   }
 ];
 
-export const MULT_ATRIBUTE_SEARCH = false;
+export const MULT_ATRIBUTE_SEARCH = true;
