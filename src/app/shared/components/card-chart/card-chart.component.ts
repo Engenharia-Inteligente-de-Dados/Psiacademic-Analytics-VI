@@ -6,31 +6,28 @@ import { ModalService } from '../../services/modal.service';
 @Component({
   selector: 'psi-card-chart',
   templateUrl: './card-chart.component.html',
-  styleUrls: ['./card-chart.component.scss']
+  styleUrls: ['./card-chart.component.scss'],
 })
 export class CardChartComponent implements OnInit {
-
-  @Input() actions?: boolean = true;
+  @Input() actions? = {
+    config: true,
+    expand: true,
+  };
   @Input() chart: Ichart | undefined;
   @Input() index?: number;
 
-  @Output() redirect = new EventEmitter()
-  public options:boolean = false;
+  @Output() redirect = new EventEmitter();
+  public options: boolean = false;
 
-  constructor(
-    private modalSvc: ModalService,
-    ) { }
+  constructor(private modalSvc: ModalService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  openConfig() {
+    const modal = this.modalSvc.showConfig({});
   }
 
-
-  openConfig(){
-   const modal = this.modalSvc.showConfig({});
-  }
-
-  expand(){
+  expand() {
     this.redirect.emit();
   }
-
 }

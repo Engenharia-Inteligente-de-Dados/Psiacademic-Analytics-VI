@@ -14,6 +14,11 @@ export class AnalyticsComponent implements OnInit,OnDestroy {
   public chartList:Icharts = [];
   private chartListSubscribtion: Subscription;
   public loading = false;
+
+  actions = {
+    config:false,
+    expand:true,
+  }
   constructor(
     private chartsManageService:ChartsManageService,
     private def : ChangeDetectorRef,

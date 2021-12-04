@@ -5,11 +5,11 @@
         {{chart?.chartTitle}}
       </h6>
     </div>
-    <div class="card_header_actions" *ngIf="actions">
-      <button (click)="openConfig()">
+    <div class="card_header_actions">
+      <button (click)="openConfig()" *ngIf="actions.config">
         <img src="../../../assets/icons/cog.svg" alt="configuração">
       </button>
-      <button  (click)="expand()">
+      <button  (click)="expand()" *ngIf="actions.expand">
         <img src="../../../assets/icons/open_new.svg" alt="nova pagina">
       </button>
     </div>
