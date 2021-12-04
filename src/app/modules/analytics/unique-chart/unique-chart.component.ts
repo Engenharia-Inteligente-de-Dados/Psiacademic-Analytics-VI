@@ -13,7 +13,10 @@ import { ApiResponseProvider } from '../../../shared/providers/api-response.prov
 export class UniqueChartComponent implements OnInit {
   private routeSub!: Subscription;
   public chart: Ichart | undefined;;
-  public actions = false;
+  public actions = {
+    config: false,
+    expand:false,
+  };
   public loading = false;
   public paramsId: string
   private chartListSubscribtion: Subscription;
@@ -31,7 +34,6 @@ export class UniqueChartComponent implements OnInit {
         this.chart =  list[params.id] ? list[params.id] : undefined;
         this.loading = false;
       });
-      this.actions = false
     });
 
 
