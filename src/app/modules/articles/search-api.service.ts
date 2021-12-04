@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { API } from 'src/environments/environment';
-import { BaseHttpProvider } from '../providers/base-http.provider';
-import { IOptionSearch } from '../interfaces/search.interfaces';
-import { IArticle } from '../../modules/articles/article.interfaces';
-import { artigosMock } from '../../modules/articles/search-result/search-result.mock';
-import { sleep } from '../utils/mock.utils';
+import { BaseHttpProvider } from '../../shared/providers/base-http.provider';
+import { IOptionSearch } from '../../shared/interfaces/search.interfaces';
+import { IArticle } from './article.interfaces';
+import { artigosMock } from './search-result/search-result.mock';
+import { sleep } from '../../shared/utils/mock.utils';
 import { Subject } from 'rxjs';
 
 
@@ -19,7 +19,7 @@ interface ISRC{
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
+export class SearchAPI {
 
   private palavras?:string;
   private attrubutes?:IOptionSearch[]
@@ -42,7 +42,6 @@ export class SearchService {
 
   async searchMock(palavras?:string,attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
     if(attributes?.length > 0){
-      console.log(`console.log`,attributes);
       let params = this.paramsToURLSearch(attributes)
       console.log(`${API}/avancada`,{palavras:palavras, params, ...paginacao})
       if(paginacao && paginacao.pagina > 1){

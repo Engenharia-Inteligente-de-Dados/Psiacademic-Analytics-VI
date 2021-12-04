@@ -1,4 +1,4 @@
-  <div class="cards_grid">
+  <div class="cards_grid" *ngIf="!loading">
       <ng-container *ngFor="let chart of chartList; let i = index">
         <psi-card-chart [chart]="chart" (redirect)="redirect($event,i)"></psi-card-chart>
       </ng-container>

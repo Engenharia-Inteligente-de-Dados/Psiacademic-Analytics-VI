@@ -5,7 +5,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { SearchService } from 'src/app/shared/services/search.service';
+import { SearchAPI } from 'src/app/modules/articles/search-api.service';
 import { IArticle, ISearchEvent } from './article.interfaces';
 import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
 import { IOptionSearch } from '../../shared/interfaces/search.interfaces';
@@ -38,7 +38,7 @@ export class ArticlesComponent implements OnInit {
   public articles: IArticle[] = [];
 
   constructor(
-    private searchService: SearchService,
+    private searchAPI: SearchAPI,
     private apiResponseProvider: ApiResponseProvider
   ) {}
 
@@ -64,7 +64,6 @@ export class ArticlesComponent implements OnInit {
   }
 }
   async resquestMoreArticles(event: any) {
-    console.log(`event`, event);
     const { artigosAtuais } = event?.artigosAtuais;
     const {palavras, attributes, paginacao} = this.searchParams;
     paginacao.pagina += 1;
@@ -89,7 +88,7 @@ export class ArticlesComponent implements OnInit {
    this.loading = true;
     try {
       if (attributes.length > 0) {
-        const articles = await this.searchService.search(
+        const articles = await this.searchAPI.search(
           palavras,
           attributes,
           paginacao
@@ -99,7 +98,6 @@ export class ArticlesComponent implements OnInit {
         return articles;
       }
     } catch (e: any) {
-      console.log(`e`, e);
       const toast = await this.apiResponseProvider.error(
         e.message,
         'Erro ao pesquisar',

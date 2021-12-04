@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChartsManageService } from '../../../shared/services/charts-manage.service';
 import { Ichart } from '../../../shared/interfaces/chart.interfaces';
+import { ApiResponseProvider } from '../../../shared/providers/api-response.provider';
 
 @Component({
   selector: 'app-unique-chart',
@@ -14,27 +15,50 @@ export class UniqueChartComponent implements OnInit {
   public chart: Ichart | undefined;;
   public actions = false;
   public loading = false;
+  public paramsId: string
+  private chartListSubscribtion: Subscription;
+
   constructor(
     private route: ActivatedRoute,
-    private chartsManageService: ChartsManageService
-  ) { }
-
-  ngOnInit(): void {
+    private chartsManageService: ChartsManageService,
+    private apiResponseProvider: ApiResponseProvider,
+    private def : ChangeDetectorRef
+  ) {
+    this.loading = true;
     this.routeSub = this.route.params.subscribe(params => {
-      if (params.id) {
-        this.chart = this.chartsManageService.getchartByIndex(params.id);
-        this.loading = true;
-      }
-      else {
-        this.chart = this.chartsManageService.getChartById(params.id);
-        this.chart ? this.loading = true : this.loading = false;
-      }
+    this.paramsId = params.id;
+     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {
+        this.chart =  list[params.id] ? list[params.id] : undefined;
+        this.loading = false;
+      });
       this.actions = false
     });
+
+
+
+  }
+
+  ngOnInit(): void {
+    this.getChart();
+  }
+
+  public async getChart(){
+    this.loading = true;
+    if(!this.chart){
+      try {
+        this.chart = await this.chartsManageService.getchartByIndex(Number(this.paramsId)) ?
+       await this.chartsManageService.getchartByIndex(Number(this.paramsId)) :
+       await this.chartsManageService.getChartById(this.paramsId);
+      } catch (error) {
+        this.apiResponseProvider.error('Não foi Possivel Encontrar o Gráfico', 'Erro ao Buscar o Gráfico');
+      }
+    }
+    this.loading = false;
   }
 
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
+    this.chartListSubscribtion.unsubscribe();
   }
 
 }

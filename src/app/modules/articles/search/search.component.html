@@ -35,13 +35,20 @@
 
       </div>
       <div class="searchbar_container_actions">
-        <button (click)="pesquisar()">
+        <button (click)="pesquisar()" *ngIf="!inputSelected; else addIcon">
           <ion-icon name="search-sharp"></ion-icon>
         </button>
+        <ng-template #addIcon>
+          <button (click)="addInput()">
+            <ion-icon name="add-circle-sharp" color="tertiary" alt="Adicionar Atributo para pesquisa"></ion-icon>
+          </button>
+        </ng-template>
       </div>
     </div>
     <div>
-      <img src="./assets/icons/question.svg" alt="question-mark" />
+      <button (click)="question()">
+        <img src="./assets/icons/question.svg" alt="question-mark" />
+      </button>
     </div>
   </div>
 </div>
@@ -60,6 +67,8 @@
 
 </div>
 
-<div class="justify-content-space-evenly">
-  <button class="btn_full_search btn_line_tertiary" (click)="pesquisar()">Pesquisar</button>
+<div class="justify-content-center">
+  <!-- <button class="btn btn_line_primary" (click)="pesquisar()">Pesquisa Avançada</button> -->
+  <button class="btn btn_line_tertiary" (click)="pesquisar()">Pesquisar</button>
+  <button class="btn btn_line_danger" (click)="limparPesquisa()">Limpar Pesquisa</button>
 </div>

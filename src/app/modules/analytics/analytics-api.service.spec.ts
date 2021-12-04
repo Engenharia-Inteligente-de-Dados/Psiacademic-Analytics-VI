@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SearchService } from './search.service';
+import { AnalyticsAPIService } from './analytics-api.service';
 
-describe('ShearchService', () => {
-  let service: SearchService;
+describe('AnalyticsAPIService', () => {
+  let service: AnalyticsAPIService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SearchService);
+    service = TestBed.inject(AnalyticsAPIService);
   });
 
   it('should be created', () => {
