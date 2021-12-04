@@ -1,8 +1,8 @@
   <div class="cards_grid" *ngIf="!loading">
       <ng-container *ngFor="let chart of chartList; let i = index">
-        <psi-card-chart [chart]="chart" (redirect)="redirect($event,i)"></psi-card-chart>
+        <psi-card-chart [actions]="actions" [chart]="chart" (redirect)="redirect($event,i)"></psi-card-chart>
       </ng-container>
-      <button  class="card-button">
-        <img src="../../../assets/icons/more_graph.svg" alt="" srcset="">
+      <button  class="card-button" *ngIf="actions.config">
+        <img src="../../../assets/icons/more_graph.svg" alt="adicionar um novo grafico" srcset="">
       </button>
   </div>
