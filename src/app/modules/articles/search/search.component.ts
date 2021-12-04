@@ -88,7 +88,6 @@ export class SearchComponent implements OnInit {
     }
   }
   remove(event: any) {
-    console.log(event);
     const old = this.arrayInputs.splice(event.index, 1);
     this.changeStatusSearchOptions(old[0].id);
     this.clearAttr(old[0].id);
@@ -122,7 +121,6 @@ export class SearchComponent implements OnInit {
 
   async question(){
   const modal  = await this.modalSvc.show(TutorialComponent);
-    console.log(`array`,modal);
   }
 
   limparPesquisa(){

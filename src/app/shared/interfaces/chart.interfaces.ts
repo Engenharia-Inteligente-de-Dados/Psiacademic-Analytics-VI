@@ -16,9 +16,11 @@ export interface IchartOptions  {
   is3D?:boolean,
   hAxis?:{
     title?:string,
+    format?:string,
   },
   vAxis?:{
     title?:string,
+    format?:string,
   }
   seriesType?:any,
   series?:any,}

@@ -14,16 +14,11 @@ export class PsiChartComponent implements OnInit {
   @Input() columnNames: any;
   @Input() options?: IchartOptions['option'] = {};
 
-
   public option: any;
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log(`chartData - ${this.chartData}`)
-    console.log(`columnNames - ${this.columnNames}`)
-    console.log(`options - ${this.options}`)
-    console.log(`chartType - ${this.chartType}`)
   }
 
   onReady(event: any) {

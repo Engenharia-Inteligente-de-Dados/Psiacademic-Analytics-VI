@@ -42,7 +42,6 @@ export class SearchAPI {
 
   async searchMock(palavras?:string,attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
     if(attributes?.length > 0){
-      console.log(`console.log`,attributes);
       let params = this.paramsToURLSearch(attributes)
       console.log(`${API}/avancada`,{palavras:palavras, params, ...paginacao})
       if(paginacao && paginacao.pagina > 1){

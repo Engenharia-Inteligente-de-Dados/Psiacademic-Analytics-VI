@@ -5,7 +5,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { SearchAPI } from 'src/app/shared/services/search-api.service';
+import { SearchAPI } from 'src/app/modules/articles/search-api.service';
 import { IArticle, ISearchEvent } from './article.interfaces';
 import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
 import { IOptionSearch } from '../../shared/interfaces/search.interfaces';
@@ -64,7 +64,6 @@ export class ArticlesComponent implements OnInit {
   }
 }
   async resquestMoreArticles(event: any) {
-    console.log(`event`, event);
     const { artigosAtuais } = event?.artigosAtuais;
     const {palavras, attributes, paginacao} = this.searchParams;
     paginacao.pagina += 1;
@@ -99,7 +98,6 @@ export class ArticlesComponent implements OnInit {
         return articles;
       }
     } catch (e: any) {
-      console.log(`e`, e);
       const toast = await this.apiResponseProvider.error(
         e.message,
         'Erro ao pesquisar',
