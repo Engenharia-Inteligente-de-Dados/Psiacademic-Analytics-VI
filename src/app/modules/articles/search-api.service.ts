@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { API } from 'src/environments/environment';
-import { BaseHttpProvider } from '../providers/base-http.provider';
-import { IOptionSearch } from '../interfaces/search.interfaces';
-import { IArticle } from '../../modules/articles/article.interfaces';
-import { artigosMock } from '../../modules/articles/search-result/search-result.mock';
-import { sleep } from '../utils/mock.utils';
+import { BaseHttpProvider } from '../../shared/providers/base-http.provider';
+import { IOptionSearch } from '../../shared/interfaces/search.interfaces';
+import { IArticle } from './article.interfaces';
+import { artigosMock } from './search-result/search-result.mock';
+import { sleep } from '../../shared/utils/mock.utils';
 import { Subject } from 'rxjs';
 
 
