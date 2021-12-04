@@ -9,13 +9,17 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { ParagraphAccordionModule } from '../../shared/components/paragraph-accordion/paragraph-accordion.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InlineAutoresModule } from '../../shared/pipes/inlineAutores/inline-autores.module';
+import { SwiperModule } from 'swiper/angular';
+import { TutorialComponent } from './tutorial/tutorial.component';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 
 @NgModule({
   declarations: [
     ArticlesComponent,
     SearchComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    TutorialComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,8 @@ import { InlineAutoresModule } from '../../shared/pipes/inlineAutores/inline-aut
     ParagraphAccordionModule,
     FormsModule,
     ReactiveFormsModule,
-    InlineAutoresModule
+    InlineAutoresModule,
+    SwiperModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

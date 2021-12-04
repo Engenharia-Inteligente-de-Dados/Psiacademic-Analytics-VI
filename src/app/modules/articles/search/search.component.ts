@@ -10,6 +10,8 @@ import {
 import { FormControl, Validators } from '@angular/forms';
 import { SearchAttribute } from 'src/app/shared/enums/SearchAttribute.enum';
 import { MULT_ATRIBUTE_SEARCH, OPTIONS_SEARCH } from './search.const';
+import { TutorialComponent } from '../tutorial/tutorial.component';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'psi-search',
@@ -26,7 +28,10 @@ export class SearchComponent implements OnInit {
   public inputSelected?: any;
   public arrayInputs: any[] = [];
   public alternativas = OPTIONS_SEARCH;
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(
+    private ref: ChangeDetectorRef,
+    private modalSvc: ModalService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -35,8 +40,6 @@ export class SearchComponent implements OnInit {
       this.inputSelected = this.alternativas.find((option) => {
         return option.key == this.searchInput.value;
       });
-      if (event.key === 'Enter' && !this.inputSelected) {
-      }
       this.ref.detectChanges();
       this.compostInput?.nativeElement.focus();
     }
@@ -60,6 +63,11 @@ export class SearchComponent implements OnInit {
     ) {
       this.resetForms();
     }
+  }
+
+  addInput() {
+    this.addAttr(this.inputSelected);
+    this.resetForms()
   }
 
   pesquisar() {
@@ -111,4 +119,19 @@ export class SearchComponent implements OnInit {
     this.ref.detectChanges();
     this.simpleInput.nativeElement.focus();
   }
+
+  async question(){
+  const modal  = await this.modalSvc.show(TutorialComponent);
+    console.log(`array`,modal);
+  }
+
+  limparPesquisa(){
+    this.arrayInputs = [];
+    this.alternativas.forEach((option) => {
+      this.changeStatusSearchOptions(option.id);
+      this.clearAttr(option.id);
+    });
+    this.resetForms();
+  }
+
 }

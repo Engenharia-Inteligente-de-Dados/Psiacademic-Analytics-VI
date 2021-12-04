@@ -4,7 +4,7 @@
   font-weight: bolder;
   border-radius: 10px;
   transition: all 0.5s;
-  padding: 5px 15px;
+  padding:0.5rem 1rem;
   margin: 5px;
   &:hover:not(:disabled){
     opacity: 0.8;
@@ -38,7 +38,7 @@ $colors: primary, secondary, tertiary, quaternary, fifth, success, warning, dang
     border-radius: 15px;
     border-color: var(--ion-color-#{$color});
     color: var(--ion-color-#{$color})!important;
-    padding: 0.3em;
+    padding:0.5rem 1rem;
     align-items: center;
     text-align: center;
   }

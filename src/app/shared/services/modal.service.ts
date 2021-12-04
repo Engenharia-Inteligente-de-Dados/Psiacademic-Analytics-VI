@@ -18,4 +18,15 @@ export class ModalService {
     modal.present()
     return modal;
   }
+
+  async show(component: any, data?: any) {
+    const modal = await this.modalCtrl.create({
+      component: component,
+      showBackdrop: true,
+      animated: true,
+      componentProps: { data: data }
+    });
+    modal.present()
+    return modal;
+  }
 }
