@@ -19,7 +19,7 @@ interface ISRC{
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
+export class SearchAPI {
 
   private palavras?:string;
   private attrubutes?:IOptionSearch[]
