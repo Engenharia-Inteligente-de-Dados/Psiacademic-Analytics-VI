@@ -3,7 +3,9 @@ import { Subject, throwError } from 'rxjs';
 import { AnalyticsAPIService } from 'src/app/modules/analytics/analytics-api.service';
 import { Ichart, Icharts } from '../interfaces/chart.interfaces';
 import { ApiResponseProvider } from '../providers/api-response.provider';
+import { ChartProvider } from '../providers/charts.provider';
 import { StorageProvider } from '../providers/storage.provider';
+import { ordenaObjeto, percorrerArray } from '../utils/arrayUtils';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,8 @@ export class ChartsManageService {
   constructor(
     private analyticsAPI: AnalyticsAPIService,
     private apiResponse: ApiResponseProvider,
-    private storage:StorageProvider
+    private chartProvider: ChartProvider,
+    private storage:StorageProvider,
   ) {
     this.init();
   }
@@ -24,7 +27,7 @@ export class ChartsManageService {
   if(chart){
     this.setCharts(chart);
   }
-  await this.getDefaultCharts();
+  this.setCharts(await this.getDefaultCharts());
 }
 
   public async setCharts(charts: Icharts): Promise<void> {
@@ -62,58 +65,19 @@ export class ChartsManageService {
     this.setCharts(charts);
   }
 
-  private generateId(): number {
-    return Math.floor(Math.random() * 1000);
-  }
-
   private formatChart(
     array: any[],
     config?: any,
     keys: string[] = [],
     defaultMessage: string = 'Não Definido'
   ): Ichart {
-    let chart: Ichart = {
-      id: `${this.generateId()}`,
-      chartType: config.type,
-      chartData: [],
-      options: config.options,
-      chartTitle: config.chartTitle || '',
-      columnNames: config.columnNames,
-    };
-    const chartData: any[][] = [];
-    array = this.ordenaObjeto(array)
-    console.log(array)
-    array.forEach((element) => {
-      const row: any[] = [];
-      keys.forEach((key) => {
-        if (element[key] === undefined && element[key] === null) {
-          element[key] = defaultMessage;
-        }
-        if (element[key] === '_id') {
-          row.push(element[key]);
-        } else {
-          row.push({ v: element[key], f: element[key] });
-        }
-      });
-      chartData.push(row);
-    });
-    console.log(chartData)
+    const chart = this.chartProvider.createChart(config);
+    const arrayOrdenado = ordenaObjeto(array)
+    const chartData = percorrerArray(arrayOrdenado, keys, defaultMessage);
     chart.chartData = chartData;
     return chart;
   }
 
-  private ordenaObjeto(objeto: Array<any>){
-    return objeto.sort(function (a, b) {
-
-      if(a._id != null && b._id != null){
-        if(a._id > b._id) return 1;
-      
-        if (a._id < b._id) return -1;
-      
-      }
-      return 0;
-    });
-  }
   public async getDefaultCharts() {
     const totalAnos = await this.totalAnos();
     const totalRepositorios = await this.totalTrabalhosPorRepositorios();
@@ -126,7 +90,7 @@ export class ChartsManageService {
 
   public async totalAnos() {
     const configTotalAno = {
-      type: 'Bar',
+      chartType: 'Bar',
       chartTitle: 'Total trabalhos por ano',
       columnNames: ['Ano', 'Total'],
       options: {},
@@ -148,7 +112,7 @@ export class ChartsManageService {
 
   public async totalTrabalhosPorRepositorios() {
     const configTotalAno = {
-      type: 'Bar',
+      chartType: 'Bar',
       chartTitle: 'Total trabalhos por repositórios',
       columnNames: ['Repositórios', 'Total'],
       options: {},
