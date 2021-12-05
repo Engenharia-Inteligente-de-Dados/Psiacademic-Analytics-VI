@@ -30,8 +30,10 @@ export class UniqueChartComponent implements OnInit {
     this.loading = true;
     this.routeSub = this.route.params.subscribe(params => {
     this.paramsId = params.id;
-     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {
+     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {   
         this.chart =  list[params.id] ? list[params.id] : undefined;
+
+       this.chart.options = this.addOptions()
         this.loading = false;
       });
     });
@@ -51,6 +53,8 @@ export class UniqueChartComponent implements OnInit {
         this.chart = await this.chartsManageService.getchartByIndex(Number(this.paramsId)) ?
        await this.chartsManageService.getchartByIndex(Number(this.paramsId)) :
        await this.chartsManageService.getChartById(this.paramsId);
+
+       this.chart.options = this.addOptions()
       } catch (error) {
         this.apiResponseProvider.error('Não foi Possivel Encontrar o Gráfico', 'Erro ao Buscar o Gráfico');
       }
@@ -63,4 +67,11 @@ export class UniqueChartComponent implements OnInit {
     this.chartListSubscribtion.unsubscribe();
   }
 
+  private addOptions(){
+    return {
+      width:(window.screen.width*0.60),
+      heigth:(window.screen.height*0.60),
+      dynamicResize:true,    
+    }
+  }
 }

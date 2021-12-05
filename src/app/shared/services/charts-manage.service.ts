@@ -81,6 +81,8 @@ export class ChartsManageService {
       columnNames: config.columnNames,
     };
     const chartData: any[][] = [];
+    array = this.ordenaObjeto(array)
+    console.log(array)
     array.forEach((element) => {
       const row: any[] = [];
       keys.forEach((key) => {
@@ -95,11 +97,23 @@ export class ChartsManageService {
       });
       chartData.push(row);
     });
-
+    console.log(chartData)
     chart.chartData = chartData;
     return chart;
   }
 
+  private ordenaObjeto(objeto: Array<any>){
+    return objeto.sort(function (a, b) {
+
+      if(a._id != null && b._id != null){
+        if(a._id > b._id) return 1;
+      
+        if (a._id < b._id) return -1;
+      
+      }
+      return 0;
+    });
+  }
   public async getDefaultCharts() {
     const totalAnos = await this.totalAnos();
     const totalRepositorios = await this.totalTrabalhosPorRepositorios();

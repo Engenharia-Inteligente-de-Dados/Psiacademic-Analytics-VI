@@ -12,7 +12,8 @@ export interface IchartOptions  {
  option: {
   colors?:string[],
   height?:number,
-  weith?:number,
+  width?:number,
+  dynamicResize?: boolean,
   is3D?:boolean,
   hAxis?:{
     title?:string,
