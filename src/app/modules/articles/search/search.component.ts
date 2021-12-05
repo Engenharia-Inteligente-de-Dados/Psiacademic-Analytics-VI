@@ -7,11 +7,12 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { SearchAttribute } from 'src/app/shared/enums/SearchAttribute.enum';
 import { MULT_ATRIBUTE_SEARCH, OPTIONS_SEARCH } from './search.const';
 import { TutorialComponent } from '../tutorial/tutorial.component';
 import { ModalService } from 'src/app/shared/services/modal.service';
+import { IOptionSearch } from '../../../shared/interfaces/search.interfaces';
 
 @Component({
   selector: 'psi-search',
@@ -27,13 +28,17 @@ export class SearchComponent implements OnInit {
   public searchInput: FormControl = new FormControl();
   public inputSelected?: any;
   public arrayInputs: any[] = [];
-  public alternativas = OPTIONS_SEARCH;
+  public alternativas:IOptionSearch[] = JSON.parse(JSON.stringify(OPTIONS_SEARCH));
   constructor(
     private ref: ChangeDetectorRef,
     private modalSvc: ModalService
   ) {}
 
   ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.limparPesquisa();
+  }
 
   InputSelect(event: KeyboardEvent) {
     if(this.multAtributeSearch){
@@ -105,7 +110,7 @@ export class SearchComponent implements OnInit {
   }
 
   changeStatusSearchOptions(id: number) {
-    this.alternativas.forEach((item) => {
+    this.alternativas.forEach((item: { id: number; hidden: boolean; }) => {
       if (item.id == id) {
         item.hidden = !item.hidden;
       }
@@ -125,7 +130,7 @@ export class SearchComponent implements OnInit {
 
   limparPesquisa(){
     this.arrayInputs = [];
-    this.alternativas.forEach((option) => {
+    this.alternativas.forEach((option: { id: number; }) => {
       this.changeStatusSearchOptions(option.id);
       this.clearAttr(option.id);
     });

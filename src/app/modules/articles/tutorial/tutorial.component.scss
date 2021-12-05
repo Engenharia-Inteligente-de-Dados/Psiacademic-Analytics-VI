@@ -9,7 +9,7 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: var(--ion-color-light);
+  background: #fff;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -34,15 +34,60 @@
 }
 
 .slide{
-  text-align: center;
-  padding: 5px 50px;
+  margin-top: auto;
+  margin-bottom: auto;
 
-  h6{
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--psi-color-cinza-step-800);
-  }
-  p{
-    font-size: 14px;
+  &_content{
+    text-align: center;
+    padding: 5px 50px;
+    background-color: #fff;
+
+    h6{
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--psi-color-cinza-step-800);
+    }
+    p{
+      font-size: 14px;
+    }
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      color: var(--psi-color-cinza-step-800);
+
+      tr{
+        border-bottom: 1px solid var(--psi-color-cinza-step-800);
+        th{
+          padding: 10px;
+          text-align: left;
+          font-weight: bold;
+        }
+        th:last-child{
+          text-align: center;
+        }
+      }
+
+      tbody{
+        tr{
+          font-size: 13px;
+          border-bottom: 1px solid var(--psi-color-cinza-step-250);
+          td{
+            padding: 10px;
+            text-align: left;
+            vertical-align: middle;
+          }
+          td:last-child{
+            text-align: justify;
+          }
+        }
+      }
+
+
+    }
+
   }
 }
+
+

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { Navigation,SwiperOptions } from "swiper";
-SwiperCore.use([Navigation]);
+import SwiperCore, { SwiperOptions,Pagination } from "swiper";
+import { ATTRS } from './tutorial.const';
+SwiperCore.use([Pagination]);
 
 @Component({
   selector: 'tutorial',
@@ -12,6 +13,8 @@ SwiperCore.use([Navigation]);
 export class TutorialComponent implements OnInit {
 
   constructor() { }
+
+  attrs: any = ATTRS
 
   config: SwiperOptions = {
     slidesPerView: 3,
