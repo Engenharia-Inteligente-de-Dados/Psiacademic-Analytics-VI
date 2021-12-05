@@ -5,7 +5,7 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   {
     [SearchAttribute.TITLE]: '',
     key: SearchAttribute.TITLE,
-    label: 'Titulo do trabalho',
+    label: 'Título do trabalho',
     hidden: false,
     type: 'text',
     id:1,
@@ -37,7 +37,7 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   {
     [SearchAttribute.WORDS]: '',
     key: SearchAttribute.WORDS,
-    label: 'Palavra Chave',
+    label: 'Plavra-chave',
     hidden: false,
     type: 'text',
     id: 5,
@@ -45,7 +45,7 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   {
     [SearchAttribute.REP]: '',
     key: SearchAttribute.REP,
-    label: 'Repositório que se encontra o trabalho',
+    label: 'Repositório que se encontra o trabalho, como exemplo UFMG ou UFRJ',
     hidden: true,
     type: 'text',
     id: 6,
@@ -53,7 +53,7 @@ export const OPTIONS_SEARCH : IOptionSearch[]= [
   {
     [SearchAttribute.TYPE]: '',
     key: SearchAttribute.TYPE,
-    label: 'Tipo do trabalho',
+    label: 'Tipo do trabalho, como exemplo Dissertação ou Tese',
     hidden: false,
     type: 'text',
     id: 7,

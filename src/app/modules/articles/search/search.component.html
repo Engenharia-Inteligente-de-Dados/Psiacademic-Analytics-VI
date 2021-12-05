@@ -6,7 +6,7 @@
         *ngIf="!inputSelected; else elseInput"
         type="search"
         list="atributes"
-        placeholder="Oque você está procurando hoje?"
+        placeholder="O que você está procurando hoje?"
         (keyup)="InputSelect($event)"
         [formControl]="searchInput"
         #simpleInput
@@ -25,7 +25,7 @@
       <ng-template #elseInput class="template_else">
         <span>{{ inputSelected?.key }}:</span>
         <input
-          placeholder="Oque você está procurando hoje?"
+          placeholder=""
           [type]="inputSelected.type"
           [(ngModel)]="inputSelected[inputSelected?.key]"
           (keyup)="inputHandler($event)"

@@ -1,5 +1,46 @@
-<div>
-  <swiper [navigation]="true" class="mySwiper">
+<div class="slide">
+  <swiper [navigation]="true"  class="mySwiper">
+    <ng-template swiperSlide>
+      <div class="slide_content">
+        <h6>
+          Atributos de Pesquisa
+        </h6>
+        <p>
+          Os atributos de pesquisa são os atributos que são utilizados para pesquisar um determinado conteúdo.
+        </p>
+        <p>
+          Os atributos de pesquisa podem ser:
+        </p>
+        <table>
+          <tr>
+            <th>
+              Atributo
+            </th>
+            <th>
+              Nome
+            </th>
+            <th>
+              Descrição
+            </th>
+          </tr>
+          <tbody>
+            <tr *ngFor="let item of attrs">
+              <ng-container *ngIf="item.visible">
+                <td>
+                  {{item.attr}}
+                </td>
+                <td>
+                  {{item.name}}
+                </td>
+                <td>
+                  {{item.description}}
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
     <ng-template swiperSlide>
       <div class="slide">
         <h6>
