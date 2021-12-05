@@ -12,13 +12,22 @@ export class PsiChartComponent implements OnInit {
   @Input() chartData: any = [];
   @Input() chartType: any;
   @Input() columnNames: any;
-  @Input() options?: IchartOptions['option'] = {};
+  @Input() options?: any = {};
+
+  public width:any;
+  public height: any;
+  public dynamicResize:any;
+
 
   public option: any;
 
   constructor() {}
 
   ngOnInit(): void {
+    const { width, heigth, dynamicResize} = this.options;
+    this.width = width ? width : undefined;
+    this.height = heigth ? heigth : undefined;
+    this.dynamicResize = dynamicResize ? dynamicResize : undefined;
   }
 
   onReady(event: any) {

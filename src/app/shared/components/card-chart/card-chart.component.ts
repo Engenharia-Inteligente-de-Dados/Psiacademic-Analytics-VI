@@ -15,9 +15,9 @@ export class CardChartComponent implements OnInit {
   };
   @Input() chart: Ichart | undefined;
   @Input() index?: number;
-
+  @Input() unique?: boolean = false;
   @Output() redirect = new EventEmitter();
-  public options: boolean = false;
+
 
   constructor(private modalSvc: ModalService) {}
 
