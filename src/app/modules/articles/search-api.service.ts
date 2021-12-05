@@ -28,10 +28,9 @@ export class SearchAPI {
   constructor(private http:BaseHttpProvider) { }
 
 
-  async search(palavras?:string,attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
-    if(attributes.length > 0){
-      console.log(`console.log`,attributes);
-      let params = this.paramsToURLSearch(attributes)
+  async search(palavras?:string, attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
+    if(attributes.length > 0 && palavras.length > 0){
+      const params = this.paramsToURLSearch(attributes)
       return await this.http.get(`${API}/avancada${params}`,{...paginacao})
     }
     else{
