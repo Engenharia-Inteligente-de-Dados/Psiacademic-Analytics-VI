@@ -7,7 +7,7 @@ export class StorageProvider {
   constructor() {}
 
   async get<T>(key: string): Promise<T> {
-    return JSON.parse(localStorage.getItem(key));
+    return await JSON.parse(localStorage.getItem(key));
   }
 
   async set(key: string, value: any): Promise<void> {
