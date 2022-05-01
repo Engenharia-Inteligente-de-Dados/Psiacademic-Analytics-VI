@@ -30,7 +30,7 @@ export class UniqueChartComponent implements OnInit {
     this.loading = true;
     this.routeSub = this.route.params.subscribe(params => {
     this.paramsId = params.id;
-     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {   
+     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {
         this.chart =  list[params.id] ? list[params.id] : undefined;
 
        this.chart.options = this.addOptions()
@@ -46,6 +46,10 @@ export class UniqueChartComponent implements OnInit {
     this.getChart();
   }
 
+  ngOnDestroy(): void {
+    this.routeSub.unsubscribe();
+    this.chartListSubscribtion.unsubscribe();
+  }
   public async getChart(){
     this.loading = true;
     if(!this.chart){
@@ -62,16 +66,12 @@ export class UniqueChartComponent implements OnInit {
     this.loading = false;
   }
 
-  ngOnDestroy(): void {
-    this.routeSub.unsubscribe();
-    this.chartListSubscribtion.unsubscribe();
-  }
 
   private addOptions(){
     return {
       width:(window.screen.width*0.60),
       heigth:(window.screen.height*0.60),
-      dynamicResize:true,    
+      dynamicResize:true,
     }
   }
 }

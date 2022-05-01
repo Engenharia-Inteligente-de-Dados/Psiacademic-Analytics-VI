@@ -1,4 +1,3 @@
-import { IArticle } from '../article.interfaces';
 export const artigoMock = () => {
   return{
       "_id": {

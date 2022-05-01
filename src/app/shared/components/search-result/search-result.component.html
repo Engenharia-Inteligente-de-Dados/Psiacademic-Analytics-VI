@@ -1,0 +1,21 @@
+<div *ngIf="articles?.length > 0; naoPossuiPesquisaTemplate">
+  <div>
+    <ion-icon name="iconType"></ion-icon>
+  </div>
+  <ng-container *ngIf="viewTypeCard; else elseTemplate">
+      <psi-search-result-card
+      [articles]="articles"
+      (resquestMoreArticles)="requestMoreData($event)">
+    </psi-search-result-card>
+  </ng-container>
+  <ng-template #elseTemplate>
+    tablet
+  </ng-template>
+
+</div>
+
+<ng-template #naoPossuiPesquisaTemplate>
+  <div>
+    Você não possui nenhuma pesquisa.
+  </div>
+</ng-template>

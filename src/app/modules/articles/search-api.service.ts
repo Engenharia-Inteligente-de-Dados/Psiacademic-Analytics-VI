@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { API } from 'src/environments/environment';
 import { BaseHttpProvider } from '../../shared/providers/base-http.provider';
 import { IOptionSearch } from '../../shared/interfaces/search.interfaces';
-import { IArticle } from './article.interfaces';
-import { artigosMock } from './search-result/search-result.mock';
 import { sleep } from '../../shared/utils/mock.utils';
 import { Subject } from 'rxjs';
+import { artigosMock } from 'src/app/shared/components/search-result/search-result.mock';
 
 
 interface ISRC{
