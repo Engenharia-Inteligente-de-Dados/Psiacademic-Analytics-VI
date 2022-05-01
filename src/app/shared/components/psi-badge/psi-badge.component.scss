@@ -1,8 +1,9 @@
-$list: primary, secondary, tertiary, tertiary, quaternary, fifth, success, warning, danger;
+$list: primary, secondary, tertiary, success, warning, danger;
 $cursors: default, pointer;
 @each $color in $list {
   .#{$color} {
     background: var(--ion-color-#{$color}-shade);
+    color: var(--ion-color-#{$color}-contrast);
   }
 }
 
