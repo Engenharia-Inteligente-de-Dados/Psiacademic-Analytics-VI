@@ -4,10 +4,12 @@ import {
   ChangeDetectorRef,
   Output,
   SimpleChanges,
+  EventEmitter,
 } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { ANOS_OPTIONS, FORM_DATA, FORM_GROUPS } from './consult-form-const';
+import { FormGroup } from '@angular/forms';
+import { FORM_DATA, FORM_GROUPS } from './consult-form-const';
 import { Input } from '@angular/core';
+import { ConsultTypeSelectOPtions, ConsultType, FormAtrributeConsult } from '../../../shared/enums/types.enums';
 
 @Component({
   selector: 'consult-form',
@@ -17,21 +19,18 @@ import { Input } from '@angular/core';
 export class ConsultFormComponent implements OnInit {
   @Input() templateTipo?: any = `anos`;
   @Input() options?: any;
-  //public templateTipo ='anos';
+  @Output(`emitForm`) emitFormEvent = new EventEmitter<any>();
   public formConsulta: FormGroup;
   public formInfo: any;
   public ready = false;
-
-  constructor(private ref: ChangeDetectorRef) {
-    this.setForm();
-  }
+  private anosfull
+  constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.setForm();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-
     if(changes){
       if(changes.templateTipo){
         this.setForm();
@@ -45,12 +44,31 @@ export class ConsultFormComponent implements OnInit {
     const fun = FORM_GROUPS[this.templateTipo]();
     this.formConsulta = new FormGroup(fun);
     this.formInfo = FORM_DATA[this.templateTipo]();
+    this.formInfo.forEach(element => {
+      if(element.type === 'select'){
+        if((element.selectOptions === ConsultTypeSelectOPtions.anosOptionsI ) || (element.selectOptions === ConsultTypeSelectOPtions.anosOptionsF)){
+          this.anosfull = this.options[ConsultTypeSelectOPtions.anosOptions];
+          this.options[element.selectOptions] = this.anosfull
+          this.formConsulta.controls[element.attr].setValue(this.options[ConsultTypeSelectOPtions.anosOptions][0]);
+        }
+        else{
+          this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][0]);
+        }
+      }
+    });
+    this.emitForm()
     this.ready = true;
   }
 
-  test(): void {
-    console.log(this.templateTipo);
-    this.setForm();
-    this.ref.detectChanges();
+  emitForm(){
+    console.log(this.formConsulta.value);
+    this.emitFormEvent.emit(this.formConsulta.value);
+  }
+
+  filter(attr){
+    if(FormAtrributeConsult.anoI === attr){
+      const index = this.anosfull.findIndex(ano => Number(this.formConsulta.value.anoI) <= ano)
+      this.formConsulta.controls[FormAtrributeConsult.anoF].setValue(this.options[ConsultTypeSelectOPtions.anosOptionsF][index]);
+    }
   }
 }

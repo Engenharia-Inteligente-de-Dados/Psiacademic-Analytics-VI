@@ -1,10 +1,10 @@
 <div *ngIf="ready">
-  <form [formGroup]="formConsulta">
+  <form [formGroup]="formConsulta" (change)="emitForm()" (keyup)="emitForm()">
     <ng-container *ngFor="let info of formInfo">
       <div *ngIf="info.enabled">
         <label>{{ info.label }}</label>
         <ng-container *ngIf="info.type === 'select'; else elseTemplate">
-          <select>
+          <select [formControlName]="info.attr" (change)="filter(info.attr)">
             <option
               *ngFor="let option of options[info?.selectOptions]"
               [value]="option?.value ? option?.value : option">

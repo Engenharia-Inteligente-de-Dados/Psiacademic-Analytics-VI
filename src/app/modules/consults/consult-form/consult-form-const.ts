@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-
+import { ConsultType,FormType,ConsultTypeSelectOPtions,FormAtrributeConsult } from 'src/app/shared/enums/types.enums';
 //TODO : Fazer interface
 export const FORM_GROUPS = {
   anos: () => {
@@ -43,25 +43,25 @@ export const FORM_DATA = {
     return [
       {
       label: 'Ano',
-      type: 'number',
+      type: FormType.number,
       placeholder: '2022',
-      attr: 'ano',
-      enabled: true,
+      attr: FormAtrributeConsult.ano ,
+      enabled: false,
     },
     {
       label: 'Ano Inicial',
-      type: 'select',
-      selectOptions:'anosOptionsI',
+      type: FormType.select,
+      selectOptions: ConsultTypeSelectOPtions.anosOptionsI,
       placeholder: '2000',
-      attr: 'anoI',
+      attr:  FormAtrributeConsult.anoI,
       enabled: true,
     },
     {
       label: 'Ano Final',
-      type: 'select',
-      selectOptions:'anosOptionsF',
+      type: FormType.select,
+      selectOptions: ConsultTypeSelectOPtions.anosOptionsF,
       placeholder: '2022',
-      attr: 'anoF',
+      attr:  FormAtrributeConsult.anoF,
       enabled: true,
     }
   ]
@@ -70,23 +70,23 @@ export const FORM_DATA = {
     return [
       {
       label: 'Título',
-      type: 'text',
+      type: FormType.text,
       placeholder: 'Título',
-      attr: 'titulo',
+      attr: FormAtrributeConsult.titulo,
       enabled: true,
       },
       {
       label: 'Resumo',
-      type: 'text',
+      type: FormType.text,
       placeholder: 'Resumo',
-      attr: 'resumo',
+      attr: FormAtrributeConsult.resumo,
       enabled: true,
       },
       {
       label: 'Palavras Chaves',
-      type: 'text',
+      type: FormType.text,
       placeholder: 'Palavras Chaves',
-      attr: 'palavrasChaves',
+      attr: FormAtrributeConsult.palavrasChaves,
       enabled: true,
       },
     ]
@@ -95,10 +95,10 @@ export const FORM_DATA = {
     return [
       {
       label: 'Repositorio',
-      type: 'select',
+      type: FormType.select,
       selectOptions:'repositorioOptions',
       placeholder: 'Repositorio',
-      attr: 'repositorio',
+      attr: FormAtrributeConsult.repositorio,
       enabled: true,
       },
     ]
@@ -107,10 +107,10 @@ export const FORM_DATA = {
     return [
       {
       label: 'Transtorno',
-      type: 'select',
+      type: FormType.select,
       selectOptions:'transtornoOptions',
       placeholder: 'Transtorno',
-      attr: 'transtorno',
+      attr: FormAtrributeConsult.transtorno,
       enabled: true,
       },
     ]
@@ -141,8 +141,8 @@ export const ANOS_OPTIONS = [
 
 export const OPTIONS_CONSULT_FORM = {
   anosOptions:ANOS_OPTIONS,
-  anosOptionsI:ANOS_OPTIONS,
-  anosOptionsF:ANOS_OPTIONS,
+  // anosOptionsI:ANOS_OPTIONS,
+  // anosOptionsF:ANOS_OPTIONS,
   repositorioOptions:[
     `Todos`,
     `USP`,

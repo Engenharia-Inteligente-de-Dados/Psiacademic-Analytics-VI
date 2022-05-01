@@ -26,5 +26,11 @@ export class ConsultsComponent implements OnInit {
   ngOnInit(): void {
     console.log(`ConsultsComponent`);
   }
+  pesquisar(){
+    console.log(`pesquisar`)
+  }
 
+  formRecivie(form){
+    console.log(form)
+  }
 }
