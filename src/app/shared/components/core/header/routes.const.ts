@@ -1,3 +1,5 @@
+import { ConsultType } from 'src/app/shared/enums/types.enums';
+
 export const MAIN_ROUTES = [
   {
     route:'search',
@@ -11,27 +13,27 @@ export const MAIN_ROUTES = [
       [
         {
           label: 'Por Ano',
-          route: `consultas/anos`,
+          route: `consultas/${ConsultType.Anos}`,
           inUse: true
         },
         {
           label: 'Por Expressão',
-          route: `consultas/expressoes`,
+          route: `consultas/${ConsultType.Expressoes}`,
           inUse: true
         },
         {
           label: 'Por Repositorio',
-          route: `consultas/repositorios`,
+          route:  `consultas/${ConsultType.Repositorios}`,
           inUse: true
         },
         {
           label: 'Por Transtornos',
-          route: `consultas/transtornos`,
+          route:  `consultas/${ConsultType.Transtornos}`,
           inUse: true
         },
         {
           label: 'Avançada',
-          route: `consultas/avancado`,
+          route:  `consultas/${ConsultType.Avancada}`,
           inUse: true
         },
       ],

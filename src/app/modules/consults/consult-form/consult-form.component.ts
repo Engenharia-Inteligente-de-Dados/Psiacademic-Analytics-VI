@@ -7,9 +7,9 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FORM_DATA, FORM_GROUPS } from './consult-form-const';
+import { FORM_TEMPLATE, FORM_GROUPS } from './consult-form-const';
 import { Input } from '@angular/core';
-import { ConsultTypeSelectOPtions, ConsultType, FormAtrributeConsult } from '../../../shared/enums/types.enums';
+import { ConsultTypeSelectOPtions, FormAtrributeConsult, ConsultType } from '../../../shared/enums/types.enums';
 
 @Component({
   selector: 'consult-form',
@@ -17,13 +17,14 @@ import { ConsultTypeSelectOPtions, ConsultType, FormAtrributeConsult } from '../
   styleUrls: ['./consult-form.component.scss'],
 })
 export class ConsultFormComponent implements OnInit {
-  @Input() templateTipo?: any = `anos`;
+  @Input() templateTipo?: any = ConsultType.Anos;
   @Input() options?: any;
   @Output(`emitForm`) emitFormEvent = new EventEmitter<any>();
   public formConsulta: FormGroup;
   public formInfo: any;
   public ready = false;
-  private anosfull
+  private anosfull = [];
+
   constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export class ConsultFormComponent implements OnInit {
     this.ready = false;
     const fun = FORM_GROUPS[this.templateTipo]();
     this.formConsulta = new FormGroup(fun);
-    this.formInfo = FORM_DATA[this.templateTipo]();
+    this.formInfo = FORM_TEMPLATE[this.templateTipo]();
     this.formInfo.forEach(element => {
       if(element.type === 'select'){
         if((element.selectOptions === ConsultTypeSelectOPtions.anosOptionsI ) || (element.selectOptions === ConsultTypeSelectOPtions.anosOptionsF)){

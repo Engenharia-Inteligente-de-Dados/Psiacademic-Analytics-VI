@@ -29,7 +29,7 @@ export class SearchAPI {
 
   async search(palavras?:string, attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
     if(attributes.length > 0 && palavras.length > 0){
-      const params = this.paramsToURLSearch(attributes)
+      const params = this.http.paramsValidate(attributes)
       return await this.http.get(`${API}/avancada${params}`,{...paginacao})
     }
     else{
@@ -40,7 +40,7 @@ export class SearchAPI {
 
   async searchMock(palavras?:string,attributes?:IOptionSearch[], paginacao?: { pagina:number, limite:number}):Promise<any>{
     if(attributes?.length > 0){
-      let params = this.paramsToURLSearch(attributes)
+      let params = this.http.paramsValidate(attributes)
       console.log(`${API}/avancada`,{palavras:palavras, params, ...paginacao})
       if(paginacao && paginacao.pagina > 1){
         return artigosMock(paginacao.pagina)
@@ -54,28 +54,5 @@ export class SearchAPI {
       return artigosMock()
     }
 
-  }
-
-
-  /***
-	 * @method paramsToURLSearch serve para retornar os parametros de uma query.
-	 * Serve para caso tenha 1 ou mais requisitos para pesquisa/filtros
-	 * Exemplo : Pesquisar Atividade
-	 * @param values : recebe um array de objeto.
-	 * @returns Retorna o parametro parametrizado de acordo com @param values e o transforma em uma query.
-	 *  Exemplo: {name:"Atividade1"} retorna name=Atividade1
-	 */
-	private paramsToURLSearch(values: any): string {
-		const params = new URLSearchParams()
-    const valueObj:any = {}
-    values.forEach((obj:any) => {
-      valueObj[obj?.key] = obj[obj.key]
-    })
-		for (const key in valueObj) {
-			if (valueObj[key] !== '' && valueObj[key] !== 'undefined' && valueObj[key] != null) {
-				params.set(key, valueObj[key])
-			  }
-	  	}
-    return `?${params.toString()}`
   }
 }

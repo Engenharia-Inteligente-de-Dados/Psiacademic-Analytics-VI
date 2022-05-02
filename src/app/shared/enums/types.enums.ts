@@ -11,11 +11,11 @@ export enum IconType {
 
 
 export enum ConsultType {
-  anos = 'anos',
-  expressoes = 'expressoes',
-  repositorios = 'repositorios',
-  transtornos = 'transtornos',
-  avancada = 'avancada',
+  Anos = 'anos',
+  Expressoes = 'expressoes',
+  Repositorios = 'repositorios',
+  Transtornos = 'transtornos',
+  Avancada = 'avancada',
 }
 
 export enum FormAtrributeConsult {
@@ -24,8 +24,8 @@ export enum FormAtrributeConsult {
   AnoF = 'anof',
   Titulo = 'titulo',
   Resumo = 'resumo',
-  PalavrasChaves = 'palavrasChaves',
-  PalavraChave = 'palavraChave',
+  PalavrasChaves = 'palavras_chaves',
+  PalavraChave = 'palavra_chave',
   Transtorno = 'transtorno',
   Repositorio = 'repositorio',
 }

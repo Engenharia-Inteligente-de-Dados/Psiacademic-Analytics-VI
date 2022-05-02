@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { ConsultType,FormType,ConsultTypeSelectOPtions,FormAtrributeConsult } from 'src/app/shared/enums/types.enums';
+import { FormType,ConsultTypeSelectOPtions,FormAtrributeConsult } from 'src/app/shared/enums/types.enums';
 //TODO : Fazer interface
 export const FORM_GROUPS = {
   anos: () => {
@@ -13,7 +13,7 @@ export const FORM_GROUPS = {
     return {
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavraChave: new FormControl(''),
+      palavra_chave: new FormControl(''),
     };
   },
   repositorios: () => {
@@ -28,17 +28,18 @@ export const FORM_GROUPS = {
   },
   avancada: () => {
     return {
-      ano: new FormControl(''),
+      anoi: new FormControl(''),
+      anof: new FormControl(''),
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavrasChaves: new FormControl(''),
+      palavra_chave: new FormControl(''),
       transtorno: new FormControl(''),
       repositorio: new FormControl(''),
     };
   }
 }
 //TODO : Fazer interface
-export const FORM_DATA = {
+const formsDatasGroup = {
   anos: () => {
     return [
       {
@@ -114,9 +115,18 @@ export const FORM_DATA = {
       enabled: true,
       },
     ]
-  },
+  }
+}
+
+export const FORM_TEMPLATE ={
+  ...formsDatasGroup,
   avancada: () => {
-    return []
+    return [
+      ...formsDatasGroup.anos(),
+      ...formsDatasGroup.expressoes(),
+      ...formsDatasGroup.repositorios(),
+      ...formsDatasGroup.transtornos(),
+    ]
   }
 }
 

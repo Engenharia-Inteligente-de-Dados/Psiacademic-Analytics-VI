@@ -5,6 +5,8 @@ import { ConsultsApiService } from './consults-api.service';
 import { IArticle } from '../articles/article.interfaces';
 import { IrequestMoreDataEvent } from '../../shared/components/search-result/search-result.interface';
 import { IPagination } from '../../shared/interfaces/pagination.interface';
+import { styleScrollbars } from 'src/app/shared/utils/customScroll';
+import { IConsulta } from '../../shared/interfaces/consulta.interface';
 
 @Component({
   selector: 'app-consults',
@@ -17,7 +19,7 @@ export class ConsultsComponent implements OnInit {
   public options = OPTIONS_CONSULT_FORM;
   public articles: IArticle[];
   public paginacao: IPagination
-  public form: any;
+  public form: IConsulta;
   constructor(
     private route: ActivatedRoute,
     private consultApi: ConsultsApiService
@@ -32,6 +34,11 @@ export class ConsultsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(`ConsultsComponent`);
+  }
+
+  ngAfterViewInit(): void {
+    const scrollCustom = document.querySelector('#scrollCustom');
+    styleScrollbars(scrollCustom)
   }
 
   async novaPesquisa(){
