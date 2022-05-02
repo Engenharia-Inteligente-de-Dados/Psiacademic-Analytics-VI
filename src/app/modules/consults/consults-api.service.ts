@@ -9,9 +9,9 @@ import { IArticles } from '../articles/article.interfaces';
   providedIn: 'root',
 })
 export class ConsultsApiService {
-  constructor(private http: BaseHttpProvider) { }
+  constructor(private http: BaseHttpProvider) {}
 
-  async consulta(params: IConsulta, tipo: string):Promise<IArticles>{
+  async consulta(params: IConsulta, tipo: string): Promise<IArticles> {
     if (tipo === ConsultType.Anos) {
       return await this.AnosPeriodo(params);
     }
@@ -28,35 +28,54 @@ export class ConsultsApiService {
       return await this.avancada(params);
     }
   }
-  async AnosPeriodo(params: IConsulta):Promise<IArticles>{
+
+  async AnosPeriodo(params: IConsulta): Promise<IArticles> {
     const { anoi, anof, pagina, limite } = params;
-    return await this.http.get(`${API}/ano/periodo/`,
-      { anoi, anof, pagina, limite });
+    return await this.http.get(`${API}/ano/periodo/`, {
+      anoi,
+      anof,
+      pagina,
+      limite,
+    });
   }
 
-  async expressoes(params: IConsulta):Promise<IArticles>{
+  async expressoes(params: IConsulta): Promise<IArticles> {
     const { titulo, resumo, palavra_chave, pagina, limite } = params;
-    return await this.http.get(`${API}/expressao/`,{ titulo, resumo, palavra_chave, pagina, limite });
+    return await this.http.get(`${API}/expressao/`, {
+      titulo,
+      resumo,
+      palavra_chave,
+      pagina,
+      limite,
+    });
   }
 
-  async transtornos(params: IConsulta):Promise<IArticles>{
+  async transtornos(params: IConsulta): Promise<IArticles> {
     const { transtorno, pagina, limite } = params;
-    return await this.http.get(`${API}/expressao/`,{transtorno, pagina, limite });
+    return await this.http.get(`${API}/expressao/`, {
+      transtorno,
+      pagina,
+      limite,
+    });
   }
 
-  async repositorios(params: IConsulta):Promise<IArticles>{
+  async repositorios(params: IConsulta): Promise<IArticles> {
     const { repositorio, pagina, limite } = params;
-    return await this.http.get(`${API}/expressao/`,{ repositorio, pagina, limite });
+    return await this.http.get(`${API}/expressao/`, {
+      repositorio,
+      pagina,
+      limite,
+    });
   }
 
-  async avancada(params: IConsulta):Promise<IArticles>{
-    if(params.repositorio != `todos`){
+  async avancada(params: IConsulta): Promise<IArticles> {
+    if (params.repositorio != `todos`) {
       delete params.repositorio;
     }
-    if(params.transtorno != `todos`){
+    if (params.transtorno != `todos`) {
       delete params.transtorno;
     }
     const param = this.http.paramsValidate(params);
-    return await this.http.get(`${API}/expressao/${param}`,);
+    return await this.http.get(`${API}/expressao/${param}`);
   }
 }
