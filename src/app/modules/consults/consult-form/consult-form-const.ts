@@ -5,15 +5,15 @@ export const FORM_GROUPS = {
   anos: () => {
     return {
       ano: new FormControl(''),
-      anoI: new FormControl(''),
-      anoF: new FormControl(''),
+      anoi: new FormControl(''),
+      anof: new FormControl(''),
     };
   },
   expressoes: () => {
     return {
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavrasChaves: new FormControl(''),
+      palavraChave: new FormControl(''),
     };
   },
   repositorios: () => {
@@ -45,7 +45,7 @@ export const FORM_DATA = {
       label: 'Ano',
       type: FormType.number,
       placeholder: '2022',
-      attr: FormAtrributeConsult.ano ,
+      attr: FormAtrributeConsult.Ano ,
       enabled: false,
     },
     {
@@ -53,7 +53,7 @@ export const FORM_DATA = {
       type: FormType.select,
       selectOptions: ConsultTypeSelectOPtions.anosOptionsI,
       placeholder: '2000',
-      attr:  FormAtrributeConsult.anoI,
+      attr:  FormAtrributeConsult.AnoI,
       enabled: true,
     },
     {
@@ -61,7 +61,7 @@ export const FORM_DATA = {
       type: FormType.select,
       selectOptions: ConsultTypeSelectOPtions.anosOptionsF,
       placeholder: '2022',
-      attr:  FormAtrributeConsult.anoF,
+      attr:  FormAtrributeConsult.AnoF,
       enabled: true,
     }
   ]
@@ -72,21 +72,21 @@ export const FORM_DATA = {
       label: 'Título',
       type: FormType.text,
       placeholder: 'Título',
-      attr: FormAtrributeConsult.titulo,
+      attr: FormAtrributeConsult.Titulo,
       enabled: true,
       },
       {
       label: 'Resumo',
       type: FormType.text,
       placeholder: 'Resumo',
-      attr: FormAtrributeConsult.resumo,
+      attr: FormAtrributeConsult.Resumo,
       enabled: true,
       },
       {
-      label: 'Palavras Chaves',
+      label: 'Palavra Chave',
       type: FormType.text,
-      placeholder: 'Palavras Chaves',
-      attr: FormAtrributeConsult.palavrasChaves,
+      placeholder: 'Palavra Chave',
+      attr: FormAtrributeConsult.PalavraChave,
       enabled: true,
       },
     ]
@@ -98,7 +98,7 @@ export const FORM_DATA = {
       type: FormType.select,
       selectOptions:'repositorioOptions',
       placeholder: 'Repositorio',
-      attr: FormAtrributeConsult.repositorio,
+      attr: FormAtrributeConsult.Repositorio,
       enabled: true,
       },
     ]
@@ -110,7 +110,7 @@ export const FORM_DATA = {
       type: FormType.select,
       selectOptions:'transtornoOptions',
       placeholder: 'Transtorno',
-      attr: FormAtrributeConsult.transtorno,
+      attr: FormAtrributeConsult.Transtorno,
       enabled: true,
       },
     ]
@@ -121,6 +121,7 @@ export const FORM_DATA = {
 }
 
 export const ANOS_OPTIONS = [
+  1500,
   1970,
   1971,
   1972,

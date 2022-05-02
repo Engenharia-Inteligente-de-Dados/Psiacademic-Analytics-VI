@@ -38,7 +38,7 @@
   </ion-card>
 </ion-list>
 <ng-container *ngIf="articles.length > 0">
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

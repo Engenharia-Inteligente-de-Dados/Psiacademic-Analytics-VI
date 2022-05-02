@@ -19,14 +19,15 @@ export enum ConsultType {
 }
 
 export enum FormAtrributeConsult {
-  ano = 'ano',
-  anoI = 'anoI',
-  anoF = 'anoF',
-  titulo = 'titulo',
-  resumo = 'resumo',
-  palavrasChaves = 'palavrasChaves',
-  transtorno = 'transtorno',
-  repositorio = 'repositorio',
+  Ano = 'ano',
+  AnoI = 'anoi',
+  AnoF = 'anof',
+  Titulo = 'titulo',
+  Resumo = 'resumo',
+  PalavrasChaves = 'palavrasChaves',
+  PalavraChave = 'palavraChave',
+  Transtorno = 'transtorno',
+  Repositorio = 'repositorio',
 }
 
 export enum FormType {

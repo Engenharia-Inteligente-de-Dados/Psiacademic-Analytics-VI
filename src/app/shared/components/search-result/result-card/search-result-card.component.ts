@@ -10,7 +10,7 @@ import { IrequestMoreDataEvent } from '../search-result.interface';
 })
 export class SearchResultCardComponent implements OnInit {
   @Input() articles?:IArticle[];
-  @Output(`resquestMoreArticle`) resquestMoreArticles: EventEmitter<IrequestMoreDataEvent> = new EventEmitter();
+  @Output() resquestMoreArticles: EventEmitter<IrequestMoreDataEvent> = new EventEmitter();
 
   constructor() { }
 
@@ -18,7 +18,13 @@ export class SearchResultCardComponent implements OnInit {
   }
 
   loadData(event: any) {
-    this.resquestMoreArticles.emit({artigosAtuais: this.articles, IonEvent:event, viewType: ViewType.card});
+    console.log(`loadData`, event);
+    this.resquestMoreArticles.emit(
+      {
+        artigosAtuais: this.articles,
+        IonEvent:event,
+        viewType: ViewType.card
+      });
   }
 
   gotTo(url: string) {

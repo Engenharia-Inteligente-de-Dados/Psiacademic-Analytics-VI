@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IArticle } from '../../../modules/articles/article.interfaces';
-import { IconType } from '../../enums/types.enums';
+import { IconType, ViewType } from '../../enums/types.enums';
+import { IPagination } from '../../interfaces/pagination.interface';
 import { IrequestMoreDataEvent } from './search-result.interface';
 
 @Component({
@@ -11,7 +12,8 @@ import { IrequestMoreDataEvent } from './search-result.interface';
 export class SearchResultComponent implements OnInit {
 
   @Input() articles?: IArticle[];
-  @Output(`resquestMoreArticles`) requestMoreArticles: EventEmitter<IrequestMoreDataEvent> = new EventEmitter();
+  @Input() paginacao?: IPagination;
+  @Output() requestEvent: EventEmitter<IrequestMoreDataEvent> = new EventEmitter();
 
   viewTypeCard =  true;
   iconType: string = IconType.iCard;
@@ -23,8 +25,16 @@ export class SearchResultComponent implements OnInit {
   }
 
 
-  requestMoreData(event: any) {
-    this.requestMoreArticles.emit(event);
+  requestMoreData(request: IrequestMoreDataEvent | any) {
+    console.log(`requestMoreData search-result`, request);
+    if(request.viewType === ViewType.card){
+      this.paginacao.pagina++;
+      request[`paginacao`] = this.paginacao;
+      this.requestEvent.emit(request);
+    }
+    else{
+      console.log(`outra coisa`)
+    }
   }
 
 

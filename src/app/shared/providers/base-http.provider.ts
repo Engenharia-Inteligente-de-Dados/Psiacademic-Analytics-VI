@@ -14,6 +14,7 @@ export class BaseHttpProvider {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'connection': 'keep-alive',
+      'Access-Control-Allow-Origin': '*',
     };
     const headers = {
       ...basicHeaders,

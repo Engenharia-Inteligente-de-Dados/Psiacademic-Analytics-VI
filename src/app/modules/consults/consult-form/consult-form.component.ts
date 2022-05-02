@@ -66,9 +66,9 @@ export class ConsultFormComponent implements OnInit {
   }
 
   filter(attr){
-    if(FormAtrributeConsult.anoI === attr){
-      const index = this.anosfull.findIndex(ano => Number(this.formConsulta.value.anoI) <= ano)
-      this.formConsulta.controls[FormAtrributeConsult.anoF].setValue(this.options[ConsultTypeSelectOPtions.anosOptionsF][index]);
+    if(FormAtrributeConsult.AnoI === attr){
+      const index = this.anosfull.findIndex(ano => Number(this.formConsulta.value.anoi) <= ano)
+      this.formConsulta.controls[FormAtrributeConsult.AnoF].setValue(this.options[ConsultTypeSelectOPtions.anosOptionsF][index]);
     }
   }
 }

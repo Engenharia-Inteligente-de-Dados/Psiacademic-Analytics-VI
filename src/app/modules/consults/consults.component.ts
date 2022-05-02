@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { artigosMock } from 'src/app/shared/components/search-result/search-result.mock';
 import { OPTIONS_CONSULT_FORM } from './consult-form/consult-form-const';
+import { ConsultsApiService } from './consults-api.service';
+import { IArticle } from '../articles/article.interfaces';
+import { IrequestMoreDataEvent } from '../../shared/components/search-result/search-result.interface';
+import { IPagination } from '../../shared/interfaces/pagination.interface';
 
 @Component({
   selector: 'app-consults',
@@ -12,13 +15,17 @@ export class ConsultsComponent implements OnInit {
 
   public tipo: string;
   public options = OPTIONS_CONSULT_FORM;
-  public articles = artigosMock();
-
-  constructor(private route: ActivatedRoute,
+  public articles: IArticle[];
+  public paginacao: IPagination
+  public form: any;
+  constructor(
+    private route: ActivatedRoute,
+    private consultApi: ConsultsApiService
     ) {
-      console.log('ola')
      this.route.params.subscribe(params => {
         this.tipo = params.tipo;
+        this.form = {}
+        this.articles = []
         console.log(this.tipo);
       });
   }
@@ -26,11 +33,41 @@ export class ConsultsComponent implements OnInit {
   ngOnInit(): void {
     console.log(`ConsultsComponent`);
   }
-  pesquisar(){
-    console.log(`pesquisar`)
+
+  async novaPesquisa(){
+    const param = this.form;
+    param['pagina'] = 1;
+    param[`limite`] = 10;
+    try {
+      const resp = await this.consultApi.consulta(param, this.tipo);
+      this.articles = resp.artigos;
+      this.paginacao = resp.paginacao;
+    } catch (error) {
+      console.log(`error`,error)
+    }
+  }
+
+  async consultaAnosPeriodo(params){
+    console.log(params);
   }
 
   formRecivie(form){
     console.log(form)
+    this.form = form;
+  }
+
+  async requestMoreArticles(request: IrequestMoreDataEvent) {
+    console.log(request)
+    const param = this.form;
+    param['pagina'] = request.paginacao.pagina;
+    param[`limite`] = request.paginacao.limite;
+    try {
+      const resp = await this.consultApi.consulta(param, this.tipo);
+      this.articles = [...request.artigosAtuais, ...resp.artigos];
+      request.IonEvent.target.complete();
+      this.paginacao = resp.paginacao;
+    } catch (error) {
+      console.log(`error`,error)
+    }
   }
 }
