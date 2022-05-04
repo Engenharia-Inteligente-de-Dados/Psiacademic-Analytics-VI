@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OPTIONS_CONSULT_FORM } from './consult-form/consult-form-const';
 import { ConsultsApiService } from './consults-api.service';
 import { IArticle } from '../articles/article.interfaces';
 import { IrequestMoreDataEvent } from '../../shared/components/search-result/search-result.interface';
 import { IPagination } from '../../shared/interfaces/pagination.interface';
 import { styleScrollbars } from 'src/app/shared/utils/customScroll';
-import { IConsulta } from '../../shared/interfaces/consulta.interface';
+import { IConsulta, IOptionsSelectConsulta } from '../../shared/interfaces/consulta.interface';
+import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
+import { ConsultType } from '../../shared/enums/types.enums';
 
 @Component({
   selector: 'app-consults',
@@ -16,24 +17,34 @@ import { IConsulta } from '../../shared/interfaces/consulta.interface';
 export class ConsultsComponent implements OnInit {
 
   public tipo: string;
-  public options = OPTIONS_CONSULT_FORM;
+  public options: IOptionsSelectConsulta = {
+    anosOptions: [],
+    transtornoOptions: [],
+    repositorioOptions: []
+  };
   public articles: IArticle[];
   public paginacao: IPagination
   public form: IConsulta;
+  public loading: boolean = true;
+
   constructor(
     private route: ActivatedRoute,
-    private consultApi: ConsultsApiService
+    private consultApi: ConsultsApiService,
+    private apiResponse: ApiResponseProvider
     ) {
-     this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
         this.tipo = params.tipo;
         this.form = {}
         this.articles = []
+        if(this.tipo == ConsultType.Transtornos){
+          this.apiResponse.info(`Ainda estamos mexendo nessa parte?`, `Em Desenvolvimento`);
+        }
         console.log(this.tipo);
       });
+      this.getListas()
   }
 
   ngOnInit(): void {
-    console.log(`ConsultsComponent`);
   }
 
   ngAfterViewInit(): void {
@@ -41,26 +52,43 @@ export class ConsultsComponent implements OnInit {
     styleScrollbars(scrollCustom)
   }
 
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+  }
+
+  async getListas(){
+    this.loading = true;
+    try{
+      const getAnos = await this.consultApi.getAnos();
+      this.options.anosOptions = [];
+      this.options.repositorioOptions = [];
+      getAnos.dados.forEach(element => {
+        element._id != null ? this.options.anosOptions.push(element._id) : null;
+      });
+      this.options.anosOptions.sort(this.sort);
+      const getRepositorios =  await this.consultApi.getRepositorios();
+      getRepositorios.dados.forEach(element => {
+        element._id != null ? this.options.repositorioOptions.push(element._id) : null;
+      });
+  }
+  catch(err){
+    this.apiResponse.error(`Erro ao buscar listas`);
+  }finally{
+      this.loading = false;
+    }
+  }
   async novaPesquisa(){
     const param = this.form;
     param['pagina'] = 1;
     param[`limite`] = 10;
     try {
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.articles = resp.artigos;
+      this.articles = resp.dados;
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
     }
-  }
-
-  async consultaAnosPeriodo(params){
-    console.log(params);
-  }
-
-  formRecivie(form){
-    console.log(form)
-    this.form = form;
   }
 
   async requestMoreArticles(request: IrequestMoreDataEvent) {
@@ -70,11 +98,19 @@ export class ConsultsComponent implements OnInit {
     param[`limite`] = request.paginacao.limite;
     try {
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.articles = [...request.artigosAtuais, ...resp.artigos];
+      this.articles = [...request.artigosAtuais, ...resp.dados];
       request.IonEvent.target.complete();
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
     }
+  }
+
+  formRecivie(form){
+    this.form = form;
+  }
+
+  private sort(a,b){
+    return a - b;
   }
 }

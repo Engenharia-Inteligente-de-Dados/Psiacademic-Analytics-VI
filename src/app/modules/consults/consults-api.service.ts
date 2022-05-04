@@ -41,7 +41,8 @@ export class ConsultsApiService {
 
   async expressoes(params: IConsulta): Promise<IArticles> {
     const { titulo, resumo, palavra_chave, pagina, limite } = params;
-    return await this.http.get(`${API}/expressao/`, {
+    const param = this.http.paramsValidate(params);
+    return await this.http.get(`${API}/expressao/${param}`, {
       titulo,
       resumo,
       palavra_chave,
@@ -61,7 +62,7 @@ export class ConsultsApiService {
 
   async repositorios(params: IConsulta): Promise<IArticles> {
     const { repositorio, pagina, limite } = params;
-    return await this.http.get(`${API}/expressao/`, {
+    return await this.http.get(`${API}/repositorio/`, {
       repositorio,
       pagina,
       limite,
@@ -76,6 +77,14 @@ export class ConsultsApiService {
       delete params.transtorno;
     }
     const param = this.http.paramsValidate(params);
-    return await this.http.get(`${API}/expressao/${param}`);
+    return await this.http.get(`${API}/generica/${param}`);
+  }
+
+  async getAnos(): Promise<any> {
+    return await this.http.get(`${API}/total/ano`);
+  }
+
+  async getRepositorios(): Promise<any> {
+    return await this.http.get(`${API}/total/repositorio`);
   }
 }

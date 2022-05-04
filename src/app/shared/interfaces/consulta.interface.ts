@@ -14,3 +14,10 @@ export interface IConsulta {
   pagina?: string | number;
   limite?: string | number;
 }
+
+
+export interface IOptionsSelectConsulta{
+  anosOptions: any[];
+  transtornoOptions: any[];
+  repositorioOptions: any[];
+}

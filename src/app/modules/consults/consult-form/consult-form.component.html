@@ -1,4 +1,4 @@
-<div *ngIf="ready">
+<div>
   <form [formGroup]="formConsulta" (change)="emitForm()" (keyup)="emitForm()">
     <ng-container *ngFor="let info of formInfo">
       <div *ngIf="info.enabled">

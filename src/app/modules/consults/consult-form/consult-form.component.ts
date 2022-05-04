@@ -10,6 +10,7 @@ import { FormGroup } from '@angular/forms';
 import { FORM_TEMPLATE, FORM_GROUPS } from './consult-form-const';
 import { Input } from '@angular/core';
 import { ConsultTypeSelectOPtions, FormAtrributeConsult, ConsultType } from '../../../shared/enums/types.enums';
+import { IOptionsSelectConsulta } from 'src/app/shared/interfaces/consulta.interface';
 
 @Component({
   selector: 'consult-form',
@@ -18,13 +19,12 @@ import { ConsultTypeSelectOPtions, FormAtrributeConsult, ConsultType } from '../
 })
 export class ConsultFormComponent implements OnInit {
   @Input() templateTipo?: any = ConsultType.Anos;
-  @Input() options?: any;
+  @Input() options?: IOptionsSelectConsulta;
   @Output(`emitForm`) emitFormEvent = new EventEmitter<any>();
   public formConsulta: FormGroup;
   public formInfo: any;
-  public ready = false;
   private anosfull = [];
-
+  ready = false;
   constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
@@ -32,33 +32,41 @@ export class ConsultFormComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes){
-      if(changes.templateTipo){
-        this.setForm();
-      }
+    if(changes.templateTipo){
+      this.setForm();
     }
 
   }
 
   setForm() {
-    this.ready = false;
-    const fun = FORM_GROUPS[this.templateTipo]();
-    this.formConsulta = new FormGroup(fun);
-    this.formInfo = FORM_TEMPLATE[this.templateTipo]();
-    this.formInfo.forEach(element => {
-      if(element.type === 'select'){
-        if((element.selectOptions === ConsultTypeSelectOPtions.anosOptionsI ) || (element.selectOptions === ConsultTypeSelectOPtions.anosOptionsF)){
-          this.anosfull = this.options[ConsultTypeSelectOPtions.anosOptions];
-          this.options[element.selectOptions] = this.anosfull
-          this.formConsulta.controls[element.attr].setValue(this.options[ConsultTypeSelectOPtions.anosOptions][0]);
+    this.ready = false
+    try {
+      const fun = FORM_GROUPS[this.templateTipo]();
+      console.log(fun);
+      this.formConsulta = new FormGroup(fun);
+      this.formInfo = FORM_TEMPLATE[this.templateTipo]();
+      this.formInfo.forEach(element => {
+        if(element.type === 'select'){
+          if((element.selectOptions === ConsultTypeSelectOPtions.anosOptionsI ) || (element.selectOptions === ConsultTypeSelectOPtions.anosOptionsF)){
+            this.anosfull = this.options.anosOptions;
+            this.options[element.selectOptions] = this.anosfull
+            this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[0]);
+          }
+          else{
+            this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][0]);
+          }
         }
-        else{
-          this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][0]);
-        }
-      }
-    });
-    this.emitForm()
-    this.ready = true;
+      });
+      this.emitForm()
+      this.ready = true
+    } catch (error) {
+      console.log(error);
+      this.ready = false
+    }
+    finally {
+      this.ref.detectChanges();
+    }
+
   }
 
   emitForm(){
