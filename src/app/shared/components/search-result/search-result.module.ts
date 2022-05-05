@@ -8,19 +8,24 @@ import { InlineAutoresModule } from '../../pipes/inlineAutores/inline-autores.mo
 import { SearchResultCardComponent } from './result-card/search-result-card.component';
 import { SearchResultComponent } from './search-result.component';
 import { ResultTableComponent } from './result-table/result-table.component';
+import { PaginacaoModule } from '../paginacao/paginacao.module';
 
 
 
 @NgModule({
-  declarations: [SearchResultCardComponent, SearchResultComponent, ResultTableComponent],
+  declarations: [
+    SearchResultCardComponent,
+    SearchResultComponent,
+    ResultTableComponent,
+  ],
   imports: [
     CommonModule,
     IonicModule,
     PsiBadgeModule,
     ParagraphAccordionModule,
     SwiperModule,
-    InlineAutoresModule
-
+    InlineAutoresModule,
+    PaginacaoModule
   ],
   exports: [SearchResultComponent]
 })

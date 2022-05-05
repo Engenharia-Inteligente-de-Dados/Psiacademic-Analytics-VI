@@ -1,5 +1,5 @@
 <ion-content id="scrollCustom">
-<ng-container *ngIf="!loading && (options.repositorioOptions.length > 0 && options.anosOptions.length > 0)">
+<ng-container *ngIf="(options.repositorioOptions.length > 0 && options.anosOptions.length > 0); ">
   <div class="main">
     <div class="consult">
       <div class="consult_form">
@@ -9,7 +9,16 @@
         <button class="btn_full btn_line_primary" (click)="novaPesquisa()">Pesquisar</button>
       </div>
       <div class="consult_content">
-        <psi-search-result [articles]="articles" (requestEvent)="requestMoreArticles($event)" [paginacao]="paginacao"></psi-search-result>
+        <ng-container  *ngIf="!loading">
+          <psi-search-result [articles]="articles" (requestEvent)="requestMoreArticles($event)" [paginacao]="paginacao"></psi-search-result>
+
+        </ng-container>
+        <ng-container *ngIf="loading">
+          <p>
+            loading
+          </p>
+        </ng-container>
+
       </div>
     </div>
   </div>

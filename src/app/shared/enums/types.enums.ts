@@ -4,7 +4,7 @@ export enum ViewType {
 }
 
 export enum IconType {
-  iCard = 'grid-outlin',
+  iCard = 'grid-outline',
   iList = 'list-outline',
   iAlbums = `albums-outline`,
 }

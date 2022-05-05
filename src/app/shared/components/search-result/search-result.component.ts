@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { IArticle } from '../../../modules/articles/article.interfaces';
 import { IconType, ViewType } from '../../enums/types.enums';
 import { IPagination } from '../../interfaces/pagination.interface';
@@ -15,11 +15,12 @@ export class SearchResultComponent implements OnInit {
   @Input() paginacao?: IPagination;
   @Output() requestEvent: EventEmitter<IrequestMoreDataEvent> = new EventEmitter();
 
-  viewTypeCard =  true;
+  viewTypeCard =  false;
   iconType: string = IconType.iCard;
 
 
-  constructor() { }
+  constructor(private ref: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
   }
@@ -32,15 +33,20 @@ export class SearchResultComponent implements OnInit {
       request[`paginacao`] = this.paginacao;
       this.requestEvent.emit(request);
     }
-    else{
-      console.log(`outra coisa`)
-    }
+  }
+
+  changePage(change:IPagination){
+    this.paginacao = change;
+    this.requestMoreData({
+      paginacao:this.paginacao
+    })
   }
 
 
   changeViewType(){
     this.viewTypeCard = !this.viewTypeCard;
     this.iconType = this.viewTypeCard ? IconType.iCard : IconType.iList;
+    this.ref.detectChanges();
   }
 
 }

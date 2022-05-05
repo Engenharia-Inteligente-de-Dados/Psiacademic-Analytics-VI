@@ -1,1 +1,49 @@
-<p>result-table works!</p>
+<div *ngIf="articles?.length > 0">
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Repositorio</th>
+          <th>Palavras-chave</th>
+          <th>Ano</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let artigo of articles; let i = index">
+          <td>
+            <a
+              class="p-l-10 p-r-10"
+              (click)="gotTo(artigo?.url)"
+              rel="Link para a pagina do artigo"
+            >
+              {{ artigo?.titulo }}
+            </a>
+          </td>
+          <td>
+            {{ artigo?.autores | inlineAutores }}
+          </td>
+          <td>
+            {{ artigo?.repositorio }}
+          </td>
+          <td>
+            <psi-badge
+              *ngFor="let palavra of artigo.palavrachave"
+              [label]="palavra"
+              size="size-11"
+              color="tertiary"
+            ></psi-badge>
+          </td>
+          <td>
+            {{ artigo?.data?.$date | date: "dd/MM/yyyy" }}
+          </td>
+          <td>
+            {{ artigo?.tipo }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

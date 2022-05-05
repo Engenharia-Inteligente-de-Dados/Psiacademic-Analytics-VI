@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConsultsApiService } from './consults-api.service';
 import { IArticle } from '../articles/article.interfaces';
@@ -7,7 +7,7 @@ import { IPagination } from '../../shared/interfaces/pagination.interface';
 import { styleScrollbars } from 'src/app/shared/utils/customScroll';
 import { IConsulta, IOptionsSelectConsulta } from '../../shared/interfaces/consulta.interface';
 import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
-import { ConsultType } from '../../shared/enums/types.enums';
+import { ConsultType, ViewType } from '../../shared/enums/types.enums';
 
 @Component({
   selector: 'app-consults',
@@ -26,11 +26,11 @@ export class ConsultsComponent implements OnInit {
   public paginacao: IPagination
   public form: IConsulta;
   public loading: boolean = true;
-
   constructor(
     private route: ActivatedRoute,
     private consultApi: ConsultsApiService,
-    private apiResponse: ApiResponseProvider
+    private apiResponse: ApiResponseProvider,
+    private ref: ChangeDetectorRef
     ) {
     this.route.params.subscribe(params => {
         this.tipo = params.tipo;
@@ -45,6 +45,7 @@ export class ConsultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.novaPesquisa()
   }
 
   ngAfterViewInit(): void {
@@ -92,18 +93,28 @@ export class ConsultsComponent implements OnInit {
   }
 
   async requestMoreArticles(request: IrequestMoreDataEvent) {
+    request.viewType == ViewType.list ? this.loading = true : null;
+    this.ref.detectChanges();
     console.log(request)
     const param = this.form;
     param['pagina'] = request.paginacao.pagina;
     param[`limite`] = request.paginacao.limite;
     try {
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.articles = [...request.artigosAtuais, ...resp.dados];
-      request.IonEvent.target.complete();
+      if(request.viewType===ViewType.card){
+        this.articles = [...request.artigosAtuais, ...resp.dados];
+        request.IonEvent.target.complete();
+      }else{
+        this.articles = resp.dados;
+        this.loading = false;
+      }
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
+      this.loading = false;
     }
+    this.ref.detectChanges();
+
   }
 
   formRecivie(form){

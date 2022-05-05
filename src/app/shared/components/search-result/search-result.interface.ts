@@ -3,9 +3,9 @@ import { ViewType } from '../../enums/types.enums';
 import { IPagination } from '../../interfaces/pagination.interface';
 
 export interface IrequestMoreDataEvent {
-  artigosAtuais: IArticle[],
+  artigosAtuais?: IArticle[],
   paginacao?: IPagination
-  IonEvent:Event | any ,
+  IonEvent?:Event | any ,
   viewType: ViewType
 };
 
