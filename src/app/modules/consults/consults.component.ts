@@ -37,11 +37,13 @@ export class ConsultsComponent implements OnInit {
         this.form = {}
         this.articles = []
         if(this.tipo == ConsultType.Transtornos){
-          this.apiResponse.info(`Ainda estamos mexendo nessa parte?`, `Em Desenvolvimento`);
+          this.apiResponse.info(`Ainda estamos mexendo nessa parte ok?`, `Em Desenvolvimento`);
         }
         console.log(this.tipo);
+        if(this.options.anosOptions.length === 0 || this.options.repositorioOptions.length === 0){
+        this.getListas()
+        }
       });
-      this.getListas()
   }
 
   ngOnInit(): void {
@@ -64,17 +66,18 @@ export class ConsultsComponent implements OnInit {
       const getAnos = await this.consultApi.getAnos();
       this.options.anosOptions = [];
       this.options.repositorioOptions = [];
-      getAnos.dados.forEach(element => {
-        element._id != null ? this.options.anosOptions.push(element._id) : null;
+      getAnos.forEach(element => {
+        element._id != null ? this.options.anosOptions.push(element._id) : false;
       });
       this.options.anosOptions.sort(this.sort);
       const getRepositorios =  await this.consultApi.getRepositorios();
-      getRepositorios.dados.forEach(element => {
-        element._id != null ? this.options.repositorioOptions.push(element._id) : null;
+      getRepositorios.forEach(element => {
+        element._id != null ? this.options.repositorioOptions.push(element._id) : false;
       });
   }
   catch(err){
     this.apiResponse.error(`Erro ao buscar listas`);
+    console.log(`error`,err)
   }finally{
       this.loading = false;
     }
@@ -85,7 +88,7 @@ export class ConsultsComponent implements OnInit {
     param[`limite`] = 10;
     try {
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.articles = resp.dados;
+      this.articles = resp.artigos;
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
@@ -102,10 +105,10 @@ export class ConsultsComponent implements OnInit {
     try {
       const resp = await this.consultApi.consulta(param, this.tipo);
       if(request.viewType===ViewType.card){
-        this.articles = [...request.artigosAtuais, ...resp.dados];
+        this.articles = [...request.artigosAtuais, ...resp.artigos];
         request.IonEvent.target.complete();
       }else{
-        this.articles = resp.dados;
+        this.articles = resp.artigos;
         this.loading = false;
       }
       this.paginacao = resp.paginacao;

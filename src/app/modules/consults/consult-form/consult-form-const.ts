@@ -32,7 +32,7 @@ export const FORM_GROUPS = {
       anof: new FormControl(''),
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavra_chave: new FormControl(''),
+      palavras_chave: new FormControl(''),
       transtorno: new FormControl(''),
       repositorio: new FormControl(''),
     };
@@ -87,7 +87,7 @@ const formsDatasGroup = {
       label: 'Palavra Chave',
       type: FormType.text,
       placeholder: 'Palavra Chave',
-      attr: FormAtrributeConsult.PalavraChave,
+      attr: FormAtrributeConsult.PalavrasChave,
       enabled: true,
       },
     ]
@@ -124,7 +124,6 @@ export const FORM_TEMPLATE ={
     return [
       ...formsDatasGroup.anos(),
       ...formsDatasGroup.expressoes(),
-      ...formsDatasGroup.repositorios(),
       ...formsDatasGroup.transtornos(),
     ]
   }

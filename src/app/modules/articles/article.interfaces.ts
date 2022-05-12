@@ -23,7 +23,7 @@ export interface IArticle {
   }
 
 export interface IArticles {
-  dados: IArticle[];
+  artigos: IArticle[];
   paginacao?: {
     pagina?: number;
     limite?: number;
