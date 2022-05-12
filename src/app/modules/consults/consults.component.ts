@@ -8,6 +8,7 @@ import { styleScrollbars } from 'src/app/shared/utils/customScroll';
 import { IConsulta, IOptionsSelectConsulta } from '../../shared/interfaces/consulta.interface';
 import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
 import { ConsultType, ViewType } from '../../shared/enums/types.enums';
+import { LoadingProvider } from '../../shared/providers/loading.provider';
 
 @Component({
   selector: 'app-consults',
@@ -30,7 +31,8 @@ export class ConsultsComponent implements OnInit {
     private route: ActivatedRoute,
     private consultApi: ConsultsApiService,
     private apiResponse: ApiResponseProvider,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private loadingProvider: LoadingProvider
     ) {
     this.route.params.subscribe(params => {
         this.tipo = params.tipo;
@@ -84,6 +86,9 @@ export class ConsultsComponent implements OnInit {
   }
   async novaPesquisa(){
     const param = this.form;
+    if(Object.keys(param).length == 0 ){
+      return
+    }
     param['pagina'] = 1;
     param[`limite`] = 10;
     try {
@@ -96,7 +101,8 @@ export class ConsultsComponent implements OnInit {
   }
 
   async requestMoreArticles(request: IrequestMoreDataEvent) {
-    request.viewType == ViewType.list ? this.loading = true : null;
+    const loading = request.viewType == ViewType.list ? await this.loadingProvider.loading() : null;
+    loading?.present();
     this.ref.detectChanges();
     console.log(request)
     const param = this.form;
@@ -109,12 +115,12 @@ export class ConsultsComponent implements OnInit {
         request.IonEvent.target.complete();
       }else{
         this.articles = resp.artigos;
-        this.loading = false;
+        loading.dismiss();
+
       }
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
-      this.loading = false;
     }
     this.ref.detectChanges();
 

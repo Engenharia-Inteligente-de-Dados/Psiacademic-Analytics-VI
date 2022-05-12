@@ -1,24 +1,16 @@
-<ion-content id="scrollCustom">
-<ng-container *ngIf="(options.repositorioOptions.length > 0 && options.anosOptions.length > 0); ">
+<ion-content id="scrollCustom" >
+<ng-container *ngIf="!loading">
   <div class="main">
     <div class="consult">
       <div class="consult_form">
-        <consult-form [options]="options" [templateTipo]='tipo' (emitForm)="formRecivie($event)" *ngIf="!loading"></consult-form>
+        <consult-form [options]="options" [templateTipo]='tipo' (emitForm)="formRecivie($event)"></consult-form>
       </div>
       <div class="justify-content-center">
         <button class="btn_full btn_line_primary" (click)="novaPesquisa()">Pesquisar</button>
       </div>
       <div class="consult_content">
-        <ng-container  *ngIf="!loading">
+        <!-- TODO refazer essa componente, com loading proprio e melhorado, assim como unificar a paginacao e a tabela -->
           <psi-search-result [articles]="articles" (requestEvent)="requestMoreArticles($event)" [paginacao]="paginacao"></psi-search-result>
-
-        </ng-container>
-        <ng-container *ngIf="loading">
-          <p>
-            loading
-          </p>
-        </ng-container>
-
       </div>
     </div>
   </div>

@@ -57,7 +57,6 @@ export class ConsultFormComponent implements OnInit {
           }
         }
       });
-      this.emitForm()
       this.ready = true
     } catch (error) {
       console.log(error);
@@ -69,8 +68,7 @@ export class ConsultFormComponent implements OnInit {
 
   }
 
-  emitForm(){
-    console.log(this.formConsulta.value);
+  emitForm(event:any){
     this.emitFormEvent.emit(this.formConsulta.value);
   }
 

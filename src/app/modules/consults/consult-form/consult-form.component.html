@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="formConsulta" (change)="emitForm()" (keyup)="emitForm()">
+  <form [formGroup]="formConsulta" (change)="emitForm($event)" (keyup)="emitForm($event)">
     <ng-container *ngFor="let info of formInfo">
       <div *ngIf="info.enabled">
         <label>{{ info.label }}</label>

@@ -13,7 +13,7 @@ export const FORM_GROUPS = {
     return {
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavra_chave: new FormControl(''),
+      palavras_chave: new FormControl(''),
     };
   },
   repositorios: () => {

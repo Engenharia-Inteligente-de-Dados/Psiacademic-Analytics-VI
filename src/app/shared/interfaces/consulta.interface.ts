@@ -7,7 +7,7 @@ export interface IConsulta {
   titulo?: string;
   resumo?: string;
   palavras_chaves?: string[];
-  palavra_chave?: string;
+  palavras_chave?: string;
   transtorno?: string;
   repositorio?: string;
   paginacao?: IPagination;
