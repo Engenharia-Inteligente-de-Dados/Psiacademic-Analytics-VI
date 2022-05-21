@@ -1,3 +1,11 @@
+
+.card {
+  border-radius: 15px;
+  border: 1px solid var(--psi-color-cinza-step-250);
+  background-color: var(--psi-color-cinza-step-0);
+  margin: 15px;
+}
+
 .cards_grid{
   display: grid;
   grid-gap: 1rem;

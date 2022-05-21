@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MAIN_ROUTES } from 'src/app/shared/consts/routes.const';
+import { MAIN_ROUTES } from '../../../consts/routes.const';
+
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'menu-lateral',
+  templateUrl: './menu-lateral.component.html',
+  styleUrls: ['./menu-lateral.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class MenuLateralComponent implements OnInit {
 
   public routes = MAIN_ROUTES;
   public activeSubRoutes = [];

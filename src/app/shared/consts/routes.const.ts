@@ -2,11 +2,13 @@ import { ConsultType } from 'src/app/shared/enums/types.enums';
 
 export const MAIN_ROUTES = [
   {
+    icone: '',
     route:'search',
     label:'Pesquisa',
     inUse:false
   },
   {
+    icone: 'search-outline',
     route:'consultas/anos',
     label:'Consultas',
     subRoutes:
@@ -40,6 +42,7 @@ export const MAIN_ROUTES = [
     inUse:true,
   },
   {
+    icone:'analytics-outline',
     route:'analytics',
     label:'Analytcs',
     inUse:true,

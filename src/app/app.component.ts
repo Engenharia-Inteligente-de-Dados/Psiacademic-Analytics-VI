@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'Psiacademic Analytics VI';
   constructor() {
     this.mostrarVersao();
+
+    //document.getElementsByClassName(`ion-page`)[0].classList.remove(`ion-page`);
   }
 
   mostrarVersao() {

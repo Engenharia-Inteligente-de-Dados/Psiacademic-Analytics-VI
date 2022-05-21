@@ -96,7 +96,7 @@ export class ChartsManageService {
       options: {},
     };
     try {
-      const response = await this.analyticsAPI.getTrabalhosAnosOLD();
+      const response = await this.analyticsAPI.getAnos();
       const chart = this.formatChart(response, configTotalAno, [
         `_id`,
         `count`,
@@ -118,8 +118,8 @@ export class ChartsManageService {
       options: {},
     };
     try {
-      const resp = await this.analyticsAPI.getTrabalhosRepositorioOLD();
-      const chart = this.formatChart(resp, configTotalAno, [`_id`, `count`]);
+      const resp = await this.analyticsAPI.getRepositorios();
+      const chart = this.formatChart(resp, configTotalAno, [`_id`, `total`]);
       return chart;
     } catch (error) {
       this.apiResponse.error(
