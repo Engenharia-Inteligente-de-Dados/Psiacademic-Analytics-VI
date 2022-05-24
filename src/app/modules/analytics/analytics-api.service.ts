@@ -32,4 +32,12 @@ export class AnalyticsAPIService {
   async getRepositorios(): Promise<any> {
     return await this.http.get(`${API}/total/repositorio`);
   }
+
+  async getTotalRepositoriosPorAnos(rep): Promise<any> {
+    return await this.http.get(`${API}/total/total-anos-repositorio?repositorio=${rep}`);
+  }
+
+  async getChartFiltrado(url:string, params:any): Promise<any> {
+    return await this.http.get(`${API}${url}${params}`);
+  }
 }

@@ -57,12 +57,4 @@ export class ConsultsApiService {
   async avancada(param: string): Promise<IArticles> {
     return await this.http.get(`${API}/generica/${param}`);
   }
-
-  async getAnos(): Promise<any> {
-    return await this.http.get(`${API}/total/ano`);
-  }
-
-  async getRepositorios(): Promise<any> {
-    return await this.http.get(`${API}/total/repositorio`);
-  }
 }

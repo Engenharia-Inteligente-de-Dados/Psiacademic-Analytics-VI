@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardChartComponent } from './card-chart.component';
 import { PsiChartComponent } from './psi-chart/psi-chart.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +13,9 @@ import { GoogleChartsModule } from 'angular-google-charts';
   ],
   imports: [
     CommonModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     CardChartComponent

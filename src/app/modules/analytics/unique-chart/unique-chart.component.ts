@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChartsManageService } from '../../../shared/services/charts-manage.service';
-import { Ichart } from '../../../shared/interfaces/chart.interfaces';
+import { IChart } from '../../../shared/interfaces/chart.interfaces';
 import { ApiResponseProvider } from '../../../shared/providers/api-response.provider';
 
 @Component({
@@ -12,11 +12,8 @@ import { ApiResponseProvider } from '../../../shared/providers/api-response.prov
 })
 export class UniqueChartComponent implements OnInit {
   private routeSub!: Subscription;
-  public chart: Ichart | undefined;;
-  public actions = {
-    config: false,
-    expand:false,
-  };
+  public chart: IChart | undefined;;
+  public actions = {}
   public loading = false;
   public paramsId: string
   private chartListSubscribtion: Subscription;
@@ -32,14 +29,11 @@ export class UniqueChartComponent implements OnInit {
     this.paramsId = params.id;
      this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {
         this.chart =  list[params.id] ? list[params.id] : undefined;
-
+        this.actions = this.chart.actions
        this.chart.options = this.addOptions()
         this.loading = false;
       });
     });
-
-
-
   }
 
   ngOnInit(): void {

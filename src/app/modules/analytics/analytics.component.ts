@@ -3,6 +3,7 @@ import { Icharts } from 'src/app/shared/interfaces/chart.interfaces';
 import { ChartsManageService } from '../../shared/services/charts-manage.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { formatTitle } from '../../shared/utils/util';
 
 @Component({
   selector: 'app-analytics',
@@ -56,6 +57,19 @@ export class AnalyticsComponent implements OnInit,OnDestroy {
 
   redirect(event:any,index:number) {
     this.route.navigate([`public/analytics/${index}`])
+  }
+
+  async filter(event){
+    const {chart, newValue} = event
+    try {
+      const resp  = await this.chartsManageService.getChartFiltrado(chart.url,newValue);
+      chart.chartTitle = formatTitle(chart.originalTitle,[newValue])
+      console.log(resp)
+      const new_chart = this.chartsManageService.formatChart(resp,chart,chart.keys)
+      this.chartsManageService.updatedChart(new_chart)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 }

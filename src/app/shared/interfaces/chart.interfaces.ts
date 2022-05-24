@@ -1,14 +1,20 @@
-export interface Ichart{
+import { FormType } from '../enums/types.enums';
+
+export interface IChart{
   id: string;
   chartTitle?: string;
+  originalTitle?: string
   chartData: any;
   chartType:any;
   columnNames:string[] | {type:string, role:string}[] | [];
-  options: IchartOptions["option"] | any
+  options: IChartOptions["option"] | any,
+  actions?: IChartActions,
+  url?: string,
+  keys?: string[],
 }
 
-export interface Icharts extends Array<Ichart>{}
-export interface IchartOptions  {
+export interface Icharts extends Array<IChart>{}
+export interface IChartOptions  {
  option: {
   colors?:string[],
   height?:number,
@@ -25,4 +31,14 @@ export interface IchartOptions  {
   }
   seriesType?:any,
   series?:any,}
+}
+
+export interface IChartActions {
+  config?: boolean;
+  expand?: boolean;
+  filter?:{
+    inUse?:boolean,
+    value?:any,
+    options?:any[],
+  }
 }

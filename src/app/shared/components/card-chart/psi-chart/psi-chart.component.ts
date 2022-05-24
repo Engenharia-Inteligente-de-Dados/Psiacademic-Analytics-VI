@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Row } from 'angular-google-charts';
 import {
-  IchartOptions,
+  IChartOptions,
 } from 'src/app/shared/interfaces/chart.interfaces';
 @Component({
   selector: 'psi-chart',

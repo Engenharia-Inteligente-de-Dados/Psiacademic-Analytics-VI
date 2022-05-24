@@ -9,6 +9,7 @@ import { IConsulta, IOptionsSelectConsulta } from '../../shared/interfaces/consu
 import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
 import { ConsultType, ViewType } from '../../shared/enums/types.enums';
 import { LoadingProvider } from '../../shared/providers/loading.provider';
+import { ListasProvider } from 'src/app/shared/providers/listas.provider';
 
 @Component({
   selector: 'app-consults',
@@ -32,7 +33,8 @@ export class ConsultsComponent implements OnInit {
     private consultApi: ConsultsApiService,
     private apiResponse: ApiResponseProvider,
     private ref: ChangeDetectorRef,
-    private loadingProvider: LoadingProvider
+    private loadingProvider: LoadingProvider,
+    private listasProvider: ListasProvider
     ) {
     this.route.params.subscribe(params => {
         this.tipo = params.tipo;
@@ -55,17 +57,11 @@ export class ConsultsComponent implements OnInit {
   async getListas(){
     this.loading = true;
     try{
-      const getAnos = await this.consultApi.getAnos();
+      const {anos,repositorios} = await this.listasProvider.getListas();
       this.options.anosOptions = [];
       this.options.repositorioOptions = [];
-      getAnos.forEach(element => {
-        element._id != null ? this.options.anosOptions.push(element._id) : false;
-      });
-      this.options.anosOptions.sort(this.sort);
-      const getRepositorios =  await this.consultApi.getRepositorios();
-      getRepositorios.forEach(element => {
-        element._id != null ? this.options.repositorioOptions.push(element._id) : false;
-      });
+      this.options.anosOptions = anos;
+      this.options.repositorioOptions = repositorios
   }
   catch(err){
     this.apiResponse.error(`Erro ao buscar listas`);
@@ -118,9 +114,5 @@ export class ConsultsComponent implements OnInit {
 
   formRecivie(form){
     this.form = form;
-  }
-
-  private sort(a,b){
-    return a - b;
   }
 }
