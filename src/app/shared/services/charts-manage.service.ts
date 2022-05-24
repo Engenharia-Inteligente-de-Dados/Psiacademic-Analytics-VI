@@ -44,7 +44,8 @@ export class ChartsManageService {
     if(this._chartsList.length === 0){
       const list = await this.storage.get<Icharts>('charts')
       if(list?.length > 0){
-      this.setCharts(list);
+        this._chartsList = list;
+        this.setCharts(list);
       return this._chartsList;
       }
       else{
@@ -68,6 +69,7 @@ export class ChartsManageService {
     const charts = await this.getCharts();
     const index = charts.findIndex((c) => c.id === chart.id)
     if(index>-1){
+      charts[index] = chart;
       return;
     }else{
       charts.push(chart);
