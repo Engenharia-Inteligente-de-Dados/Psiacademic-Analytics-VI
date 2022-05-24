@@ -1,0 +1,24 @@
+<div>
+  <div class="icon justify-content-end m-r-10 m-t-10">
+    <ion-icon size="large" [name]="iconType" (click)="changeViewType()" color="secondary"></ion-icon>
+  </div>
+  <div *ngIf="articles?.length > 0; else naoPossuiPesquisaTemplate">
+    <ng-container *ngIf="viewTypeCard; else tableTemplate">
+        <psi-search-result-card
+        [articles]="articles"
+        (resquestMoreArticles)="requestMoreData($event)">
+      </psi-search-result-card>
+    </ng-container>
+    <ng-template #tableTemplate>
+      <psi-result-table [articles]="articles"></psi-result-table>
+      <psi-paginacao [paginacao]="paginacao" (paginaChange)="changePage($event)"></psi-paginacao>
+    </ng-template>
+  </div>
+</div>
+
+
+<ng-template #naoPossuiPesquisaTemplate>
+  <div>
+    Não possui artigos para exibir
+  </div>
+</ng-template>

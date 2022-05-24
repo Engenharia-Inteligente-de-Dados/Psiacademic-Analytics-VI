@@ -1,0 +1,10 @@
+<div class="sidenav" *ngIf="submenus?.length > 0">
+  <nav class="nav">
+    <ng-container *ngFor="let item of submenus">
+      <a  [routerLink]="item.route" routerLinkActive="active" *ngIf="item.inUse">
+        {{item.label}}
+      </a>
+    </ng-container>
+
+  </nav>
+</div>

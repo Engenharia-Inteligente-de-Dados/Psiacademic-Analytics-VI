@@ -1,0 +1,64 @@
+.sidenav {
+  position: fixed;
+  height: 100%;
+  width: 120px;
+  z-index: 1;
+  background-color: var(--psi-color-cinza-step-0);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  box-shadow: 0px 4px 4px rgba(130, 98, 98, 0.5);
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px;
+  justify-content: center;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border: solid 1px transparent;
+    &:hover,.icon-active{
+      border: solid 1px var(--ion-color-primary);
+      transition: all 0.5s linear;
+      margin: 10px;
+      border-radius: 15px;
+    }
+
+    ion-icon {
+      cursor: pointer;
+      color: var(--ion-color-primary-shade);
+    }
+
+  }
+  a {
+    color: var(--psi-color-cinza-step-800);
+    font-size: 13px;
+    padding: 10px 0;
+    font-weight: 500;
+    display: block;
+    transition: 0.5s;
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    border: solid 1px transparent;
+
+    &:hover,.active{
+      @extend .active-houver
+    }
+  }
+}
+
+
+.active-houver{
+  transform: scale(1s);
+  color: var(--psi-color-cinza-step-850);
+  background-color: var(--psi-color-background-secondary-tint);
+  border: 1px solid  var(--psi-color-background-secondary-tint);
+  margin: 10px;
+  border-radius: 15px;
+
+}

@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 declare var require: any
-export const API = 'http://api-saude-mental.herokuapp.com'
+export const API = 'http://127.0.0.1:8000/v2'
 export const OLD_API = "https://api-saude-mental.herokuapp.com/contadores/anos"
 export const environment = {
   production: false,

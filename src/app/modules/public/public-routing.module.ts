@@ -5,7 +5,7 @@ import { PublicComponent } from './public.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'search',
+    redirectTo: 'analytics',
     pathMatch: 'full',
   },
   {
@@ -18,10 +18,19 @@ const routes: Routes = [
          import('../articles/articles.module').then((r) => r.ArticlesModule),
       },
       {
+        path: 'consultas/:tipo',
+        loadChildren: () =>
+         import('../consults/consults.module').then((r) => r.ConsultsModule),
+      },
+      {
         path: 'analytics',
         loadChildren: () =>
          import('../analytics/analytics.module').then((r) => r.AnalyticsModule),
       },
+      {
+        path: '**',
+        redirectTo: 'search',
+      }
     ]
   }
 

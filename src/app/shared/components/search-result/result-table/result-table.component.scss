@@ -1,0 +1,76 @@
+@import './../../../../../theme/variables.scss';
+
+.table {
+  margin: 10px;
+	border-radius: 10px;
+
+}
+table {
+  min-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-style: hidden;
+  margin: 5px;
+  border-radius: 10px;
+  thead {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    align-items: center;
+
+    tr {
+      th {
+        text-align: left;
+        padding: 5px;
+        margin: 5px;
+      }
+      &:last-child {
+        th {
+          align-items: center;
+        }
+      }
+    }
+  }
+  tbody {
+    font-size: 13px;
+    color : rgb(42, 42, 42);
+
+    tr {
+      background: #ffffff;
+      border: solid 0.5px #b3b3b3;
+
+      &:nth-child(2n){
+        background: #a1e1ff3d;
+      }
+
+      td {
+        text-align: left;
+        padding: 5px;
+        margin: 5px;
+
+        &:last-child {
+          text-align: center;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--psi-color-cinza-step-800,#000000);
+          cursor: pointer;
+
+          &:hover {
+            color: var(--ion-color-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px){
+	.table{
+    margin: 5px;
+		border-radius: 10px;
+		overflow: auto;
+  }}
+

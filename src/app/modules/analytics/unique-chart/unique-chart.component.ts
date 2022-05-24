@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChartsManageService } from '../../../shared/services/charts-manage.service';
-import { Ichart } from '../../../shared/interfaces/chart.interfaces';
+import { IChart } from '../../../shared/interfaces/chart.interfaces';
 import { ApiResponseProvider } from '../../../shared/providers/api-response.provider';
 
 @Component({
@@ -12,11 +12,8 @@ import { ApiResponseProvider } from '../../../shared/providers/api-response.prov
 })
 export class UniqueChartComponent implements OnInit {
   private routeSub!: Subscription;
-  public chart: Ichart | undefined;;
-  public actions = {
-    config: false,
-    expand:false,
-  };
+  public chart: IChart | undefined;;
+  public actions = {}
   public loading = false;
   public paramsId: string
   private chartListSubscribtion: Subscription;
@@ -30,22 +27,23 @@ export class UniqueChartComponent implements OnInit {
     this.loading = true;
     this.routeSub = this.route.params.subscribe(params => {
     this.paramsId = params.id;
-     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {   
+     this.chartListSubscribtion = this.chartsManageService.chartList$.subscribe(list => {
         this.chart =  list[params.id] ? list[params.id] : undefined;
-
+        this.actions = this.chart.actions
        this.chart.options = this.addOptions()
         this.loading = false;
       });
     });
-
-
-
   }
 
   ngOnInit(): void {
     this.getChart();
   }
 
+  ngOnDestroy(): void {
+    this.routeSub.unsubscribe();
+    this.chartListSubscribtion.unsubscribe();
+  }
   public async getChart(){
     this.loading = true;
     if(!this.chart){
@@ -62,16 +60,12 @@ export class UniqueChartComponent implements OnInit {
     this.loading = false;
   }
 
-  ngOnDestroy(): void {
-    this.routeSub.unsubscribe();
-    this.chartListSubscribtion.unsubscribe();
-  }
 
   private addOptions(){
     return {
       width:(window.screen.width*0.60),
       heigth:(window.screen.height*0.60),
-      dynamicResize:true,    
+      dynamicResize:true,
     }
   }
 }

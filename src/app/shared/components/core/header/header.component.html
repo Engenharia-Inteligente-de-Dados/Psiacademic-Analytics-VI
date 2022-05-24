@@ -5,8 +5,11 @@
   <nav class="nav">
     <ul class="nav_list">
       <li class="nav_list_item" *ngFor="let route of routes">
-        <a [routerLink]="route.route" routerLinkActive="active">{{route.label}}</a>
+        <a (click)="navigate(route)" routerLinkActive="active"
+         *ngIf="route.inUse" >{{route.label}}</a>
       </li>
     </ul>
   </nav>
 </header>
+
+<app-sub-menu [submenus]="activeSubRoutes"></app-sub-menu>

@@ -30,7 +30,7 @@
   }
 }
 
-$colors: primary, secondary, tertiary, quaternary, fifth, success, warning, danger;
+$colors: primary, secondary, tertiary, success, warning, danger;
 @each $color in $colors{
   .btn_line_#{$color} {
     background: transparent;

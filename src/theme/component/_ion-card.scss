@@ -5,5 +5,8 @@ ion-card{
   width: auto;
   ion-card-title{
     border-bottom: 1px solid var(--psi-color-cinza-step-350);
+    a {
+      color: var(--psi-color-cinza-step-750);
+    }
   }
 }

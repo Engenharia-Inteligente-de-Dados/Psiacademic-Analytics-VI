@@ -3,30 +3,30 @@
     <ion-card-header>
       <ion-card-title>
         <a (click)=gotTo(artigo?.url) rel="Link para a pagina do artgo">
-        <h5 class="m-l-5">
+        <h5 class="p-l-16 p-r-16">
           {{artigo?.titulo}}
         </h5>
         </a>
       </ion-card-title>
       <ion-row>
-        <ion-col size="6">
+        <ion-col class="p-l-10" size="12">
           <span class="bold-card">Autores:</span>
           <span> {{artigo?.autores | inlineAutores }}</span>
         </ion-col>
-        <ion-col size="6">
+        <ion-col class="p-l-10" size="6">
           <span class="bold-card">Data:</span> {{artigo.data.$date | date:'dd/MM/yyyy'}}
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="6">
+        <ion-col class="p-l-10" size="6">
           <span class="bold-card">Repositorio:</span> {{artigo?.repositorio}}
         </ion-col>
-        <ion-col size="6">
+        <ion-col class="p-l-10" size="6">
           <span class="bold-card">Tipo:</span> {{artigo?.tipo}}
         </ion-col>
       </ion-row>
-      <ion-row class="justify-content-end m-r-5">
-        <psi-badge *ngFor="let palavra of artigo?.palavrachave" [label]='palavra' size='size-14'></psi-badge>
+      <ion-row class="justify-content-start p-r-5">
+        <psi-badge *ngFor="let palavra of artigo?.palavrachave" [label]='palavra' size='size-11' color="tertiary"></psi-badge>
       </ion-row>
     </ion-card-header>
     <ion-card-content>
@@ -38,7 +38,7 @@
   </ion-card>
 </ion-list>
 <ng-container *ngIf="articles.length > 0">
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

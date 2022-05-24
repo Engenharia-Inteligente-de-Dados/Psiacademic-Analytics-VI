@@ -1,6 +1,12 @@
-$list: primary, secondary, tertiary, tertiary, quaternary, fifth, success, warning, danger;
+$list: primary, secondary, tertiary, success, warning, danger;
 @each $color in $list {
   .#{$color}-toast {
     color: var(--ion-color-#{$color}-contrast) !important;
   }
+}
+
+.toast-header {
+  margin-bottom: 2px;
+  font-weight: 850;
+  line-height: 20px;
 }

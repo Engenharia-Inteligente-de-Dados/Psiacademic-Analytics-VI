@@ -1,0 +1,19 @@
+<nav class="nav">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="paginacao.pagina == 1">
+        <a class="page-link" (click)="changePage(paginacao.pagina = 1)">&laquo;</a>    <!-- Primeira página -->
+      </li>
+      <li class="page-item" [class.disabled]="paginacao.pagina == 1">
+        <a class="page-link" (click)="changePage(paginacao.pagina - 1)">Anterior</a>    <!-- Página anterior -->
+      </li>
+      <li class="page-item active">
+        <a class="page-link">{{ paginacao.pagina }}</a>
+      <li class="page-item">
+        <a class="page-link" (click)="changePage(paginacao.pagina + 1)">Próxima</a>    <!-- Próxima página -->
+      </li>
+      <li class="page-input">
+        <label for="">Limite:</label>
+        <input type="number" [formControl]="limitForm" placeholder="10">
+      </li>
+    </ul>
+</nav>

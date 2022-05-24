@@ -4,18 +4,19 @@
   padding: 0;
   border: 0;
   outline: 0;
-  background: var(--ion-color-background-primary);
   font-size: 100%;
   vertical-align: baseline;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-size: 100%;
-  color: var(--ion-text-color) !important;
+  color: var(--ion-text-color);
 }
 
 html,
 body {
   min-height: 100vh;
+  background: var( --background);
+
 }
 ol,
 ul {
@@ -30,7 +31,7 @@ height: auto;
 a{
   color: inherit;
 	text-decoration: none;
-  color: var(--ion-text-color) !important
+  color: var(--ion-text-color)
 }
 
 table{
@@ -54,4 +55,8 @@ table{
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(141, 141, 141, 0.727);
+}
+
+ion-content {
+  --ion-background-color: var(--background);
 }

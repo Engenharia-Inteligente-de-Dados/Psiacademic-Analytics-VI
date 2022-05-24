@@ -31,6 +31,17 @@ export class ApiResponseProvider {
         return msg;
       }
     }
+
+    async info(msg: string, header?: string, type:string='toast') {
+      if(type=='toast'){
+        const toast = this.toast(msg,'top','tertiary', header);
+        return toast;
+      }
+      else{
+        return msg;
+      }
+    }
+
     private async toast(message:string,position:any='top',color:string, header?:string, duration:number = 3000) {
       const toast = await this.toastController.create({
         header: header,

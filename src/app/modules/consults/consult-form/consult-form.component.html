@@ -1,0 +1,33 @@
+<div>
+  <form [formGroup]="formConsulta" (change)="emitForm($event)" (keyup)="emitForm($event)">
+    <ng-container *ngFor="let info of formInfo">
+      <div *ngIf="info.enabled">
+        <label>{{ info.label }}</label>
+        <ng-container *ngIf="info.type === 'select'; else elseTemplate">
+          <select [formControlName]="info.attr" (change)="filter(info.attr)">
+            <option
+              *ngFor="let option of options[info?.selectOptions]"
+              [value]="option?.value ? option?.value : option">
+              {{ option?.value ? option?.value : option }}
+            </option>
+          </select>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <input
+            [formControlName]="info.attr"
+            [type]="info.type"
+            [placeholder]="info.placeholder"
+          />
+        </ng-template>
+      </div>
+    </ng-container>
+  </form>
+</div>
+
+<!-- APAGAR TESTE -->
+<!-- <select [(ngModel)]="templateTipo" (change)="test()">
+  <option value="anos">anos</option>
+  <option value="expressoes">expressoes</option>
+  <option value="repositorios">repositorios</option>
+  <option value="transtornos">transtornos</option>
+</select> -->

@@ -1,0 +1,27 @@
+@for $number from 1 to 100{
+  .p-l-#{$number} {
+		padding-left: #{$number}px;
+  };
+};
+
+@for $number from 1 to 100{
+  .p-r-#{$number} {
+		padding-right: #{$number}px;
+  };
+};
+
+@for $number from 1 to 100{
+  .p-t-#{$number} {
+		padding-top: #{$number}px;
+  };
+};
+
+@for $number from 1 to 100{
+  .p-b-#{$number} {
+		padding-bottom: #{$number}px;
+  };
+};
+
+.p-auto {
+	padding: auto;
+};

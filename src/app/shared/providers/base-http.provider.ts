@@ -14,6 +14,7 @@ export class BaseHttpProvider {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'connection': 'keep-alive',
+      'Access-Control-Allow-Origin': '*',
     };
     const headers = {
       ...basicHeaders,
@@ -52,4 +53,34 @@ export class BaseHttpProvider {
   }
 
 
+  /***
+	 * @method paramsValidate serve para retornar os parametros de uma query.
+	 * Serve para caso tenha 1 ou mais requisitos para pesquisa/filtros
+	 * Exemplo : Pesquisar Atividade
+	 * @param values : recebe um array de objeto.
+	 * @returns Retorna o parametro parametrizado de acordo com @param values e o transforma em uma query.
+	 *  Exemplo: {name:"Atividade1"} retorna name=Atividade1
+	 */
+   public paramsValidate(values: any): string {
+    const valueObj:any = {}
+    if(Array.isArray(values)){
+      values.forEach((obj:any) => {
+        valueObj[obj?.key] = obj[obj.key]
+      })
+    return this.URLParams(valueObj)
+    }
+    else{
+      return this.URLParams(values)
+    }
+  }
+
+  private URLParams(valueObj: any): string {
+    const params = new URLSearchParams()
+    for (const key in valueObj) {
+			if (valueObj[key] !== '' && valueObj[key] !== 'undefined' && valueObj[key] != null) {
+				params.set(key, valueObj[key])
+			  }
+	  	}
+    return `?${params.toString()}`
+  }
 }

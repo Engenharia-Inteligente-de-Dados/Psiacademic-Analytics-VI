@@ -1,0 +1,118 @@
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ConsultsApiService } from './consults-api.service';
+import { IArticle } from '../articles/article.interfaces';
+import { IrequestMoreDataEvent } from '../../shared/components/search-result/search-result.interface';
+import { IPagination } from '../../shared/interfaces/pagination.interface';
+import { styleScrollbars } from 'src/app/shared/utils/customScroll';
+import { IConsulta, IOptionsSelectConsulta } from '../../shared/interfaces/consulta.interface';
+import { ApiResponseProvider } from '../../shared/providers/api-response.provider';
+import { ConsultType, ViewType } from '../../shared/enums/types.enums';
+import { LoadingProvider } from '../../shared/providers/loading.provider';
+import { ListasProvider } from 'src/app/shared/providers/listas.provider';
+
+@Component({
+  selector: 'app-consults',
+  templateUrl: './consults.component.html',
+  styleUrls: ['./consults.component.scss']
+})
+export class ConsultsComponent implements OnInit {
+
+  public tipo: string;
+  public options: IOptionsSelectConsulta = {
+    anosOptions: [],
+    transtornoOptions: [],
+    repositorioOptions: []
+  };
+  public articles: IArticle[];
+  public paginacao: IPagination
+  public form: IConsulta;
+  public loading: boolean = true;
+  constructor(
+    private route: ActivatedRoute,
+    private consultApi: ConsultsApiService,
+    private apiResponse: ApiResponseProvider,
+    private ref: ChangeDetectorRef,
+    private loadingProvider: LoadingProvider,
+    private listasProvider: ListasProvider
+    ) {
+    this.route.params.subscribe(params => {
+        this.tipo = params.tipo;
+        this.form = {}
+        this.articles = []
+        if(this.tipo == ConsultType.Transtornos){
+          this.apiResponse.info(`Ainda estamos mexendo nessa parte ok?`, `Em Desenvolvimento`);
+        }
+        console.log(this.tipo);
+        if(this.options.anosOptions.length === 0 || this.options.repositorioOptions.length === 0){
+        this.getListas()
+        }
+      });
+  }
+
+  ngOnInit(): void {
+    this.novaPesquisa()
+  }
+
+  async getListas(){
+    this.loading = true;
+    try{
+      const {anos,repositorios} = await this.listasProvider.getListas();
+      this.options.anosOptions = [];
+      this.options.repositorioOptions = [];
+      this.options.anosOptions = anos;
+      this.options.repositorioOptions = repositorios
+  }
+  catch(err){
+    this.apiResponse.error(`Erro ao buscar listas`);
+    console.log(`error`,err)
+  }finally{
+      this.loading = false;
+    }
+  }
+  async novaPesquisa(){
+    const param = this.form;
+    if(Object.keys(param).length == 0 ){
+      return
+    }
+    param['pagina'] = 1;
+    param[`limite`] = 10;
+    try {
+      const resp = await this.consultApi.consulta(param, this.tipo);
+      this.articles = resp.artigos;
+      this.paginacao = resp.paginacao;
+    } catch (error) {
+      console.log(`error`,error)
+    }
+  }
+
+  async requestMoreArticles(request: IrequestMoreDataEvent) {
+    const loading = request.viewType == ViewType.list ? await this.loadingProvider.loading() : null;
+    loading?.present();
+    this.ref.detectChanges();
+    console.log(request)
+    const param = this.form;
+    param['pagina'] = request.paginacao.pagina;
+    param[`limite`] = request.paginacao.limite;
+    try {
+      const resp = await this.consultApi.consulta(param, this.tipo);
+      if(request.viewType===ViewType.card){
+        this.articles = [...request.artigosAtuais, ...resp.artigos];
+        request.IonEvent.target.complete();
+      }else{
+        this.articles = resp.artigos;
+        loading.dismiss();
+
+      }
+      this.paginacao = resp.paginacao;
+    } catch (error) {
+      console.log(`error`,error)
+    }
+    this.ref.detectChanges();
+
+  }
+
+  formRecivie(form){
+    this.form = form;
+  }
+}

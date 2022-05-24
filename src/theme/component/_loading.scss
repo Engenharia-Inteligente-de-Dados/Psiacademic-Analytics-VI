@@ -1,0 +1,18 @@
+.custom-loading {
+  ion-backdrop{
+    background-color: rgba(0, 0, 0, 0.876);
+  }
+
+  .loading-wrapper {
+    border-radius: 15px;
+    height: 15%;
+
+    .loading-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+    }
+  }
+
+}

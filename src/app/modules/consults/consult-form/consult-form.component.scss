@@ -1,0 +1,55 @@
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+
+  div{
+    margin: 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    transition: ease-in-out 0.3s;
+
+    label {
+      display: block;
+      margin: 5px auto 5px 5px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--psi-color-cinza-step-800);
+    }
+    input,select,textarea {
+      display: block;
+      margin: auto;
+      font-size: 13px;
+      font-weight: 300;
+      border-bottom: 1px solid var(--psi-color-cinza-step-400);
+      color: var(--psi-color-cinza-step-800);
+      width: 12rem;
+      height: 2rem;
+      &::placeholder {
+        color: var(--psi-color-cinza-step-500);
+      }
+    }
+    small{
+      margin-top: 10px;
+      color: var(--ion-color-danger) !important;
+    }
+
+    &:focus-within {
+      border: 1px solid var(--ion-color-secondary-tint);
+    }
+  }
+}
+// display: block;
+// font-size: 13px;
+// font-weight: 300;
+// margin: -30px 0px 5px 0px;
+// border-bottom: 1px solid var(--psi-color-cinza-step-400);
+// color: var(--psi-color-cinza-step-800);
+// border: 1px solid black;
+// width: 12rem;
+// padding: 33px 0px 15px 20px;
+// height: 2rem;

@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { Ichart } from '../../interfaces/chart.interfaces';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef } from '@angular/core';
+import { IChart, IChartActions, Icharts } from '../../interfaces/chart.interfaces';
 import { ModalService } from '../../services/modal.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'psi-card-chart',
@@ -9,19 +9,36 @@ import { ModalService } from '../../services/modal.service';
   styleUrls: ['./card-chart.component.scss'],
 })
 export class CardChartComponent implements OnInit {
-  @Input() actions? = {
-    config: true,
-    expand: true,
+  @Input() actions?: IChartActions = {
+    config: false,
+    expand: false,
+    filter: {
+      inUse: false,
+    }
   };
-  @Input() chart: Ichart | undefined;
+  @Input() chart: IChart | undefined;
   @Input() index?: number;
   @Input() unique?: boolean = false;
   @Output() redirect = new EventEmitter();
+  @Output() filterEvent = new EventEmitter();
+  public filterControl:any;
+  constructor(
+    private modalSvc: ModalService,
+    private def: ChangeDetectorRef
+    ) {
 
+    }
 
-  constructor(private modalSvc: ModalService) {}
+  ngOnInit(): void {
+    this.filterControl = new FormControl(this.chart?.actions?.filter?.value);
 
-  ngOnInit(): void {}
+    this.def.detectChanges();
+  }
+
+  ngAfterViewInit(): void {
+    this.filterControl =  new FormControl(this.chart?.actions?.filter?.value);
+
+  }
 
   openConfig() {
     const modal = this.modalSvc.showConfig({});
@@ -30,4 +47,9 @@ export class CardChartComponent implements OnInit {
   expand() {
     this.redirect.emit();
   }
+
+  filter() {
+    this.filterEvent.emit({chart: this.chart, newValue: this.filterControl});
+  }
+
 }

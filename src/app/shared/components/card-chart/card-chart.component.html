@@ -15,12 +15,22 @@
     </div>
   </div>
   <div class="card_content" [ngClass]="{'max_content': unique}">
-    <psi-chart
-    [chartData]="chart?.chartData"
-    [chartType]="chart?.chartType"
-    [columnNames]="chart?.columnNames"
-    [options]="chart?.options"
-    >
-    </psi-chart>
+    <ng-container *ngIf="actions?.filter?.inUse">
+      <div class="card_content_form">
+        <label for="">Filtro :</label>
+        <select  [(ngModel)]="filterControl" (change)="filter()" >
+          <option  *ngFor="let option of actions.filter.options"  [value]="option">{{option}}</option>
+        </select>
+      </div>
+    </ng-container>
+    <div class="card_content_chart">
+      <psi-chart
+      [chartData]="chart?.chartData"
+      [chartType]="chart?.chartType"
+      [columnNames]="chart?.columnNames"
+      [options]="chart?.options"
+      >
+      </psi-chart>
+    </div>
   </div>
 </div>

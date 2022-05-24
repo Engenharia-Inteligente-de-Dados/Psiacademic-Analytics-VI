@@ -1,0 +1,12 @@
+
+.consult {
+  margin: auto 2rem auto 2rem;
+  justify-content: center;
+
+  &_form {
+    margin-bottom: 2rem;
+  }
+  &_content {
+    flex: 1;
+  }
+}

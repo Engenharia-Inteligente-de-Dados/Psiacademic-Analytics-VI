@@ -22,3 +22,11 @@ export interface IArticle {
     url: string
   }
 
+export interface IArticles {
+  artigos: IArticle[];
+  paginacao?: {
+    pagina?: number;
+    limite?: number;
+    total?: number;
+  };
+}
