@@ -102,9 +102,9 @@ export class ConsultsComponent implements OnInit {
       }else{
         this.articles = resp.artigos;
         loading.dismiss();
-
       }
       this.paginacao = resp.paginacao;
+      this.paginacao.total = this.articles.length;
     } catch (error) {
       console.log(`error`,error)
     }

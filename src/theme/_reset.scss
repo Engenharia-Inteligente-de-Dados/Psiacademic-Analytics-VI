@@ -48,13 +48,13 @@ table{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--psi-color-cinza-step-300);
+  background: rgba(0, 70, 199, 0.727);
   border-radius: 15px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(141, 141, 141, 0.727);
+  background: rgba(76, 150, 255, 0.727);
 }
 
 ion-content {

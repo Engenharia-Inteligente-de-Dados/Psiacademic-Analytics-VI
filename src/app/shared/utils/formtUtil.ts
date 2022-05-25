@@ -11,7 +11,6 @@ export function ordenaObjeto(objeto: Array<any>){
   });
 }
 
-
 export function percorrerArray(
   array: any[],
   keys: string[],
@@ -34,3 +33,15 @@ export function percorrerArray(
   });
   return chartData;
 }
+
+export function formtData(
+  array: any[],
+  keys: string[] = [],
+  defaultMessage: string = 'Não Definido'
+): any[] {
+  const arrayOrdenado = ordenaObjeto(array)
+  const chartData = percorrerArray(arrayOrdenado, keys, defaultMessage);
+  return chartData;
+}
+
+

@@ -1,13 +1,24 @@
 <nav class="nav">
     <ul class="pagination">
       <li class="page-item" [class.disabled]="paginacao.pagina == 1">
-        <a class="page-link" (click)="changePage(paginacao.pagina = 1)">&laquo;</a>    <!-- Primeira página -->
+          <a class="page-link" (click)="changePage(paginacao.pagina = 1)">&laquo;</a>
       </li>
       <li class="page-item" [class.disabled]="paginacao.pagina == 1">
         <a class="page-link" (click)="changePage(paginacao.pagina - 1)">Anterior</a>    <!-- Página anterior -->
       </li>
+
+      <li class="page-item" *ngIf="paginacao.pagina > 3">
+        <a class="page-link"  (click)="changePage(paginacao.pagina - 2)">{{ paginacao.pagina - 2 }}</a>
+      </li>
+      <li class="page-item" *ngIf="paginacao.pagina > 1">
+        <a class="page-link"  (click)="changePage(paginacao.pagina - 1)">{{ paginacao.pagina - 1 }}</a>
+      </li>
       <li class="page-item active">
-        <a class="page-link">{{ paginacao.pagina }}</a>
+        <a class="page-link">{{ paginacao.pagina}}</a>
+      </li>
+      <li class="page-item" [class.disabled]="paginacao.limite > paginacao.total">
+        <a class="page-link" (click)="changePage(paginacao.pagina + 1)">{{ paginacao.pagina + 1 }}</a>
+      </li>
       <li class="page-item">
         <a class="page-link" (click)="changePage(paginacao.pagina + 1)">Próxima</a>    <!-- Próxima página -->
       </li>

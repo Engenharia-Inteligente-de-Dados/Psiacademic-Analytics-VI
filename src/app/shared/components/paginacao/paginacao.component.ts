@@ -25,6 +25,9 @@ export class PaginacaoComponent implements OnInit {
   }
 
   changePage(page: number) {
+    if(this.paginacao.limite > this.paginacao.total || page === 0 || page === this.paginacao.pagina) {
+      return
+    }
     this.paginacao.pagina = page;
     this.paginaChange.emit(this.paginacao);
   }
