@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MAIN_ROUTES } from '../../../consts/routes.const';
+import { MAIN_ROUTES, MAIN_ROUTES_SUBROUTES } from '../../../consts/routes.const';
 
 @Component({
   selector: 'menu-lateral',
@@ -10,6 +10,7 @@ import { MAIN_ROUTES } from '../../../consts/routes.const';
 export class MenuLateralComponent implements OnInit {
 
   public routes = MAIN_ROUTES;
+  public subRt = MAIN_ROUTES_SUBROUTES;
   public activeSubRoutes = [];
   constructor(
     private router :Router,
@@ -35,5 +36,16 @@ export class MenuLateralComponent implements OnInit {
       {
       relativeTo:this.activeRoute,
     })
+  }
+
+  openItem(itemName) {
+    document.getElementById('section').style.display = "block";
+    var i, x, tablinks;
+    x = document.getElementsByClassName("item");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    document.getElementById(itemName).style.display = "block";
   }
 }

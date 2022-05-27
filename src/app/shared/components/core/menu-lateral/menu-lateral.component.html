@@ -1,37 +1,54 @@
-<div class="sidenav" *ngIf="routes?.length > 0">
+ <div class="sidenav" *ngIf="routes?.length > 0">
   <nav class="nav">
-    <ng-container *ngFor="let route of routes">
-      <ng-container *ngIf="route.inUse && route.icone === 'analytics-outline'">
-        <div [routerLink]="route.route"
-        [routerLinkActive]="['icon-active']"
-        [routerLinkActiveOptions]="{exact:
-          false}">
-          <ion-icon
-            name="analytics-outline"
-            size="large"
-          ></ion-icon>
-        </div>
-        </ng-container>
-      <ng-container *ngIf="route.inUse && route.icone === 'search-outline'">
-        <div>
-          <ion-icon
-            name="search-outline"
-            [routerLink]="route.route"
-            routerLinkActive="active"
+    <section>
+      <ng-container *ngFor="let route of routes">
+        <div style="width:130px">
+          <ng-container *ngIf="route.inUse && route.icone === 'analytics-outline'">
+            <div [routerLink]="route.route"
+            [routerLinkActive]="['icon-active']"
             [routerLinkActiveOptions]="{exact:
               false}"
-            size="large"
-          ></ion-icon>
+              class="tablink icon-active" (click)="openItem(route.label)">
+              <ion-icon
+                name="analytics-outline"
+                size="large"
+              ></ion-icon>
+            </div>
+            </ng-container>
+            <ng-container *ngIf="route.inUse && route.icone === 'search-outline'">
+              <div
+              class="tablink icon-active" (click)="openItem(route.label)">
+                <ion-icon
+                  name="search-outline"
+                  [routerLink]="route.route"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact:
+                    false}"
+                  size="large"
+                ></ion-icon>
+              </div>
+            </ng-container>
+              
         </div>
-        <ng-container *ngFor="let sub of route?.subRoutes">
-          <a
-            *ngIf="sub.inUse"
-            [routerLink]="sub.route"
-            routerLinkActive="active"
-            >{{ sub.label }}</a
-          >
-        </ng-container>
       </ng-container>
-    </ng-container>
+    </section>
+
+
+  <section id="section" style="display:none">
+    <ng-container *ngFor="let route of routes">
+    <div [id]="route.label" class="item" style="display:none" style="width:130px">
+      <ng-container *ngFor="let sub of subRt[route.label]">
+        
+        <a
+          *ngIf="sub.inUse"
+          [routerLink]="sub.route"
+          routerLinkActive="active"
+          >{{ sub.label }}</a
+        >
+      
+      </ng-container>
+    </div>
+  </ng-container>
+    </section>
   </nav>
 </div>

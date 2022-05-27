@@ -1,7 +1,7 @@
 .sidenav {
   position: fixed;
   height: 100%;
-  width: 120px;
+  width: 300px;
   z-index: 1;
   background-color: var(--psi-color-cinza-step-0);
   overflow-x: hidden;
@@ -12,20 +12,21 @@
 
 .nav{
   display: flex;
-  flex-direction: column;
-  margin: 20px 10px;
   justify-content: center;
   div {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
+    flex-direction: column;
     border: solid 1px transparent;
-    &:hover,.icon-active{
-      border: solid 1px var(--ion-color-primary);
-      transition: all 0.5s linear;
-      margin: 10px;
-      border-radius: 15px;
+
+    .icon-active {
+      &:hover {
+        border: solid 1px var(--ion-color-primary);
+        transition: all 0.5s linear;
+        border-radius: 15px;
+      }
     }
 
     ion-icon {

@@ -48,3 +48,41 @@ export const MAIN_ROUTES = [
     inUse:true,
   },
 ]
+
+export const MAIN_ROUTES_SUBROUTES = {
+  Consultas: [
+        {
+          label: 'Por Ano',
+          route: `consultas/${ConsultType.Anos}`,
+          inUse: true
+        },
+        {
+          label: 'Por Expressão',
+          route: `consultas/${ConsultType.Expressoes}`,
+          inUse: true
+        },
+        {
+          label: 'Por Repositorio',
+          route:  `consultas/${ConsultType.Repositorios}`,
+          inUse: true
+        },
+        {
+          label: 'Por Transtornos',
+          route:  `consultas/${ConsultType.Transtornos}`,
+          inUse: true
+        },
+        {
+          label: 'Avançada',
+          route:  `consultas/${ConsultType.Avancada}`,
+          inUse: true
+        },
+      ],
+      Analytcs: [
+        {
+          label: 'Teste',
+          route: `consultas/${ConsultType.Anos}`,
+          inUse: true
+        },
+       
+      ]
+    }
