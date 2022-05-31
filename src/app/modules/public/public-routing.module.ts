@@ -13,11 +13,6 @@ const routes: Routes = [
     component:PublicComponent,
     children:[
       {
-        path: 'search',
-        loadChildren: () =>
-         import('../articles/articles.module').then((r) => r.ArticlesModule),
-      },
-      {
         path: 'consultas/:tipo',
         loadChildren: () =>
          import('../consults/consults.module').then((r) => r.ConsultsModule),
@@ -29,7 +24,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'search',
+        redirectTo: 'analytics',
       }
     ]
   }

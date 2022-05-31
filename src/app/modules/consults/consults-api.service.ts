@@ -12,11 +12,11 @@ export class ConsultsApiService {
   constructor(private http: BaseHttpProvider) {}
 
   async consulta(params: IConsulta, tipo: string): Promise<IArticles> {
-
-    if (params.repositorio != `todos`) {
+    const todos = `todos`;
+    if (params.repositorio === `todos`) {
       delete params.repositorio;
     }
-    if (params.transtorno != `todos`) {
+    if (params.transtorno === `todos`) {
       delete params.transtorno;
     }
 

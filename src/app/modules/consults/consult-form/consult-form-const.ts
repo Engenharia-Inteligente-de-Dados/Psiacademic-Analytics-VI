@@ -13,7 +13,7 @@ export const FORM_GROUPS = {
     return {
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavras_chave: new FormControl(''),
+      palavraschave: new FormControl(''),
     };
   },
   repositorios: () => {
@@ -32,7 +32,7 @@ export const FORM_GROUPS = {
       anof: new FormControl(''),
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavras_chave: new FormControl(''),
+      palavraschave: new FormControl(''),
       transtorno: new FormControl(''),
       repositorio: new FormControl(''),
     };
