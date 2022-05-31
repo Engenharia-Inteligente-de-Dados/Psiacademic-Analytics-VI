@@ -25,11 +25,13 @@ export enum FormAtrributeConsult {
   Titulo = 'titulo',
   Resumo = 'resumo',
   PalavrasChaves = 'palavras_chaves',
-  PalavrasChave = 'palavras_chave',
+  PalavrasChave = 'palavraschave',
   Transtorno = 'transtorno',
   Repositorio = 'repositorio',
 }
-
+/**
+ * @description Tipos de Formularios
+ */
 export enum FormType {
   text = 'text',
   number = 'number',

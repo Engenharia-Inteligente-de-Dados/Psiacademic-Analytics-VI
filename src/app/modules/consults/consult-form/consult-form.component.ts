@@ -9,7 +9,7 @@ import {
 import { FormGroup } from '@angular/forms';
 import { FORM_TEMPLATE, FORM_GROUPS } from './consult-form-const';
 import { Input } from '@angular/core';
-import { ConsultTypeSelectOPtions, FormAtrributeConsult, ConsultType } from '../../../shared/enums/types.enums';
+import { ConsultTypeSelectOPtions, FormAtrributeConsult, ConsultType, FormType } from '../../../shared/enums/types.enums';
 import { IOptionsSelectConsulta } from 'src/app/shared/interfaces/consulta.interface';
 
 @Component({
@@ -40,21 +40,23 @@ export class ConsultFormComponent implements OnInit {
 
   setForm() {
     this.ready = false
+    const defaultOption = 0;
     try {
       const fun = FORM_GROUPS[this.templateTipo]();
       console.log(fun);
       this.formConsulta = new FormGroup(fun);
       this.formInfo = FORM_TEMPLATE[this.templateTipo]();
       this.formInfo.forEach(element => {
-        if(element.type === 'select'){
+        if(element.type === FormType.select){
           if((element.selectOptions === ConsultTypeSelectOPtions.anosOptionsI ) || (element.selectOptions === ConsultTypeSelectOPtions.anosOptionsF)){
             this.anosfull = this.options.anosOptions;
             this.options[element.selectOptions] = this.anosfull
-            this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[0]);
+            this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[defaultOption]);
           }
           else{
-            this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][0]);
+            this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][defaultOption]);
           }
+          this.emitForm();
         }
       });
       this.ready = true
@@ -68,7 +70,7 @@ export class ConsultFormComponent implements OnInit {
 
   }
 
-  emitForm(event:any){
+  emitForm(event?:any){
     this.emitFormEvent.emit(this.formConsulta.value);
   }
 
@@ -76,6 +78,8 @@ export class ConsultFormComponent implements OnInit {
     if(FormAtrributeConsult.AnoI === attr){
       const index = this.anosfull.findIndex(ano => Number(this.formConsulta.value.anoi) <= ano)
       this.formConsulta.controls[FormAtrributeConsult.AnoF].setValue(this.options[ConsultTypeSelectOPtions.anosOptionsF][index]);
+    return
     }
+    this.emitForm()
   }
 }

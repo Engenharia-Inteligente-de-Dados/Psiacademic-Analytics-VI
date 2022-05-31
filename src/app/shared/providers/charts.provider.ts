@@ -11,17 +11,18 @@ export class ChartProvider {
       return Math.floor(Math.random() * 1000);
     }
 
-    public createChart(configChart:IChart):IChart{
-      console.log(configChart)
+    public returnChartObj():IChart{
       return {
-        id: configChart.id || `${this.generateId()}`,
-        chartType: configChart.chartType,
-        chartData: configChart?.chartData || [],
-        options: configChart.options,
-        chartTitle: configChart.chartTitle || '',
-        columnNames: configChart.columnNames,
-        actions: configChart.actions,
-        ...configChart,
+        id: '',
+        chartTitle: '',
+        originalTitle: '',
+        chartData: [],
+        chartType: [],
+        columnNames: [] ,
+        options: {},
+        actions: {},
+        url: '',
+        keys: [],
       }
       }
 }
