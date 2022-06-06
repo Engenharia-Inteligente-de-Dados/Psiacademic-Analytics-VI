@@ -8,7 +8,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
   declarations: [],
   imports: [
     CommonModule,
-    DashboardModule
-  ]
+    DashboardModule,
+  ],
 })
 export class AnalyticsModule { }

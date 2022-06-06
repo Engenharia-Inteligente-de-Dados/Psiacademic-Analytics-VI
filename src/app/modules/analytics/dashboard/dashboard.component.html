@@ -1,1 +1,47 @@
-<p>Dashboard Works</p>
+<ng-container *ngIf="!loading">
+  <div class="flex flex-wrap">
+    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
+      <app-card [title]="Charts[TrabalhosEmAnosPorRepositorio].Title">
+        <select-auto-complet
+          [options]="
+            Charts[TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Options
+          "
+          [selectedDefault]="
+            Charts[TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Value
+          "
+          (optionChange)="filter($event, Charts[TrabalhosEmAnosPorRepositorio],TrabalhosEmAnosPorRepositorio)"
+        >
+        </select-auto-complet>
+        <chart
+          body
+          [chart]="Charts[TrabalhosEmAnosPorRepositorio]?.Chart"
+          [id]="Charts[TrabalhosEmAnosPorRepositorio]?.Id"
+          *ngIf="!Charts[TrabalhosEmAnosPorRepositorio].Loading"
+
+        ></chart>
+      </app-card>
+    </div>
+    <div class="w-full xl:w-6/12 px-4 ">
+      <app-card [title]="Charts[TrabalhosPorRepositorios].Title" [colorBg]="'bg-white'" [textColor]="'text-coolGray-700'">
+        <chart
+          body
+          [chart]="Charts[TrabalhosPorRepositorios]?.Chart"
+          [id]="Charts[TrabalhosPorRepositorios]?.Id"
+        ></chart>
+      </app-card>
+    </div>
+  </div>
+  <div class="flex flex-wrap mt-4">
+    <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
+      <app-card [title]="Charts[TotalAnos].Title" [colorBg]="'bg-white'" [textColor]="'text-coolGray-700'">
+        <chart
+          body
+          [chart]="Charts[TotalAnos]?.Chart"
+          [id]="Charts[TotalAnos]?.Id"
+        ></chart>
+      </app-card>    </div>
+    <div class="w-full xl:w-4/12 px-4">
+      <!-- <app-card-social-traffic></app-card-social-traffic> -->
+    </div>
+  </div>
+</ng-container>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PublicRoutingModule } from './public-routing.module';
 import { PublicComponent } from './public.component';
 import { SidebarModule } from '../../shared/components/core/sidebar/sidebar.module';
+import { HeaderModule } from '../../shared/components/core/header/header.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SidebarModule } from '../../shared/components/core/sidebar/sidebar.modu
   imports: [
     CommonModule,
     PublicRoutingModule,
-    SidebarModule
+    SidebarModule,
+    HeaderModule,
   ]
 })
 export class PublicModule { }

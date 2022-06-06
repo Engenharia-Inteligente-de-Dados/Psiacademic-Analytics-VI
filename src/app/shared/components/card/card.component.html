@@ -1,0 +1,19 @@
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded "
+  [ngClass]="colorBg"
+  >
+  <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full max-w-full flex-grow flex-1">
+        <h6 class="uppercase mb-1 text-2xl font-semibold" [ngClass]="textColor">
+          {{ title }}
+        </h6>
+        <h2 class="text-xl font-semibold" [ngClass]="textColor">{{ subTitle }}</h2>
+      </div>
+      <ng-content #actions></ng-content>
+    </div>
+  </div>
+  <div class="p-4 flex-auto">
+    <ng-content #body></ng-content>
+  </div>
+</div>
