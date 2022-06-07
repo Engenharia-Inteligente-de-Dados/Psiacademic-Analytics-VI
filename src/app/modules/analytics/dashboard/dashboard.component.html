@@ -1,7 +1,7 @@
 <ng-container *ngIf="!loading">
   <div class="flex flex-wrap">
     <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
-      <app-card [title]="Charts[TrabalhosEmAnosPorRepositorio].Title">
+      <app-card [title]="Charts[TrabalhosEmAnosPorRepositorio].Title" [colorBg]="'bg-slate-700'" [textColor]="'text-slate-100'">
         <select-auto-complet
           [options]="
             Charts[TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Options
@@ -22,7 +22,7 @@
       </app-card>
     </div>
     <div class="w-full xl:w-6/12 px-4 ">
-      <app-card [title]="Charts[TrabalhosPorRepositorios].Title" [colorBg]="'bg-white'" [textColor]="'text-coolGray-700'">
+      <app-card [title]="Charts[TrabalhosPorRepositorios].Title" >
         <chart
           body
           [chart]="Charts[TrabalhosPorRepositorios]?.Chart"
@@ -33,7 +33,7 @@
   </div>
   <div class="flex flex-wrap mt-4">
     <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
-      <app-card [title]="Charts[TotalAnos].Title" [colorBg]="'bg-white'" [textColor]="'text-coolGray-700'">
+      <app-card [title]="Charts[TotalAnos].Title">
         <chart
           body
           [chart]="Charts[TotalAnos]?.Chart"

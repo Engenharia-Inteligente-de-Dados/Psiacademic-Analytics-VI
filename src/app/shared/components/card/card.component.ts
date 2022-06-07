@@ -8,8 +8,8 @@ import { Component, ContentChild, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
   @Input() title: string;
   @Input() subTitle: string;
-  @Input() colorBg?: string = 'bg-slate-700';
-  @Input() textColor?: string = 'text-slate-100';
+  @Input() colorBg?: string = `bg-white`;
+  @Input() textColor?: string = 'text-coolGray-700';
 
 
   constructor() { }
