@@ -89,52 +89,28 @@
             </a>
 
             <a
-              *ngSwitchCase="'#menuConsultasExpressao'"
-              [routerLink]="sub.Route"
-              class="text-xs uppercase py-3 font-bold block"
-              routerLinkActive
-              #menuConsultasExpressao="routerLinkActive"
+            *ngSwitchCase="'#menuConsultasAno'"
+            [routerLink]="sub.Route"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #menuConsultasAno="routerLinkActive"
+            [ngClass]="
+            menuConsultasAno.isActive
+                ? 'text-blue-600 hover:text-blue-700'
+                : 'text-slate-700 hover:text-slate-500'
+            "
+          >
+            <i
+              class="mr-2 text-sm"
               [ngClass]="
-                menuConsultasExpressao.isActive
-                  ? 'text-blue-600 hover:text-blue-700'
-                  : 'text-slate-700 hover:text-slate-500'
+                sub.Icon || {
+                  'opacity-75': menuConsultasAno.isActive,
+                  'opacity-50': !menuConsultasAno.isActive
+                }
               "
-            >
-              <i
-                class="mr-2 text-sm"
-                [ngClass]="
-                  sub.Icon || {
-                    'opacity-75': menuConsultasExpressao.isActive,
-                    'opacity-50': !menuConsultasExpressao.isActive
-                  }
-                "
-              ></i>
-              {{ sub.Label }}
-            </a>
-
-            <a
-              *ngSwitchCase="'#menuConsultasExpressao'"
-              [routerLink]="sub.Route"
-              class="text-xs uppercase py-3 font-bold block"
-              routerLinkActive
-              #menuConsultasExpressao="routerLinkActive"
-              [ngClass]="
-                menuConsultasExpressao.isActive
-                  ? 'text-blue-600 hover:text-blue-700'
-                  : 'text-slate-700 hover:text-slate-500'
-              "
-            >
-              <i
-                class="mr-2 text-sm"
-                [ngClass]="
-                  sub.Icon || {
-                    'opacity-75': menuConsultasExpressao.isActive,
-                    'opacity-50': !menuConsultasExpressao.isActive
-                  }
-                "
-              ></i>
-              {{ sub.Label }}
-            </a>
+            ></i>
+            {{ sub.Label }}
+          </a>
 
             <a
               *ngSwitchCase="'#menuConsultasExpressao'"
