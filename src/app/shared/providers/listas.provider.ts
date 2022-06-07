@@ -8,7 +8,6 @@ export class ListasProvider {
   listaRepositorios: any[] = [];
 
   constructor(private http: BaseHttpProvider) {
-    this.getListas();
   }
 
   async getListas(): Promise<any> {

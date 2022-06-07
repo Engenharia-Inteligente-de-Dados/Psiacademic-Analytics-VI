@@ -1,0 +1,10 @@
+<div class="flex flex-wrap h-max">
+  <div class="w-full mb-12 xl:mb-0 px-4">
+    <app-card [title]="Title" *ngIf="!loading">
+      <consults-form
+      [templateTipo]="tipo"
+      [options] = "options"
+      actions></consults-form>
+    </app-card>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="w-full max-w-lg" *ngIf="ready">
+  <form
+    class="flex flex-wrap -mx-3 mb-6"
+    [formGroup]="formConsulta"
+    (change)="emitForm()"
+    (keyup)="emitForm()"
+  >
+    <ng-container *ngFor="let form of formTemplate">
+      <div class="w-1/2 block justify-between px-3 mb-6 md:mb-0 mt-4" *ngIf="form.enabled">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          >{{ form.label }}</label
+        >
+        <ng-container *ngIf="form.type === 'select'; else elseTemplate">
+          <select
+            class="px-2 py-1 placeholder-slate-300
+             text-slate-600
+             relative \
+             bg-white rounded
+             text-sm shadow
+             outline-none
+             focus:outline-none
+             focus:shadow-outline
+             w-full pr-10"
+            [formControlName]="form.attr"
+            (change)="filter(form.attr)"
+          >
+            <option
+              *ngFor="let option of options[form?.selectOptions]"
+              [value]="option"
+            >
+              {{ option }}
+            </option>
+          </select>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <input
+            class="appearance-none block w-full text-slate-600 border rounded px-2 py-1 mb-3 leading-tight focus:outline-none focus:bg-white"
+            [formControlName]="form.attr"
+            [type]="form.type"
+            [placeholder]="form.placeholder"
+          />
+        </ng-template>
+      </div>
+    </ng-container>
+  </form>
+</div>
+
+<!-- APAGAR TESTE -->
+<!-- <select [(ngModel)]="templateTipo" (change)="test()">
+  <option value="anos">anos</option>
+  <option value="expressoes">expressoes</option>
+  <option value="repositorios">repositorios</option>
+  <option value="transtornos">transtornos</option>
+</select> -->
