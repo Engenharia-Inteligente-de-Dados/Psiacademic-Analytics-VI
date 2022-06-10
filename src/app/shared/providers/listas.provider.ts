@@ -27,11 +27,11 @@ export class ListasProvider {
   }
 
   async getAnos(): Promise<any> {
-    return await this.http.get(`${API}/total/ano`);
+    return await this.http.get(`${API}/lista/anos`);
   }
 
   async getRepositorios(): Promise<any> {
-    return await this.http.get(`${API}/total/repositorio`);
+    return await this.http.get(`${API}/lista/repositorios`);
   }
 
 
