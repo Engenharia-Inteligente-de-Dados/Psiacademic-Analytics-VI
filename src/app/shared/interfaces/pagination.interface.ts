@@ -1,7 +1,7 @@
 export interface IPagination {
-  pagina?: number,
+  pagina: number,
   proxima?: number,
   anterior?: number,
-  limite?: number,
-  total?: number
+  limite: number,
+  total: number
 }

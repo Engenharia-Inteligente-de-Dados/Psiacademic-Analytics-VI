@@ -20,12 +20,24 @@ export class ConsultsComponent implements OnInit {
     transtornoOptions: [],
     repositorioOptions: [],
   };
-  public articles: any[];
+  public artigos: any[];
   public tipo: ConsultaType;
   public loading: boolean;
   public form: any = {};
-  public paginacao: IPagination
+  public paginacao: IPagination = {limite:10, pagina:1, total:0}
+  private _controleNovaPesquisa = false
 
+  public readonly atributosTabela = [
+    { label: 'Título', key: 'titulo', primeiro: true },
+    { label: 'Autores', key: 'autores' },
+    // { label: 'Resumo', key: 'resumo' },
+    { label: 'Repositório', key: 'repositorio' },
+    { label: 'Tipo do Trabalho', key: 'tipo' },
+    {label: 'Ações', key: 'actions', acoes:[
+      {label: 'Detalhes', icon: 'fas fa-info-circle', id: 1},
+      {label: 'Download', icon: 'fas fa-external-link', id: 2},
+    ]},
+  ]
   constructor(
     private route: ActivatedRoute,
     private consultApi: ConsultsApiService,
@@ -33,9 +45,8 @@ export class ConsultsComponent implements OnInit {
   ) {
     this.route.params.subscribe((params) => {
       this.tipo = params.tipo;
+      this.reset()
       this.trataTitle();
-      this.articles = [];
-      console.log(this.tipo);
       if (this.tipo == ConsultaType.Transtornos) {
         console.info(
           `Ainda estamos mexendo nessa parte ok?`,
@@ -65,18 +76,32 @@ export class ConsultsComponent implements OnInit {
 
   async novaPesquisa(){
     const param = this.form;
-    if(Object.keys(param).length == 0 ){
-      return
+    if(this._controleNovaPesquisa){
+    return;
     }
-    param['pagina'] = 1;
-    param[`limite`] = 10;
+    this._controleNovaPesquisa = true;
+    param['pagina'] = this.paginacao.pagina;
+    param[`limite`] = this.paginacao.limite;
     try {
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.articles = resp.artigos;
+      this.artigos = resp.artigos;
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
+    } finally {
+      this._controleNovaPesquisa = false;
     }
+  }
+
+  recivieForm(form:any){
+    this.reset();
+    this.form = form;
+    this.novaPesquisa();
+  }
+
+  requestMore(event){
+    this.paginacao = {...event}
+    this.novaPesquisa();
   }
 
   private trataTitle(){
@@ -85,5 +110,13 @@ export class ConsultsComponent implements OnInit {
     }else{
       this.Title = this.genericTitle.replace('{0}', ConsultTitle[this.tipo]);
     }
+  }
+
+  private reset(){
+    this.form = {};
+    this.artigos = [];
+    this.paginacao.limite = 10;
+    this.paginacao.pagina = 1;
+    this.paginacao.total = 0
   }
 }

@@ -20,7 +20,9 @@ export class ConsultsFormComponent implements OnInit {
   public ready = false
   constructor(
     private ref: ChangeDetectorRef
-    ) { }
+    ) {
+      console.log('consult form')
+    }
 
   ngOnInit(): void {
     this.setForm();

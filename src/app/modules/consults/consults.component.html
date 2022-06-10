@@ -2,9 +2,17 @@
   <div class="w-full mb-12 xl:mb-0 px-4">
     <card [title]="Title" *ngIf="!loading">
       <consults-form
-      [templateTipo]="tipo"
-      [options] = "options"
-      actions></consults-form>
+        [templateTipo]="tipo"
+        [options]="options"
+        (emitForm)="recivieForm($event)"
+        actions
+      ></consults-form>
+      <ng-container *ngIf="artigos.length > 0">
+        <tabela [campos]="atributosTabela" [linhas]="artigos" body></tabela>
+        <paginacao
+        [paginacao]="paginacao"
+        (paginaChange)=requestMore($event)></paginacao>
+      </ng-container>
     </card>
   </div>
 </div>
