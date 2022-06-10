@@ -42,11 +42,11 @@ export class ConsultsApiService {
   }
 
   async expressoes(param: string): Promise<any> {
-    return await this.http.get(`${API}/expressao/${param}`);
+    return await this.http.get(`${API}/expressao/resumo_titulo${param}`);
   }
 
   async transtornos(param: string): Promise<any> {
-    return await this.http.get(`${API}/expressao/${param}`, );
+    return await this.http.get(`${API}/transtornos/${param}`, );
   }
 
   async repositorios(param: string): Promise<any> {
