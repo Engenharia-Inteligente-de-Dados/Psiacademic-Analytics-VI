@@ -62,8 +62,8 @@ export class ConsultsComponent implements OnInit {
   ngOnInit(): void {}
 
   async getListas() {
-    this.loading = true;
     try {
+      this.loading = true;
       const { anos, repositorios } = await this.listasProvider.getListas();
       this.options.anosOptions = [];
       this.options.repositorioOptions = [];
@@ -81,11 +81,11 @@ export class ConsultsComponent implements OnInit {
     if(this._controleNovaPesquisa){
     return;
     }
-    this.loadingTable = true;
     this._controleNovaPesquisa = true;
     param['pagina'] = this.paginacao.pagina;
     param[`limite`] = this.paginacao.limite;
     try {
+      this.loadingTable = true;
       const resp = await this.consultApi.consulta(param, this.tipo);
       this.artigos = resp.artigos;
       this.paginacao = resp.paginacao;
