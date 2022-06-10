@@ -23,6 +23,8 @@ export class ConsultsComponent implements OnInit {
   public artigos: any[];
   public tipo: ConsultaType;
   public loading: boolean;
+  public loadingTable: boolean;
+
   public form: any = {};
   public paginacao: IPagination = {limite:10, pagina:1, total:0}
   private _controleNovaPesquisa = false
@@ -79,6 +81,7 @@ export class ConsultsComponent implements OnInit {
     if(this._controleNovaPesquisa){
     return;
     }
+    this.loadingTable = true;
     this._controleNovaPesquisa = true;
     param['pagina'] = this.paginacao.pagina;
     param[`limite`] = this.paginacao.limite;
@@ -90,6 +93,7 @@ export class ConsultsComponent implements OnInit {
       console.log(`error`,error)
     } finally {
       this._controleNovaPesquisa = false;
+      this.loadingTable = false;
     }
   }
 

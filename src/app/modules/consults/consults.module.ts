@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { TableModule } from '../../shared/components/table/table.module';
 import { PaginacaoModule } from '../../shared/components/paginacao/paginacao.module';
+import { LoadingsModule } from 'src/app/shared/components/loadings/loadings.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PaginacaoModule } from '../../shared/components/paginacao/paginacao.mod
     ReactiveFormsModule,
     CardModule,
     TableModule,
-    PaginacaoModule
+    PaginacaoModule,
+    LoadingsModule
 
   ]
 })

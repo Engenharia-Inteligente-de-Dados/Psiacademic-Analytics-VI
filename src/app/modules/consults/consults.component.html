@@ -7,12 +7,15 @@
         (emitForm)="recivieForm($event)"
         actions
       ></consults-form>
-      <ng-container *ngIf="artigos.length > 0">
+      <ng-container *ngIf="artigos.length > 0 && !loadingTable">
         <tabela [campos]="atributosTabela" [linhas]="artigos" body></tabela>
         <paginacao
         [paginacao]="paginacao"
         (paginaChange)=requestMore($event)></paginacao>
       </ng-container>
+      <spinner [loading]="loadingTable"></spinner>
     </card>
+    <spinner [loading]="loading"></spinner>
+
   </div>
 </div>
