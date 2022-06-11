@@ -56,7 +56,6 @@ export class ConsultsFormComponent implements OnInit {
       this.formConsulta.controls[FormAtrributeConsult.AnoF].setValue(this.options[ConsultTypeSelectOPtions.anosOptionsF][index]);
     return
     }
-    this.emitForm()
   }
 
 
@@ -84,7 +83,6 @@ export class ConsultsFormComponent implements OnInit {
           }
         }
       });
-      this.emitForm();
       this.ready = true
     } catch (error) {
       console.log(error)

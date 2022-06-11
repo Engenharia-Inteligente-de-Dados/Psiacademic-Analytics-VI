@@ -65,7 +65,7 @@
                       'text-sky-400': light,
                       'text-white': !light
                     }"
-                  (click)="emitAcao(linha, acao.id)"
+                  (click)="emitAcao(acao.id,linha)"
                 >
                   <i [ngClass]="acao.icon"></i>
                 </button>

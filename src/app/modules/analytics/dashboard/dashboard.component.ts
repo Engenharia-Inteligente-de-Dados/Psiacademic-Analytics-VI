@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
   async totalTrabalhosPorRepositorios() {
     const chart = TOTAL_TRABALHOS_REP_CHART;
     try {
-      const resp = await this.listasProvider.getRepositorios();
+      const resp = await this.analyticsApi.getRepositorios();
       const { labels, values } = formtData(resp, chart.Keys);
       chart.Chart.data.labels = labels;
       chart.Chart.data.datasets.push({
@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit {
   async totalAnos() {
     const chart = TOTAL_TRABALHOS_ANOS;
     try {
-      const resp = await this.listasProvider.getAnos();
+      const resp = await this.analyticsApi.getAnos();
       const { labels, values } = formtData(resp, chart.Keys);
       chart.Chart.data.labels = labels;
       chart.Chart.data.datasets.push({

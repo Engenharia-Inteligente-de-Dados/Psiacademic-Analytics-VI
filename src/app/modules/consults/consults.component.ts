@@ -20,7 +20,7 @@ export class ConsultsComponent implements OnInit {
     transtornoOptions: [],
     repositorioOptions: [],
   };
-  public artigos: any[];
+  public trabalhos: any[];
   public tipo: ConsultaType;
   public loading: boolean;
   public loadingTable: boolean;
@@ -37,7 +37,7 @@ export class ConsultsComponent implements OnInit {
     { label: 'Tipo do Trabalho', key: 'tipo' },
     {label: 'Ações', key: 'actions', acoes:[
       {label: 'Detalhes', icon: 'fas fa-info-circle', id: 1},
-      {label: 'Download', icon: 'fas fa-external-link', id: 2},
+      {label: 'Abrir', icon: 'fas fa-external-link', id: 2},
     ]},
   ]
   constructor(
@@ -87,7 +87,7 @@ export class ConsultsComponent implements OnInit {
     try {
       this.loadingTable = true;
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.artigos = resp.artigos;
+      this.trabalhos = resp.trabalhos;
       this.paginacao = resp.paginacao;
     } catch (error) {
       console.log(`error`,error)
@@ -108,6 +108,25 @@ export class ConsultsComponent implements OnInit {
     this.novaPesquisa();
   }
 
+  trataEvento({acao,linha}){
+    switch(acao){
+      case 1:
+      this.openModal(linha);
+      break;
+      case 2:
+        this.openUrl(linha);
+      break;
+    }
+}
+
+  openUrl(linha:any){
+    const{url} = linha;
+    window.open(url, '_blank');
+  }
+
+  openModal(trabalho:any){
+    console.log(trabalho)
+  }
   private trataTitle(){
     if(this.tipo === ConsultaType.Avancada) {
       this.Title = this.avancadaTitle;
@@ -118,7 +137,7 @@ export class ConsultsComponent implements OnInit {
 
   private reset(){
     this.form = {};
-    this.artigos = [];
+    this.trabalhos = [];
     this.paginacao.limite = 10;
     this.paginacao.pagina = 1;
     this.paginacao.total = 0
