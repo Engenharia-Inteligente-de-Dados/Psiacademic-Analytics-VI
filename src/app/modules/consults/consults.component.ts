@@ -36,8 +36,10 @@ export class ConsultsComponent implements OnInit {
     { label: 'Repositório', key: 'repositorio' },
     { label: 'Tipo do Trabalho', key: 'tipo' },
     {label: 'Ações', key: 'actions', acoes:[
-      {label: 'Detalhes', icon: 'fas fa-info-circle', id: 1},
-      {label: 'Abrir', icon: 'fas fa-external-link', id: 2},
+      {label: 'Detalhes do trabalho', icon: 'fas fa-info-circle',
+      classIcon:'hover:text-sky-700 text-sky-400', id: 1},
+      {label: 'Abrir Referencia do trabalho', icon: 'fas fa-external-link',
+      classIcon:'hover:text-sky-700 text-sky-400', id: 2},
     ]},
   ]
   constructor(

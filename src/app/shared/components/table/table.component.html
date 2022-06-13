@@ -14,6 +14,12 @@
         </h3>
       </div>
     </div>
+    <div class="flex flex-wrap items-start">
+      <button class="outline-none border-0 border-transparent cursor-auto" aria-label="Legendas" #legendasBtnRef (click)="toggle()">
+        <i class="fas fa-question-circle text-blue-500"></i>
+          Legendas
+      </button>
+    </div>
   </div>
   <div class="flex w-full overflow-x-auto">
     <!-- Projects table -->
@@ -59,12 +65,8 @@
             <span *ngSwitchCase="'actions'" class="flex justify-center">
               <ng-container *ngFor="let acao of campo.acoes">
                 <button
-                  class="px-2 py-1 text-xl font-medium hover:text-sky-700 focus:outline-none focus:shadow-outline"
-                  [ngClass]="
-                    {
-                      'text-sky-400': light,
-                      'text-white': !light
-                    }"
+                  class="px-2 py-1 text-xl font-medium focus:outline-none focus:shadow-outline"
+                  [ngClass]=" light ? acao.classIcon: 'text-white hover:text-cyan-200'"
                   (click)="emitAcao(acao.id,linha)"
                 >
                   <i [ngClass]="acao.icon"></i>
