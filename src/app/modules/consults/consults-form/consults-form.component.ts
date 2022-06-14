@@ -68,7 +68,7 @@ export class ConsultsFormComponent implements OnInit {
   private trataAnos(){
     const TODOS = `Todos`
     const find = this.options.anosOptions.findIndex(ano => ano === TODOS)
-    if(find>0){
+    if(find>=0){
       this.options.anosOptions.splice(find, 1);
     }
     return {
