@@ -9,12 +9,14 @@ import { CardModule } from 'src/app/shared/components/card/card.module';
 import { TableModule } from '../../shared/components/table/table.module';
 import { PaginacaoModule } from '../../shared/components/paginacao/paginacao.module';
 import { LoadingsModule } from 'src/app/shared/components/loadings/loadings.module';
-
+import { TrabalhoInfoComponent } from './trabalho-info/trabalho-info.component';
+import { InlineAutoresModule } from '../../shared/pipes/inlineAutores/inline-autores.module';
 
 @NgModule({
   declarations: [
     ConsultsComponent,
-    ConsultsFormComponent
+    ConsultsFormComponent,
+    TrabalhoInfoComponent,
   ],
   imports: [
     CommonModule,
@@ -24,8 +26,8 @@ import { LoadingsModule } from 'src/app/shared/components/loadings/loadings.modu
     CardModule,
     TableModule,
     PaginacaoModule,
-    LoadingsModule
-
-  ]
+    LoadingsModule,
+    InlineAutoresModule,
+  ],
 })
-export class ConsultsModule { }
+export class ConsultsModule {}

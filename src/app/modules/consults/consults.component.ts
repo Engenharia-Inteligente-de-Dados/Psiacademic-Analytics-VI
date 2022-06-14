@@ -5,6 +5,7 @@ import { IOptionsSelectConsulta } from 'src/app/shared/interfaces/opcoes-select-
 import { IPagination } from 'src/app/shared/interfaces/pagination.interface';
 import { ListasProvider } from 'src/app/shared/providers/listas.provider';
 import { ConsultsApiService } from './consults-api.service';
+import { ITrabalho } from '../../shared/interfaces/trabalhos.interface';
 
 @Component({
   selector: 'app-consults',
@@ -26,22 +27,35 @@ export class ConsultsComponent implements OnInit {
   public loadingTable: boolean;
 
   public form: any = {};
-  public paginacao: IPagination = {limite:10, pagina:1, total:0}
-  private _controleNovaPesquisa = false
-
+  public paginacao: IPagination = { limite: 10, pagina: 1, total: 0 };
+  private _controleNovaPesquisa = false;
+  public showModal = false;
+  public trabalho: ITrabalho;
   public readonly atributosTabela = [
     { label: 'Título', key: 'titulo', primeiro: true },
     { label: 'Autores', key: 'autores' },
     // { label: 'Resumo', key: 'resumo' },
     { label: 'Repositório', key: 'repositorio' },
     { label: 'Tipo do Trabalho', key: 'tipo' },
-    {label: 'Ações', key: 'actions', acoes:[
-      {label: 'Detalhes do trabalho', icon: 'fas fa-info-circle',
-      classIcon:'hover:text-sky-700 text-sky-400', id: 1},
-      {label: 'Abrir Referencia do trabalho', icon: 'fas fa-external-link',
-      classIcon:'hover:text-sky-700 text-sky-400', id: 2},
-    ]},
-  ]
+    {
+      label: 'Ações',
+      key: 'actions',
+      acoes: [
+        {
+          label: 'Detalhes do trabalho',
+          icon: 'fas fa-info-circle',
+          classIcon: 'hover:text-sky-700 text-sky-400',
+          id: 1,
+        },
+        {
+          label: 'Abrir Referencia do trabalho',
+          icon: 'fas fa-external-link',
+          classIcon: 'hover:text-sky-700 text-sky-400',
+          id: 2,
+        },
+      ],
+    },
+  ];
   constructor(
     private route: ActivatedRoute,
     private consultApi: ConsultsApiService,
@@ -49,7 +63,7 @@ export class ConsultsComponent implements OnInit {
   ) {
     this.route.params.subscribe((params) => {
       this.tipo = params.tipo;
-      this.reset()
+      this.reset();
       this.trataTitle();
       if (this.tipo == ConsultaType.Transtornos) {
         console.info(
@@ -78,10 +92,10 @@ export class ConsultsComponent implements OnInit {
     }
   }
 
-  async pesquisar(){
+  async pesquisar() {
     const param = this.form;
-    if(this._controleNovaPesquisa){
-    return;
+    if (this._controleNovaPesquisa) {
+      return;
     }
     this._controleNovaPesquisa = true;
     param['pagina'] = this.paginacao.pagina;
@@ -92,56 +106,63 @@ export class ConsultsComponent implements OnInit {
       this.trabalhos = resp.trabalhos;
       this.paginacao = resp.paginacao;
     } catch (error) {
-      console.log(`error`,error)
+      console.log(`error`, error);
     } finally {
       this._controleNovaPesquisa = false;
       this.loadingTable = false;
     }
   }
 
-  recivieForm(form:any){
+  recivieForm(form: any) {
     this.reset();
     this.form = form;
     this.pesquisar();
   }
 
-  requestMore(event){
-    this.paginacao = {...event}
+  requestMore(event) {
+    this.paginacao = { ...event };
     this.pesquisar();
   }
 
-  trataEvento({acao,linha}){
-    switch(acao){
+  trataEvento({ acao, linha }) {
+    switch (acao) {
       case 1:
-      this.openModal(linha);
-      break;
+        this.openModal(linha);
+        break;
       case 2:
         this.openUrl(linha);
-      break;
+        break;
     }
-}
+  }
 
-  openUrl(linha:any){
-    const{url} = linha;
+  openUrl(linha: any) {
+    const { url } = linha;
     window.open(url, '_blank');
   }
 
-  openModal(trabalho:any){
-    console.log(trabalho)
+  openModal(trabalho: ITrabalho) {
+    console.log(trabalho);
+    this.showModal = !this.showModal;
+    this.trabalho = trabalho;
   }
-  private trataTitle(){
-    if(this.tipo === ConsultaType.Avancada) {
+
+  closeModal(close: boolean) {
+    this.showModal = !this.showModal;
+    this.trabalho = null;
+  }
+  private trataTitle() {
+    if (this.tipo === ConsultaType.Avancada) {
       this.Title = this.avancadaTitle;
-    }else{
+    } else {
       this.Title = this.genericTitle.replace('{0}', ConsultTitle[this.tipo]);
     }
   }
 
-  private reset(){
+  private reset() {
     this.form = {};
     this.trabalhos = [];
     this.paginacao.limite = 10;
     this.paginacao.pagina = 1;
-    this.paginacao.total = 0
+    this.paginacao.total = 0;
   }
 }

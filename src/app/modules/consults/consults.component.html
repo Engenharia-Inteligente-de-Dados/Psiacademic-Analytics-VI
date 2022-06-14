@@ -26,3 +26,6 @@
     <spinner [loading]="loading"></spinner>
   </div>
 </div>
+<ng-container *ngIf="showModal">
+  <trabalho-info [trabalho]="trabalho" (dismiss)="closeModal($event)"></trabalho-info>
+</ng-container>
