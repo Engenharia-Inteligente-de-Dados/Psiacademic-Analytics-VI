@@ -18,6 +18,9 @@ export class ConsultsApiService {
     if (params.transtorno === todos) {
       delete params.transtorno;
     }
+    if (params.anos) {
+      delete params.anos;
+    }
 
     const param = paramsValidate(params);
     if (tipo === ConsultaType.Anos) {

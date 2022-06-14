@@ -18,6 +18,7 @@ export class ConsultsFormComponent implements OnInit {
   public formConsulta: FormGroup
   public anosfull: any;
   public ready = false
+  private readonly defaultIndex = 0
   constructor(
     private ref: ChangeDetectorRef
     ) {
@@ -37,6 +38,7 @@ export class ConsultsFormComponent implements OnInit {
   initForm(){
     this.formConsulta =  new FormGroup({
       anoi: new FormControl(''),
+      ano: new FormControl(''),
       anof: new FormControl(''),
       titulo: new FormControl(''),
       resumo: new FormControl(''),
@@ -63,23 +65,49 @@ export class ConsultsFormComponent implements OnInit {
     return (el === ConsultTypeSelectOPtions.anosOptionsI) || (el === ConsultTypeSelectOPtions.anosOptionsF) || (el === ConsultTypeSelectOPtions.anosOptions)
   }
 
+  private trataAnos(){
+    const TODOS = `Todos`
+    const find = this.options.anosOptions.findIndex(ano => ano === TODOS)
+    if(find>0){
+      this.options.anosOptions.splice(find, 1);
+    }
+    return {
+      anosOptionsI: (element) => {
+        this.anosfull = this.options.anosOptions;
+        this.options[element.selectOptions] = this.options.anosOptions;
+        this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[this.defaultIndex]);
+      },
+      anosOptionsF: (element) => {
+        this.anosfull = this.options.anosOptions;
+        this.options[element.selectOptions] = this.options.anosOptions;
+        const last = this.options.anosOptions.length - 1;
+        this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[last]);
+      },
+      anosOptions: (element) => {
+        this.anosfull = this.options.anosOptions;
+        this.options[element.selectOptions] = this.options.anosOptions;
+        const find = this.options.anosOptions.find(ano => ano === TODOS)
+        if(!!!find){
+          this.options.anosOptions.unshift(TODOS);
+        }
+        this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[this.defaultIndex]);
+      },
+    };
+  }
+
   setForm(){
     this.ready = false
     try {
       this.initForm();
       this.formTemplate = FORM_TEMPLATE[this.templateTipo]();
-      const defaultOption = 0;
-
       this.formTemplate.forEach((element:any) => {
         if(element.type === FormType.select){
           const isAnoOptions = this.isAnoOptions(element.selectOptions);
           if(isAnoOptions){
-            this.anosfull = this.options.anosOptions;
-            this.options[element.selectOptions] = this.options.anosOptions;
-            this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[defaultOption]);
+            this.trataAnos()[element.selectOptions](element);
           }
           else{
-            this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][defaultOption]);
+            this.formConsulta.controls[element.attr].setValue(this.options[element.selectOptions][this.defaultIndex]);
           }
         }
       });

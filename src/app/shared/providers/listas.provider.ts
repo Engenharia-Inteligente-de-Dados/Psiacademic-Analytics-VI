@@ -12,13 +12,19 @@ export class ListasProvider {
 
   async getListas(): Promise<any> {
     if(this.listAnos.length === 0) {
-      let listaAnos = await this.getAnos();
-      listaAnos = listaAnos.map(ano => {if(ano?._id) return ano._id});
-      this.listAnos = listaAnos.sort(this.sort);
+      const listaAnos = await this.getAnos();
+
+      const newlistaAnos = listaAnos.map(ano => {
+        if(!!ano._id) {
+          return ano._id
+        }
+      });
+      newlistaAnos.shift();
+      this.listAnos = newlistaAnos.sort(this.sort);
     }
     if(this.listaRepositorios.length === 0) {
       let listaRep = await this.getRepositorios();
-      listaRep = listaRep.map(rep => {if(rep?._id) return rep._id});
+      listaRep = listaRep.map(rep => {if(rep._id) return rep._id});
       this.listaRepositorios = listaRep.sort(this.sort);}
     return await {
       anos: this.listAnos,

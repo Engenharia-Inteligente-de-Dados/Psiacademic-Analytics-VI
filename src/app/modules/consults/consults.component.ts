@@ -78,7 +78,7 @@ export class ConsultsComponent implements OnInit {
     }
   }
 
-  async novaPesquisa(){
+  async pesquisar(){
     const param = this.form;
     if(this._controleNovaPesquisa){
     return;
@@ -102,12 +102,12 @@ export class ConsultsComponent implements OnInit {
   recivieForm(form:any){
     this.reset();
     this.form = form;
-    this.novaPesquisa();
+    this.pesquisar();
   }
 
   requestMore(event){
     this.paginacao = {...event}
-    this.novaPesquisa();
+    this.pesquisar();
   }
 
   trataEvento({acao,linha}){

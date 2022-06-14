@@ -84,8 +84,14 @@ export const FORM_TEMPLATE ={
   ...formsDatasGroup,
   avancada: () => {
     return [
+      {
+        label: 'Ano',
+        type: FormType.select,
+        selectOptions: ConsultTypeSelectOPtions.anosOptions,
+        attr: FormAtrributeConsult.Ano ,
+        enabled: true,
+      },
       ...formsDatasGroup.expressoes(),
-      ...formsDatasGroup.anos(),
       ...formsDatasGroup.transtornos(),
     ]
   }

@@ -80,7 +80,7 @@ export class TableComponent implements OnInit {
 
   createPopover(){
     createPopper(this.legendasBtnRef.nativeElement, this.popover, {
-      placement: PopoverPositions.Left,
+      placement: PopoverPositions.Bottom,
       modifiers: [
         {
           name: "offset",
