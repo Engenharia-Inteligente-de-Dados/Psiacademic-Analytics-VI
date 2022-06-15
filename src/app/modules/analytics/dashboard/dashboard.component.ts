@@ -18,10 +18,13 @@ import { Colors } from 'src/app/shared/enums/Colors';
 })
 export class DashboardComponent implements OnInit {
   public loading = false;
-  public Charts: IChart[] | any[] = [{}, {}, {}];
-  public readonly TrabalhosEmAnosPorRepositorio = 0;
-  public readonly TrabalhosPorRepositorios = 1;
-  public readonly TotalAnos = 2;
+  public Charts: { [key: string]: IChart } = {};
+  // public Charts: IChart[] | any[] = [
+  //   {}, {}, {}
+  // ];
+  public readonly TrabalhosEmAnosPorRepositorio = `TrabalhosEmAnosPorRepositorio`;
+  public readonly TrabalhosPorRepositorios = `TrabalhosPorRepositorios`;
+  public readonly TotalAnos = `TotalAnos`;
   constructor(
     private chartProvider: ChartService,
     private analyticsApi: AnalyticsAPIService,
@@ -32,8 +35,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getDefaultCharts();
   }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    console.log(`DashboardComponent.ngOnDestroy()`);
+    this.Charts = {};
+  }
   async qtdTrabalhosEmAnosPorRepositorio() {
-    const chart = TOTAL_ANOS_CHART;
+    const chart = structuredClone(TOTAL_ANOS_CHART);
     try {
       const { repositorios } = await this.listasProvider.getListas();
       const rep = repositorios[0];
@@ -58,7 +67,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async totalTrabalhosPorRepositorios() {
-    const chart = TOTAL_TRABALHOS_REP_CHART;
+    const chart = structuredClone(TOTAL_TRABALHOS_REP_CHART);
     try {
       const resp = await this.analyticsApi.getRepositorios();
       const { labels, values } = formtData(resp, chart.Keys);
@@ -78,7 +87,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async totalAnos() {
-    const chart = TOTAL_TRABALHOS_ANOS;
+    const chart = structuredClone(TOTAL_TRABALHOS_ANOS);
     try {
       const resp = await this.analyticsApi.getAnos();
       const { labels, values } = formtData(resp, chart.Keys);
@@ -116,7 +125,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  async filter(event, chart: IChart, index: number) {
+  async filter(event, chart: IChart, index: string) {
     const { newValue } = event;
     const { Url } = chart;
     this.Charts[index].Loading = true;

@@ -1,44 +1,51 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import Chart  from 'chart.js/auto';
-
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  styleUrls: ['./chart.component.scss'],
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, OnDestroy {
   @Input() chart: any;
   @Input() id: string | number;
 
   private ChartContext: any;
-  constructor() {
-    }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    this.ChartContext?.destroy();
+    const instanciaChart = Chart.getChart(`chart-${this.id}`);
+    console.log(Chart.instances);
+    Object.keys(Chart.instances).forEach((position: any) => {
+
+      if (Chart.instances[position].canvas.id === `chart-${this.id}`) {
+        Chart.instances[position].destroy();
+      }
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    this.ChartContext?.update();
-    console.log(changes);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   ngAfterViewInit(): void {
     this.createChart();
   }
 
-  createChart(){
-    let ctx:any = document.getElementById(`chart-${this.id}`) as HTMLCanvasElement;
-    ctx = ctx.getContext("2d");
+  createChart() {
+    let ctx: any = document.getElementById(
+      `chart-${this.id}`
+    ) as HTMLCanvasElement;
+    ctx = ctx.getContext('2d');
     this.ChartContext = new Chart(ctx, this.chart);
+    console.log(`chart-${this.id}`, Chart.instances);
   }
-
 }
