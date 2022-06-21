@@ -8,9 +8,9 @@ Esse projeto tem como objetivo a visualização de informação do Psiacademic A
 
 ## **Implementações Futuras**
  
+- [ ] Melhoria em Acessibilidade
 - [ ] Dark Mode
 - [ ] Internacionalização
-
 ### Commits
 
 
@@ -30,8 +30,10 @@ Esse projeto tem como objetivo a visualização de informação do Psiacademic A
 ### **Libs**
 
 Libs padrão angular não serão adicionadas nessa listagem
-* Angular `12.2.10`
-* tailwindcss `3.0.24`
+* [Angular](https://angular.io/) `14.0.0`
+* [tailwindcss](https://tailwindcss.com/) `3.0.24`
+* [Chartjs](https://www.chartjs.org/) `3.0.24`
+* [popperjs/core](https://popper.js.org/) `2.11.5`
 ## **Comandos**
 
 ### **Angular**
