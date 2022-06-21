@@ -6,6 +6,7 @@ import { IPagination } from 'src/app/shared/interfaces/pagination.interface';
 import { ListasProvider } from 'src/app/shared/providers/listas.provider';
 import { ConsultsApiService } from './consults-api.service';
 import { ITrabalho } from '../../shared/interfaces/trabalhos.interface';
+import { UserFeedbackProvider } from '../../shared/providers/users-feedback.provider';
 
 @Component({
   selector: 'app-consults',
@@ -59,15 +60,16 @@ export class ConsultsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private consultApi: ConsultsApiService,
-    private listasProvider: ListasProvider
+    private listasProvider: ListasProvider,
+    private userFeedback:UserFeedbackProvider
   ) {
     this.route.params.subscribe((params) => {
       this.tipo = params.tipo;
       this.reset();
       this.trataTitle();
       if (this.tipo == ConsultaType.Transtornos) {
-        console.info(
-          `Ainda estamos mexendo nessa parte ok?`,
+        userFeedback.infor(
+          `Ainda estamos desenvolvendo essa parte ok?`,
           `Em Desenvolvimento`
         );
       }
@@ -85,8 +87,8 @@ export class ConsultsComponent implements OnInit {
       this.options.repositorioOptions = [];
       this.options.anosOptions = anos;
       this.options.repositorioOptions = repositorios;
-    } catch (error) {
-      console.log(error);
+    } catch (error:any) {
+      this.userFeedback.error(error,`Erro`);
     } finally {
       this.loading = false;
     }
@@ -105,8 +107,8 @@ export class ConsultsComponent implements OnInit {
       const resp = await this.consultApi.consulta(param, this.tipo);
       this.trabalhos = resp.trabalhos;
       this.paginacao = resp.paginacao;
-    } catch (error) {
-      console.log(`error`, error);
+    } catch (error:any) {
+       this.userFeedback.error(error,`Erro`);
     } finally {
       this._controleNovaPesquisa = false;
       this.loadingTable = false;
