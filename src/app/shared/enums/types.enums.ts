@@ -10,12 +10,20 @@ export enum IconType {
 }
 
 
-export enum ConsultType {
+export enum ConsultaType {
   Anos = 'anos',
   Expressoes = 'expressoes',
   Repositorios = 'repositorios',
   Transtornos = 'transtornos',
   Avancada = 'avancada',
+}
+
+export enum ConsultTitle {
+  anos = 'Anos',
+  expressoes = 'Expressões',
+  repositorios = 'Repositorios',
+  transtornos = 'Transtornos',
+  avancada = 'Avançada',
 }
 
 export enum FormAtrributeConsult {

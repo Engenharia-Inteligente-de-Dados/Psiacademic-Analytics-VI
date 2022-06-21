@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MAIN_ROUTES, TEXTOS } from './sideBar.const';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })

@@ -1,0 +1,87 @@
+<div
+  class="overflow-x-auto overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
+  (click)="backdropdissmiss($event)"
+>
+  <div class="relative w-auto my-6 mx-auto max-w-5xl">
+    <!--content-->
+    <div
+      class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+    >
+      <!--header-->
+      <div class="p-5 border-b border-solid border-slate-200 rounded-t">
+        <div class="flex items-start justify-between">
+          <h3 class="text-2xl font-semibold">
+            {{ trabalho.titulo }}
+          </h3>
+          <button
+            class="p-1 ml-auto bg-transparent border-0 text-black opacity-75 text-2xl leading-none font-semibold outline-none focus:outline-none"
+            (click)="dissmiss($event)"
+          >
+            <span
+              class="text-black opacity-75 h-6 w-6 text-2xl block outline-none focus:outline-none"
+            >
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+        </div>
+        <div class="flex items-start mt-4 justify-between text-base">
+          <span class="break-words">
+            <span class="font-bold text-gray-500 text-sm"> Autores </span> :
+            {{ trabalho.autores | inlineAutores }}
+          </span>
+          <span class="break-words">
+            {{ trabalho.tipo }}
+          </span>
+        </div>
+        <div class="flex items-start mt-1 justify-between text-base">
+          <span class="break-words">
+            <span class="font-bold text-gray-500 text-sm"> Repositório </span> :
+            {{ trabalho.repositorio }}
+          </span>
+          <span class="break-words">
+            Data: {{ trabalho.data.$date | date: "yyyy" }}
+          </span>
+        </div>
+        <div class="flex items-start mt-1 justify-between text-base">
+          <span class="break-words">
+            <span class="font-bold text-gray-500 text-sm">
+              Palavras Chaves
+            </span>
+            : {{ trabalho.palavrachave | inlineAutores }}
+          </span>
+        </div>
+      </div>
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <div class="w-auto h-44 overflow-x-auto">
+          <h5 class="text-x1 font-semibold">Resumo do Trabalho</h5>
+          <p class="my-4 text-slate-800 text-base leading-relaxed">
+            {{ trabalho.resumo }}
+          </p>
+        </div>
+      </div>
+      <!--footer-->
+      <div
+        class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"
+      >
+        <button
+          class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+          (click)="dissmiss($event)"
+          aria-label="Fechar modal"
+        >
+          Fechar
+        </button>
+        <button
+          class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+          (click)="abrirLink()"
+          aria-label="abrir trabalho em nova aba"
+        >
+          Abrir Trabalho
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="opacity-25 fixed inset-0 z-40 bg-black"></div>

@@ -12,15 +12,15 @@ const routes: Routes = [
     path:'',
     component:PublicComponent,
     children:[
-      // {
-      //   path: 'consultas/:tipo',
-      //   loadChildren: () =>
-      //    import('../consults/consults.module').then((r) => r.ConsultsModule),
-      // },
       {
         path: 'analytics',
         loadChildren: () =>
-         import('../analytics/analytics.module').then((r) => r.AnalyticsModule),
+        import('../analytics/analytics.module').then((r) => r.AnalyticsModule),
+      },
+      {
+        path: 'consultas/:tipo',
+        loadChildren: () =>
+         import('../consults/consults.module').then((r) => r.ConsultsModule),
       },
       {
         path: '**',

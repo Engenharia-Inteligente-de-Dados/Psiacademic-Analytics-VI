@@ -1,0 +1,31 @@
+<div class="flex flex-wrap h-max">
+  <div class="w-full mb-12 xl:mb-0 px-4">
+    <card [title]="Title" *ngIf="!loading">
+      <div class="block justify-center">
+        <consults-form
+          [templateTipo]="tipo"
+          [options]="options"
+          (emitForm)="recivieForm($event)"
+          actions
+        ></consults-form>
+      </div>
+      <ng-container *ngIf="trabalhos.length > 0">
+        <tabela
+        *ngIf="!loadingTable"
+        [campos]="atributosTabela"
+        [linhas]="trabalhos"
+        (emit)=trataEvento($event)
+        body>
+      </tabela>
+        <paginacao
+        [paginacao]="paginacao"
+        (paginaChange)=requestMore($event)></paginacao>
+      </ng-container>
+      <spinner [loading]="loadingTable"></spinner>
+    </card>
+    <spinner [loading]="loading"></spinner>
+  </div>
+</div>
+<ng-container *ngIf="showModal">
+  <trabalho-info [trabalho]="trabalho" (dismiss)="closeModal($event)"></trabalho-info>
+</ng-container>
