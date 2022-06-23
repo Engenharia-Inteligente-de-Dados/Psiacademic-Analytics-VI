@@ -21,9 +21,7 @@ export class ConsultsFormComponent implements OnInit {
   private readonly defaultIndex = 0
   constructor(
     private ref: ChangeDetectorRef
-    ) {
-      console.log('consult form')
-    }
+    ) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -113,7 +111,7 @@ export class ConsultsFormComponent implements OnInit {
       });
       this.ready = true
     } catch (error) {
-      console.log(error)
+      console.error(error)
     } finally {
       this.ref.detectChanges()
     }

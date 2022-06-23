@@ -143,7 +143,6 @@ export class ConsultsComponent implements OnInit {
   }
 
   openModal(trabalho: ITrabalho) {
-    console.log(trabalho);
     this.showModal = !this.showModal;
     this.trabalho = trabalho;
   }

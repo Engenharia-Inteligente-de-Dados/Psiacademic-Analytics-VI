@@ -10,7 +10,6 @@ export class DashboardLoadingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('dashloading')
   }
 
 }
