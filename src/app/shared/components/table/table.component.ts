@@ -97,7 +97,6 @@ export class TableComponent implements OnInit {
   }
 
   emitAcao(acao: number, linha: any) {
-    console.log(acao, linha);
     this.emit.emit({ acao, linha });
   }
 }

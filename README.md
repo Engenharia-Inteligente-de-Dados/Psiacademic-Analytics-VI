@@ -30,10 +30,11 @@ Esse projeto tem como objetivo a visualização de informação do Psiacademic A
 ### **Libs**
 
 Libs padrão angular não serão adicionadas nessa listagem
-* [Angular](https://angular.io/) `12.2.10`
-* [tailwindcss](https://tailwindcss.com/docs/customizing-colors) `3.0.24`
+* [Angular](https://angular.io/) `14.0.0`
+* [tailwindcss](https://tailwindcss.com/) `3.0.24`
 * [Chartjs](https://www.chartjs.org/) `3.0.24`
 * [popperjs/core](https://popper.js.org/) `2.11.5`
+* [sweetAlert2](https://sweetalert2.github.io/) `11.4.18`
 ## **Comandos**
 
 ### **Angular**

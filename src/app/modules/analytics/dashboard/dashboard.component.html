@@ -17,8 +17,8 @@
           [chart]="Charts[TrabalhosEmAnosPorRepositorio]?.Chart"
           [id]="Charts[TrabalhosEmAnosPorRepositorio]?.Id"
           *ngIf="!Charts[TrabalhosEmAnosPorRepositorio].Loading"
-
         ></chart>
+        <chart-loading [loading]="Charts[TrabalhosEmAnosPorRepositorio].Loading"></chart-loading>
       </card>
     </div>
     <div class="w-full xl:w-6/12 px-4 ">
@@ -45,3 +45,4 @@
     </div>
   </div>
 </ng-container>
+<dash-loading [loading]="loading"></dash-loading>

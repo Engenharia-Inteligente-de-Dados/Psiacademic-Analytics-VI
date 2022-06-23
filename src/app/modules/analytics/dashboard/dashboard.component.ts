@@ -10,6 +10,7 @@ import { AnalyticsAPIService } from '../analytics-api.service';
 import { formtData } from '../../../shared/utils/formtUtil';
 import { IChart } from '../../../shared/interfaces/chart.interface';
 import { Colors } from 'src/app/shared/enums/Colors';
+import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.provider';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +30,8 @@ export class DashboardComponent implements OnInit {
     private chartProvider: ChartService,
     private analyticsApi: AnalyticsAPIService,
     private listasProvider: ListasProvider,
-    private def: ChangeDetectorRef
+    private def: ChangeDetectorRef,
+    private feedback: UserFeedbackProvider
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +40,6 @@ export class DashboardComponent implements OnInit {
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    console.log(`DashboardComponent.ngOnDestroy()`);
     this.Charts = {};
   }
   async qtdTrabalhosEmAnosPorRepositorio() {
@@ -61,8 +62,8 @@ export class DashboardComponent implements OnInit {
         label: `Total`,
       });
       this.Charts[this.TrabalhosEmAnosPorRepositorio] = { ...chart };
-    } catch (error) {
-      console.log(error);
+    } catch (error:any) {
+      this.feedback.error(error);
     }
   }
 
@@ -81,8 +82,8 @@ export class DashboardComponent implements OnInit {
         label: `Quantidade`,
       });
       this.Charts[this.TrabalhosPorRepositorios] = { ...chart };
-    } catch (error) {
-      console.log(error);
+    } catch (error:any) {
+      this.feedback.error(error);
     }
   }
 
@@ -102,7 +103,7 @@ export class DashboardComponent implements OnInit {
       });
       this.Charts[this.TotalAnos] = { ...chart };
     } catch (error) {
-      console.log(error);
+      this.feedback.error(error);
     }
   }
 
@@ -116,9 +117,8 @@ export class DashboardComponent implements OnInit {
       ]).catch((err) => {
         console.error(err);
       });
-      // this.chartList = await this.chartsManageService.getCharts()
     } catch (error) {
-      //this.userFeedback.error('Error','Algo de inesperado aconteceu'
+      this.feedback.error(error);
     } finally {
       this.def.detectChanges();
       this.loading = false;
@@ -141,7 +141,7 @@ export class DashboardComponent implements OnInit {
       chart.Actions = Actions;
       this.Charts[index] = { ...chart };
     } catch (error) {
-      console.log(error);
+      this.feedback.error(error);
     } finally {
       this.Charts[index].Loading = false;
     }

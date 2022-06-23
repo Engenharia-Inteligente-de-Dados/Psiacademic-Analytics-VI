@@ -22,10 +22,8 @@ export class ChartComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
+
     const instanciaChart = Chart.getChart(`chart-${this.id}`);
-    console.log(Chart.instances);
     Object.keys(Chart.instances).forEach((position: any) => {
 
       if (Chart.instances[position].canvas.id === `chart-${this.id}`) {
@@ -46,6 +44,5 @@ export class ChartComponent implements OnInit, OnDestroy {
     ) as HTMLCanvasElement;
     ctx = ctx.getContext('2d');
     this.ChartContext = new Chart(ctx, this.chart);
-    console.log(`chart-${this.id}`, Chart.instances);
   }
 }
