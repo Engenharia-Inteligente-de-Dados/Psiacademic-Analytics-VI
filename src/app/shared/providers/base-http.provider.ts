@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { ErrorHttpFastAPI } from '../interfaces/error.http.fastAPI';
 import { OurError } from '../utils/our-error';
 
 @Injectable({
@@ -26,8 +27,8 @@ export class BaseHttpProvider {
   }
 
   exceptionHandler(err: HttpErrorResponse) {
-    if (err?.error?.mensagem) {
-      throw new OurError(err.error.mensagem, err);
+    if (err?.error?.detail[0]?.msg) {
+      throw new OurError(err?.error?.detail[0]?.msg, err);
     } else {
       throw err;
     }
