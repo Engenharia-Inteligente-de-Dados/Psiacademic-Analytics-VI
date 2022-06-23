@@ -18,7 +18,7 @@ import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.p
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  public loading = true;
+  public loading = false;
   public Charts: { [key: string]: IChart } = {};
   // public Charts: IChart[] | any[] = [
   //   {}, {}, {}
@@ -122,7 +122,7 @@ export class DashboardComponent implements OnInit {
       this.feedback.error(error);
     } finally {
       this.def.detectChanges();
-      // this.loading = false;
+      this.loading = false;
     }
   }
 

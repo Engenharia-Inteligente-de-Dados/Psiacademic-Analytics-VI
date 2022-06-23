@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DashboardLoadingComponent } from './dashboard/dash-loading.component';
 import { ConsultLoadingComponent } from './consult-loading/consult-loading.component';
+import { ChartLoadingComponent } from './chart-loading/chart-loading.component';
 
 
 
@@ -10,7 +11,8 @@ import { ConsultLoadingComponent } from './consult-loading/consult-loading.compo
   declarations: [
     SpinnerComponent,
     DashboardLoadingComponent,
-    ConsultLoadingComponent
+    ConsultLoadingComponent,
+    ChartLoadingComponent,
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ConsultLoadingComponent } from './consult-loading/consult-loading.compo
   exports: [
     SpinnerComponent,
     DashboardLoadingComponent,
-    ConsultLoadingComponent
+    ConsultLoadingComponent,
+    ChartLoadingComponent
   ]
 })
 export class LoadingsModule { }
