@@ -17,19 +17,18 @@ export class AppComponent {
   mostrarVersao() {
 
 		const versao = environment ? environment.VERSION_APP : '0.0.0';
-		const aplicacao =  'Psiacademic Analytics VI';
+		const aplicacao =  'Psiacademic Analytics - Visualização de Informação';
 		const ambiente = environment.production
 			? 'Produção'
 			: 'Homologação';
 		console.log(
 			`%c${aplicacao}`,
-			'color: hsl(55, 100%, 50%); font-size: 20px'
+			'color: hsl(221, 100%, 50%); font-size: 15px'
 		);
 		console.log(
 			`%cVersão: ${versao} - ${ambiente}`,
-			'color: hsl(55, 100%, 50%); font-size: 15px'
+			'color: hsl(221, 100%, 50%); font-size: 15px'
 		);
-
 	}
 }
 
