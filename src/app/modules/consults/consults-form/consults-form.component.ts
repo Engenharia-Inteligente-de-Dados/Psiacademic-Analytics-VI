@@ -35,12 +35,12 @@ export class ConsultsFormComponent implements OnInit {
 
   initForm(){
     this.formConsulta =  new FormGroup({
-      anoi: new FormControl(''),
       ano: new FormControl(''),
-      anof: new FormControl(''),
+      ano_inicial: new FormControl(''),
+      ano_final: new FormControl(''),
       titulo: new FormControl(''),
       resumo: new FormControl(''),
-      palavraschave: new FormControl(''),
+      palavras_chave: new FormControl(''),
       transtorno: new FormControl(''),
       repositorio: new FormControl(''),
     })

@@ -32,8 +32,7 @@ export enum FormAtrributeConsult {
   AnoF = 'ano_final',
   Titulo = 'titulo',
   Resumo = 'resumo',
-  PalavrasChaves = 'palavras_chaves',
-  PalavrasChave = 'palavraschave',
+  Palavras_chave = 'palavras_chave',
   Transtorno = 'transtorno',
   Repositorio = 'repositorio',
 }

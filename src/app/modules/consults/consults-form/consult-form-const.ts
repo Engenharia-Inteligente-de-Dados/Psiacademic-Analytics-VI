@@ -45,13 +45,6 @@ const formsDatasGroup = {
       attr: FormAtrributeConsult.Resumo,
       enabled: true,
       },
-      // {
-      // label: 'Palavra Chave',
-      // type: FormType.text,
-      // placeholder: 'Palavra Chave',
-      // attr: FormAtrributeConsult.PalavrasChave,
-      // enabled: true,
-      // },
     ]
   },
   repositorios: () => {
@@ -91,6 +84,13 @@ export const FORM_TEMPLATE ={
         attr: FormAtrributeConsult.Ano ,
         enabled: true,
       },
+       {
+        label: 'Palavras Chave',
+        type: FormType.text,
+        placeholder: 'Palavra Chave',
+        attr: FormAtrributeConsult.Palavras_chave,
+        enabled: true,
+        },
       ...formsDatasGroup.expressoes(),
       ...formsDatasGroup.transtornos(),
     ]
