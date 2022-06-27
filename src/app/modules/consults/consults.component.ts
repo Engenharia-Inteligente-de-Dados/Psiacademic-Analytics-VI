@@ -162,8 +162,6 @@ export class ConsultsComponent implements OnInit {
   private reset() {
     this.form = {};
     this.trabalhos = [];
-    this.paginacao.limite = 10;
-    this.paginacao.pagina = 1;
-    this.paginacao.total = 0;
+    this.paginacao = { limite: 10, pagina: 1, total: 0 };
   }
 }
