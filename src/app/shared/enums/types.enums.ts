@@ -21,15 +21,15 @@ export enum ConsultaType {
 export enum ConsultTitle {
   anos = 'Anos',
   expressoes = 'Expressões',
-  repositorios = 'Repositorios',
+  repositorios = 'Repositório',
   transtornos = 'Transtornos',
   avancada = 'Avançada',
 }
 
 export enum FormAtrributeConsult {
   Ano = 'ano',
-  AnoI = 'anoi',
-  AnoF = 'anof',
+  AnoI = 'ano_inicial',
+  AnoF = 'ano_final',
   Titulo = 'titulo',
   Resumo = 'resumo',
   PalavrasChaves = 'palavras_chaves',
