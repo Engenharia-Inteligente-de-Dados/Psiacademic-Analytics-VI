@@ -1,4 +1,3 @@
-import { ElementRef } from '@angular/core';
 import { ConsultaType } from 'src/app/shared/enums/types.enums';
 export const TEXTOS = {
   Title: 'Psi Academic Analytics',
@@ -44,7 +43,7 @@ export const MAIN_ROUTES = [
 
       },
       {
-        Label: 'Por Repositorio',
+        Label: 'Por Repositório',
         Route: [`consultas/${ConsultaType.Repositorios}`],
         InUse: true,
         Icon: `fas fa-university`,
