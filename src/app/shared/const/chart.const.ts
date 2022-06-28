@@ -7,7 +7,7 @@ import {
 import { Colors } from '../enums/Colors';
 import { IChart, IChartjs } from '../interfaces/chart.interface';
 
-const TOTAL_ANOS_CHARTJS: IChartjs = {
+const TOTAL_ANOS_POR_REPOSITORIO_CHARTJS: IChartjs = {
   type: ChartTypejs.Line,
   data: {
     labels: [],
@@ -19,7 +19,7 @@ const TOTAL_ANOS_CHARTJS: IChartjs = {
     plugins: {
       legend: {
         labels: {
-          color: Colors.White,
+          color: Colors.CoolGray,
         },
         align: ChartAlignPosition.End,
         position: ChartAlignPosition.Bottom,
@@ -36,7 +36,7 @@ const TOTAL_ANOS_CHARTJS: IChartjs = {
     scales: {
       x: {
         ticks: {
-          color: Colors.White,
+          color: Colors.CoolGray,
         },
         display: true,
         grid: {
@@ -50,7 +50,7 @@ const TOTAL_ANOS_CHARTJS: IChartjs = {
           text: 'Quantidade de Trabalhos',
         },
         ticks: {
-          color: Colors.White,
+          color: Colors.CoolGray,
         },
         grid: {
           borderDash: [3],
@@ -189,7 +189,7 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
   Title: `Quantidade de trabalhos por repositórios - {0}`,
   Url: TOTAL_ANOS_REP,
   Keys:  ['_id',`total`],
-  Chart: TOTAL_ANOS_CHARTJS,
+  Chart: TOTAL_ANOS_POR_REPOSITORIO_CHARTJS,
   Loading: false,
   Actions: {
     Filter: {
