@@ -20,9 +20,7 @@ import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.p
 export class DashboardComponent implements OnInit {
   public loading = false;
   public Charts: { [key: string]: IChart } = {};
-  // public Charts: IChart[] | any[] = [
-  //   {}, {}, {}
-  // ];
+  public Listas: { [key: string]: any } = {};
   public readonly TrabalhosEmAnosPorRepositorio = `TrabalhosEmAnosPorRepositorio`;
   public readonly TrabalhosPorRepositorios = `TrabalhosPorRepositorios`;
   public readonly TotalAnos = `TotalAnos`;
@@ -36,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDefaultCharts();
+    this.getListas();
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
@@ -125,6 +124,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  getListas() {
+    throw new Error('Method not implemented.');
+  }
   async filter(event, chart: IChart, index: string) {
     const { newValue } = event;
     const { Url } = chart;
