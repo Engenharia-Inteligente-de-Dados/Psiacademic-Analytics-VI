@@ -46,10 +46,9 @@ export class DashboardComponent implements OnInit {
     this.getListas();
   }
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     this.Charts = {};
   }
+
   async qtdTrabalhosEmAnosPorRepositorio() {
     const chart = structuredClone(TOTAL_ANOS_POR_REP_CHART);
     try {
