@@ -21,6 +21,7 @@ export class TableComponent implements OnInit {
   @Input() campos: any[];
   @Input() linhas: any[] = [];
   @Input() light = true;
+  @Input() haslegendas = true
   @Output() emit = new EventEmitter<any>();
   private togglePopover = false;
   private popover: any;

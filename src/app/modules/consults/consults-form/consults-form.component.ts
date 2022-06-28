@@ -12,7 +12,7 @@ import { FORM_TEMPLATE } from './consult-form-const';
 export class ConsultsFormComponent implements OnInit {
   @Input() templateTipo?: ConsultaType = ConsultaType.Anos;
   @Input() options?: IOptionsSelectConsulta;
-  @Output(`emitForm`) emitFormEvent = new EventEmitter<any>();
+  @Output('emitForm') emitFormEvent = new EventEmitter<any>();
 
   public formTemplate
   public formConsulta: FormGroup
@@ -52,7 +52,7 @@ export class ConsultsFormComponent implements OnInit {
 
   filter(attr){
     if(FormAtrributeConsult.AnoI === attr){
-      const index = this.anosfull.findIndex(ano => Number(this.formConsulta.value.anoi) <= ano)
+      const index = this.anosfull.findIndex(ano => Number(this.formConsulta.value.ano_inicial) <= ano)
       this.formConsulta.controls[FormAtrributeConsult.AnoF].setValue(this.options[ConsultTypeSelectOPtions.anosOptionsF][index]);
     return
     }
@@ -64,7 +64,7 @@ export class ConsultsFormComponent implements OnInit {
   }
 
   private trataAnos(){
-    const TODOS = `Todos`
+    const TODOS = 'Todos'
     const find = this.options.anosOptions.findIndex(ano => ano === TODOS)
     if(find>=0){
       this.options.anosOptions.splice(find, 1);

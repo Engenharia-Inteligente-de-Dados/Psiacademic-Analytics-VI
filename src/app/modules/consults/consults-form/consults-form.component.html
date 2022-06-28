@@ -1,9 +1,9 @@
-<div class="w-full max-w-lg" *ngIf="ready">
+<div class="w-full" *ngIf="ready">
   <form
     class="flex flex-wrap justify-center -mx-3 mb-6"
     [formGroup]="formConsulta">
     <ng-container *ngFor="let form of formTemplate">
-      <div class="w-1/2 block justify-between px-3 mb-6 md:mb-0 mt-4" *ngIf="form.enabled">
+      <div class="sm:w-1/2 w-full block justify-between px-3 mb-6 md:mb-0 mt-4" *ngIf="form.enabled">
         <label
           class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
           >{{ form.label }}</label
@@ -42,7 +42,7 @@
     </ng-container>
   </form>
 </div>
-<button class="block w-full bg-sky-500 text-white active:bg-sky-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-6 ease-linear transition-all duration-150" type="button" (click)="emitForm()" aria-label="pesquisar trabalho">
+<button class="block w-full bg-sky-500 text-slate-900 active:bg-sky-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-6 ease-linear transition-all duration-150" type="button" (click)="emitForm()" aria-label="pesquisar trabalho">
   Pesquisar
 </button>
 

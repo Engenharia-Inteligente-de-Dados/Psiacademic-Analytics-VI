@@ -12,15 +12,14 @@ export class ListasProvider {
 
   async getListas(): Promise<any> {
     if(this.listAnos.length === 0) {
-      const listaAnos = await this.getAnos();
+      let listaAnos = await this.getAnos();
 
-      const newlistaAnos = listaAnos.map(ano => {
+      listaAnos = listaAnos.map(ano => {
         if(!!ano._id) {
           return ano._id
         }
       });
-      newlistaAnos.shift();
-      this.listAnos = newlistaAnos.sort(this.sort);
+      this.listAnos = listaAnos.sort(this.sort);
     }
     if(this.listaRepositorios.length === 0) {
       let listaRep = await this.getRepositorios();

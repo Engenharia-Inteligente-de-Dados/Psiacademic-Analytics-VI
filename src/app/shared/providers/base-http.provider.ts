@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { ErrorHttpFastAPI } from '../interfaces/error.http.fastAPI';
 import { OurError } from '../utils/our-error';
 
 @Injectable({

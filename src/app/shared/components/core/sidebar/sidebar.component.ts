@@ -26,13 +26,6 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     const path = this.router.url
     const route = this.routes.find(route => path.includes(route.Route))
-    // if(route){
-    //   this.activeSubRoutes = route.SubRoutes;
-    // }
-    // else{
-    //   this.activeSubRoutes = this.routes[this.indexsMenus.dash].SubRoutes;
-    //   this.navigate(this.routes[this.indexsMenus.dash])
-    // }
   }
 
   navigate(route: any){
