@@ -184,7 +184,7 @@ const TOTAL_TRABALHOS_ANOS_CHARTJS: IChartjs = {
   },
 };
 
-export const TOTAL_ANOS_CHART: IChart = {
+export const TOTAL_ANOS_POR_REP_CHART: IChart = {
   Id: 1,
   Title: `Quantidade de trabalhos por repositórios - {0}`,
   Url: TOTAL_ANOS_REP,

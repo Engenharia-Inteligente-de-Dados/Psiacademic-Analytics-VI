@@ -14,7 +14,7 @@
         </h3>
       </div>
     </div>
-    <div class="flex flex-wrap items-start">
+    <div class="flex flex-wrap items-start" *ngIf="haslegendas">
       <button class="outline-none border-0 border-transparent cursor-auto" aria-label="Legendas" #legendasBtnRef (click)="toggle()">
         <i class="fas fa-question-circle text-blue-500"></i>
           Legendas

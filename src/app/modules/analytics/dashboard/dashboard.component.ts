@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
-  TOTAL_ANOS_CHART,
+  TOTAL_ANOS_POR_REP_CHART,
   TOTAL_TRABALHOS_ANOS,
   TOTAL_TRABALHOS_REP_CHART,
 } from 'src/app/shared/const/chart.const';
@@ -11,6 +11,7 @@ import { formtData } from '../../../shared/utils/formtUtil';
 import { IChart } from '../../../shared/interfaces/chart.interface';
 import { Colors } from 'src/app/shared/enums/Colors';
 import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.provider';
+import { FREQUENCIAS } from './frequencia.const';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,10 +21,18 @@ import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.p
 export class DashboardComponent implements OnInit {
   public loading = false;
   public Charts: { [key: string]: IChart } = {};
-  public Listas: { [key: string]: any } = {};
+  public Frequencias: { [key: string]: any } = {};
   public readonly TrabalhosEmAnosPorRepositorio = `TrabalhosEmAnosPorRepositorio`;
   public readonly TrabalhosPorRepositorios = `TrabalhosPorRepositorios`;
   public readonly TotalAnos = `TotalAnos`;
+  public readonly frequenciasTiposTrabalhos = 'TIPOS-TRABALHOS';
+  public readonly frequenciasTitulosTrabalhos = 'TITULOS-TRABALHOS';
+  public readonly atributosTabelas = [
+    { label: 'Termo', key: 'termo', primeiro: true },
+    { label: 'Frequência', key: 'total' },
+  ];
+  public showModalFrequencia: boolean = false;
+  public frequenciaSelecionada: any = {};
   constructor(
     private chartProvider: ChartService,
     private analyticsApi: AnalyticsAPIService,
@@ -42,7 +51,7 @@ export class DashboardComponent implements OnInit {
     this.Charts = {};
   }
   async qtdTrabalhosEmAnosPorRepositorio() {
-    const chart = structuredClone(TOTAL_ANOS_CHART);
+    const chart = structuredClone(TOTAL_ANOS_POR_REP_CHART);
     try {
       const { repositorios } = await this.listasProvider.getListas();
       const rep = repositorios[0];
@@ -61,7 +70,7 @@ export class DashboardComponent implements OnInit {
         label: `Total`,
       });
       this.Charts[this.TrabalhosEmAnosPorRepositorio] = { ...chart };
-    } catch (error:any) {
+    } catch (error: any) {
       this.feedback.error(error);
     }
   }
@@ -81,7 +90,7 @@ export class DashboardComponent implements OnInit {
         label: `Quantidade`,
       });
       this.Charts[this.TrabalhosPorRepositorios] = { ...chart };
-    } catch (error:any) {
+    } catch (error: any) {
       this.feedback.error(error);
     }
   }
@@ -124,9 +133,44 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  getListas() {
-    throw new Error('Method not implemented.');
+  public async frequenciaTiposTrabalhos() {
+    this.Frequencias[this.frequenciasTiposTrabalhos] = structuredClone(
+      FREQUENCIAS[this.frequenciasTiposTrabalhos]
+    );
+    this.Frequencias[this.frequenciasTiposTrabalhos].Loading = true;
+    try {
+      const frequencia = await FREQUENCIAS[this.frequenciasTiposTrabalhos].Frequencias;
+      this.Frequencias[this.frequenciasTiposTrabalhos].Frequencias =  frequencia;
+      this.Frequencias[this.frequenciasTiposTrabalhos].Preview = frequencia.slice(0, 5);
+    } catch (error) {
+      this.feedback.error(error);
+    }finally{
+      this.Frequencias[this.frequenciasTiposTrabalhos].Loading = false;
+    }
   }
+
+  public async frequenciaTitulosTrabalhos() {
+    this.Frequencias[this.frequenciasTitulosTrabalhos] = structuredClone(
+      FREQUENCIAS[this.frequenciasTitulosTrabalhos]
+    );
+    this.Frequencias[this.frequenciasTitulosTrabalhos].loading = true;
+    try {
+      const frequencia = await FREQUENCIAS[this.frequenciasTitulosTrabalhos].Frequencias;
+      this.Frequencias[this.frequenciasTitulosTrabalhos].Frequencias =  frequencia;
+      this.Frequencias[this.frequenciasTitulosTrabalhos].Preview = frequencia.slice(0, 5);
+
+    } catch (error) {
+      this.feedback.error(error);
+    }finally{
+      this.Frequencias[this.frequenciasTitulosTrabalhos].loading = false;
+    }
+  }
+
+  getListas() {
+    this.frequenciaTiposTrabalhos()
+    this.frequenciaTitulosTrabalhos()
+  }
+
   async filter(event, chart: IChart, index: string) {
     const { newValue } = event;
     const { Url } = chart;
@@ -147,5 +191,14 @@ export class DashboardComponent implements OnInit {
     } finally {
       this.Charts[index].Loading = false;
     }
+  }
+
+  openModal(frequencia:any){
+    this.showModalFrequencia = !this.showModalFrequencia;
+    this.frequenciaSelecionada = frequencia;
+  }
+  closeModal(){
+    this.showModalFrequencia = !this.showModalFrequencia;
+    this.frequenciaSelecionada = null;
   }
 }

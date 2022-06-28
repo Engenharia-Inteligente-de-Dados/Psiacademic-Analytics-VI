@@ -35,7 +35,6 @@ export class ConsultsComponent implements OnInit {
   public readonly atributosTabela = [
     { label: 'Título', key: 'titulo', primeiro: true },
     { label: 'Autores', key: 'autores' },
-    // { label: 'Resumo', key: 'resumo' },
     { label: 'Repositório', key: 'repositorio' },
     { label: 'Tipo do Trabalho', key: 'tipo' },
     {

@@ -9,7 +9,13 @@
           [selectedDefault]="
             Charts[TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Value
           "
-          (optionChange)="filter($event, Charts[TrabalhosEmAnosPorRepositorio],TrabalhosEmAnosPorRepositorio)"
+          (optionChange)="
+            filter(
+              $event,
+              Charts[TrabalhosEmAnosPorRepositorio],
+              TrabalhosEmAnosPorRepositorio
+            )
+          "
         >
         </select-auto-complet>
         <chart
@@ -18,7 +24,9 @@
           [id]="Charts[TrabalhosEmAnosPorRepositorio]?.Id"
           *ngIf="!Charts[TrabalhosEmAnosPorRepositorio].Loading"
         ></chart>
-        <chart-loading [loading]="Charts[TrabalhosEmAnosPorRepositorio].Loading"></chart-loading>
+        <chart-loading
+          [loading]="Charts[TrabalhosEmAnosPorRepositorio].Loading"
+        ></chart-loading>
       </card>
     </div>
     <div class="w-full xl:w-5/12 mb-12 xl:mb-0 px-4">
@@ -32,8 +40,8 @@
     </div>
   </div>
   <div class="flex flex-wrap mt-4">
-    <div class="w-full xl:w-5/12 px-4 ">
-      <card [title]="Charts[TrabalhosPorRepositorios].Title" >
+    <div class="w-full xl:w-5/12 px-4">
+      <card [title]="Charts[TrabalhosPorRepositorios].Title">
         <chart
           body
           [chart]="Charts[TrabalhosPorRepositorios]?.Chart"
@@ -41,10 +49,54 @@
         ></chart>
       </card>
     </div>
-
     <div class="w-full xl:w-4/12 px-4">
-      <!-- <card-social-traffic></card-social-traffic> -->
+      <card [title]="Frequencias[frequenciasTitulosTrabalhos].Title">
+        <div class="flex justify-end">
+          <button
+            class="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="button"
+            (click)="openModal(Frequencias[frequenciasTitulosTrabalhos])"
+          >
+            Ver todas
+          </button>
+        </div>
+        <tabela
+          [campos]="atributosTabelas"
+          [linhas]="Frequencias[frequenciasTitulosTrabalhos].Preview"
+          [haslegendas]="false"
+        >
+        </tabela>
+      </card>
+    </div>
+    <div class="w-full xl:w-3/12 px-4">
+      <card [title]="Frequencias[frequenciasTiposTrabalhos].Title">
+        <div class="flex justify-end">
+          <button
+            class="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="button"
+            (click)="openModal(Frequencias[frequenciasTiposTrabalhos])"
+          >
+            Ver todas
+          </button>
+        </div>
+        <tabela
+          [campos]="atributosTabelas"
+          [linhas]="Frequencias[frequenciasTiposTrabalhos].Preview"
+          [haslegendas]="false"
+        >
+        </tabela>
+      </card>
     </div>
   </div>
 </ng-container>
 <dash-loading [loading]="loading"></dash-loading>
+
+<ng-container *ngIf="showModalFrequencia">
+  <frequencia-todos-itens
+    [campos]="atributosTabelas"
+    [linhas]="frequenciaSelecionada.Frequencias"
+    [titulo]="frequenciaSelecionada.Title"
+    (dismiss)="closeModal()"
+  >
+  </frequencia-todos-itens>
+</ng-container>
