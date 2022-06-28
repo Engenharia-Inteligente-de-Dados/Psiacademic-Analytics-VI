@@ -12,14 +12,14 @@ export class ConsultsApiService {
   constructor(private http: BaseHttpProvider) {}
 
   async consulta(params: any, tipo: string): Promise<ITrabalhos> {
-    const todos = `todos`;
+    const todos = 'Todos';
     if (params.repositorio === todos) {
       delete params.repositorio;
     }
     if (params.transtorno === todos) {
       delete params.transtorno;
     }
-    if (params.anos) {
+    if(params.anos === todos){
       delete params.anos;
     }
 
