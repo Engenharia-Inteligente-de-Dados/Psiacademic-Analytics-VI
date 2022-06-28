@@ -5,7 +5,6 @@ import {
   TOTAL_TRABALHOS_REP_CHART,
 } from 'src/app/shared/const/chart.const';
 import { ListasProvider } from 'src/app/shared/providers/listas.provider';
-import { ChartService } from '../../../shared/services/chart.service';
 import { AnalyticsAPIService } from '../analytics-api.service';
 import { formtData } from '../../../shared/utils/formtUtil';
 import { IChart } from '../../../shared/interfaces/chart.interface';
@@ -34,7 +33,6 @@ export class DashboardComponent implements OnInit {
   public showModalFrequencia: boolean = false;
   public frequenciaSelecionada: any = {};
   constructor(
-    private chartProvider: ChartService,
     private analyticsApi: AnalyticsAPIService,
     private listasProvider: ListasProvider,
     private def: ChangeDetectorRef,
@@ -182,7 +180,6 @@ export class DashboardComponent implements OnInit {
       Actions.Filter.Value = newValue;
       chart.Chart.data.datasets[0].data = values;
       chart.Chart.data.labels = labels;
-      this.chartProvider.setChart(chart);
       chart.Actions = Actions;
       this.Charts[index] = { ...chart };
     } catch (error) {
