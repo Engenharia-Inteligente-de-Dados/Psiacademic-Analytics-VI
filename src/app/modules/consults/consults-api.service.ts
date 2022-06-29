@@ -20,7 +20,7 @@ export class ConsultsApiService {
       delete params.transtorno;
     }
     if(params.ano === todos){
-      delete params.anos;
+      delete params.ano;
     }
 
     const param = paramsValidate(params);
