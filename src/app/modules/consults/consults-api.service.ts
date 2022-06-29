@@ -19,7 +19,7 @@ export class ConsultsApiService {
     if (params.transtorno === todos) {
       delete params.transtorno;
     }
-    if(params.anos === todos){
+    if(params.ano === todos){
       delete params.anos;
     }
 

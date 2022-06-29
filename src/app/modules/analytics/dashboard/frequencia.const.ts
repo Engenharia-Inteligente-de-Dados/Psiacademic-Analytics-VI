@@ -39,7 +39,7 @@ export const FREQUENCIAS: any = {
     Loading: false,
   },
   'TITULOS-TRABALHOS': {
-    Title: 'Top 10 Frequência de Título de Trabalhos',
+    Title: 'Top 10 Frequência de palavras em Título de Trabalhos',
     Frequencias: [
       {
         termo: 'saúde',
