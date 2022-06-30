@@ -1,22 +1,17 @@
 import { FormType,ConsultTypeSelectOPtions,FormAtrributeConsult } from 'src/app/shared/enums/types.enums';
 
-//TODO : Fazer interface
 const formsDatasGroup = {
   anos: () => {
     return [
-      {
-      label: 'Ano',
-      type: FormType.number,
-      placeholder: '2022',
-      attr: FormAtrributeConsult.Ano ,
-      enabled: false,
-    },
     {
       label: 'Ano Inicial',
       type: FormType.select,
       selectOptions: ConsultTypeSelectOPtions.anosOptionsI,
       placeholder: '2000',
       attr:  FormAtrributeConsult.AnoI,
+      accessibility:{
+        name: 'Ano Inicial',
+      },
       enabled: true,
     },
     {
@@ -24,6 +19,9 @@ const formsDatasGroup = {
       type: FormType.select,
       selectOptions: ConsultTypeSelectOPtions.anosOptionsF,
       placeholder: '2022',
+      accessibility:{
+        name: 'Ano Final',
+      },
       attr:  FormAtrributeConsult.AnoF,
       enabled: true,
     }
@@ -37,6 +35,9 @@ const formsDatasGroup = {
       placeholder: 'Título',
       attr: FormAtrributeConsult.Titulo,
       enabled: true,
+      accessibility:{
+        name: 'Título',
+      },
       },
       {
       label: 'Resumo',
@@ -44,18 +45,24 @@ const formsDatasGroup = {
       placeholder: 'Resumo',
       attr: FormAtrributeConsult.Resumo,
       enabled: true,
+      accessibility: {
+        name: 'Resumo',
+      },
       },
     ]
   },
   repositorios: () => {
     return [
       {
-      label: 'Repositorio',
+      label: 'Repositório',
       type: FormType.select,
       selectOptions:'repositorioOptions',
-      placeholder: 'Repositorio',
+      placeholder: 'Repositório',
       attr: FormAtrributeConsult.Repositorio,
       enabled: true,
+      accessibility:{
+        name: 'Repositório',
+      },
       },
     ]
   },
@@ -68,6 +75,9 @@ const formsDatasGroup = {
       placeholder: 'Transtorno',
       attr: FormAtrributeConsult.Transtorno,
       enabled: true,
+      accessibility:{
+        name: 'Transtorno',
+      },
       },
     ]
   }
@@ -83,13 +93,19 @@ export const FORM_TEMPLATE ={
         selectOptions: ConsultTypeSelectOPtions.anosOptions,
         attr: FormAtrributeConsult.Ano ,
         enabled: true,
+        accessibility:{
+          name: 'Ano',
+        },
       },
        {
-        label: 'Palavras Chave',
+        label: 'Palavras-Chave',
         type: FormType.text,
-        placeholder: 'Palavra Chave',
+        placeholder: 'Palavras-Chave',
         attr: FormAtrributeConsult.Palavras_chave,
         enabled: true,
+        accessibility:{
+          name: 'Palavras-Chave',
+        },
         },
       ...formsDatasGroup.expressoes(),
       ...formsDatasGroup.transtornos(),
