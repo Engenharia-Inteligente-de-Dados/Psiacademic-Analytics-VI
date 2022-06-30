@@ -1,6 +1,6 @@
 export const FREQUENCIAS: any = {
   'TIPOS-TRABALHOS': {
-    Title: 'Top 10 Frequência de tipos de Trabalhos',
+    Title: 'Frequência de tipos de Trabalhos',
     Frequencias: [
       {
         termo: 'dissertação',
@@ -39,7 +39,7 @@ export const FREQUENCIAS: any = {
     Loading: false,
   },
   'TITULOS-TRABALHOS': {
-    Title: 'Top 10 Frequência de palavras em Título de Trabalhos',
+    Title: 'Frequência de palavras em Título de Trabalhos',
     Frequencias: [
       {
         termo: 'saúde',
