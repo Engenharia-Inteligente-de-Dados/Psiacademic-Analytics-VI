@@ -21,10 +21,12 @@
              w-full pr-10"
             [formControlName]="form.attr"
             (change)="filter(form.attr)"
+            [attr.name]="form.accessibility.name"
           >
             <option
               *ngFor="let option of options[form?.selectOptions]"
               [value]="option"
+              [attr.aria-label]="option"
             >
               {{ option }}
             </option>
@@ -36,13 +38,15 @@
             [formControlName]="form.attr"
             [type]="form.type"
             [placeholder]="form.placeholder"
+            [attr.name]="form.accessibility.name"
+
           />
         </ng-template>
       </div>
     </ng-container>
   </form>
 </div>
-<button class="block w-full bg-sky-500 text-slate-900 active:bg-sky-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-6 ease-linear transition-all duration-150" type="button" (click)="emitForm()" aria-label="pesquisar trabalho">
+<button class="block w-full bg-sky-500 text-slate-900 active:bg-sky-600 focus:bg-sky-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline  mr-1 mb-6 ease-linear transition-all duration-150" type="button" (click)="emitForm()" aria-label="pesquisar trabalho">
   Pesquisar
 </button>
 
