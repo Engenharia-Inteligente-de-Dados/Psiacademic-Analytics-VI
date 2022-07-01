@@ -67,7 +67,7 @@ export class ConsultsComponent implements OnInit {
       this.reset();
       this.trataTitle();
       if (this.tipo == ConsultaType.Transtornos) {
-        userFeedback.infor(
+        this.userFeedback.infor(
           `Ainda estamos desenvolvendo essa parte ok?`,
           `Em Desenvolvimento`
         );
@@ -104,10 +104,14 @@ export class ConsultsComponent implements OnInit {
     try {
       this.loadingTable = true;
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.trabalhos = resp.trabalhos;
-      this.paginacao = resp.paginacao;
+      if(!!!resp){
+        this.userFeedback.infor("Não Foram encontrados trabalhos","Resultado");
+      }
+      this.trabalhos = resp?.trabalhos;
+      this.paginacao = resp?.paginacao;
     } catch (error:any) {
        this.userFeedback.error(error,`Erro`);
+       this.loadingTable = false;
     } finally {
       this._controleNovaPesquisa = false;
       this.loadingTable = false;

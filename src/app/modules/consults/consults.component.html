@@ -9,7 +9,7 @@
           actions
         ></consults-form>
       </div>
-      <ng-container *ngIf="trabalhos.length > 0">
+      <ng-container *ngIf="trabalhos?.length > 0">
         <tabela
         *ngIf="!loadingTable"
         [campos]="atributosTabela"
