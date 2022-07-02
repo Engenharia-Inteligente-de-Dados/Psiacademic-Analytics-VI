@@ -3,42 +3,34 @@
     <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
       <card [title]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Title">
         <div actions class="flex flex-wrap">
-          <div class="w-full md:w-1/2">
-            <select-auto-complet
-              [options]="
-                Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Options
-              "
-              [selectedDefault]="
-                Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Value
-              "
-              (optionChange)="
+          <ng-container
+            *ngFor="
+              let Filter of Charts[DashElem.TrabalhosEmAnosPorRepositorio]
+                ?.Actions?.Filters;
+              index as i
+            "
+          >
+            <div class="w-full md:w-1/2">
+              <select-auto-complet
+                [label] = "Filter?.Label"
+                [options]="
+                 Filter?.Options
+                "
+                [selectedDefault]="
+                  Filter?.Value
+                "
+                (optionChange)="
                 filter(
-                  $event,
-                  Charts[DashElem.TrabalhosEmAnosPorRepositorio],
-                  DashElem.TrabalhosEmAnosPorRepositorio
-                )
-              "
-            >
-            </select-auto-complet>
-          </div>
-          <div class="w-full md:w-1/2">
-            <select-auto-complet
-              [options]="
-                Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Options
-              "
-              [selectedDefault]="
-                Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Value
-              "
-              (optionChange)="
-                filter(
-                  $event,
-                  Charts[DashElem.TrabalhosEmAnosPorRepositorio],
-                  DashElem.TrabalhosEmAnosPorRepositorio
-                )
-              "
-            >
-            </select-auto-complet>
-          </div>
+                    $event,
+                    Charts[DashElem.TrabalhosEmAnosPorRepositorio],
+                    DashElem.TrabalhosEmAnosPorRepositorio,
+                    i
+                  )
+                "
+              >
+              </select-auto-complet>
+            </div>
+          </ng-container>
         </div>
         <chart
           body
@@ -65,17 +57,22 @@
     <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
       <card [title]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Title">
         <select-auto-complet
+          label="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filters[0]
+          .label"
           [options]="
-            Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Options
+            Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filters[0]
+              .Options
           "
           [selectedDefault]="
-            Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Value
+            Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filters[0]
+              .Value
           "
           (optionChange)="
             filter(
               $event,
               Charts[DashElem.TrabalhosEmAnosPorRepositorio],
-              DashElem.TrabalhosEmAnosPorRepositorio
+              DashElem.TrabalhosEmAnosPorRepositorio,
+              0
             )
           "
         >
@@ -117,14 +114,16 @@
           <button
             class="bg-lightBlue-500 text-slate-900 active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             type="button"
-            (click)="openModal(Frequencias[DashElem.FrequenciasTitulosTrabalhos])"
+            (click)="
+              openModal(Frequencias[DashElem.FrequenciasTitulosTrabalhos])
+            "
             aria-label="Frequencias de titulos de trabalhos, ver todos os 10"
           >
             Ver todas
           </button>
         </div>
         <tabela
-        body
+          body
           [campos]="atributosTabelas"
           [linhas]="Frequencias[DashElem.FrequenciasTitulosTrabalhos].Preview"
           [haslegendas]="false"

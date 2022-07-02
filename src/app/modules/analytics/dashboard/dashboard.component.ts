@@ -52,8 +52,8 @@ export class DashboardComponent implements OnInit {
       const resp = await this.analyticsApi.getChartFiltrado(chart.Url, rep);
       const data = formtData(resp, chart.Keys);
       chart.Title = chart.Title.replace('{0}', rep);
-      chart.Actions.Filter.Value = rep;
-      chart.Actions.Filter.Options = repositorios;
+      chart.Actions.Filters[0].Value = rep;
+      chart.Actions.Filters[0].Options = repositorios;
       chart.Chart.data.labels = data.labels;
       chart.Chart.data.datasets.push({
         data: data.values,
@@ -165,24 +165,24 @@ export class DashboardComponent implements OnInit {
     this.frequenciaTitulosTrabalhos()
   }
 
-  async filter(event, chart: IChart, index: string) {
+  async filter(event, chart: IChart, propertyName: string, index:number) {
     const { newValue } = event;
     const { Url } = chart;
-    this.Charts[index].Loading = true;
+    this.Charts[propertyName].Loading = true;
     try {
       const resp = await this.analyticsApi.getChartFiltrado(Url, newValue);
       const Actions = chart.Actions;
       const { labels, values } = formtData(resp, chart.Keys);
-      chart.Title = chart.Title.replace(Actions.Filter.Value, newValue);
-      Actions.Filter.Value = newValue;
+      chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
+      Actions.Filters[index].Value = newValue;
       chart.Chart.data.datasets[0].data = values;
       chart.Chart.data.labels = labels;
       chart.Actions = Actions;
-      this.Charts[index] = { ...chart };
+      this.Charts[propertyName] = { ...chart };
     } catch (error) {
       this.feedback.error(error);
     } finally {
-      this.Charts[index].Loading = false;
+      this.Charts[propertyName].Loading = false;
     }
   }
 
