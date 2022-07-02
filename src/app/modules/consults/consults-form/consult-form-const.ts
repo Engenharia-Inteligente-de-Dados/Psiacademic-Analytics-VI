@@ -60,7 +60,7 @@ const formsDatasGroup = {
       {
         label: 'Repositório',
         type: FormType.select,
-        selectOptions: 'repositorioOptions',
+        selectOptions: ConsultTypeSelectOPtions.repositoriosOptions,
         placeholder: 'Repositório',
         attr: FormAtrributeConsult.Repositorio,
         enabled: true,
@@ -75,7 +75,7 @@ const formsDatasGroup = {
       {
         label: 'Transtorno',
         type: FormType.select,
-        selectOptions: 'transtornoOptions',
+        selectOptions:  ConsultTypeSelectOPtions.transtornosOptions,
         placeholder: 'Transtorno',
         attr: FormAtrributeConsult.Transtorno,
         enabled: true,

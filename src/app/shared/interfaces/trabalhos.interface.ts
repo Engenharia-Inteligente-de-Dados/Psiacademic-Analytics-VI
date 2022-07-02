@@ -18,4 +18,5 @@ export interface ITrabalho {
   repositorio: string;
   tipo: string;
   palavrachave: string[];
+  transtornos: string[]
 }

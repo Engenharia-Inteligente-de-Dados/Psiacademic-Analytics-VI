@@ -11,6 +11,7 @@ import { PaginacaoModule } from '../../shared/components/paginacao/paginacao.mod
 import { LoadingsModule } from 'src/app/shared/components/loadings/loadings.module';
 import { TrabalhoInfoComponent } from './trabalho-info/trabalho-info.component';
 import { InlineAutoresModule } from '../../shared/pipes/inlineAutores/inline-autores.module';
+import { TranstornoPipeModule } from '../../shared/pipes/transtornoPipe/transtorno-pipe.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { InlineAutoresModule } from '../../shared/pipes/inlineAutores/inline-aut
     PaginacaoModule,
     LoadingsModule,
     InlineAutoresModule,
+    TranstornoPipeModule
   ],
 })
 export class ConsultsModule {}

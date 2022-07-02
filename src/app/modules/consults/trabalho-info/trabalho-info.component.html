@@ -30,7 +30,7 @@
             {{ trabalho.autores | inlineAutores }}
           </span>
           <span class="break-words">
-            {{ trabalho.tipo }}
+            <span class="font-bold text-gray-500 text-sm"> Tipo </span>: {{ trabalho.tipo }}
           </span>
         </div>
         <div class="flex items-start mt-1 justify-between text-base">
@@ -39,7 +39,17 @@
             {{ trabalho.repositorio }}
           </span>
           <span class="break-words">
-            Data: {{ trabalho.data.$date | date: "yyyy" }}
+            <span class="font-bold text-gray-500 text-sm"> Data de Publicação </span>: {{ trabalho.data.$date | date: "yyyy" }}
+          </span>
+        </div>
+        <div class="flex items-start mt-1 justify-between text-base">
+          <span class="break-words">
+            <span class="font-bold text-gray-500 text-sm">
+            Classificação <i class="fas fa-exclamation-circle text-gray-500"></i>:
+            </span>
+            : <span class="text-sm">
+              {{ trabalho.transtornos | inlineAutores | transtornoPipe }}
+            </span>
           </span>
         </div>
         <div class="flex items-start mt-1 justify-between text-base">
@@ -47,7 +57,9 @@
             <span class="font-bold text-gray-500 text-sm">
               Palavras Chaves
             </span>
-            : {{ trabalho.palavrachave | inlineAutores }}
+            : <span class="text-sm">
+              {{ trabalho.palavrachave | inlineAutores }}
+            </span>
           </span>
         </div>
       </div>

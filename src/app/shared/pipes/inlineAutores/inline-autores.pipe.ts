@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class InlineAutoresPipe implements PipeTransform {
 
-  transform(value: string[]): unknown {
+  transform(value: string[]): string {
     if(Array.isArray(value)){
       return value.join('; ');
     }
