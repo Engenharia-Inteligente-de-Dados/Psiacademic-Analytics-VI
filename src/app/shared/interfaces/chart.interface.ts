@@ -3,6 +3,7 @@ import {
   ChartModejs,
   ChartAlignPosition,
 } from '../enums/chartTypes.enum';
+import { FormType } from '../enums/types.enums';
 
 interface IChartAxes {
   display?: boolean;
@@ -97,6 +98,8 @@ export interface IChartActions {
   Config?: boolean;
   Expand?: boolean;
   Filter?: {
+    FormType?: FormType;
+    Label?:string;
     InUse?: boolean;
     Value?: any;
     Options?: any[];
