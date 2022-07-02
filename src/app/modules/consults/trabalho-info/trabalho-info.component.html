@@ -45,7 +45,11 @@
         <div class="flex items-start mt-1 justify-between text-base">
           <span class="break-words">
             <span class="font-bold text-gray-500 text-sm">
-            Classificação <i class="fas fa-exclamation-circle text-gray-500"></i>:
+            Classificação
+              <i class="fas fa-exclamation-circle text-gray-500" #alertIconRef
+              (click)="toggleTooltip()"
+              (mouseenter)="toggleTooltip()"
+              (mouseleave)="toggleTooltip()"></i>
             </span>
             : <span class="text-sm">
               {{ trabalho.transtornos | inlineAutores | transtornoPipe }}
