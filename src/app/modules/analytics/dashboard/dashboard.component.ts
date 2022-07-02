@@ -11,6 +11,7 @@ import { IChart } from '../../../shared/interfaces/chart.interface';
 import { Colors } from 'src/app/shared/enums/Colors';
 import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.provider';
 import { FREQUENCIAS } from './frequencia.const';
+import { DashboardElementsName } from './dashboardElementsNames.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,11 +22,7 @@ export class DashboardComponent implements OnInit {
   public loading = false;
   public Charts: { [key: string]: IChart } = {};
   public Frequencias: { [key: string]: any } = {};
-  public readonly TrabalhosEmAnosPorRepositorio = `TrabalhosEmAnosPorRepositorio`;
-  public readonly TrabalhosPorRepositorios = `TrabalhosPorRepositorios`;
-  public readonly TotalAnos = `TotalAnos`;
-  public readonly frequenciasTiposTrabalhos = 'TIPOS-TRABALHOS';
-  public readonly frequenciasTitulosTrabalhos = 'TITULOS-TRABALHOS';
+  public DashElem = DashboardElementsName;
   public readonly atributosTabelas = [
     { label: 'Termo', key: 'termo', primeiro: true },
     { label: 'Frequência', key: 'total' },
@@ -66,7 +63,7 @@ export class DashboardComponent implements OnInit {
         barThickness: 1,
         label: `Total`,
       });
-      this.Charts[this.TrabalhosEmAnosPorRepositorio] = { ...chart };
+      this.Charts[this.DashElem.TrabalhosEmAnosPorRepositorio] = { ...chart };
     } catch (error: any) {
       this.feedback.error(error);
     }
@@ -86,7 +83,7 @@ export class DashboardComponent implements OnInit {
         barThickness: 20,
         label: `Quantidade`,
       });
-      this.Charts[this.TrabalhosPorRepositorios] = { ...chart };
+      this.Charts[this.DashElem.TrabalhosPorRepositorios] = { ...chart };
     } catch (error: any) {
       this.feedback.error(error);
     }
@@ -106,7 +103,7 @@ export class DashboardComponent implements OnInit {
         barThickness: 20,
         label: `Quantidade`,
       });
-      this.Charts[this.TotalAnos] = { ...chart };
+      this.Charts[this.DashElem.TotalAnos] = { ...chart };
     } catch (error) {
       this.feedback.error(error);
     }
@@ -131,35 +128,35 @@ export class DashboardComponent implements OnInit {
   }
 
   public async frequenciaTiposTrabalhos() {
-    this.Frequencias[this.frequenciasTiposTrabalhos] = structuredClone(
-      FREQUENCIAS[this.frequenciasTiposTrabalhos]
+    this.Frequencias[this.DashElem.FrequenciasTiposTrabalhos] = structuredClone(
+      FREQUENCIAS[this.DashElem.FrequenciasTiposTrabalhos]
     );
-    this.Frequencias[this.frequenciasTiposTrabalhos].Loading = true;
+    this.Frequencias[this.DashElem.FrequenciasTiposTrabalhos].Loading = true;
     try {
-      const frequencia = await FREQUENCIAS[this.frequenciasTiposTrabalhos].Frequencias;
-      this.Frequencias[this.frequenciasTiposTrabalhos].Frequencias =  frequencia;
-      this.Frequencias[this.frequenciasTiposTrabalhos].Preview = frequencia.slice(0, 5);
+      const frequencia = await FREQUENCIAS[this.DashElem.FrequenciasTiposTrabalhos].Frequencias;
+      this.Frequencias[this.DashElem.FrequenciasTiposTrabalhos].Frequencias =  frequencia;
+      this.Frequencias[this.DashElem.FrequenciasTiposTrabalhos].Preview = frequencia.slice(0, 5);
     } catch (error) {
       this.feedback.error(error);
     }finally{
-      this.Frequencias[this.frequenciasTiposTrabalhos].Loading = false;
+      this.Frequencias[this.DashElem.FrequenciasTiposTrabalhos].Loading = false;
     }
   }
 
   public async frequenciaTitulosTrabalhos() {
-    this.Frequencias[this.frequenciasTitulosTrabalhos] = structuredClone(
-      FREQUENCIAS[this.frequenciasTitulosTrabalhos]
+    this.Frequencias[this.DashElem.FrequenciasTitulosTrabalhos] = structuredClone(
+      FREQUENCIAS[this.DashElem.FrequenciasTitulosTrabalhos]
     );
-    this.Frequencias[this.frequenciasTitulosTrabalhos].loading = true;
+    this.Frequencias[this.DashElem.FrequenciasTitulosTrabalhos].loading = true;
     try {
-      const frequencia = await FREQUENCIAS[this.frequenciasTitulosTrabalhos].Frequencias;
-      this.Frequencias[this.frequenciasTitulosTrabalhos].Frequencias =  frequencia;
-      this.Frequencias[this.frequenciasTitulosTrabalhos].Preview = frequencia.slice(0, 5);
+      const frequencia = await FREQUENCIAS[this.DashElem.FrequenciasTitulosTrabalhos].Frequencias;
+      this.Frequencias[this.DashElem.FrequenciasTitulosTrabalhos].Frequencias =  frequencia;
+      this.Frequencias[this.DashElem.FrequenciasTitulosTrabalhos].Preview = frequencia.slice(0, 5);
 
     } catch (error) {
       this.feedback.error(error);
     }finally{
-      this.Frequencias[this.frequenciasTitulosTrabalhos].loading = false;
+      this.Frequencias[this.DashElem.FrequenciasTitulosTrabalhos].loading = false;
     }
   }
 

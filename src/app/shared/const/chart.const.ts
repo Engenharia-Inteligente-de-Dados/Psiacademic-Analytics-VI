@@ -217,4 +217,3 @@ export const TOTAL_TRABALHOS_ANOS: IChart = {
   Chart: TOTAL_TRABALHOS_ANOS_CHARTJS,
   Loading: false,
 };
-
