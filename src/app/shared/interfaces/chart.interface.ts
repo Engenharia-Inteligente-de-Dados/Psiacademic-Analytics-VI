@@ -97,14 +97,16 @@ export interface IChartjs {
 export interface IChartActions {
   Config?: boolean;
   Expand?: boolean;
-  Filter?: {
+  Filters?:IFilterAction[],
+}
+
+interface IFilterAction{
     FormType?: FormType;
     Label?:string;
     InUse?: boolean;
     Value?: any;
     Options?: any[];
   };
-}
 
 export interface IChart {
   Id: string | number;
