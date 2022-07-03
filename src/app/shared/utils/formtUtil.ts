@@ -119,7 +119,6 @@ function createDataSet(labels: any[], values: any[], config?: any): any {
         cor = Object.values(ChartColor)[index];
       }
       return {
-        label: value,
         data: [{ x: labels[index], y: labels[index] }],
         fill: config?.fill || false,
         barThickness: config?.barThickness || 1,
@@ -133,12 +132,14 @@ function createDataSet(labels: any[], values: any[], config?: any): any {
   if (config?.escalaCor) {
     cores = Object.values(ChartColor).slice(0, labels.length);
   }
-  const data = labels.map((value,index)=>{
-    return {x:labels[index],y:values[index]}
-  })
+  const data = labels.map((value, index) => {
+    return { x: labels[index], y: values[index] };
+  });
+
   return {
+    label: config?.label ? config.label : labels,
     data: data,
-    fill: config?.fill || true,
+    fill: config?.fill || false,
     barThickness: config?.barThickness || 1,
     backgroundColor: !!cores ? cores : cor,
     borderColor: !!cores ? cores : cor,

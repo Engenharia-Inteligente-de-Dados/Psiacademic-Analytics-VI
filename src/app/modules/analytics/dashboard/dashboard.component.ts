@@ -232,7 +232,10 @@ export class DashboardComponent implements OnInit {
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart?.DatasetConfig);
       chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
       Actions.Filters[index].Value = newValue;
-      chart.Chart.data.datasets[0].data = dataset.data;
+      chart.Chart.data.datasets[0] = dataset;
+      if(chart.DatasetConfig.multipleDataset){
+        chart.Chart.data.datasets = dataset;
+      }
       chart.Chart.data.labels = labels;
       chart.Actions = Actions;
       this.Charts[propertyName] = { ...chart };

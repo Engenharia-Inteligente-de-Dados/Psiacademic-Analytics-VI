@@ -264,6 +264,9 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
       },
     ],
   },
+  DatasetConfig: {
+    label: 'Quantidade de Trabalhos',
+    }
 };
 
 export const TOTAL_TRABALHOS_REP_CHART: IChart = {
@@ -319,5 +322,6 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
     escalaCor: true,
     barThickness: 25,
     fill: true,
+    label: 'Transtornos',
   },
 };
