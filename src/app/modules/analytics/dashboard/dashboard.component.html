@@ -1,6 +1,6 @@
 <ng-container *ngIf="!loading">
   <div class="flex flex-wrap">
-    <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
+    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
       <card [title]="Charts[DashElem.TranstornosRepositorioAno].Title">
         <div actions class="flex flex-wrap">
           <ng-container
@@ -40,9 +40,7 @@
         </ng-container>
       </card>
     </div>
-  </div>
-  <div class="flex flex-wrap">
-    <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
+    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
       <card [title]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Title">
         <div actions class="flex flex-wrap">
           <ng-container
@@ -82,6 +80,17 @@
         </div>
       </card>
     </div>
+  </div>
+  <div class="flex flex-wrap">
+    <div class="w-full xl:w-7/12 px-4">
+      <card [title]="Charts[DashElem.TrabalhosPorRepositorios].Title">
+        <chart
+          body
+          [chart]="Charts[DashElem.TrabalhosPorRepositorios]?.Chart"
+          [id]="Charts[DashElem.TrabalhosPorRepositorios]?.Id"
+        ></chart>
+      </card>
+    </div>
     <div class="w-full xl:w-5/12 mb-12 xl:mb-0 px-4">
       <card [title]="Charts[DashElem.TotalAnos].Title">
         <chart
@@ -94,15 +103,6 @@
   </div>
   <div class="flex flex-wrap mt-4">
     <div class="w-full xl:w-5/12 px-4">
-      <card [title]="Charts[DashElem.TrabalhosPorRepositorios].Title">
-        <chart
-          body
-          [chart]="Charts[DashElem.TrabalhosPorRepositorios]?.Chart"
-          [id]="Charts[DashElem.TrabalhosPorRepositorios]?.Id"
-        ></chart>
-      </card>
-    </div>
-    <div class="w-full xl:w-4/12 px-4">
       <card [title]="Frequencias[DashElem.FrequenciasTitulosTrabalhos].Title">
         <div actions class="flex justify-end">
           <button
@@ -125,7 +125,7 @@
         </tabela>
       </card>
     </div>
-    <div class="w-full xl:w-3/12 px-4">
+    <div class="w-full xl:w-5/12 px-4">
       <card [title]="Frequencias[DashElem.FrequenciasTiposTrabalhos].Title">
         <div actions class="flex justify-end">
           <button
