@@ -21,3 +21,34 @@ export enum Colors {
   Gray_3 = 'rgba(255, 255, 255, 0.3)',
   CoolGray = 'rgba(55, 65, 81, 0.5)',
 }
+
+/* As cores utilizadas podem ser encontradas nessa url, caso haja necessidade de aumentar a quantidade
+ * https://vis4.net/palettes/#/25|d|4c51bf,00429d,00fbf6,ffffe0|ffffe0,ea4714,93003a|1|0
+ */
+export enum ChartColor {
+  Color_1 = '#4c51bf',
+  Color_2 = '#006eb2',
+  Color_3 = '#007db9',
+  Color_4 = '#008cc1',
+  Color_5 = '#009cc8',
+  Color_6 = '#00abcf',
+  Color_7 = '#00bad7',
+  Color_8 = '#00cade',
+  Color_9 = '#00dae6',
+  Color_10 ='#00eaee',
+  Color_11 ='#00faf6',
+  Color_12 ='#b3fee7',
+  Color_13 ='#ffffe0',
+  Color_14 ='#fdebc9',
+  Color_15 ='#fad6b3',
+  Color_16 ='#f8c19b',
+  Color_17 ='#f5ac84',
+  Color_18 ='#f3956b',
+  Color_19 ='#f07e51',
+  Color_20 ='#ed6334',
+  Color_21 ='#e84515',
+  Color_22 ='#d4351e',
+  Color_23 ='#c02427',
+  Color_24 ='#aa1330',
+  Color_25 ='#93003a',
+}
