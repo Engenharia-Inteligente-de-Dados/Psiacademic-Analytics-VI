@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ConsultTitle, ConsultaType } from 'src/app/shared/enums/types.enums';
+import { ConsultTitle, ConsultaType, ConsultTypeSelectOPtions } from 'src/app/shared/enums/types.enums';
 import { IOptionsSelectConsulta } from 'src/app/shared/interfaces/opcoes-select-consultas.interface';
 import { IPagination } from 'src/app/shared/interfaces/pagination.interface';
 import { ListasProvider } from 'src/app/shared/providers/listas.provider';
@@ -17,11 +17,12 @@ export class ConsultsComponent implements OnInit {
   private readonly genericTitle = 'Consultar Artigos Por {0}';
   private readonly avancadaTitle = 'Avançada';
   public Title: string;
-  public options: IOptionsSelectConsulta = {
-    anosOptions: [],
-    transtornoOptions: [],
-    repositorioOptions: [],
+  public options:IOptionsSelectConsulta = {
+    [ConsultTypeSelectOPtions.transtornosOptions]: [],
+    [ConsultTypeSelectOPtions.anosOptions]:[],
+    [ConsultTypeSelectOPtions.repositoriosOptions]:[]
   };
+
   public trabalhos: any[];
   public tipo: ConsultaType;
   public loading: boolean;
@@ -66,12 +67,6 @@ export class ConsultsComponent implements OnInit {
       this.tipo = params.tipo;
       this.reset();
       this.trataTitle();
-      if (this.tipo == ConsultaType.Transtornos) {
-        userFeedback.infor(
-          `Ainda estamos desenvolvendo essa parte ok?`,
-          `Em Desenvolvimento`
-        );
-      }
     });
     this.getListas();
   }
@@ -81,11 +76,12 @@ export class ConsultsComponent implements OnInit {
   async getListas() {
     try {
       this.loading = true;
-      const { anos, repositorios } = await this.listasProvider.getListas();
+      const { anos, repositorios,transtornos } = await this.listasProvider.getListas();
       this.options.anosOptions = [];
-      this.options.repositorioOptions = [];
+      this.options.repositoriosOptions = [];
       this.options.anosOptions = anos;
-      this.options.repositorioOptions = repositorios;
+      this.options.repositoriosOptions = repositorios;
+      this.options.transtornosOptions = transtornos
     } catch (error:any) {
       this.userFeedback.error(error,`Erro`);
     } finally {
@@ -104,10 +100,14 @@ export class ConsultsComponent implements OnInit {
     try {
       this.loadingTable = true;
       const resp = await this.consultApi.consulta(param, this.tipo);
-      this.trabalhos = resp.trabalhos;
-      this.paginacao = resp.paginacao;
+      if(!!!resp){
+        this.userFeedback.infor("Não Foram encontrados trabalhos","Resultado");
+      }
+      this.trabalhos = resp?.trabalhos;
+      this.paginacao = resp?.paginacao;
     } catch (error:any) {
        this.userFeedback.error(error,`Erro`);
+       this.loadingTable = false;
     } finally {
       this._controleNovaPesquisa = false;
       this.loadingTable = false;

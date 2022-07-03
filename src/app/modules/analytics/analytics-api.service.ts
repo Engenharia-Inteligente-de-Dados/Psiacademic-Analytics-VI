@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API, OLD_API } from 'src/environments/environment';
 import { BaseHttpProvider } from '../../shared/providers/base-http.provider';
+import { URLParams } from '../../shared/utils/http.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -41,7 +42,8 @@ export class AnalyticsAPIService {
     return await this.http.get(`${API}/total/total-anos-repositorio?repositorio=${rep}`);
   }
 
-  async getChartFiltrado(url:string, params:any): Promise<any> {
-    return await this.http.get(`${API}${url}${params}`);
+  async getChartFiltrado(url:string,params): Promise<any> {
+    const param = URLParams(params)
+    return await this.http.get(`${API}${url}${param}`);
   }
 }

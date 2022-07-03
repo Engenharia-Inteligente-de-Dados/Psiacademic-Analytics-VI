@@ -1,89 +1,146 @@
 <ng-container *ngIf="!loading">
   <div class="flex flex-wrap">
-    <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
-      <card [title]="Charts[TrabalhosEmAnosPorRepositorio].Title">
-        <select-auto-complet
-          [options]="
-            Charts[TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Options
-          "
-          [selectedDefault]="
-            Charts[TrabalhosEmAnosPorRepositorio]?.Actions?.Filter?.Value
-          "
-          (optionChange)="
-            filter(
-              $event,
-              Charts[TrabalhosEmAnosPorRepositorio],
-              TrabalhosEmAnosPorRepositorio
-            )
-          "
-        >
-        </select-auto-complet>
+    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
+      <card [title]="Charts[DashElem.TranstornosRepositorioAno].Title">
+        <div actions class="flex flex-wrap">
+          <ng-container
+            *ngFor="
+              let Filter of Charts[DashElem.TranstornosRepositorioAno]?.Actions
+                ?.Filters;
+              index as i
+            "
+          >
+            <div class="w-full md:w-1/2">
+              <select-auto-complet
+                [label]="Filter?.Label"
+                [options]="Filter?.Options"
+                [selectedDefault]="Filter?.Value"
+                (optionChange)="
+                  filter(
+                    $event,
+                    Charts[DashElem.TranstornosRepositorioAno],
+                    DashElem.TranstornosRepositorioAno,
+                    i
+                  )
+                "
+              >
+              </select-auto-complet>
+            </div>
+          </ng-container>
+        </div>
+        <ng-container body>
+          <chart
+            [chart]="Charts[DashElem.TranstornosRepositorioAno]?.Chart"
+            [id]="Charts[DashElem.TranstornosRepositorioAno]?.Id"
+            *ngIf="!Charts[DashElem.TranstornosRepositorioAno].Loading"
+          ></chart>
+          <chart-loading
+            [loading]="Charts[DashElem.TranstornosRepositorioAno].Loading"
+          ></chart-loading>
+        </ng-container>
+      </card>
+    </div>
+    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
+      <card [title]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Title">
+        <div actions class="flex flex-wrap">
+          <ng-container
+            *ngFor="
+              let Filter of Charts[DashElem.TrabalhosEmAnosPorRepositorio]
+                ?.Actions?.Filters;
+              index as i
+            "
+          >
+            <div class="w-full md:w-1/2">
+              <select-auto-complet
+                [label]="Filter?.Label"
+                [options]="Filter?.Options"
+                [selectedDefault]="Filter?.Value"
+                (optionChange)="
+                  filter(
+                    $event,
+                    Charts[DashElem.TrabalhosEmAnosPorRepositorio],
+                    DashElem.TrabalhosEmAnosPorRepositorio,
+                    i
+                  )
+                "
+              >
+              </select-auto-complet>
+            </div>
+          </ng-container>
+        </div>
+        <div body>
+          <chart
+            [chart]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Chart"
+            [id]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Id"
+            *ngIf="!Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
+          ></chart>
+          <chart-loading
+            [loading]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
+          ></chart-loading>
+        </div>
+      </card>
+    </div>
+  </div>
+  <div class="flex flex-wrap">
+    <div class="w-full xl:w-7/12 px-4">
+      <card [title]="Charts[DashElem.TrabalhosPorRepositorios].Title">
         <chart
           body
-          [chart]="Charts[TrabalhosEmAnosPorRepositorio]?.Chart"
-          [id]="Charts[TrabalhosEmAnosPorRepositorio]?.Id"
-          *ngIf="!Charts[TrabalhosEmAnosPorRepositorio].Loading"
+          [chart]="Charts[DashElem.TrabalhosPorRepositorios]?.Chart"
+          [id]="Charts[DashElem.TrabalhosPorRepositorios]?.Id"
         ></chart>
-        <chart-loading
-          [loading]="Charts[TrabalhosEmAnosPorRepositorio].Loading"
-        ></chart-loading>
       </card>
     </div>
     <div class="w-full xl:w-5/12 mb-12 xl:mb-0 px-4">
-      <card [title]="Charts[TotalAnos].Title">
+      <card [title]="Charts[DashElem.TotalAnos].Title">
         <chart
           body
-          [chart]="Charts[TotalAnos]?.Chart"
-          [id]="Charts[TotalAnos]?.Id"
+          [chart]="Charts[DashElem.TotalAnos]?.Chart"
+          [id]="Charts[DashElem.TotalAnos]?.Id"
         ></chart>
       </card>
     </div>
   </div>
   <div class="flex flex-wrap mt-4">
     <div class="w-full xl:w-5/12 px-4">
-      <card [title]="Charts[TrabalhosPorRepositorios].Title">
-        <chart
-          body
-          [chart]="Charts[TrabalhosPorRepositorios]?.Chart"
-          [id]="Charts[TrabalhosPorRepositorios]?.Id"
-        ></chart>
-      </card>
-    </div>
-    <div class="w-full xl:w-4/12 px-4">
-      <card [title]="Frequencias[frequenciasTitulosTrabalhos].Title">
-        <div class="flex justify-end">
+      <card [title]="Frequencias[DashElem.FrequenciasTitulosTrabalhos].Title">
+        <div actions class="flex justify-end">
           <button
             class="bg-lightBlue-500 text-slate-900 active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             type="button"
-            (click)="openModal(Frequencias[frequenciasTitulosTrabalhos])"
+            (click)="
+              openModal(Frequencias[DashElem.FrequenciasTitulosTrabalhos])
+            "
             aria-label="Frequencias de titulos de trabalhos, ver todos os 10"
           >
             Ver todas
           </button>
         </div>
         <tabela
+          body
           [campos]="atributosTabelas"
-          [linhas]="Frequencias[frequenciasTitulosTrabalhos].Preview"
+          [linhas]="Frequencias[DashElem.FrequenciasTitulosTrabalhos].Preview"
           [haslegendas]="false"
         >
         </tabela>
       </card>
     </div>
-    <div class="w-full xl:w-3/12 px-4">
-      <card [title]="Frequencias[frequenciasTiposTrabalhos].Title">
-        <div class="flex justify-end">
+    <div class="w-full xl:w-5/12 px-4">
+      <card [title]="Frequencias[DashElem.FrequenciasTiposTrabalhos].Title">
+        <div actions class="flex justify-end">
           <button
             class="bg-lightBlue-500 text-slate-900 active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             type="button"
-            (click)="openModal(Frequencias[frequenciasTiposTrabalhos])"
+            (click)="openModal(Frequencias[DashElem.FrequenciasTiposTrabalhos])"
             aria-label="Frequencias de Tipos de trabalho ver todos os 10"
           >
             Ver todas
           </button>
         </div>
         <tabela
+          body
           [campos]="atributosTabelas"
-          [linhas]="Frequencias[frequenciasTiposTrabalhos].Preview"
+          [linhas]="Frequencias[DashElem.FrequenciasTiposTrabalhos].Preview"
           [haslegendas]="false"
         >
         </tabela>

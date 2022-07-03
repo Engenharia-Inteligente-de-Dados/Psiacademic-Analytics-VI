@@ -1,15 +1,3 @@
-export enum ViewType {
-  card = 'card',
-  list = 'list'
-}
-
-export enum IconType {
-  iCard = 'grid-outline',
-  iList = 'list-outline',
-  iAlbums = `albums-outline`,
-}
-
-
 export enum ConsultaType {
   Anos = 'anos',
   Expressoes = 'expressoes',

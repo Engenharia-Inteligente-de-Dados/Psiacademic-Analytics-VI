@@ -3,6 +3,8 @@ import {
   ChartModejs,
   ChartAlignPosition,
 } from '../enums/chartTypes.enum';
+import { FormType } from '../enums/types.enums';
+import { ChartColor } from '../enums/Colors';
 
 interface IChartAxes {
   display?: boolean;
@@ -41,14 +43,14 @@ interface IChartAxes {
   };
 }
 
-interface IChartjsDataset {
+export interface IChartjsDataset {
   label?: string | number | Date | any;
   data: number[] | any[] | { x: any; y: any }[] | string | string[] | any;
   //data: any
   fill: boolean;
   barThickness?: number;
-  backgroundColor?: string;
-  borderColor?: string;
+  backgroundColor?: string | string[] | ChartColor;
+  borderColor?:  string | string[] | ChartColor;
 }
 
 interface IChartjsData {
@@ -96,12 +98,17 @@ export interface IChartjs {
 export interface IChartActions {
   Config?: boolean;
   Expand?: boolean;
-  Filter?: {
+  Filters?:IFilterAction[],
+}
+
+interface IFilterAction{
+    FormType?: FormType;
+    Label?:string;
     InUse?: boolean;
     Value?: any;
+    Key?:string;
     Options?: any[];
   };
-}
 
 export interface IChart {
   Id: string | number;
@@ -110,5 +117,6 @@ export interface IChart {
   Actions?: IChartActions;
   Url?: string;
   Loading?: boolean;
-  Keys?: string[]
+  Keys?: any
+  DatasetConfig?: any;
 }

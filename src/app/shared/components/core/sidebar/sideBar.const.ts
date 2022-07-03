@@ -1,6 +1,6 @@
 import { ConsultaType } from 'src/app/shared/enums/types.enums';
 export const TEXTOS = {
-  Title: 'Psi Academic Analytics',
+  Title: 'PsiAcademic Analytics',
 };
 
 export const MAIN_ROUTES = [

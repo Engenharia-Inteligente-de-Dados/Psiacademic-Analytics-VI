@@ -15,6 +15,7 @@ import { FormControl } from '@angular/forms';
 })
 export class FormSelectAutoCompletComponent implements OnInit {
   private readonly _defaultSelect = `Selecione uma Opção`;
+  @Input() label: string = ''
   @Input() options: any[];
   @Input() selectedDefault?: string = this._defaultSelect;
   @Output() optionChange = new EventEmitter<any>();
@@ -28,7 +29,7 @@ export class FormSelectAutoCompletComponent implements OnInit {
 
   onOptionChange(event: any) {
     if (this.selectForm !== this._defaultSelect) {
-      this.optionChange.emit({ newValue: this.selectForm });
+      this.optionChange.emit({ newValue: this.selectForm, label:this.label });
     }
   }
 }

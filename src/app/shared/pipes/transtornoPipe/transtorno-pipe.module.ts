@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardStatsComponent } from './card-stats.component';
+import { TranstornoPipePipe } from './transtorno-pipe.pipe';
 
 
 
 @NgModule({
   declarations: [
-    CardStatsComponent
+    TranstornoPipePipe
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    TranstornoPipePipe
   ]
 })
-export class CardStatsModule { }
+export class TranstornoPipeModule { }

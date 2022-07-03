@@ -10,10 +10,12 @@
         </h3>
         <h2 class="text-xl font-semibold" [ngClass]="textColor">{{ subTitle }}</h2>
       </div>
-      <ng-content #actions></ng-content>
+    </div>
+    <div class="mt-2 mx-2 p-2">
+      <ng-content select="[actions]"></ng-content>
     </div>
   </div>
   <div class="p-4 flex-auto">
-    <ng-content #body></ng-content>
+    <ng-content select="[body]"></ng-content>
   </div>
 </div>

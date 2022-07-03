@@ -64,11 +64,6 @@ export class ConsultsFormComponent implements OnInit {
   }
 
   private trataAnos(){
-    const TODOS = 'Todos'
-    const find = this.options.anosOptions.findIndex(ano => ano === TODOS)
-    if(find>=0){
-      this.options.anosOptions.splice(find, 1);
-    }
     return {
       anosOptionsI: (element) => {
         this.anosfull = this.options.anosOptions;
@@ -84,10 +79,6 @@ export class ConsultsFormComponent implements OnInit {
       anosOptions: (element) => {
         this.anosfull = this.options.anosOptions;
         this.options[element.selectOptions] = this.options.anosOptions;
-        const find = this.options.anosOptions.find(ano => ano === TODOS)
-        if(!!!find){
-          this.options.anosOptions.unshift(TODOS);
-        }
         this.formConsulta.controls[element.attr].setValue(this.options.anosOptions[this.defaultIndex]);
       },
     };

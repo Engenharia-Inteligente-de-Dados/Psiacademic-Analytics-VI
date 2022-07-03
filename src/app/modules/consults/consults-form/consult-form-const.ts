@@ -1,79 +1,93 @@
-import { FormType,ConsultTypeSelectOPtions,FormAtrributeConsult } from 'src/app/shared/enums/types.enums';
+import {
+  FormType,
+  ConsultTypeSelectOPtions,
+  FormAtrributeConsult,
+} from 'src/app/shared/enums/types.enums';
 
-//TODO : Fazer interface
 const formsDatasGroup = {
   anos: () => {
     return [
       {
-      label: 'Ano',
-      type: FormType.number,
-      placeholder: '2022',
-      attr: FormAtrributeConsult.Ano ,
-      enabled: false,
-    },
-    {
-      label: 'Ano Inicial',
-      type: FormType.select,
-      selectOptions: ConsultTypeSelectOPtions.anosOptionsI,
-      placeholder: '2000',
-      attr:  FormAtrributeConsult.AnoI,
-      enabled: true,
-    },
-    {
-      label: 'Ano Final',
-      type: FormType.select,
-      selectOptions: ConsultTypeSelectOPtions.anosOptionsF,
-      placeholder: '2022',
-      attr:  FormAtrributeConsult.AnoF,
-      enabled: true,
-    }
-  ]
+        label: 'Ano Inicial',
+        type: FormType.select,
+        selectOptions: ConsultTypeSelectOPtions.anosOptionsI,
+        placeholder: '2000',
+        attr: FormAtrributeConsult.AnoI,
+        accessibility: {
+          name: 'Ano Inicial',
+        },
+        enabled: true,
+      },
+      {
+        label: 'Ano Final',
+        type: FormType.select,
+        selectOptions: ConsultTypeSelectOPtions.anosOptionsF,
+        placeholder: '2022',
+        accessibility: {
+          name: 'Ano Final',
+        },
+        attr: FormAtrributeConsult.AnoF,
+        enabled: true,
+      },
+    ];
   },
   expressoes: () => {
     return [
       {
-      label: 'Título',
-      type: FormType.text,
-      placeholder: 'Título',
-      attr: FormAtrributeConsult.Titulo,
-      enabled: true,
+        label: 'Título',
+        type: FormType.text,
+        placeholder: 'Título',
+        attr: FormAtrributeConsult.Titulo,
+        enabled: true,
+        accessibility: {
+          name: 'Título',
+        },
       },
       {
-      label: 'Resumo',
-      type: FormType.text,
-      placeholder: 'Resumo',
-      attr: FormAtrributeConsult.Resumo,
-      enabled: true,
+        label: 'Resumo',
+        type: FormType.text,
+        placeholder: 'Resumo',
+        attr: FormAtrributeConsult.Resumo,
+        enabled: true,
+        accessibility: {
+          name: 'Resumo',
+        },
       },
-    ]
+    ];
   },
   repositorios: () => {
     return [
       {
-      label: 'Repositorio',
-      type: FormType.select,
-      selectOptions:'repositorioOptions',
-      placeholder: 'Repositorio',
-      attr: FormAtrributeConsult.Repositorio,
-      enabled: true,
+        label: 'Repositório',
+        type: FormType.select,
+        selectOptions: ConsultTypeSelectOPtions.repositoriosOptions,
+        placeholder: 'Repositório',
+        attr: FormAtrributeConsult.Repositorio,
+        enabled: true,
+        accessibility: {
+          name: 'Repositório',
+        },
       },
-    ]
+    ];
   },
   transtornos: () => {
     return [
       {
-      label: 'Transtorno',
-      type: FormType.select,
-      selectOptions:'transtornoOptions',
-      placeholder: 'Transtorno',
-      attr: FormAtrributeConsult.Transtorno,
-      enabled: true,
+        label: 'Transtorno',
+        type: FormType.select,
+        selectOptions:  ConsultTypeSelectOPtions.transtornosOptions,
+        placeholder: 'Transtorno',
+        attr: FormAtrributeConsult.Transtorno,
+        enabled: true,
+        accessibility: {
+          name: 'Transtorno',
+        },
       },
-    ]
-  }
-}
+    ];
+  },
+};
 
-export const FORM_TEMPLATE ={
+export const FORM_TEMPLATE = {
   ...formsDatasGroup,
   avancada: () => {
     return [
@@ -81,62 +95,24 @@ export const FORM_TEMPLATE ={
         label: 'Ano',
         type: FormType.select,
         selectOptions: ConsultTypeSelectOPtions.anosOptions,
-        attr: FormAtrributeConsult.Ano ,
+        attr: FormAtrributeConsult.Ano,
         enabled: true,
+        accessibility: {
+          name: 'Ano',
+        },
       },
-       {
-        label: 'Palavras Chave',
+      {
+        label: 'Palavras-Chave',
         type: FormType.text,
-        placeholder: 'Palavra Chave',
+        placeholder: 'Palavras-Chave',
         attr: FormAtrributeConsult.Palavras_chave,
         enabled: true,
+        accessibility: {
+          name: 'Palavras-Chave',
         },
+      },
       ...formsDatasGroup.expressoes(),
       ...formsDatasGroup.transtornos(),
-    ]
-  }
-}
-
-export const ANOS_OPTIONS = [
-  1500,
-  1970,
-  1971,
-  1972,
-  1973,
-  1974,
-  1975,
-  1976,
-  1977,
-  2000,
-  2001,
-  2002,
-  2003,
-  2004,
-  2005,
-  2006,
-  2007,
-]
-
-export const OPTIONS_CONSULT_FORM = {
-  anosOptions:ANOS_OPTIONS,
-  // anosOptionsI:ANOS_OPTIONS,
-  // anosOptionsF:ANOS_OPTIONS,
-  repositorioOptions:[
-    `Todos`,
-    `USP`,
-    `UFRJ`,
-    `UFSC`,
-    `UFMG`,
-    `UFPA`,
-    `UFPR`,
-    `UFPE`,
-  ],
-  transtornoOptions:[
-    `Todos`,
-    `TCC`,
-    `TCC-S`,
-    `TCC-S-P`,
-    `TCC-S-P-I`,
-    `TCC-S-P-I-F`,
-    `TCC-S-P-I-F-R`,]
-}
+    ];
+  },
+};

@@ -1,5 +1,7 @@
+import { ConsultTypeSelectOPtions } from '../enums/types.enums'
+
 export interface IOptionsSelectConsulta{
-  anosOptions: any[];
-  transtornoOptions: any[];
-  repositorioOptions: any[];
+  [ConsultTypeSelectOPtions.transtornosOptions]: any[],
+  [ConsultTypeSelectOPtions.repositoriosOptions]: any[],
+  [ConsultTypeSelectOPtions.anosOptions]: any[],
 }
