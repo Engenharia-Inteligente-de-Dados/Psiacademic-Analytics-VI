@@ -273,7 +273,7 @@ export const TOTAL_TRABALHOS_REP_CHART: IChart = {
   Keys: { _id: null, total: null },
   Chart: TOTAL_TRABALHOS_REP_CHARTJS,
   Loading: false,
-  datasetConfig: {
+  DatasetConfig: {
     escalaCor: true,
     barThickness: 25,
     fill: true,
@@ -315,7 +315,7 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
       },
     ],
   },
-  datasetConfig: {
+  DatasetConfig: {
     escalaCor: true,
     barThickness: 25,
     fill: true,

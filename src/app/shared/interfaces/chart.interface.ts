@@ -118,5 +118,5 @@ export interface IChart {
   Url?: string;
   Loading?: boolean;
   Keys?: any
-  datasetConfig?: any;
+  DatasetConfig?: any;
 }

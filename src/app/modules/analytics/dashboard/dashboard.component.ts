@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
       });
       let params = this.ajustParam(chart.Actions.Filters)
       const resp = await this.analyticsApi.getChartFiltrado(chart.Url,params);
-      const { labels, dataset } = formatChartData(resp, chart.Keys, chart.datasetConfig);
+      const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Title = chart.Title.replace('{0}', filterObj.rep.first).replace(
         '{1}',
         filterObj.ano.first
@@ -114,7 +114,7 @@ export class DashboardComponent implements OnInit {
     const chart = structuredClone(TOTAL_TRABALHOS_REP_CHART);
     try {
       const resp = await this.analyticsApi.getRepositorios();
-      const { labels, dataset } = formatChartData(resp, chart.Keys, chart.datasetConfig);
+      const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
       dataset.label ="Quantidade"
       chart.Chart.data.datasets.push(dataset);
@@ -229,7 +229,7 @@ export class DashboardComponent implements OnInit {
     try {
       const resp = await this.analyticsApi.getChartFiltrado(Url, params)
       const Actions = chart.Actions;
-      const { labels, dataset } = formatChartData(resp, chart.Keys, chart?.datasetConfig);
+      const { labels, dataset } = formatChartData(resp, chart.Keys, chart?.DatasetConfig);
       chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
       Actions.Filters[index].Value = newValue;
       chart.Chart.data.datasets[0].data = dataset.data;
