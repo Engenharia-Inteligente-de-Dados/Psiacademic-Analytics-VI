@@ -250,7 +250,7 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
   Id: 1,
   Title: `Quantidade de trabalhos por repositórios - {0}`,
   Url: TOTAL_ANOS_REP,
-  Keys: ['_id', `total`],
+  Keys: { _id: null, total: null },
   Chart: TOTAL_ANOS_POR_REPOSITORIO_CHARTJS,
   Loading: false,
   Actions: {
@@ -259,6 +259,7 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
         Label: 'Repositórios',
         InUse: false,
         Value: ``,
+        Key:"repositorio",
         Options: [],
       },
     ],
@@ -269,16 +270,21 @@ export const TOTAL_TRABALHOS_REP_CHART: IChart = {
   Id: 2,
   Title: `Total trabalhos por repositórios`,
   Url: '',
-  Keys: ['_id', `total`],
+  Keys: { _id: null, total: null },
   Chart: TOTAL_TRABALHOS_REP_CHARTJS,
   Loading: false,
+  datasetConfig: {
+    escalaCor: true,
+    barThickness: 25,
+    fill: true,
+  },
 };
 
 export const TOTAL_TRABALHOS_ANOS: IChart = {
   Id: 3,
   Title: `Evolução de trabalhos`,
   Url: '',
-  Keys: ['_id', `count`],
+  Keys: { _id: null, count: null },
   Chart: TOTAL_TRABALHOS_ANOS_CHARTJS,
   Loading: false,
 };
@@ -289,7 +295,7 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
     'Quantidade trabalhos que foram classificados contendo transtornos: {0} - Ano {1} ',
   Url: TRANSTORNOS_REP_ANO,
   Loading: false,
-  Keys: ['_id', 'total'],
+  Keys: { _id: 'transtonos', total: null },
   Chart: TRANSTORNOS_REPOSITORIO_ANO_CHARTJS,
   Actions: {
     Filters: [
@@ -297,14 +303,21 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
         Label: 'Repositórios',
         InUse: false,
         Value: ``,
+        Key:`repositorio`,
         Options: [],
       },
       {
         Label: 'Ano',
         InUse: false,
-        Value: ``,
+        Value: "",
+        Key:"ano",
         Options: [],
       },
     ],
+  },
+  datasetConfig: {
+    escalaCor: true,
+    barThickness: 25,
+    fill: true,
   },
 };

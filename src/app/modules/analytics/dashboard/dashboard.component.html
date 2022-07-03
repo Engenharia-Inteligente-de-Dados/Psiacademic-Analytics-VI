@@ -1,6 +1,48 @@
 <ng-container *ngIf="!loading">
   <div class="flex flex-wrap">
     <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
+      <card [title]="Charts[DashElem.TranstornosRepositorioAno].Title">
+        <div actions class="flex flex-wrap">
+          <ng-container
+            *ngFor="
+              let Filter of Charts[DashElem.TranstornosRepositorioAno]?.Actions
+                ?.Filters;
+              index as i
+            "
+          >
+            <div class="w-full md:w-1/2">
+              <select-auto-complet
+                [label]="Filter?.Label"
+                [options]="Filter?.Options"
+                [selectedDefault]="Filter?.Value"
+                (optionChange)="
+                  filter(
+                    $event,
+                    Charts[DashElem.TranstornosRepositorioAno],
+                    DashElem.TranstornosRepositorioAno,
+                    i
+                  )
+                "
+              >
+              </select-auto-complet>
+            </div>
+          </ng-container>
+        </div>
+        <ng-container body>
+          <chart
+            [chart]="Charts[DashElem.TranstornosRepositorioAno]?.Chart"
+            [id]="Charts[DashElem.TranstornosRepositorioAno]?.Id"
+            *ngIf="!Charts[DashElem.TranstornosRepositorioAno].Loading"
+          ></chart>
+          <chart-loading
+            [loading]="Charts[DashElem.TranstornosRepositorioAno].Loading"
+          ></chart-loading>
+        </ng-container>
+      </card>
+    </div>
+  </div>
+  <div class="flex flex-wrap">
+    <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
       <card [title]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Title">
         <div actions class="flex flex-wrap">
           <ng-container
@@ -12,15 +54,11 @@
           >
             <div class="w-full md:w-1/2">
               <select-auto-complet
-                [label] = "Filter?.Label"
-                [options]="
-                 Filter?.Options
-                "
-                [selectedDefault]="
-                  Filter?.Value
-                "
+                [label]="Filter?.Label"
+                [options]="Filter?.Options"
+                [selectedDefault]="Filter?.Value"
                 (optionChange)="
-                filter(
+                  filter(
                     $event,
                     Charts[DashElem.TrabalhosEmAnosPorRepositorio],
                     DashElem.TrabalhosEmAnosPorRepositorio,
@@ -32,60 +70,16 @@
             </div>
           </ng-container>
         </div>
-        <chart
-          body
-          [chart]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Chart"
-          [id]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Id"
-          *ngIf="!Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
-        ></chart>
-        <chart-loading
-          [loading]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
-        ></chart-loading>
-      </card>
-    </div>
-    <div class="w-full xl:w-5/12 mb-12 xl:mb-0 px-4">
-      <card [title]="Charts[DashElem.TotalAnos].Title">
-        <chart
-          body
-          [chart]="Charts[DashElem.TotalAnos]?.Chart"
-          [id]="Charts[DashElem.TotalAnos]?.Id"
-        ></chart>
-      </card>
-    </div>
-  </div>
-  <div class="flex flex-wrap">
-    <div class="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
-      <card [title]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Title">
-        <select-auto-complet
-          label="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filters[0]
-          .label"
-          [options]="
-            Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filters[0]
-              .Options
-          "
-          [selectedDefault]="
-            Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Actions?.Filters[0]
-              .Value
-          "
-          (optionChange)="
-            filter(
-              $event,
-              Charts[DashElem.TrabalhosEmAnosPorRepositorio],
-              DashElem.TrabalhosEmAnosPorRepositorio,
-              0
-            )
-          "
-        >
-        </select-auto-complet>
-        <chart
-          body
-          [chart]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Chart"
-          [id]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Id"
-          *ngIf="!Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
-        ></chart>
-        <chart-loading
-          [loading]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
-        ></chart-loading>
+        <div body>
+          <chart
+            [chart]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Chart"
+            [id]="Charts[DashElem.TrabalhosEmAnosPorRepositorio]?.Id"
+            *ngIf="!Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
+          ></chart>
+          <chart-loading
+            [loading]="Charts[DashElem.TrabalhosEmAnosPorRepositorio].Loading"
+          ></chart-loading>
+        </div>
       </card>
     </div>
     <div class="w-full xl:w-5/12 mb-12 xl:mb-0 px-4">

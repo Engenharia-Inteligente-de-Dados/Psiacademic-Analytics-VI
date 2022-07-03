@@ -1,20 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { TRANSTORNOS_LABELS } from '../../const/transtornoHumanizade.const';
 
 @Pipe({
   name: 'transtornoPipe'
 })
 export class TranstornoPipePipe implements PipeTransform {
 
-  private readonly transtorno = {
-    "esquizofrenia": "Esquizofrenia ",
-    "ansiedade": "Ansiedade",
-    "bipolar": "Transtorno bipolar",
-    "depressao": "Depressão",
-    "alimentar": "Transtorno Alimentar",
-    "obssesivo_compulsivo": "Obsessivo-Compulsivo",
-    "personalidade": "Transtornos de Personalidade",
-    "traumas_estressesores": "Traumas Estressores"
-  }
+  private readonly transtorno = TRANSTORNOS_LABELS
 
   transform(text: string): string {
     const transtorno: { [key: string]: string } = this.transtorno

@@ -29,7 +29,7 @@ export class FormSelectAutoCompletComponent implements OnInit {
 
   onOptionChange(event: any) {
     if (this.selectForm !== this._defaultSelect) {
-      this.optionChange.emit({ newValue: this.selectForm });
+      this.optionChange.emit({ newValue: this.selectForm, label:this.label });
     }
   }
 }
