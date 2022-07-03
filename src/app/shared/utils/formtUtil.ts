@@ -141,8 +141,8 @@ function createDataSet(labels: any[], values: any[], config?: any): any {
     data: data,
     fill: config?.fill || false,
     barThickness: config?.barThickness || 1,
-    backgroundColor: !!cores ? cores : cor,
-    borderColor: !!cores ? cores : cor,
+    backgroundColor: !!cores.length ? cores : cor,
+    borderColor: !!cores.length ? cores : cor,
   };
 }
 
