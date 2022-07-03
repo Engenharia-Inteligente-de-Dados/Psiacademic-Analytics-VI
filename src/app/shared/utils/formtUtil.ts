@@ -1,3 +1,6 @@
+import { TRANSTORNOS_LABELS } from '../const/transtornoHumanizade.const';
+import { Colors, ChartColor } from '../enums/Colors';
+import { IChartjsDataset } from '../interfaces/chart.interface';
 export function ordenaObjeto(objeto: Array<any>) {
   return objeto.sort(function (a, b) {
     if (a._id != null && b._id != null) {
@@ -52,15 +55,118 @@ export function formtData(
   return chartData;
 }
 
+/**
+ * @function formatChartData
+ * @param array array de objetos para ser filtrado e formatado
+ * @param keys Propriedades dos objetos que serão formatados
+ * @param configDataSet recebe as configurações basicas do dataSet sendo elas do tipo @Interface IChartjsDataset
+ * Transtorma os dados em objeto de dataset do ChartJS.
+ * @returns retorna um Objeto contendo as propriedades labels, values, e  dataset sendo do tipo @interface IChartjsDataset
+ */
+export function formatChartData(array: any[], keys: any, configDataSet?: any) {
+  let { labels, values } = splitLabelsValues(array, keys);
+  labels = formatLabels(labels);
+  const dataset = createDataSet(labels, values, configDataSet);
+  return { labels, values, dataset };
+}
+
+function splitLabelsValues(array: any[], keys: any) {
+  const labels = [];
+  const values = [];
+  array.forEach((item) => {
+    Object.keys(keys).forEach((key) => {
+      if (key === '_id') {
+        if (item[key] === undefined || item[key] === null) {
+          labels.push('Não Definido');
+        }
+        if (!!keys[key]) {
+          if (Array.isArray(item[key][keys[key]])) {
+            labels.push(item[key][keys[key]].join(', '));
+          } else {
+            labels.push(item[key][keys[key]]);
+          }
+        } else {
+          labels.push(item[key]);
+        }
+      }
+      if (key === 'total' || key === 'count') {
+        if (item[key] === undefined || item[key] === null || isNaN(item[key])) {
+          values.push(0);
+        } else {
+          values.push(item[key]);
+        }
+      }
+    });
+  });
+
+  return { labels, values };
+}
+
+function formatLabels(labels) {
+  const formatText = { ...structuredClone(TRANSTORNOS_LABELS) };
+  let new_Labels = labels.map((label) => {
+    return formatText[label] || label;
+  });
+  return new_Labels;
+}
+
+function createDataSet(labels: any[], values: any[], config?: any): any {
+  let cor = ChartColor.Color_1;
+  let cores = [];
+  if (config?.multipleDataset) {
+    const dataset = labels.map((value, index) => {
+      if (config?.escalaCor) {
+        cor = Object.values(ChartColor)[index];
+      }
+      return {
+        label: value,
+        data: [{ x: labels[index], y: labels[index] }],
+        fill: config?.fill || false,
+        barThickness: config?.barThickness || 1,
+        backgroundColor: cor,
+        borderColor: cor,
+      };
+    });
+    return dataset;
+  }
+
+  if (config?.escalaCor) {
+    cores = Object.values(ChartColor).slice(0, labels.length);
+  }
+  const data = labels.map((value,index)=>{
+    return {x:labels[index],y:values[index]}
+  })
+  return {
+    data: data,
+    fill: config?.fill || true,
+    barThickness: config?.barThickness || 1,
+    backgroundColor: !!cores ? cores : cor,
+    borderColor: !!cores ? cores : cor,
+  };
+}
+
 /***
- * @method formatTitle Serve para formatar o titulo do grafico.
+ * @method replaceStringIndex Serve para formatar uma string pelo seu index.
  * É passado como parametro o titulo do grafico e um array com as substiuições.
- * Exemplo: formatTitle('Atividade {0}', ['1']) retorna Atividade 1
- * @param title : recebe o titulo do grafico.
+ * Exemplo: replaceStringIndex('Atividade {0}', ['1']) retorna Atividade 1
+ * @param string : recebe o titulo do grafico.
  * @param values : recebe um array com as substituições.
  */
-export function formatTitle(title: string, values: any[]) {
-  return title.replace(/{(\d+)}/g, (match, number) => {
+export function replaceStringIndex(string: string, values: any[]) {
+  return string.replace(/{(\d+)}/g, (match, number) => {
     return typeof values[number] != 'undefined' ? values[number] : match;
   });
 }
+// function aaa(){
+//   if (config?.escalaCor) {
+//     cores = Object.values(ChartColor).slice(0, labels.length);
+//   }
+//   return {
+//     label: labels,
+//     data: values,
+//     fill: config?.fill || false,
+//     barThickness: config?.barThickness || 3,
+//     backgroundColor: !!cores ? cores : cor,
+//     borderColor: !!cores ? cores : cor,
+//   };
+// }
