@@ -92,18 +92,11 @@ export class DashboardComponent implements OnInit {
       chart.Actions.Filters[0].Value = rep;
       chart.Actions.Filters[0].Options = repositorios;
       const resp = await this.analyticsApi.getChartFiltrado(chart.Url,{...this.ajustParam(chart.Actions.Filters)});
-      const data = formatChartData(resp, chart.Keys);
+      const {labels,dataset} = formatChartData(resp, chart.Keys);
       chart.Title = chart.Title.replace('{0}', rep);
 
-      chart.Chart.data.labels = data.labels;
-      chart.Chart.data.datasets.push({
-        data: data.values,
-        fill: false,
-        backgroundColor: Colors.Blue_Ardosia,
-        borderColor: Colors.Blue_Ardosia,
-        barThickness: 1,
-        label: `Total`,
-      });
+      chart.Chart.data.labels = labels;
+      chart.Chart.data.datasets.push(dataset);
       this.Charts[this.DashElem.TrabalhosEmAnosPorRepositorio] = { ...chart };
     } catch (error: any) {
       this.feedback.error(error);
@@ -233,7 +226,7 @@ export class DashboardComponent implements OnInit {
       chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
       Actions.Filters[index].Value = newValue;
       chart.Chart.data.datasets[0] = dataset;
-      if(chart.DatasetConfig.multipleDataset){
+      if(chart.DatasetConfig?.multipleDataset){
         chart.Chart.data.datasets = dataset;
       }
       chart.Chart.data.labels = labels;
