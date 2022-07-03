@@ -1,5 +1,5 @@
 export const TRANSTORNOS_LABELS = {
-  "esquizofrenia": "Esquizofrenia ",
+  "esquizofrenia": "Esquizofrenia",
   "ansiedade": "Ansiedade",
   "bipolar": "Transtorno bipolar",
   "depressao": "Depressão",

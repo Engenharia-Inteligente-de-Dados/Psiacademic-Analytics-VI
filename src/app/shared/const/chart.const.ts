@@ -266,6 +266,7 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
   },
   DatasetConfig: {
     label: 'Quantidade de Trabalhos',
+    replaceTitle: true,
     }
 };
 
@@ -294,8 +295,7 @@ export const TOTAL_TRABALHOS_ANOS: IChart = {
 
 export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
   Id: 4,
-  Title:
-    'Quantidade trabalhos que foram classificados contendo transtornos: {0} - Ano {1} ',
+  Title: 'Trabalho x Transtorno ',
   Url: TRANSTORNOS_REP_ANO,
   Loading: false,
   Keys: { _id: 'transtonos', total: null },
