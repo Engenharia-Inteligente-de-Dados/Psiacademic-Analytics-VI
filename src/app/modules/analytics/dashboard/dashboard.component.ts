@@ -223,7 +223,9 @@ export class DashboardComponent implements OnInit {
       const resp = await this.analyticsApi.getChartFiltrado(Url, params)
       const Actions = chart.Actions;
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart?.DatasetConfig);
-      chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
+      if(chart?.DatasetConfig?.replaceTitle){
+        chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
+      }
       Actions.Filters[index].Value = newValue;
       chart.Chart.data.datasets[0] = dataset;
       if(chart.DatasetConfig?.multipleDataset){
