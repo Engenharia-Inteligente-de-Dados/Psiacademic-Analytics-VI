@@ -94,8 +94,7 @@ export class DashboardComponent implements OnInit {
       const resp = await this.analyticsApi.getChartFiltrado(chart.Url,{...this.ajustParam(chart.Actions.Filters)});
       const {labels,dataset} = formatChartData(resp, chart.Keys);
       chart.Title = chart.Title.replace('{0}', rep);
-
-      chart.Chart.data.labels = labels;
+      dataset.label ="Qauntidade"
       chart.Chart.data.datasets.push(dataset);
       this.Charts[this.DashElem.TrabalhosEmAnosPorRepositorio] = { ...chart };
     } catch (error: any) {
