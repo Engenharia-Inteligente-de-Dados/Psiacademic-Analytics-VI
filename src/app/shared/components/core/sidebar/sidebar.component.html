@@ -66,6 +66,7 @@
             [ngSwitch]="sub.Hash"
           >
             <a
+              (click)="toggleCollapseShow('hidden')"
               *ngSwitchCase="'#menuAnalyticsDashboard'"
               [routerLink]="sub.Route"
               class="text-xs uppercase py-3 font-bold block"
@@ -90,6 +91,7 @@
             </a>
 
             <a
+            (click)="toggleCollapseShow('hidden')"
             *ngSwitchCase="'#menuConsultasAno'"
             [routerLink]="sub.Route"
             class="text-xs uppercase py-3 font-bold block"
@@ -114,6 +116,7 @@
           </a>
 
             <a
+              (click)="toggleCollapseShow('hidden')"
               *ngSwitchCase="'#menuConsultasExpressao'"
               [routerLink]="sub.Route"
               class="text-xs uppercase py-3 font-bold block"
@@ -138,6 +141,7 @@
             </a>
 
             <a
+              (click)="toggleCollapseShow('hidden')"
               *ngSwitchCase="'#menuConsultasRepositorio'"
               [routerLink]="sub.Route"
               class="text-xs uppercase py-3 font-bold block"
@@ -162,6 +166,7 @@
             </a>
 
             <a
+              (click)="toggleCollapseShow('hidden')"
               *ngSwitchCase="'#menuConsultasTranstorno'"
               [routerLink]="sub.Route"
               class="text-xs uppercase py-3 font-bold block"
@@ -186,6 +191,7 @@
             </a>
 
             <a
+              (click)="toggleCollapseShow('hidden')"
               *ngSwitchCase="'#menuConsultasAvancada'"
               [routerLink]="sub.Route"
               class="text-xs uppercase py-3 font-bold block"
