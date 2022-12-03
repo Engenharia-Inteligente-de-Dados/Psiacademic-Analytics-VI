@@ -33,17 +33,12 @@ export class ConsultsFormComponent implements OnInit {
     }
   }
 
-  initForm(){
-    this.formConsulta =  new FormGroup({
-      ano: new FormControl(''),
-      ano_inicial: new FormControl(''),
-      ano_final: new FormControl(''),
-      titulo: new FormControl(''),
-      resumo: new FormControl(''),
-      palavras_chave: new FormControl(''),
-      transtorno: new FormControl(''),
-      repositorio: new FormControl(''),
+  initForm(form){
+    let formObject = {}
+    form.forEach(element => {
+      formObject = Object.assign(formObject, {[element.attr]: new FormControl('')})
     })
+    this.formConsulta =  new FormGroup({...formObject})
   }
 
   emitForm(){
@@ -87,8 +82,8 @@ export class ConsultsFormComponent implements OnInit {
   setForm(){
     this.ready = false
     try {
-      this.initForm();
       this.formTemplate = FORM_TEMPLATE[this.templateTipo]();
+      this.initForm(this.formTemplate);
       this.formTemplate.forEach((element:any) => {
         if(element.type === FormType.select){
           const isAnoOptions = this.isAnoOptions(element.selectOptions);
