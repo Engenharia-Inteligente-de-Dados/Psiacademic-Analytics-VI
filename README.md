@@ -34,7 +34,7 @@ Libs padrão angular não serão adicionadas nessa listagem
 * [tailwindcss](https://tailwindcss.com/) `3.0.24`
 * [Chartjs](https://www.chartjs.org/) `4.4.0`
 * [popperjs/core](https://popper.js.org/) `2.11.8`
-* [sweetAlert2](https://sweetalert2.github.io/) `11.7.28`
+* [sweetAlert2](https://sweetalert2.github.io/) `11.6.13`
 ## **Comandos**
 
 ### **Angular**
