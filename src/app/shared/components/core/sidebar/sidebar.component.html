@@ -67,13 +67,13 @@
           >
             <a
               (click)="toggleCollapseShow('hidden')"
-              *ngSwitchCase="'#menuAnalyticsDashboard'"
+              *ngSwitchCase="'#menuDashboardRepositorios'"
               [routerLink]="sub.Route"
               class="text-xs uppercase py-3 font-bold block"
               routerLinkActive
-              #menuAnalyticsDashboard="routerLinkActive"
+              #menuDashboardRepositorios="routerLinkActive"
               [ngClass]="
-                menuAnalyticsDashboard.isActive
+                menuDashboardRepositorios.isActive
                   ? 'italic text-blue-600 hover:text-blue-700'
                   : 'text-slate-700 hover:text-slate-500'
               "
@@ -82,8 +82,33 @@
                 class="mr-2 text-sm"
                 [ngClass]="
                   sub.Icon || {
-                    'opacity-75': menuAnalyticsDashboard.isActive,
-                    'opacity-50': !menuAnalyticsDashboard.isActive
+                    'opacity-75': menuDashboardRepositorios.isActive,
+                    'opacity-50': !menuDashboardRepositorios.isActive
+                  }
+                "
+              ></i>
+              {{ sub.Label }}
+            </a>
+
+            <a
+              (click)="toggleCollapseShow('hidden')"
+              *ngSwitchCase="'#menuDashboardDadosPublicos'"
+              [routerLink]="sub.Route"
+              class="text-xs uppercase py-3 font-bold block"
+              routerLinkActive
+              #menuDashboardDadosPublicos="routerLinkActive"
+              [ngClass]="
+                menuDashboardDadosPublicos.isActive
+                  ? 'italic text-blue-600 hover:text-blue-700'
+                  : 'text-slate-700 hover:text-slate-500'
+              "
+            >
+              <i
+                class="mr-2 text-sm"
+                [ngClass]="
+                  sub.Icon || {
+                    'opacity-75': menuDashboardDadosPublicos.isActive,
+                    'opacity-50': !menuDashboardDadosPublicos.isActive
                   }
                 "
               ></i>

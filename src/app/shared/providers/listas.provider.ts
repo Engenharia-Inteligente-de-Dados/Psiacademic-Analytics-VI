@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { API } from 'src/environments/environment';
+import { API_P } from 'src/environments/environment';
 import { BaseHttpProvider } from './base-http.provider';
 
+//Dashboards repositórios
 @Injectable({ providedIn: 'root' })
 export class ListasProvider {
   listAnos: any[] = [];
@@ -63,18 +64,60 @@ export class ListasProvider {
   }
 
   async getAnos(): Promise<any> {
-    return await this.http.get(`${API}/lista/anos`);
+    return await this.http.get(`${API_P}/lista/anos`);
   }
 
   async getRepositorios(): Promise<any> {
-    return await this.http.get(`${API}/lista/repositorios`);
+    return await this.http.get(`${API_P}/lista/repositorios`);
   }
 
   async getTrasntornos(): Promise<any> {
-    return await this.http.get(`${API}/lista/transtornos`);
+    return await this.http.get(`${API_P}/lista/transtornos`);
   }
 
   private sort(a, b) {
     return a - b;
   }
+
+  conteudo: string [] = [
+    'internações', 
+    'atenção básica'];
+  anos: number[] = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+  estados: string[] = [
+    'AC', 'AL', 'AP', 'AM', 'BA',
+    'CE', 'DF', 'ES', 'GO', 'MA',
+    'MT', 'MS', 'MG', 'PA', 'PB',
+    'PR', 'PE', 'PI', 'RJ', 'RN',
+    'RS', 'RO', 'RR', 'SC', 'SP',
+    'SE', 'TO'
+  ];
+  morbidades: string[] = [
+    'Demência',
+    'Transt mentais e comportamentais dev uso de álcool',
+    'Transt mentais e comportamentais dev uso outr subst psicoat',
+    'Esquizofrenia, transt esquizotípicos e delirantes',
+    'Transt de humor [afetivos]',
+    'Transt neuróticos, relacionados com "stress" e somatof',
+    'Retardo mental',
+    'Outros transt mentais e comportamentais'
+  ];
+  tipoAtendimento: string[] = [
+    'Consulta no dia',
+    'Consulta agendada',
+    'Atendimento de urgência'
+  ]
+
+  async getListasP(): Promise<any> {
+    return {
+      conteudo: this.conteudo,
+      anos: this.anos,
+      estados: this.estados,
+      morbidades: this.morbidades,
+      tipoAtendimento: this.tipoAtendimento,
+    };
+  }
 }
+
+
+
+

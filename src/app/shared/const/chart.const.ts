@@ -1,4 +1,5 @@
 import {
+  NUMERO_CASO_ESTADO,
   TOTAL_ANOS_REP,
   TRANSTORNOS_REP_ANO,
 } from 'src/app/modules/analytics/analytics.urls';
@@ -323,5 +324,97 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
     barThickness: 25,
     fill: true,
     label: 'Transtornos',
+  },
+};
+
+const CASOS_ESTADO_CHARTJS: IChartjs = {
+  type: ChartTypejs.Bar,
+  data: {
+    labels: [],
+    datasets: [],
+  },
+  options: {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: Colors.CoolGray,
+        },
+        align: ChartAlignPosition.End,
+        position: ChartAlignPosition.Bottom,
+      },
+      tooltip: {
+        mode: ChartModejs.Index,
+        intersect: false,
+      },
+      hover: {
+        mode: ChartModejs.Nearest,
+        intersect: true,
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: Colors.CoolGray,
+        },
+        display: true,
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Casos',
+        },
+        ticks: {
+          color: Colors.CoolGray,
+        },
+        grid: {
+          borderDash: [3],
+          borderDashOffset: [3],
+          drawBorder: false,
+          color: Colors.Gray,
+          zeroLineColor: Colors.Gray,
+          zeroLineBorderDash: [2],
+          zeroLineBorderDashOffset: [2],
+        },
+      },
+    },
+  },
+};
+
+export const CASOS_POR_ESTADO: IChart = {
+  Id: 5,
+  Title: 'Número de casos por Estado ',
+  Url: NUMERO_CASO_ESTADO,
+  Loading: false,
+  Keys: { _id: 'estado', total: null },
+  Chart: CASOS_ESTADO_CHARTJS,
+  Actions: {
+    Filters: [
+      {
+        Label: 'Conteúdo',
+        InUse: false,
+        Value: ``,
+        Key:`conteudo`,
+        Options: [],
+      },
+      {
+        Label: 'Ano',
+        InUse: false,
+        Value: "",
+        Key:"ano",
+        Options: [],
+      },
+    ],
+  },
+  DatasetConfig: {
+    escalaCor: true,
+    barThickness: 25,
+    fill: true,
+    label: 'Estado',
   },
 };

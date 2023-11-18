@@ -4,18 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'saude-publica',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
   {
-    path: 'public',
+    path:'dashboard',
     loadChildren: () =>
-      import('./modules/public/public.module').then((r) => r.PublicModule),
+      import('./dashboard-publico/dashboard-publico.module').then((r) => r.DashboardPublicoModule),
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class SaudePublicaRoutingModule { }

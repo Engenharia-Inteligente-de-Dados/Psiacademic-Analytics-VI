@@ -1,0 +1,31 @@
+<ng-container *ngIf="!loading">
+  <div class="flex flex-wrap">
+    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
+      <card [title]="Charts[DashPubElem.qtdCasosPorEstado]?.Title">
+        <div actions class="flex flex-wrap">
+          <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorEstado]?.Actions?.Filters; index as i">
+            <div class="w-full md:w-1/2">
+            <select-auto-complet
+              [label]="filterItem?.Label"
+              [options]="filterItem?.Options"
+              [selectedDefault]="filterItem?.Value"
+              (optionChange)="filter($event, Charts[DashPubElem.qtdCasosPorEstado], DashPubElem.qtdCasosPorEstado, i)"
+            >
+            </select-auto-complet>
+          </div>
+          </ng-container>          
+        </div>
+        <ng-container body>
+          <chart
+            [chart]="Charts[DashPubElem.qtdCasosPorEstado]?.Chart"
+            [id]="Charts[DashPubElem.qtdCasosPorEstado]?.Id"
+            *ngIf="!Charts[DashPubElem.qtdCasosPorEstado]?.Loading">
+          </chart>
+          <chart-loading
+            [loading]="Charts[DashPubElem.qtdCasosPorEstado]?.Loading">
+          </chart-loading>
+        </ng-container>
+      </card>
+    </div>
+  </div>
+</ng-container>
