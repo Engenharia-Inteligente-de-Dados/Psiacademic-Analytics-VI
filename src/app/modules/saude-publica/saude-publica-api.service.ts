@@ -66,9 +66,7 @@ export class SaudePublicaAPIService {
     return await this.http.get(`${API}${url}${param}`);
   }
 
-  async getChartFiltrado_P(url:string,params): Promise<any> {
-    const param = URLParams(params)
-    console.log("banana")
-    return await this.http.get(`${API_P}${url}${param}`);
+  async getChartFiltrado_P(url:string): Promise<any> {
+    return await this.http.get(`${API_P}${url}`);
   }
 }

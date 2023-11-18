@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/public/public.module').then((r) => r.PublicModule),
   },
+  {
+    path: '**',
+    redirectTo: 'public',
+  }
 ];
 
 @NgModule({

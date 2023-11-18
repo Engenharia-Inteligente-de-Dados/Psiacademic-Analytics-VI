@@ -80,9 +80,9 @@ export class ListasProvider {
   }
 
   conteudo: string [] = [
-    'internações', 
+    'internações',
     'atenção básica'];
-  anos: number[] = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+  anos: string[] = [`2013`, `2014`, `2015`, `2016`, `2017`, `2018`, `2019`, `2020`, `2021`, `2022`, `2023`];
   estados: string[] = [
     'AC', 'AL', 'AP', 'AM', 'BA',
     'CE', 'DF', 'ES', 'GO', 'MA',
@@ -107,7 +107,7 @@ export class ListasProvider {
     'Atendimento de urgência'
   ]
 
-  async getListasP(): Promise<any> {
+  getListasP() {
     return {
       conteudo: this.conteudo,
       anos: this.anos,

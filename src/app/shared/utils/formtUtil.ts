@@ -73,6 +73,22 @@ export function formatChartData(array: any[], keys: any, configDataSet?: any) {
 function splitLabelsValues(array: any[], keys: any) {
   const labels = [];
   const values = [];
+  if (keys?.dinamic) {
+    array.forEach((item) => {
+      if (item[keys.labelName] === undefined || item[keys.labelName] === null) {
+        labels.push('Não Definido');
+      } else {
+        labels.push(item[keys.labelName]);
+      }
+      if (item[keys.valueName] === undefined || item[keys.valueName] === null) {
+        values.push(0);
+      } else {
+        values.push(item[keys.valueName]);
+      }
+    })
+    return { labels, values };
+  }
+
   array.forEach((item) => {
     Object.keys(keys).forEach((key) => {
       if (key === '_id') {

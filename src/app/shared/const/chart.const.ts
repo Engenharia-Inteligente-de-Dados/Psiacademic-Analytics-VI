@@ -391,7 +391,7 @@ export const CASOS_POR_ESTADO: IChart = {
   Title: 'Número de casos por Estado ',
   Url: NUMERO_CASO_ESTADO,
   Loading: false,
-  Keys: { _id: 'estado', total: null },
+  Keys: { labelName: 'estado', valueName: `total_casos` , dinamic: true},
   Chart: CASOS_ESTADO_CHARTJS,
   Actions: {
     Filters: [

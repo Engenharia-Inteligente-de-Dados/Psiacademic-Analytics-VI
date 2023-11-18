@@ -11,7 +11,8 @@ import { DashboardPublicoElementsName } from './dashboard-publicoElementsName.en
 import { SaudePublicaAPIService } from '../saude-publica-api.service';
 import { ListasProvider } from 'src/app/shared/providers/listas.provider';
 import { CASOS_POR_ESTADO } from 'src/app/shared/const/chart.const';
-
+import { ESTADOS_TESTE } from './teste.const';
+import { NUMERO_CASO_ESTADO } from '../../analytics/analytics.urls';
 @Component({
   selector: 'app-dashboard-publico',
   templateUrl: './dashboard-publico.component.html',
@@ -21,6 +22,7 @@ export class DashboardPublicoComponent implements OnInit {
   public loading = false;
   public Charts: { [key: string]: IChart } = {};
   public DashPubElem = DashboardPublicoElementsName;
+
   constructor(
     private saudePublicaApi: SaudePublicaAPIService,
     private def: ChangeDetectorRef,
@@ -29,41 +31,43 @@ export class DashboardPublicoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getDefaultCharts(); 
+    this.getDefaultCharts();
   }
   ngOnDestroy(): void {
     this.Charts = {};
   }
 
   async qtdCasosPorEstado() {
-    const chart = structuredClone(CASOS_POR_ESTADO);
+      const chart = structuredClone(CASOS_POR_ESTADO);
     try {
-      const { conteudo, ano } = await this.ListasProvider.getListasP();
+      const { conteudo, anos } =  this.ListasProvider.getListasP();
+      console.log(conteudo,anos)
       const filterObj = {
         conteudos: {
           arr: conteudo,
           first: conteudo[0],
         },
         anos: {
-          arr: ano,
-          first: ano[0],
+          arr: anos,
+          first: anos[0],
         },
       };
+
       await Object.keys(filterObj).forEach((value, index) => {
         chart.Actions.Filters[index].Value = filterObj[value].first;
         chart.Actions.Filters[index].Options = filterObj[value].arr;
       });
-      let params = this.ajustParam(chart.Actions.Filters)
-      const resp = await this.saudePublicaApi.getChartFiltrado_P(chart.Url,params);
-      console.log(resp)
+      let resp = await this.saudePublicaApi.getChartFiltrado_P(chart.Url);
+      resp = resp.filter((item) => {
+        return item.ano == anos[0];
+      })
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Title = chart.Title.replace('{0}', filterObj.conteudos.first).replace(
         '{1}',
         filterObj.anos.first
       );
-
       chart.Chart.data.labels = labels;
-      dataset.label ="Casos"
+      dataset.label ="estados"
       chart.Chart.data.datasets.push(dataset);
       this.Charts[this.DashPubElem.qtdCasosPorEstado] = { ...chart };
     } catch (error: any) {
@@ -72,11 +76,44 @@ export class DashboardPublicoComponent implements OnInit {
     }
   }
 
+
+  async qtdCasosPorEstadoEvent(event?: any, changedChart?:IChart) {
+    const chart = changedChart
+    console.log(chart.Actions.Filters)
+    this.Charts[this.DashPubElem.qtdCasosPorEstado].Loading = true
+    try {
+      if(event.newValue === 'internações'){
+        chart.Url =  NUMERO_CASO_ESTADO
+
+      }
+      let resp = await this.saudePublicaApi.getChartFiltrado_P(chart.Url);
+      resp = resp.filter((item) => {
+        if (event.label === `Ano`) {
+          return item.ano == event.newValue;
+        }
+        else{
+          return item.ano == chart.Actions.Filters[1].Value
+        }
+      })
+      const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
+      chart.Chart.data.labels = labels;
+      dataset.label ="estados"
+      chart.Chart.data.datasets[0] = dataset;
+      this.Charts[this.DashPubElem.qtdCasosPorEstado] = { ...chart };
+      this.Charts[this.DashPubElem.qtdCasosPorEstado].Loading = false
+      this.def.detectChanges()
+    } catch (error: any) {
+      this.feedback.error(error);
+      console.log(error)
+    }
+    this.def.detectChanges()
+  }
+
   public async getDefaultCharts() {
     this.loading = true;
     try {
       await Promise.allSettled([
-        this.qtdCasosPorEstado(), 
+        this.qtdCasosPorEstado(),
       ]);
     } catch (error) {
       this.feedback.error(error);
@@ -85,7 +122,7 @@ export class DashboardPublicoComponent implements OnInit {
       this.loading = false;
     }
   }
-  
+
   private ajustParam(filters,newValues?){
     const params = {}
     filters.forEach(filter => {
@@ -98,32 +135,4 @@ export class DashboardPublicoComponent implements OnInit {
     });
     return params
   }
-
-  async filter(event, chart: IChart, propertyName: string, index: number) {
-    const { newValue,label } = event;
-    const { Url } = chart;
-    const params = this.ajustParam(chart.Actions.Filters,{newValue,label})
-    this.Charts[propertyName].Loading = true;
-    try {
-      const resp = await this.saudePublicaApi.getChartFiltrado_P(Url, params)
-      const Actions = chart.Actions;
-      const { labels, dataset } = formatChartData(resp, chart.Keys, chart?.DatasetConfig);
-      if(chart?.DatasetConfig?.replaceTitle){
-        chart.Title = chart.Title.replace(Actions.Filters[index].Value, newValue);
-      }
-      Actions.Filters[index].Value = newValue;
-      chart.Chart.data.datasets[0] = dataset;
-      if(chart.DatasetConfig?.multipleDataset){
-        chart.Chart.data.datasets = dataset;
-      }
-      chart.Chart.data.labels = labels;
-      chart.Actions = Actions;
-      this.Charts[propertyName] = { ...chart };
-    } catch (error) {
-      this.feedback.error(error);
-    } finally {
-      this.Charts[propertyName].Loading = false;
-    }
-  }
-
 }

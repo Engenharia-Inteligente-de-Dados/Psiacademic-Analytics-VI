@@ -9,11 +9,11 @@
               [label]="filterItem?.Label"
               [options]="filterItem?.Options"
               [selectedDefault]="filterItem?.Value"
-              (optionChange)="filter($event, Charts[DashPubElem.qtdCasosPorEstado], DashPubElem.qtdCasosPorEstado, i)"
+              (optionChange)="qtdCasosPorEstadoEvent($event,Charts[DashPubElem.qtdCasosPorEstado])"
             >
             </select-auto-complet>
           </div>
-          </ng-container>          
+          </ng-container>
         </div>
         <ng-container body>
           <chart
