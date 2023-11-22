@@ -3,5 +3,6 @@ export enum DashboardPublicoElementsName {
     dadosPorConteudo = 'DadosPorConteudo',
     qtdCasosPorEstado = 'CasosPorEstado',
     mapaCasos = 'MapaCasos',
+    cardsEstaticos = 'NO-BRASIL',
   }
   

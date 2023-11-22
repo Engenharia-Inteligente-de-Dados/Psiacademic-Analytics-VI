@@ -1,6 +1,22 @@
 <ng-container *ngIf="!loading">
   <div class="flex flex-wrap">
-    <div class="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
+    <div class="w-full mb-12 xl:mb-0 px-4"> 
+
+
+      <card [title]="Card[DashPubElem.cardsEstaticos]?.Title">
+        <div actions class="flex flex-wrap justify-around items-center w-4/5 h-36">
+          <div class="square">
+
+
+          </div>
+          <div class="square">
+          </div>
+          <div class="square">
+          </div>
+        </div>
+      </card>
+
+
       <card [title]="Charts[DashPubElem.qtdCasosPorEstado]?.Title">
         <div actions class="flex flex-wrap">
           <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorEstado]?.Actions?.Filters; index as i">
@@ -27,5 +43,33 @@
         </ng-container>
       </card>
     </div>
-  </div>
+
+    <div class="w-full mb-12 xl:mb-0 px-4"> 
+      <card [title]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Title">
+        <div actions class="flex flex-wrap">
+          <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Actions?.Filters; index as i">
+            <div class="w-full md:w-1/2">
+            <select-auto-complet
+              [label]="filterItem?.Label"
+              [options]="filterItem?.Options"
+              [selectedDefault]="filterItem?.Value"
+              (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event,Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])"
+            >
+            </select-auto-complet>
+          </div>
+          </ng-container>
+        </div>
+        <ng-container body>
+          <chart
+            [chart]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Chart"
+            [id]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Id"
+            *ngIf="!Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
+          </chart>
+          <chart-loading
+            [loading]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
+          </chart-loading>
+        </ng-container>
+      </card>
+    </div>
+</div>
 </ng-container>

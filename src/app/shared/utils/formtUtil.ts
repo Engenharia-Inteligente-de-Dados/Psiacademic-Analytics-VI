@@ -1,6 +1,7 @@
 import { TRANSTORNOS_LABELS } from '../const/transtornoHumanizade.const';
 import { Colors, ChartColor } from '../enums/Colors';
 import { IChartjsDataset } from '../interfaces/chart.interface';
+
 export function ordenaObjeto(objeto: Array<any>) {
   return objeto.sort(function (a, b) {
     if (a._id != null && b._id != null) {
@@ -73,6 +74,9 @@ export function formatChartData(array: any[], keys: any, configDataSet?: any) {
 function splitLabelsValues(array: any[], keys: any) {
   const labels = [];
   const values = [];
+  const additionalValues1 = [];
+  const additionalValues2 = [];
+
   if (keys?.dinamic) {
     array.forEach((item) => {
       if (item[keys.labelName] === undefined || item[keys.labelName] === null) {
@@ -85,8 +89,18 @@ function splitLabelsValues(array: any[], keys: any) {
       } else {
         values.push(item[keys.valueName]);
       }
+      if (item[keys.additionalKey1] === undefined || item[keys.additionalKey1] === null) {
+        additionalValues1.push(0);
+      } else {
+        additionalValues1.push(item[keys.additionalKey1]);
+      }
+      if (item[keys.additionalKey2] === undefined || item[keys.additionalKey2] === null) {
+        additionalValues2.push(0);
+      } else {
+        additionalValues2.push(item[keys.additionalKey2]);
+      }
     })
-    return { labels, values };
+    return { labels, values, additionalValues1, additionalValues2 };
   }
 
   array.forEach((item) => {

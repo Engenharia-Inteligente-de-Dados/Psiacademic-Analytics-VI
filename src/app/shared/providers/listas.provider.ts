@@ -80,10 +80,10 @@ export class ListasProvider {
   }
 
   conteudo: string [] = [
-    'internações',
-    'atenção básica'];
+    'Internações',
+    'Atenção básica'];
   anos: string[] = [`2013`, `2014`, `2015`, `2016`, `2017`, `2018`, `2019`, `2020`, `2021`, `2022`, `2023`];
-  estados: string[] = [
+  siglaestado: string[] = [
     'AC', 'AL', 'AP', 'AM', 'BA',
     'CE', 'DF', 'ES', 'GO', 'MA',
     'MT', 'MS', 'MG', 'PA', 'PB',
@@ -111,7 +111,7 @@ export class ListasProvider {
     return {
       conteudo: this.conteudo,
       anos: this.anos,
-      estados: this.estados,
+      siglaestado: this.siglaestado,
       morbidades: this.morbidades,
       tipoAtendimento: this.tipoAtendimento,
     };

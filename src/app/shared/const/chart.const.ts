@@ -1,5 +1,7 @@
 import {
-  NUMERO_CASO_ESTADO,
+  NUMERO_CASO_ESTADO_DATASUS,
+  NUMERO_CASO_ESTADO_SISAB,
+  NUMERO_CASO_MORBIDADE_ANO,
   TOTAL_ANOS_REP,
   TRANSTORNOS_REP_ANO,
 } from 'src/app/modules/analytics/analytics.urls';
@@ -327,8 +329,71 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
   },
 };
 
+
+
+//Gráficos Dados Públicos
+
 const CASOS_ESTADO_CHARTJS: IChartjs = {
   type: ChartTypejs.Bar,
+  data: {
+    labels: [],
+    datasets: [],
+  },
+  options: {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: Colors.CoolGray,
+        },
+        align: ChartAlignPosition.End,
+        position: ChartAlignPosition.Bottom,
+      },
+      tooltip: {
+        mode: ChartModejs.Index,
+        intersect: false,
+      },
+      hover: {
+        mode: ChartModejs.Nearest,
+        intersect: true,
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: Colors.Gray,
+        },
+        display: true,
+        grid: {
+          display: true,
+        },
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Casos',
+        },
+        ticks: {
+          color: Colors.Gray,
+        },
+        grid: {
+          borderDash: [3],
+          borderDashOffset: [3],
+          drawBorder: false,
+          color: '#f5f5f5',
+          zeroLineColor: '#f5f5f5',
+          zeroLineBorderDash: [2],
+          zeroLineBorderDashOffset: [2],
+        },
+      },
+    },
+  },
+};
+
+const CASOS_MORBIDADE_ATENDIMENTO_CHARTJS: IChartjs = {
+  type: ChartTypejs.Line,
   data: {
     labels: [],
     datasets: [],
@@ -386,12 +451,13 @@ const CASOS_ESTADO_CHARTJS: IChartjs = {
   },
 };
 
+
 export const CASOS_POR_ESTADO: IChart = {
   Id: 5,
   Title: 'Número de casos por Estado ',
-  Url: NUMERO_CASO_ESTADO,
+  Url: NUMERO_CASO_ESTADO_DATASUS,
   Loading: false,
-  Keys: { labelName: 'estado', valueName: `total_casos` , dinamic: true},
+  Keys: { labelName: 'siglaestado', valueName: `total_casos` , dinamic: true},
   Chart: CASOS_ESTADO_CHARTJS,
   Actions: {
     Filters: [
@@ -417,4 +483,49 @@ export const CASOS_POR_ESTADO: IChart = {
     fill: true,
     label: 'Estado',
   },
+};
+
+export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
+  Id: 6,
+  Title: 'Número de casos por morbidade ou tipo de atendimento',
+  Url: NUMERO_CASO_MORBIDADE_ANO,
+  Keys: { labelName: 'ano', valueName: 'total_casos', dinamic: true },
+  Chart: CASOS_MORBIDADE_ATENDIMENTO_CHARTJS,
+  Loading: false,
+  Actions: {
+    Filters: [
+      {
+        Label: 'Conteúdo',
+        InUse: false,
+        Value: ``,
+        Key:"conteudo",
+        Options: [],
+      },
+      {
+        Label: 'Estado',
+        InUse: false,
+        Value: ``,
+        Key:"estado",
+        Options: [],
+      },
+      {
+        Label: 'Morbidade',
+        InUse: false,
+        Value: ``,
+        Key:"morbidade",
+        Options: [],
+      },
+      {
+        Label: 'Tipo de atendimento',
+        InUse: false,
+        Value: ``,
+        Key:"tipo_atendimento",
+        Options: [],
+      },
+    ],
+  },
+  DatasetConfig: {
+    label: 'Casos',
+    replaceTitle: true,
+    }
 };
