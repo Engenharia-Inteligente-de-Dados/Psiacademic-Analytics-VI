@@ -136,22 +136,16 @@ export class DashboardPublicoComponent implements OnInit {
         chart.Actions.Filters[index].Options = filterObj[value].arr;
       });
       let resp = await this.saudePublicaApi.getChartFiltrado_P(chart.Url);
+      console.log(resp[0])
       resp = resp.filter(item => {
-        const filtroConteudo = item.conteudo === filterObj.conteudos.first;
-        const filtroSiglaEstado = item.siglaestado === filterObj.siglas.first;
-        const filtroMorbidade = item.morbidade === filterObj.morbidade.first;
-        const filtroTipoAtendimento = item.tipoAtendimento === filterObj.tipoDeAtendimento.first;
-      
-        // Retorna true se todas as condições forem satisfeitas
-        return filtroConteudo && filtroSiglaEstado && filtroMorbidade && filtroTipoAtendimento;
+        return item.conteudo.toLowerCase() === filterObj.conteudos.first.toLowerCase() && item.siglaestado ===  filterObj.siglas.first &&  item.morbidade === filterObj.morbidade.first && item.tipoAtendimento === filterObj.tipoDeAtendimento.first
       });
+      console.log(resp)
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
-      chart.Title = chart.Title.replace('{0}', filterObj.conteudos.first)
-                              .replace('{1}', filterObj.siglas.first)
-                              .replace('{2}', filterObj.morbidade.first)
-                              .replace('{3}', filterObj.tipoDeAtendimento.first);
+
       chart.Chart.data.labels = labels;
       dataset.label ="Ano"
+      console.log(dataset)
       chart.Chart.data.datasets.push(dataset);
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento] = { ...chart };
     } catch (error: any) {
@@ -171,7 +165,7 @@ export class DashboardPublicoComponent implements OnInit {
       }
       if(event.newValue === 'Atenção básica'){
         chart.Url =  NUMERO_ATENDIMENTO_ANO;
-        chart.Keys = { labelName: 'ano', valueName: 'total_consultas_agendadas', dinamic: true, 
+        chart.Keys = { labelName: 'ano', valueName: 'total_consultas_agendadas', dinamic: true,
         additionalKey1: 'total_consultas_no_dia',
         additionalKey2: 'total_atendimentos_urgencia' };
       }
@@ -231,6 +225,7 @@ export class DashboardPublicoComponent implements OnInit {
     try {
       await Promise.allSettled([
         this.qtdCasosPorEstado(),
+        this.qtdCasosPorMorbidadeAtendimento()
       ]);
     } catch (error) {
       this.feedback.error(error);
