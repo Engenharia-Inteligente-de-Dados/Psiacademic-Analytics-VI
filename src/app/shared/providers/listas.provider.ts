@@ -91,6 +91,14 @@ export class ListasProvider {
     'RS', 'RO', 'RR', 'SC', 'SP',
     'SE', 'TO'
   ];
+  estado_por_extenso: string[] = [
+    'Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 
+    'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 
+    'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 
+    'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 
+    'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 
+    'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'
+  ]
   morbidades: string[] = [
     'Demência',
     'Transt mentais e comportamentais dev uso de álcool',
@@ -112,6 +120,7 @@ export class ListasProvider {
       conteudo: this.conteudo,
       anos: this.anos,
       siglaestado: this.siglaestado,
+      estado: this.estado_por_extenso,
       morbidades: this.morbidades,
       tipoAtendimento: this.tipoAtendimento,
     };

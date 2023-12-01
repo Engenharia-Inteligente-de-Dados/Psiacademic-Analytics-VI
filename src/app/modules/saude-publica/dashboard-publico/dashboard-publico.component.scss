@@ -35,3 +35,26 @@
   font-weight: bold;
   color: #333;
 }
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 60% 40%; /* Duas colunas */
+  gap: 2px; /* Espaço entre as colunas */
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column; /* Organiza os itens do card em coluna */
+}
+
+.card {
+  flex: 1; /* Faz com que o card cresça para ocupar o espaço disponível */
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo do card em coluna */
+}
+
+.card-body {
+  flex: 1; /* Faz com que o conteúdo do card cresça para ocupar o espaço disponível */
+  height: 500px; /* Altura desejada */
+  width: 100%; /* Largura total do contêiner */
+}

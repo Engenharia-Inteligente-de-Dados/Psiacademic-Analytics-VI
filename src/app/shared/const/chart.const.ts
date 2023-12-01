@@ -1,4 +1,5 @@
 import {
+  DADOS_POR_CONTEUDO_MORBIDADE,
   NUMERO_CASO_ESTADO_DATASUS,
   NUMERO_CASO_ESTADO_SISAB,
   NUMERO_CASO_MORBIDADE_ANO,
@@ -262,7 +263,7 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
         Label: 'Repositórios',
         InUse: false,
         Value: ``,
-        Key:"repositorio",
+        Key: "repositorio",
         Options: [],
       },
     ],
@@ -270,7 +271,7 @@ export const TOTAL_ANOS_POR_REP_CHART: IChart = {
   DatasetConfig: {
     label: 'Quantidade de Trabalhos',
     replaceTitle: true,
-    }
+  }
 };
 
 export const TOTAL_TRABALHOS_REP_CHART: IChart = {
@@ -309,14 +310,14 @@ export const TRANSTORNOS_REPOSITORIO_ANO: IChart = {
         Label: 'Repositórios',
         InUse: false,
         Value: ``,
-        Key:`repositorio`,
+        Key: `repositorio`,
         Options: [],
       },
       {
         Label: 'Ano',
         InUse: false,
         Value: "",
-        Key:"ano",
+        Key: "ano",
         Options: [],
       },
     ],
@@ -379,13 +380,13 @@ const CASOS_ESTADO_CHARTJS: IChartjs = {
           color: Colors.Gray,
         },
         grid: {
-          borderDash: [3],
-          borderDashOffset: [3],
+          borderDash: [2],
+          borderDashOffset: [2],
           drawBorder: false,
-          color: '#f5f5f5',
+          color: '#dcdcdc',
           zeroLineColor: '#f5f5f5',
-          zeroLineBorderDash: [2],
-          zeroLineBorderDashOffset: [2],
+          zeroLineBorderDash: [1],
+          zeroLineBorderDashOffset: [1],
         },
       },
     },
@@ -421,7 +422,7 @@ const CASOS_MORBIDADE_ATENDIMENTO_CHARTJS: IChartjs = {
     scales: {
       x: {
         ticks: {
-          color: Colors.CoolGray,
+          color: Colors.Gray,
         },
         display: true,
         grid: {
@@ -435,13 +436,13 @@ const CASOS_MORBIDADE_ATENDIMENTO_CHARTJS: IChartjs = {
           text: 'Casos',
         },
         ticks: {
-          color: Colors.CoolGray,
+          color: Colors.Gray,
         },
         grid: {
           borderDash: [3],
           borderDashOffset: [3],
           drawBorder: false,
-          color: Colors.Gray,
+          color: '#dcdcdc',
           zeroLineColor: Colors.Gray,
           zeroLineBorderDash: [2],
           zeroLineBorderDashOffset: [2],
@@ -451,13 +452,40 @@ const CASOS_MORBIDADE_ATENDIMENTO_CHARTJS: IChartjs = {
   },
 };
 
+const DADOS_CONTEUDO_CHARTJS: IChartjs = {
+  type: ChartTypejs.Pie,
+  data: {
+    labels: [],
+    datasets: []
+  },
+  options: {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom', // Posicionando a legenda na parte inferior
+        align: 'start',
+        labels: {
+          color: Colors.CoolGray,
+          boxWidth: 20, // Tamanho da caixa do ícone da legenda
+          padding: 5, // Espaçamento entre as legendas
+          font: {
+            size: 11, // Ajuste o tamanho da fonte conforme necessário
+          }
+        }
+      },
+    },
+  }
+
+};
+
 
 export const CASOS_POR_ESTADO: IChart = {
   Id: 5,
   Title: 'Número de casos por Estado ',
   Url: NUMERO_CASO_ESTADO_DATASUS,
   Loading: false,
-  Keys: { labelName: 'siglaestado', valueName: `total_casos` , dinamic: true},
+  Keys: { labelName: 'siglaestado', valueName: `total_casos`, dinamic: true },
   Chart: CASOS_ESTADO_CHARTJS,
   Actions: {
     Filters: [
@@ -465,14 +493,14 @@ export const CASOS_POR_ESTADO: IChart = {
         Label: 'Conteúdo',
         InUse: false,
         Value: ``,
-        Key:`conteudo`,
+        Key: `conteudo`,
         Options: [],
       },
       {
         Label: 'Ano',
         InUse: false,
         Value: "",
-        Key:"ano",
+        Key: "ano",
         Options: [],
       },
     ],
@@ -485,11 +513,57 @@ export const CASOS_POR_ESTADO: IChart = {
   },
 };
 
+// export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
+//   Id: 6,
+//   Title: 'Número de casos por morbidade ou tipo de atendimento',
+//   Url: NUMERO_CASO_MORBIDADE_ANO,
+//   Keys: { labelName: 'ano', valueName: 'total_casos', dinamic: true },
+//   Chart: CASOS_MORBIDADE_ATENDIMENTO_CHARTJS,
+//   Loading: false,
+//   Actions: {
+//     Filters: [
+//       {
+//         Label: 'Conteúdo',
+//         InUse: false,
+//         Value: ``,
+//         Key: "conteudo",
+//         Options: [],
+//       },
+//       {
+//         Label: 'Estado',
+//         InUse: false,
+//         Value: ``,
+//         Key: "estado",
+//         Options: [],
+//       },
+//       {
+//         Label: 'Morbidade',
+//         InUse: false,
+//         Value: ``,
+//         Key: "morbidade",
+//         Options: [],
+//       },
+//       // {
+//       //   Label: 'Tipo de atendimento',
+//       //   InUse: false,
+//       //   Value: ``,
+//       //   Key: "tipo_atendimento",
+//       //   Options: [],
+//       //   Visible: false,
+//       // },
+//     ],
+//   },
+//   DatasetConfig: {
+//     label: 'Casos',
+//     replaceTitle: true,
+//   }
+// };
+
 export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
   Id: 6,
   Title: 'Número de casos por morbidade ou tipo de atendimento',
   Url: NUMERO_CASO_MORBIDADE_ANO,
-  Keys: { labelName: 'ano', valueName: 'total_casos', dinamic: true },
+  Keys: {  labelName: 'ano', valueName: 'total_casos', dinamic: true },
   Chart: CASOS_MORBIDADE_ATENDIMENTO_CHARTJS,
   Loading: false,
   Actions: {
@@ -498,34 +572,53 @@ export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
         Label: 'Conteúdo',
         InUse: false,
         Value: ``,
-        Key:"conteudo",
+        Key: "conteudo",
         Options: [],
       },
       {
         Label: 'Estado',
         InUse: false,
         Value: ``,
-        Key:"estado",
+        Key: "estado",
         Options: [],
       },
       {
         Label: 'Morbidade',
         InUse: false,
         Value: ``,
-        Key:"morbidade",
-        Options: [],
-      },
-      {
-        Label: 'Tipo de atendimento',
-        InUse: false,
-        Value: ``,
-        Key:"tipo_atendimento",
+        Key: "morbidade",
         Options: [],
       },
     ],
   },
   DatasetConfig: {
-    label: 'Casos',
+    label: 'Quantidade de Trabalhos',
     replaceTitle: true,
-    }
+  }
+};
+
+export const DADOS_CONTEUDO: IChart = {
+  Id: 7,
+  Title: 'Dados por conteúdo ',
+  Url: DADOS_POR_CONTEUDO_MORBIDADE,
+  Loading: false,
+  Keys: { labelName: 'morbidade', valueName: `total_casos`, dinamic: true },
+  Chart: DADOS_CONTEUDO_CHARTJS,
+  Actions: {
+    Filters: [
+      {
+        Label: 'Conteúdo',
+        InUse: false,
+        Value: ``,
+        Key: `conteudo`,
+        Options: [],
+      },
+    ],
+  },
+  DatasetConfig: {
+    escalaCor: true,
+    barThickness: 25,
+    fill: true,
+    label: 'Morbidade',
+  },
 };

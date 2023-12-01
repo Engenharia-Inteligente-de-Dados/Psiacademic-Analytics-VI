@@ -1,75 +1,115 @@
 <ng-container *ngIf="!loading">
-  <div class="flex flex-wrap">
-    <div class="w-full mb-12 xl:mb-0 px-4"> 
-
-
+  <div class="dashboard">
+    <div class="dashboard-card">
       <card [title]="Card[DashPubElem.cardsEstaticos]?.Title">
         <div actions class="flex flex-wrap justify-around items-center w-4/5 h-36">
-          <div class="square">
-
-
-          </div>
-          <div class="square">
-          </div>
-          <div class="square">
-          </div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
         </div>
       </card>
 
 
-      <card [title]="Charts[DashPubElem.qtdCasosPorEstado]?.Title">
+      <!-- <card [title]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Title">
         <div actions class="flex flex-wrap">
-          <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorEstado]?.Actions?.Filters; index as i">
-            <div class="w-full md:w-1/2">
-            <select-auto-complet
-              [label]="filterItem?.Label"
-              [options]="filterItem?.Options"
-              [selectedDefault]="filterItem?.Value"
-              (optionChange)="qtdCasosPorEstadoEvent($event,Charts[DashPubElem.qtdCasosPorEstado])"
-            >
+
+          <div class="w-full md:w-1/2">
+            <select-auto-complet [(ngModel)]="selectedConteudo" [options]="conteudos" [label]="'Conteúdo'"
+              (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event)">
             </select-auto-complet>
           </div>
-          </ng-container>
-        </div>
-        <ng-container body>
-          <chart
-            [chart]="Charts[DashPubElem.qtdCasosPorEstado]?.Chart"
-            [id]="Charts[DashPubElem.qtdCasosPorEstado]?.Id"
-            *ngIf="!Charts[DashPubElem.qtdCasosPorEstado]?.Loading">
-          </chart>
-          <chart-loading
-            [loading]="Charts[DashPubElem.qtdCasosPorEstado]?.Loading">
-          </chart-loading>
-        </ng-container>
-      </card>
-    </div>
-
-    <div class="w-full mb-12 xl:mb-0 px-4"> 
-      <card [title]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Title">
-        <div actions class="flex flex-wrap">
-          <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Actions?.Filters; index as i">
-            <div class="w-full md:w-1/2">
-            <select-auto-complet
-              [label]="filterItem?.Label"
-              [options]="filterItem?.Options"
-              [selectedDefault]="filterItem?.Value"
-              (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event,Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])"
-            >
+          <div class="w-full md:w-1/2">
+            <select-auto-complet *ngIf="selectedConteudo === 'Internações' || selectedConteudo === 'Atenção básica'"
+              [(ngModel)]="selectedEstado" [options]="estados" [label]="'Estado'"
+              (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event)">
             </select-auto-complet>
           </div>
-          </ng-container>
+          <div class="w-full md:w-4/4">
+            <select-auto-complet *ngIf="selectedConteudo === 'Internações'" [(ngModel)]="selectedMorbidade"
+              [options]="morbidades" [label]="'Morbidade'"
+              (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event,Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])">
+            </select-auto-complet>
+          </div>
+          <div class="w-full md:w-1/2">
+            <select-auto-complet *ngIf="selectedConteudo === 'Atenção básica'" [(ngModel)]="selectedTipoAtendimento"
+              [options]="tipoAtendimentos" [label]="'Tipo de Atendimento'"
+              (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event,Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])">
+            </select-auto-complet>
+          </div>
+        </div> -->
+
+        <div class="w-full mb-12 xl:mb-0 px-4">
+          <card [title]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Title">
+            <div actions class="flex flex-wrap">
+              <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Actions?.Filters; index as i">
+                <div class="w-full md:w-1/2">
+                  <select-auto-complet [label]="filterItem?.Label" [options]="filterItem?.Options"
+                    [selectedDefault]="filterItem?.Value"
+                    (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event,Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])">
+                  </select-auto-complet>
+                </div>
+              </ng-container>
+            </div>
+            <ng-container body>
+              <chart [chart]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Chart" [id]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Id"
+                *ngIf="!Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
+              </chart>
+              <chart-loading [loading]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
+              </chart-loading>
+            </ng-container>
+          </card>
         </div>
-        <ng-container body>
-          <chart
-            [chart]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Chart"
-            [id]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Id"
-            *ngIf="!Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
-          </chart>
-          <chart-loading
-            [loading]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
-          </chart-loading>
-        </ng-container>
-      </card>
     </div>
-</div>
+
+    <div class="dashboard-card">
+      <div class="w-full mb-12 xl:mb-0 px-4">
+        <card [title]="Charts[DashPubElem.dadosPorConteudo]?.Title">
+          <div actions class="flex flex-wrap">
+            <ng-container *ngFor="let filterItem of Charts[DashPubElem.dadosPorConteudo]?.Actions?.Filters; index as i">
+              <div class="w-full md:w-1/2">
+                <select-auto-complet [label]="filterItem?.Label" [options]="filterItem?.Options"
+                  [selectedDefault]="filterItem?.Value"
+                  (optionChange)="dadosPorConteudoEvent($event,Charts[DashPubElem.dadosPorConteudo])">
+                </select-auto-complet>
+              </div>
+            </ng-container>
+          </div>
+          <ng-container body>
+            <chart [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart" [id]="Charts[DashPubElem.dadosPorConteudo]?.Id"
+              *ngIf="!Charts[DashPubElem.dadosPorConteudo]?.Loading">
+            </chart>
+            <chart-loading [loading]="Charts[DashPubElem.dadosPorConteudo]?.Loading">
+            </chart-loading>
+          </ng-container>
+        </card>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="w-full mb-12 xl:mb-0 px-4">
+    <card [title]="Charts[DashPubElem.qtdCasosPorEstado]?.Title">
+      <div actions class="flex flex-wrap">
+        <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorEstado]?.Actions?.Filters; index as i">
+          <div class="w-full md:w-1/2">
+            <select-auto-complet [label]="filterItem?.Label" [options]="filterItem?.Options"
+              [selectedDefault]="filterItem?.Value"
+              (optionChange)="qtdCasosPorEstadoEvent($event,Charts[DashPubElem.qtdCasosPorEstado])">
+            </select-auto-complet>
+          </div>
+        </ng-container>
+      </div>
+      <ng-container body>
+        <chart [chart]="Charts[DashPubElem.qtdCasosPorEstado]?.Chart" [id]="Charts[DashPubElem.qtdCasosPorEstado]?.Id"
+          *ngIf="!Charts[DashPubElem.qtdCasosPorEstado]?.Loading">
+        </chart>
+        <chart-loading [loading]="Charts[DashPubElem.qtdCasosPorEstado]?.Loading">
+        </chart-loading>
+      </ng-container>
+    </card>
+  </div>
+
+
+
 </ng-container>

@@ -5,6 +5,7 @@ import {
 } from '../enums/chartTypes.enum';
 import { FormType } from '../enums/types.enums';
 import { ChartColor } from '../enums/Colors';
+import { offset } from '@popperjs/core';
 
 interface IChartAxes {
   display?: boolean;
@@ -45,12 +46,13 @@ interface IChartAxes {
 
 export interface IChartjsDataset {
   label?: string | number | Date | any;
-  data: number[] | any[] | { x: any; y: any }[] | string | string[] | any;
+  data?: number[] | any[] | { x: any; y: any }[] | string | string[] | any;
   //data: any
-  fill: boolean;
+  fill?: boolean;
   barThickness?: number;
   backgroundColor?: string | string[] | ChartColor;
   borderColor?:  string | string[] | ChartColor;
+  hoverOffset?: number;
 }
 
 interface IChartjsData {
@@ -64,8 +66,13 @@ export interface IChartjsOptions {
   plugins?: {
     legend?: {
       labels?: {
-        color: string;
+        color?: string;
+        boxWidth?: number;
+        padding?: number;
+        font?: {
+          size?: number;
       };
+    }
       align?: string | ChartAlignPosition;
       position?: string | ChartAlignPosition;
     };
@@ -108,6 +115,7 @@ interface IFilterAction{
     Value?: any;
     Key?:string;
     Options?: any[];
+    Visible?: boolean;
   };
 
 export interface IChart {
