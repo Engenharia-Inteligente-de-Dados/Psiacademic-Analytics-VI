@@ -75,6 +75,8 @@ export interface IChartjsOptions {
     }
       align?: string | ChartAlignPosition;
       position?: string | ChartAlignPosition;
+      display?: boolean;
+      fullSize?: boolean
     };
     title?: {
       display?: boolean;
@@ -82,8 +84,11 @@ export interface IChartjsOptions {
       color?: string;
     };
     tooltip?: {
-      mode: string | ChartModejs;
-      intersect: boolean;
+      mode?: string | ChartModejs;
+      intersect?: boolean;
+      padding?: any;
+      displayColors?: any;
+      callback?: any;
     };
     hover?: {
       mode: string | ChartModejs;

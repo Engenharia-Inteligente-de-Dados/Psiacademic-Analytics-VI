@@ -20,8 +20,6 @@ export class ChartComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.id)
-    console.log(this.chart)
   }
 
   ngOnDestroy(): void {

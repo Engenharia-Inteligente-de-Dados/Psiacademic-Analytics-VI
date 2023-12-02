@@ -22,7 +22,7 @@ export const MAIN_ROUTES = [
         Label: 'Dados Públicos',
         Route: [`saude-publica/dashboard/`],
         InUse: true,
-        Icon: `fas fa-chart-line`,
+        Icon: `fa-solid fa-magnifying-glass-chart`,
         Hash:'#menuDashboardDadosPublicos',
       },
     ],

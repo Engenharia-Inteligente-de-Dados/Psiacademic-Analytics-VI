@@ -101,13 +101,13 @@ export class ListasProvider {
   ]
   morbidades: string[] = [
     'Demência',
-    'Transt mentais e comportamentais dev uso de álcool',
-    'Transt mentais e comportamentais dev uso outr subst psicoat',
-    'Esquizofrenia, transt esquizotípicos e delirantes',
-    'Transt de humor [afetivos]',
-    'Transt neuróticos, relacionados com "stress" e somatof',
+    'Transt. mentais e comportamentais (uso de álcool)',
+    'Transt. mentais e comportamentais (outras subst. psicoativas)',
+    'Esquizofrenia, transtornos esquizotípicos e delirantes',
+    'Transt. de humor [afetivos]',
+    'Transtornos neuróticos, transtornos relacionados com o "stress" e transtornos somatoformes',
     'Retardo mental',
-    'Outros transt mentais e comportamentais'
+    'Outros transtornos mentais e comportamentais'
   ];
   tipoAtendimento: string[] = [
     'Consulta no dia',
