@@ -41,17 +41,22 @@
         <div class="w-full mb-12 xl:mb-0 px-4">
           <card [title]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Title">
             <div actions class="flex flex-wrap">
-              <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Actions?.Filters; index as i">
-                <div class="w-full md:w-1/2">
-                  <select-auto-complet [label]="filterItem?.Label" [options]="filterItem?.Options"
+              <!-- Filtros fixos 'Conteúdo' e 'Estado' sempre visíveis -->
+              <ng-container *ngFor="let filterItem of Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Actions?.Filters; let i = index">
+                <!-- Filtros dinâmicos, visibilidade controlada por *ngIf -->
+                <div *ngIf="filterItem.Label === 'Conteúdo' || filterItem.Label === 'Estado' || filterItem.Visible" class="w-full md:w-1/2">
+                  <select-auto-complet 
+                    [label]="filterItem?.Label" 
+                    [options]="filterItem?.Options"
                     [selectedDefault]="filterItem?.Value"
-                    (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event,Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])">
+                    (optionChange)="qtdCasosPorMorbidadeAtendimentoEvent($event, Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento])">
                   </select-auto-complet>
                 </div>
               </ng-container>
             </div>
             <ng-container body>
-              <chart [chart]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Chart" [id]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Id"
+              <chart [chart]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Chart"
+                [id]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Id"
                 *ngIf="!Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
               </chart>
               <chart-loading [loading]="Charts[DashPubElem.qtdCasosPorMorbidadeAtendimento]?.Loading">
@@ -59,8 +64,8 @@
             </ng-container>
           </card>
         </div>
-    </div>
-
+      </div>
+        
     <div class="dashboard-card">
       <div class="w-full mb-12 xl:mb-0 px-4">
         <card [title]="Charts[DashPubElem.dadosPorConteudo]?.Title">
@@ -110,6 +115,24 @@
     </card>
   </div>
 
+  <card [title]="'Origem dos dados'" [subTitle]="'Intervalo temporal abrangido pelos dados'" [colorBg]="'bg-gray-100'"
+    [textColor]="'text-gray-800'">
+    <!-- O restante do conteúdo que vai dentro do card -->
+    <p>Os dados públicos sobre saúde mental são retirados das plataformas do Departamento de Informática do Sistema
+      Único de Saúde (DATASUS) e do Sistema de Informação em Saúde para a Atenção Básica (SISAB), ambas geridas pelo
+      Ministério da Saúde. O DATASUS abrange uma vasta quantidade de internações hospitalares efetuadas em território
+      brasileiro, enquanto o SISAB disponibiliza informações provenientes dos sistemas da Atenção Primária à Saúde.</p>
 
+    <h3>Notas</h3>
+    <ol>
+      <li>Os dados do DATASUS, de janeiro de 2015 até março de 2016, estão sujeitos a retificação, e os dados do SISAB
+        estão sujeitos à alteração.</li>
+      <li>No SISAB, os registros relativos ao Distrito Federal somente estão disponíveis a partir de 2017 e o ano de
+        2013 não possui o registro de 9 estados (AL, AM, DF, MS, PR, RS, RO, RR e SE).</li>
+    </ol>
 
+    <footer>Desenvolvido em 2023.</footer>
+  </card>
+
+  
 </ng-container>

@@ -513,57 +513,11 @@ export const CASOS_POR_ESTADO: IChart = {
   },
 };
 
-// export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
-//   Id: 6,
-//   Title: 'Número de casos por morbidade ou tipo de atendimento',
-//   Url: NUMERO_CASO_MORBIDADE_ANO,
-//   Keys: { labelName: 'ano', valueName: 'total_casos', dinamic: true },
-//   Chart: CASOS_MORBIDADE_ATENDIMENTO_CHARTJS,
-//   Loading: false,
-//   Actions: {
-//     Filters: [
-//       {
-//         Label: 'Conteúdo',
-//         InUse: false,
-//         Value: ``,
-//         Key: "conteudo",
-//         Options: [],
-//       },
-//       {
-//         Label: 'Estado',
-//         InUse: false,
-//         Value: ``,
-//         Key: "estado",
-//         Options: [],
-//       },
-//       {
-//         Label: 'Morbidade',
-//         InUse: false,
-//         Value: ``,
-//         Key: "morbidade",
-//         Options: [],
-//       },
-//       // {
-//       //   Label: 'Tipo de atendimento',
-//       //   InUse: false,
-//       //   Value: ``,
-//       //   Key: "tipo_atendimento",
-//       //   Options: [],
-//       //   Visible: false,
-//       // },
-//     ],
-//   },
-//   DatasetConfig: {
-//     label: 'Casos',
-//     replaceTitle: true,
-//   }
-// };
-
 export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
   Id: 6,
   Title: 'Número de casos por morbidade ou tipo de atendimento',
   Url: NUMERO_CASO_MORBIDADE_ANO,
-  Keys: {  labelName: 'ano', valueName: 'total_casos', dinamic: true },
+  Keys: { labelName: 'ano', valueName: 'total_casos', dinamic: true },
   Chart: CASOS_MORBIDADE_ATENDIMENTO_CHARTJS,
   Loading: false,
   Actions: {
@@ -574,6 +528,7 @@ export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
         Value: ``,
         Key: "conteudo",
         Options: [],
+        Visible: true,
       },
       {
         Label: 'Estado',
@@ -581,6 +536,7 @@ export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
         Value: ``,
         Key: "estado",
         Options: [],
+        Visible: true,
       },
       {
         Label: 'Morbidade',
@@ -588,14 +544,24 @@ export const CASOS_MORBIDADE_ATENDIMENTO: IChart = {
         Value: ``,
         Key: "morbidade",
         Options: [],
+        Visible: true,
+      },
+      {
+        Label: 'Tipo de atendimento',
+        InUse: false,
+        Value: ``,
+        Key: "tipo_atendimento",
+        Options: [],
+        Visible: false,
       },
     ],
   },
   DatasetConfig: {
-    label: 'Quantidade de Trabalhos',
+    label: 'Casos',
     replaceTitle: true,
   }
 };
+
 
 export const DADOS_CONTEUDO: IChart = {
   Id: 7,

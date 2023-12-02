@@ -3,6 +3,7 @@ import { IChart } from '../../../shared/interfaces/chart.interface';
 import { Colors } from 'src/app/shared/enums/Colors';
 import {
   formatChartData,
+  formatChartDataPie,
   formtData,
   replaceStringIndex,
 } from '../../../shared/utils/formtUtil';
@@ -65,7 +66,9 @@ export class DashboardPublicoComponent implements OnInit {
   ngOnDestroy(): void {
     this.Charts = {};
   }
+
   onConteudoChange(event: any) {
+    console.log("bananinha")
     this.selectedConteudo = event.newValue;
     if(this.selectedConteudo === 'Internações'){
       this.dadosPorConteudoEvent(event, this.Charts[this.DashPubElem.dadosPorConteudo]);
@@ -165,7 +168,7 @@ export class DashboardPublicoComponent implements OnInit {
   async qtdCasosPorMorbidadeAtendimento() {
     const chart = structuredClone(CASOS_MORBIDADE_ATENDIMENTO);
     try {
-      const { conteudo, estado, morbidades} = this.ListasProvider.getListasP();
+      const { conteudo, estado, morbidades, tipoAtendimento} = this.ListasProvider.getListasP();
       const filterObj = {
         conteudos: {
           arr: conteudo,
@@ -179,10 +182,10 @@ export class DashboardPublicoComponent implements OnInit {
           arr: morbidades,
           first: morbidades[0],
         },
-        // tipoDeAtendimento: {
-        //   arr: tipoAtendimento,
-        //   first: tipoAtendimento[0],
-        // },
+        tipoDeAtendimento: {
+          arr: tipoAtendimento,
+          first: tipoAtendimento[0],
+        },
       };
       await Object.keys(filterObj).forEach((value, index) => {
         chart.Actions.Filters[index].Value = filterObj[value].first;
@@ -194,11 +197,11 @@ export class DashboardPublicoComponent implements OnInit {
         return item.estado.toLowerCase() ===  filterObj.estados.first.toLowerCase() 
         && item.morbidade.toLowerCase() === filterObj.morbidade.first.toLowerCase() 
       });
+      console.log("RESP FILTROS", resp)
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
       dataset.label ="Estado"
       chart.Chart.data.datasets.push(dataset);
-      console.log("Datasets", dataset)
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento] = { ...chart };
     } catch (error: any) {
       this.feedback.error(error);
@@ -208,42 +211,72 @@ export class DashboardPublicoComponent implements OnInit {
 
   async qtdCasosPorMorbidadeAtendimentoEvent(event?: any, changedChart?:IChart) {
     const chart = changedChart
-    //console.log(chart.Actions.Filters)
     this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento].Loading = true
     
     try {
-      if(event.newValue === 'Internações'){
-        chart.Url =  NUMERO_CASO_MORBIDADE_ANO;
-        chart.Keys = { labelName: 'ano', valueName: 'total_casos', dinamic: true };
-        
+      if (!event) { 
+        chart.Actions.Filters.forEach(filter => {
+          filter.Visible = true; 
+        });
       }
-      // if(event.newValue === 'Atenção básica'){
-      //   chart.Url =  NUMERO_ATENDIMENTO_ANO;
-      //   chart.Keys = { labelName: 'ano', valueName: 'total_consultas_agendadas', dinamic: true,
-      //   additionalKey1: 'total_consultas_no_dia',
-      //   additionalKey2: 'total_atendimentos_urgencia' };
-      // }
-     
-      let resp = await this.saudePublicaApi.getChartFiltrado_P(chart.Url);
-      resp = resp.filter(item => {
-        switch (event.label) {
-          case 'Estado':
-            return item.estado === event.newValue;
-          case 'Morbidade':
-            return item.morbidade === event.newValue;
-          // case 'Tipo de atendimento':
-          //   return item.tipo_atendimento === event.newValue;
-          default:
-            return item.estado === chart.Actions.Filters[1].Value &&
-                   item.morbidade === chart.Actions.Filters[2].Value 
-                  //  item.tipo_atendimento === chart.Actions.Filters[3].Value;
+      if (event && event.newValue === 'Internações') {
+        chart.Url = NUMERO_CASO_MORBIDADE_ANO;
+        chart.Keys = { labelName: 'ano', valueName: 'total_casos', dinamic: true };
+      } 
+      if (event && event.newValue === 'Atenção básica') {
+        chart.Url = NUMERO_ATENDIMENTO_ANO;
+        chart.Keys = {
+          labelName: 'ano', valueName: 'total_consultas_agendadas', dinamic: true,
+          additionalKey1: 'total_consultas_no_dia',
+          additionalKey2: 'total_atendimentos_urgencia'
+        };
+      }
+  
+      chart.Actions.Filters.forEach(filter => {
+        if(event.newValue === 'Atenção básica'){
+          if(['tipo_atendimento', 'conteudo', 'estado'].includes(filter.Key)) 
+            filter.Visible = true
+          else
+            filter.Visible = false
+        }
+        if(event.newValue === 'Internações'){
+          if(['morbidade', 'conteudo', 'estado'].includes(filter.Key)) 
+            filter.Visible = true
+            else
+              filter.Visible = false
         }
       });
+  
+      let resp = await this.saudePublicaApi.getChartFiltrado_P(chart.Url);
+      resp = resp.filter(item => {
+        if (event && event.label === 'Estado') {
+          return item.estado === event.newValue;
+        } else if (event && event.label === 'Morbidade') {
+          return item.morbidade === event.newValue;
+        }
+        return true;
+      });
+      console.log("RESP", resp)
+      
+      // if (event.label == "Estado"){
+      //   resp = resp.filter((item) => {
+      //     if(item.estado === event.newValue)
+      //     return item;
+      //   })
+      // }
+      // if (event.label == "Morbidade"){
+      //   resp = resp.filter((item) => {
+      //     if(item.morbidade === event.newValue)
+      //     return item;
+      //   })
+      // }
       
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
       dataset.label ="Anos"
+
       chart.Chart.data.datasets[0] = dataset;
+      console.log('DATASET FILTRO', dataset)
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento] = { ...chart };
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento].Loading = false
       this.def.detectChanges()
@@ -274,7 +307,7 @@ export class DashboardPublicoComponent implements OnInit {
       resp = resp.filter((item) => {
         return item.conteudos == conteudo[0];
       })
-      const { labels, datasetpie } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
+      const { labels, datasetpie } = formatChartDataPie(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
       console.log("DATA", datasetpie)
       datasetpie.label ="Casos"
@@ -308,7 +341,7 @@ export class DashboardPublicoComponent implements OnInit {
           return item.conteudos == chart.Actions.Filters[1].Value
         }
       })
-      const { labels, datasetpie } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
+      const { labels, datasetpie } = formatChartDataPie(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
       datasetpie.label ="Casos"
       chart.Chart.data.datasets[0] = datasetpie;
