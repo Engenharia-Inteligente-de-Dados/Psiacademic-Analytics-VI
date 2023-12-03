@@ -2,18 +2,45 @@
   <div class="dashboard-card">
     <div class="w-full mb-12 xl:mb-0 px-4">
       <card [title]="'No Brasil'">
-        <div actions class="flex flex-wrap justify-around items-center w-full h-36">
+        <div actions class="flex flex-wrap justify-around items-center w-full h-32">
           <div class="square">
-            <span class="square-title">Número total de <br>internações</span>
-            <span class="square-value-num">2.390.815</span>
+            <span class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" width="30"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                <path fill="#38b6ff"
+                  d="M441 7l32 32 32 32c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15L417.9 128l55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-72-72L295 73c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l55 55L422.1 56 407 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0zM210.3 155.7l61.1-61.1c.3 .3 .6 .7 1 1l16 16 56 56 56 56 16 16c.3 .3 .6 .6 1 1l-191 191c-10.5 10.5-24.7 16.4-39.6 16.4H97.9L41 505c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l57-57V325.3c0-14.9 5.9-29.1 16.4-39.6l43.3-43.3 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57 41.4-41.4 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57z" />
+              </svg>
+            </span>
+            <div>
+              <span class="square-title">Número total de internações</span>
+              <span class="square-value-num"><br>2.390.815</span>
+            </div>
           </div>
           <div class="square">
-            <span class="square-title">Número de atendimentos <br>na atenção básica</span>
-            <span class="square-value-num">91.498.185</span>
+            <span class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" width="30"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                <path fill="#b63aff"
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-96 55.2C54 332.9 0 401.3 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7c0-81-54-149.4-128-171.1V362c27.6 7.1 48 32.2 48 62v40c0 8.8-7.2 16-16 16H336c-8.8 0-16-7.2-16-16s7.2-16 16-16V424c0-17.7-14.3-32-32-32s-32 14.3-32 32v24c8.8 0 16 7.2 16 16s-7.2 16-16 16H256c-8.8 0-16-7.2-16-16V424c0-29.8 20.4-54.9 48-62V304.9c-6-.6-12.1-.9-18.3-.9H178.3c-6.2 0-12.3 .3-18.3 .9v65.4c23.1 6.9 40 28.3 40 53.7c0 30.9-25.1 56-56 56s-56-25.1-56-56c0-25.4 16.9-46.8 40-53.7V311.2zM144 448a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" />
+              </svg>
+            </span>
+            <div>
+              <span class="square-title">Número de atendimentos na atenção básica</span>
+              <span class="square-value-num"><br>91.498.185</span>
+            </div>
           </div>
           <div class="square">
-            <span class="square-title">Morbidade com mais casos de internações</span>
-            <span class="square-value">Esquizofrenia, transtornos <br>esquizotípicos e delirantes</span>
+            <span class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" width="30"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                <path fill="#5271ff"
+                  d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z" />
+              </svg>
+            </span>
+            <div>
+              <span class="square-title">Morbidade com mais casos de internações</span>
+              <span class="square-value"><br>Esquizofrenia, transtornos <br>esquizotípicos e delirantes</span>
+            </div>
           </div>
         </div>
       </card>
@@ -59,11 +86,11 @@
                 </select-auto-complet>
               </div>
             </ng-container>
-            
+
           </div>
           <ng-container body>
-            <chart classe= "h-5/6" [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart" [id]="Charts[DashPubElem.dadosPorConteudo]?.Id"
-              *ngIf="!Charts[DashPubElem.dadosPorConteudo]?.Loading">
+            <chart classe="h-5/6" [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart"
+              [id]="Charts[DashPubElem.dadosPorConteudo]?.Id" *ngIf="!Charts[DashPubElem.dadosPorConteudo]?.Loading">
             </chart>
             <chart-loading [loading]="Charts[DashPubElem.dadosPorConteudo]?.Loading">
             </chart-loading>
@@ -95,12 +122,16 @@
     </card>
   </div>
 
-  <!-- <div class="w-full mb-12 xl:mb-0 px-4">
+  <div class="w-full mb-12 xl:mb-0 px-4">
     <card [title]="'Mapa de casos'">
-      <app-geo-chart></app-geo-chart>
+      <div class="card-body-content" body>
+        <div class="square-map">
+        <geo-chart>
+        </geo-chart>
+      </div>
+      </div>
     </card>
-  </div> -->
-
+  </div>
 
   <div class="w-full mb-0 xl:mb-0 px-4">
     <card [title]="'Origem dos dados'">
@@ -114,21 +145,23 @@
         <h3 class="uppercase mb-1 text-1x1 font-medium text-gray-700">
           Intervalo temporal abrangido pelos dados
         </h3>
-        Os dados do DATASUS foram coletados de 2013 a julho de 2023, enquanto os dados do SISAB abrangeram o período de abril de 2013 a agosto de 2023, considerando a disponibilidade máxima das plataformas durante a execução do trabalho.
-      
+        Os dados do DATASUS foram coletados de 2013 a julho de 2023, enquanto os dados do SISAB abrangeram o período de
+        abril de 2013 a agosto de 2023, considerando a disponibilidade máxima das plataformas durante a execução do
+        trabalho.
+
       </div>
     </card>
   </div>
 
-    <div class="w-full mb-0 xl:mb-0 px-4">
+  <div class="w-full mb-0 xl:mb-0 px-4">
     <card [title]="'Notas'">
-        <div class="card-body-content" body>
-          1. Os dados do DATASUS, de janeiro de 2015 até março de 2016, estão sujeitos a retificação, e os dados do
-          SISAB
-          estão sujeitos à alteração. <p></p>2. No SISAB, os registros relativos ao Distrito Federal somente estão
-          disponíveis a partir de 2017 e o ano de
-          2013 não possui o registro de 9 estados (AL, AM, DF, MS, PR, RS, RO, RR e SE).
-        </div>
+      <div class="card-body-content" body>
+        1. Os dados do DATASUS, de janeiro de 2015 até março de 2016, estão sujeitos a retificação, e os dados do
+        SISAB
+        estão sujeitos à alteração. <p></p>2. No SISAB, os registros relativos ao Distrito Federal somente estão
+        disponíveis a partir de 2017 e o ano de
+        2013 não possui o registro de 9 estados (AL, AM, DF, MS, PR, RS, RO, RR e SE).
+      </div>
     </card>
   </div>
 

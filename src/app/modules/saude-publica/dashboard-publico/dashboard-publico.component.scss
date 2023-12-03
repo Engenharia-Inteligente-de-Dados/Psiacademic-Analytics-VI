@@ -11,6 +11,13 @@
   margin: 10px; /* Ajuste a margem conforme necessário */
   flex: 1; /* Isso fará com que os cards cresçam igualmente em flex containers */
   min-height: 130px; /* Exemplo de altura mínima - ajuste conforme necessário */
+  grid-template-columns: 20% 80%; /* Duas colunas */
+  gap: 2px;
+}
+
+.square-map{
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
 .square-white {
@@ -51,8 +58,9 @@
   border-left: 7px solid #5271ff; 
 }
 
+
 .square-title, .square-value, .square-value-num {
-  text-align: right; 
+  text-align: right;
   font-weight: 500;
   font-size: 13px;
   color: #555;

@@ -1,6 +1,6 @@
 import { ConsultaType } from 'src/app/shared/enums/types.enums';
 export const TEXTOS = {
-  Title: 'PsiAcademic Analytics',
+  Title: 'Saúde Mental Analytics',
 };
 
 export const MAIN_ROUTES = [
@@ -22,7 +22,7 @@ export const MAIN_ROUTES = [
         Label: 'Dados Públicos',
         Route: [`saude-publica/dashboard/`],
         InUse: true,
-        Icon: `fa-solid fa-magnifying-glass-chart`,
+        Icon: `fas fa-chart-pie`,
         Hash:'#menuDashboardDadosPublicos',
       },
     ],
