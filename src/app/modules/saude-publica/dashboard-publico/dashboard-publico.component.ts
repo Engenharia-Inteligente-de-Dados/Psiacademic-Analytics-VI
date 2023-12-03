@@ -152,7 +152,6 @@ export class DashboardPublicoComponent implements OnInit {
       chart.Chart.data.labels = labels;
       dataset.label = "Estado"
       chart.Chart.data.datasets.push(dataset);
-      console.log("dataset", dataset)
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento] = { ...chart };
     } catch (error: any) {
       this.feedback.error(error);
@@ -243,7 +242,8 @@ export class DashboardPublicoComponent implements OnInit {
   }
 
   async dadosPorConteudo() {
-    const chart = structuredClone(DADOS_CONTEUDO);
+    console.log("CHART", DADOS_CONTEUDO)
+    const chart = (DADOS_CONTEUDO);
     try {
       const { conteudo } = this.ListasProvider.getListasP();
       const filterObj = {

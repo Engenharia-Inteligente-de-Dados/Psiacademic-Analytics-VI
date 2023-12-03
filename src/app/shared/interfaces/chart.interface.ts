@@ -63,6 +63,12 @@ interface IChartjsData {
 export interface IChartjsOptions {
   maintainAspectRatio: boolean;
   responsive: boolean;
+  layout?: {
+    padding?:{
+      top?: any,
+      end?: any
+    }
+  },
   plugins?: {
     legend?: {
       labels?: {
@@ -89,6 +95,8 @@ export interface IChartjsOptions {
       padding?: any;
       displayColors?: any;
       callback?: any;
+      title?: any;
+      external?: any;
     };
     hover?: {
       mode: string | ChartModejs;

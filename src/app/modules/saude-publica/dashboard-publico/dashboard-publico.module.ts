@@ -8,7 +8,7 @@ import { LoadingsModule } from '../../../shared/components/loadings/loadings.mod
 import { TableModule } from '../../../shared/components/table/table.module';
 import { DashboardPublicoComponent } from './dashboard-publico.component';
 import { DashboardPublicoRoutingModule } from './dashboard-publico-routing.module';
-
+import { GeoChartModule } from 'src/app/geo-chart/geo-chart.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { DashboardPublicoRoutingModule } from './dashboard-publico-routing.modul
     CommonModule,
     FormSelectAutoCompletModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GeoChartModule
   ]
 })
 export class DashboardPublicoModule { }

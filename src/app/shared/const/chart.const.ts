@@ -461,30 +461,37 @@ const DADOS_CONTEUDO_CHARTJS: IChartjs = {
   options: {
     maintainAspectRatio: false,
     responsive: true,
+    
     plugins: {
       legend: {
         display: true,
-        position: 'bottom', // Posicionando a legenda na parte inferior
+        position: 'bottom', 
         align: 'start',
         fullSize: true,
         labels: {
           color: Colors.CoolGray,
           boxWidth: 20, // Tamanho da caixa do ícone da legenda
-          padding: 15, // Espaçamento entre as legendas
+          padding: 12, // Espaçamento entre as legendas
           font: {
-            size: 11, // Ajuste o tamanho da fonte conforme necessário
+            size: 12, // Ajuste o tamanho da fonte conforme necessário
           },
         }
       },
       tooltip: {
-        mode: ChartModejs.Index,
-        intersect: false,
-        padding: 10,
-        displayColors: false,
-      },
-    },
+       callback: {
+        title: function (banana) {
+          console.log(banana)
+          return 'title'
+        },
+          label: function (banana) {
+            console.log(banana)
+            return 'label'
+          }
+        }
+      }
+    }
   }
-};
+}
 
 
 export const CASOS_POR_ESTADO: IChart = {

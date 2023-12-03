@@ -4,16 +4,16 @@
       <card [title]="'No Brasil'">
         <div actions class="flex flex-wrap justify-around items-center w-full h-36">
           <div class="square">
-            <span class="square-title">Nº de internações</span>
-            <span class="square-value">2.390.815</span>
+            <span class="square-title">Número total de <br>internações</span>
+            <span class="square-value-num">2.390.815</span>
           </div>
           <div class="square">
-            <span class="square-title">N° de atendimentos na atenção básica</span>
-            <span class="square-value">91.498.185</span>
+            <span class="square-title">Número de atendimentos <br>na atenção básica</span>
+            <span class="square-value-num">91.498.185</span>
           </div>
           <div class="square">
             <span class="square-title">Morbidade com mais casos de internações</span>
-            <span class="square-value">Esquizofrenia, transtornos esquizotípicos e delirantes</span>
+            <span class="square-value">Esquizofrenia, transtornos <br>esquizotípicos e delirantes</span>
           </div>
         </div>
       </card>
@@ -62,7 +62,7 @@
             
           </div>
           <ng-container body>
-            <chart [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart" [id]="Charts[DashPubElem.dadosPorConteudo]?.Id"
+            <chart classe= "h-5/6" [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart" [id]="Charts[DashPubElem.dadosPorConteudo]?.Id"
               *ngIf="!Charts[DashPubElem.dadosPorConteudo]?.Loading">
             </chart>
             <chart-loading [loading]="Charts[DashPubElem.dadosPorConteudo]?.Loading">
@@ -94,6 +94,12 @@
       </ng-container>
     </card>
   </div>
+
+  <!-- <div class="w-full mb-12 xl:mb-0 px-4">
+    <card [title]="'Mapa de casos'">
+      <app-geo-chart></app-geo-chart>
+    </card>
+  </div> -->
 
 
   <div class="w-full mb-0 xl:mb-0 px-4">
