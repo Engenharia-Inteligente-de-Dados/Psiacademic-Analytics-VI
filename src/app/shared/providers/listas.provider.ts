@@ -105,7 +105,7 @@ export class ListasProvider {
     'Transt. mentais e comportamentais (outras subst. psicoativas)',
     'Esquizofrenia, transtornos esquizotípicos e delirantes',
     'Transt. de humor [afetivos]',
-    'Transtornos neuróticos, transtornos relacionados com o "stress" e transtornos somatoformes',
+    'Transt. neuróticos, relacionados com "stress" e somatoformes',
     'Retardo mental',
     'Outros transtornos mentais e comportamentais'
   ];

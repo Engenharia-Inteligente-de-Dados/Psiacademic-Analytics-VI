@@ -61,6 +61,7 @@ interface IChartjsData {
 }
 
 export interface IChartjsOptions {
+  indexAxis?: any,
   maintainAspectRatio: boolean;
   responsive: boolean;
   layout?: {

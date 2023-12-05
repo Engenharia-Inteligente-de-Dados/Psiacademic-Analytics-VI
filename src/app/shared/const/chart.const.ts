@@ -477,22 +477,9 @@ const DADOS_CONTEUDO_CHARTJS: IChartjs = {
           },
         }
       },
-      tooltip: {
-       callback: {
-        title: function (banana) {
-          console.log(banana)
-          return 'title'
-        },
-          label: function (banana) {
-            console.log(banana)
-            return 'label'
-          }
-        }
-      }
     }
   }
 }
-
 
 export const CASOS_POR_ESTADO: IChart = {
   Id: 5,
@@ -601,3 +588,4 @@ export const DADOS_CONTEUDO: IChart = {
     label: 'Morbidade',
   },
 };
+

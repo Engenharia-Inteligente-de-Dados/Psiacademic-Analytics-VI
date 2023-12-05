@@ -8,7 +8,6 @@ import {
   replaceStringIndex,
 } from '../../../shared/utils/formtUtil';
 import { UserFeedbackProvider } from '../../../shared/providers/users-feedback.provider';
-import { CARD_ESTATICO } from './card-estatico.cont';
 import { DashboardPublicoElementsName } from './dashboard-publicoElementsName.enum';
 import { SaudePublicaAPIService } from '../saude-publica-api.service';
 import { ListasProvider } from 'src/app/shared/providers/listas.provider';
@@ -69,7 +68,7 @@ export class DashboardPublicoComponent implements OnInit {
       })
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
-      dataset.label = "Estado"
+      dataset.label = "Casos"
       chart.Chart.data.datasets.push(dataset);
       this.Charts[this.DashPubElem.qtdCasosPorEstado] = { ...chart };
     } catch (error: any) {
@@ -150,7 +149,7 @@ export class DashboardPublicoComponent implements OnInit {
       });
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
-      dataset.label = "Estado"
+      dataset.label = "Casos"
       chart.Chart.data.datasets.push(dataset);
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento] = { ...chart };
     } catch (error: any) {
@@ -314,7 +313,7 @@ export class DashboardPublicoComponent implements OnInit {
       await Promise.allSettled([
         this.qtdCasosPorEstado(),
         this.qtdCasosPorMorbidadeAtendimento(),
-        this.dadosPorConteudo(),
+        this.dadosPorConteudo()
       ]);
     } catch (error) {
       this.feedback.error(error);

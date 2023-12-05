@@ -22,7 +22,7 @@ export class GeoChartComponent {
     },
     titleStyle: {
       size: '13px',
-      color: '#ADADAD',
+      color: '#666',
       height: 10,
       fontWeight: 'semibold',
     }
@@ -47,7 +47,7 @@ export class GeoChartComponent {
         { value: 'Faixa 2: 15.095 - 30.342', color: '#C5EAFF' },
         { value: 'Faixa 3: 30.343 - 48.475', color: '#50BFFF' },
         { value: 'Faixa 4: 48.476 - 119.753', color: '#0067C6' },
-        { value: 'Faixa 5: 119.754 - 602.929', color: '#001493' },
+        { value: 'Faixa 5: 119.754 - 602.929', color: '#0018B0' },
       ],
       border: {
         color: '#596580',

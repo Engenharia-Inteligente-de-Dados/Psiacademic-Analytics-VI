@@ -1,4 +1,5 @@
 <ng-container *ngIf="!loading">
+    <div class="title-principal">DASHBOARD DADOS PÚBLICOS DE SAÚDE MENTAL</div>
   <div class="dashboard-card">
     <div class="w-full mb-12 xl:mb-0 px-4">
       <card [title]="'No Brasil'">
@@ -89,7 +90,7 @@
 
           </div>
           <ng-container body>
-            <chart classe="h-5/6" [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart"
+            <chart classe="h-4/5" [chart]="Charts[DashPubElem.dadosPorConteudo]?.Chart"
               [id]="Charts[DashPubElem.dadosPorConteudo]?.Id" *ngIf="!Charts[DashPubElem.dadosPorConteudo]?.Loading">
             </chart>
             <chart-loading [loading]="Charts[DashPubElem.dadosPorConteudo]?.Loading">
@@ -126,9 +127,42 @@
     <card [title]="'Mapa de casos'">
       <div class="card-body-content" body>
         <div class="square-map">
-        <geo-chart>
-        </geo-chart>
-      </div>
+          <geo-chart>
+          </geo-chart>
+
+          <div class="ranking-container">
+            <h2 class="ranking-title">Ranking</h2>
+            <p class="ranking-subtitle">TOP 5 estados com maiores <br>nº de internações</p>
+            <ul class="ranking-list">
+              <li class="ranking-item">
+                <span class="ranking-number">1º</span>
+                <span class="ranking-bar-1" style="width: 90%;">602.929</span>
+                <span class="ranking-state">SP</span>
+              </li>
+              <li class="ranking-item">
+                <span class="ranking-number">2º</span>
+                <span class="ranking-bar-2" style="width: 70%;">393.845</span>
+                <span class="ranking-state">RS</span>
+              </li>
+              <li class="ranking-item">
+                <span class="ranking-number">3º</span>
+                <span class="ranking-bar-3"style="width: 60%;">216.656</span>
+                <span class="ranking-state">PR</span>
+              </li>
+              <li class="ranking-item">
+                <span class="ranking-number">4º</span>
+                <span class="ranking-bar-4" style="width: 50%;">180.415</span>
+                <span class="ranking-state">MG</span>
+              </li>
+              <li class="ranking-item">
+                <span class="ranking-number">5º</span>
+                <span class="ranking-bar-5"style="width: 43%;">147.862</span>
+                <span class="ranking-state">SC</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </card>
   </div>
