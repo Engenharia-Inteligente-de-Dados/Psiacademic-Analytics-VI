@@ -470,10 +470,10 @@ const DADOS_CONTEUDO_CHARTJS: IChartjs = {
         fullSize: true,
         labels: {
           color: Colors.CoolGray,
-          boxWidth: 20, // Tamanho da caixa do ícone da legenda
-          padding: 12, // Espaçamento entre as legendas
+          boxWidth: 20, 
+          padding: 12, 
           font: {
-            size: 12, // Ajuste o tamanho da fonte conforme necessário
+            size: 12, 
           },
         }
       },

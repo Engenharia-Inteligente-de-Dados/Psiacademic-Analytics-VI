@@ -226,7 +226,7 @@ export class DashboardPublicoComponent implements OnInit {
       });
       const { labels, dataset } = formatChartData(filtrados, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
-      dataset.label = "Anos"
+      dataset.label = "Casos"
       chart.Chart.data.datasets[0] = dataset;
       console.log("DATASETT", dataset)
       this.Charts[this.DashPubElem.qtdCasosPorMorbidadeAtendimento] = { ...chart };
