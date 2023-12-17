@@ -5,6 +5,7 @@ import {
 } from '../enums/chartTypes.enum';
 import { FormType } from '../enums/types.enums';
 import { ChartColor } from '../enums/Colors';
+import { offset } from '@popperjs/core';
 
 interface IChartAxes {
   display?: boolean;
@@ -45,12 +46,13 @@ interface IChartAxes {
 
 export interface IChartjsDataset {
   label?: string | number | Date | any;
-  data: number[] | any[] | { x: any; y: any }[] | string | string[] | any;
+  data?: number[] | any[] | { x: any; y: any }[] | string | string[] | any;
   //data: any
-  fill: boolean;
+  fill?: boolean;
   barThickness?: number;
   backgroundColor?: string | string[] | ChartColor;
   borderColor?:  string | string[] | ChartColor;
+  hoverOffset?: number;
 }
 
 interface IChartjsData {
@@ -59,15 +61,29 @@ interface IChartjsData {
 }
 
 export interface IChartjsOptions {
+  indexAxis?: any,
   maintainAspectRatio: boolean;
   responsive: boolean;
+  layout?: {
+    padding?:{
+      top?: any,
+      end?: any
+    }
+  },
   plugins?: {
     legend?: {
       labels?: {
-        color: string;
+        color?: string;
+        boxWidth?: number;
+        padding?: number;
+        font?: {
+          size?: number;
       };
+    }
       align?: string | ChartAlignPosition;
       position?: string | ChartAlignPosition;
+      display?: boolean;
+      fullSize?: boolean
     };
     title?: {
       display?: boolean;
@@ -75,8 +91,13 @@ export interface IChartjsOptions {
       color?: string;
     };
     tooltip?: {
-      mode: string | ChartModejs;
-      intersect: boolean;
+      mode?: string | ChartModejs;
+      intersect?: boolean;
+      padding?: any;
+      displayColors?: any;
+      callback?: any;
+      title?: any;
+      external?: any;
     };
     hover?: {
       mode: string | ChartModejs;
@@ -108,6 +129,7 @@ interface IFilterAction{
     Value?: any;
     Key?:string;
     Options?: any[];
+    Visible?: boolean;
   };
 
 export interface IChart {
@@ -120,3 +142,4 @@ export interface IChart {
   Keys?: any
   DatasetConfig?: any;
 }
+

@@ -1,5 +1,5 @@
 <div
-  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded "
+  class="card-container relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg"
   [ngClass]="colorBg"
   >
   <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
@@ -8,14 +8,14 @@
         <h3 class="uppercase mb-1 text-1xl font-semibold" [ngClass]="textColor">
           {{ title }}
         </h3>
-        <h2 class="text-xl font-semibold" [ngClass]="textColor">{{ subTitle }}</h2>
+        <!-- <h2 class="text-xl font-semibold" [ngClass]="textColor">{{ subTitle }}</h2> -->
       </div>
     </div>
-    <div class="mt-2 mx-2 p-2">
+    <div class="mt-2 mx-2 ps-4 pe-4 pb-4">
       <ng-content select="[actions]"></ng-content>
     </div>
   </div>
-  <div class="p-4 flex-auto">
+  <div class="ps-4 pe-4 pb-4 flex-auto">
     <ng-content select="[body]"></ng-content>
   </div>
 </div>

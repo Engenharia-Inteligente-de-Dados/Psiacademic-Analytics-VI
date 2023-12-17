@@ -1,6 +1,7 @@
 import { TRANSTORNOS_LABELS } from '../const/transtornoHumanizade.const';
 import { Colors, ChartColor } from '../enums/Colors';
 import { IChartjsDataset } from '../interfaces/chart.interface';
+
 export function ordenaObjeto(objeto: Array<any>) {
   return objeto.sort(function (a, b) {
     if (a._id != null && b._id != null) {
@@ -66,13 +67,75 @@ export function formtData(
 export function formatChartData(array: any[], keys: any, configDataSet?: any) {
   let { labels, values } = splitLabelsValues(array, keys);
   labels = formatLabels(labels);
+  labels = [...new Set(labels)];
+
+
   const dataset = createDataSet(labels, values, configDataSet);
   return { labels, values, dataset };
 }
 
+export function formatChartDataPie(array: any[], keys: any, configDataSet?: any) {
+  let { labels, values } = splitLabelsValues(array, keys);
+  labels = formatLabels(labels);
+  const datasetpie = createDataSetPie(labels, values, configDataSet)
+  return { labels, values, datasetpie };
+}
+
+
 function splitLabelsValues(array: any[], keys: any) {
   const labels = [];
   const values = [];
+  const additionalValues1 = [];
+  const additionalValues2 = [];
+
+  if (keys?.dinamic) {
+    array.forEach((item) => {
+      if (item[keys.labelName] === undefined || item[keys.labelName] === null) {
+        labels.push('Não Definido');
+      } else {
+        labels.push(item[keys.labelName]);
+      }
+      if (item[keys.valueName] === undefined || item[keys.valueName] === null) {
+        values.push(0);
+      } else {
+        values.push(item[keys.valueName]);
+      }
+      if (item[keys.additionalKey1] === undefined || item[keys.additionalKey1] === null) {
+        additionalValues1.push(0);
+      } else {
+        additionalValues1.push(item[keys.additionalKey1]);
+      }
+      if (item[keys.additionalKey2] === undefined || item[keys.additionalKey2] === null) {
+        additionalValues2.push(0);
+      } else {
+        additionalValues2.push(item[keys.additionalKey2]);
+      }
+    })
+    return { labels, values, additionalValues1, additionalValues2 };
+  }
+
+
+// function splitLabelsValues(array: any[], keys: any) {
+//     const labels = [];
+//     const values = [];
+  
+//     if (keys?.dinamic) {
+//       array.forEach((item) => {
+//         if (item[keys.labelName] === undefined || item[keys.labelName] === null) {
+//           labels.push('Não Definido');
+//         } else {
+//           labels.push(item[keys.labelName]);
+//         }
+//         if (item[keys.valueName] === undefined || item[keys.valueName] === null) {
+//           values.push(0);
+//         } else {
+//           values.push(item[keys.valueName]);
+//         }
+        
+//       })
+//       return { labels, values };
+//     }
+
   array.forEach((item) => {
     Object.keys(keys).forEach((key) => {
       if (key === '_id') {
@@ -145,6 +208,25 @@ function createDataSet(labels: any[], values: any[], config?: any): any {
     borderColor: !!cores.length ? cores : cor,
   };
 }
+
+
+
+function createDataSetPie (labels, values, config) {
+  let backgroundColors = [];
+
+  if (config?.escalaCor) {
+    backgroundColors = Object.values(ChartColor).slice(0, labels.length);
+  } else {
+    backgroundColors = labels.map(() => ChartColor.Color_1);
+  }
+
+  return {
+    label: config?.label || '',
+    data: values,
+    backgroundColor: backgroundColors
+  };
+}
+
 
 /***
  * @method replaceStringIndex Serve para formatar uma string pelo seu index.

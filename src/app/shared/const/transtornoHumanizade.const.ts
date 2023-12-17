@@ -8,3 +8,4 @@ export const TRANSTORNOS_LABELS = {
   "personalidade": "Transtornos de Personalidade",
   "traumas_estressesores": "Traumas Estressores"
 }
+

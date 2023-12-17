@@ -15,11 +15,13 @@ import Chart from 'chart.js/auto';
 export class ChartComponent implements OnInit, OnDestroy {
   @Input() chart: any;
   @Input() id: string | number;
+  @Input() classe: string = "relative h-80"
 
   private ChartContext: any;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngOnDestroy(): void {
 
@@ -39,10 +41,15 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
 
   createChart() {
-    let ctx: any = document.getElementById(
+    try{
+      let ctx: any = document.getElementById(
       `chart-${this.id}`
     ) as HTMLCanvasElement;
     ctx = ctx.getContext('2d');
     this.ChartContext = new Chart(ctx, this.chart);
+      }
+      catch(error){
+        console.log(error)
+      }
   }
 }

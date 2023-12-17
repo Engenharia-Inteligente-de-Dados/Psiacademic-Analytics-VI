@@ -1,0 +1,1990 @@
+[
+    {
+        "ano": 2013,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 170,
+        "total_consultas_no_dia": 25,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 270,
+        "total_consultas_no_dia": 224,
+        "total_atendimentos_urgencia": 25
+    },
+    {
+        "ano": 2013,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 19,
+        "total_consultas_no_dia": 2,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 52,
+        "total_consultas_no_dia": 0,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 162,
+        "total_consultas_no_dia": 184,
+        "total_atendimentos_urgencia": 5
+    },
+    {
+        "ano": 2013,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 15,
+        "total_consultas_no_dia": 78,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 0,
+        "total_consultas_no_dia": 1,
+        "total_atendimentos_urgencia": 1
+    },
+    {
+        "ano": 2013,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 400,
+        "total_consultas_no_dia": 515,
+        "total_atendimentos_urgencia": 10
+    },
+    {
+        "ano": 2013,
+        "estado": "Pará",
+        "total_consultas_agendadas": 0,
+        "total_consultas_no_dia": 1,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 1136,
+        "total_consultas_no_dia": 1702,
+        "total_atendimentos_urgencia": 6
+    },
+    {
+        "ano": 2013,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 18,
+        "total_consultas_no_dia": 1,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 114,
+        "total_consultas_no_dia": 46,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 18,
+        "total_consultas_no_dia": 7,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 6,
+        "total_consultas_no_dia": 1,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2013,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 1268,
+        "total_consultas_no_dia": 809,
+        "total_atendimentos_urgencia": 28
+    },
+    {
+        "ano": 2013,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 179,
+        "total_consultas_no_dia": 347,
+        "total_atendimentos_urgencia": 2
+    },
+    {
+        "ano": 2013,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 505,
+        "total_consultas_no_dia": 110,
+        "total_atendimentos_urgencia": 20
+    },
+    {
+        "ano": 2013,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 0,
+        "total_consultas_no_dia": 1,
+        "total_atendimentos_urgencia": 0
+    },
+    {
+        "ano": 2014,
+        "estado": "Acre",
+        "total_consultas_agendadas": 590,
+        "total_consultas_no_dia": 420,
+        "total_atendimentos_urgencia": 7
+    },
+    {
+        "ano": 2014,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 2329,
+        "total_consultas_no_dia": 627,
+        "total_atendimentos_urgencia": 30
+    },
+    {
+        "ano": 2014,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 987,
+        "total_consultas_no_dia": 232,
+        "total_atendimentos_urgencia": 11
+    },
+    {
+        "ano": 2014,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 2346,
+        "total_consultas_no_dia": 882,
+        "total_atendimentos_urgencia": 37
+    },
+    {
+        "ano": 2014,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 17679,
+        "total_consultas_no_dia": 10390,
+        "total_atendimentos_urgencia": 624
+    },
+    {
+        "ano": 2014,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 1873,
+        "total_consultas_no_dia": 2494,
+        "total_atendimentos_urgencia": 17
+    },
+    {
+        "ano": 2014,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 6486,
+        "total_consultas_no_dia": 3276,
+        "total_atendimentos_urgencia": 165
+    },
+    {
+        "ano": 2014,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 7759,
+        "total_consultas_no_dia": 10095,
+        "total_atendimentos_urgencia": 401
+    },
+    {
+        "ano": 2014,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 10205,
+        "total_consultas_no_dia": 4969,
+        "total_atendimentos_urgencia": 110
+    },
+    {
+        "ano": 2014,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 1667,
+        "total_consultas_no_dia": 1567,
+        "total_atendimentos_urgencia": 42
+    },
+    {
+        "ano": 2014,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 7674,
+        "total_consultas_no_dia": 7731,
+        "total_atendimentos_urgencia": 162
+    },
+    {
+        "ano": 2014,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 55165,
+        "total_consultas_no_dia": 32121,
+        "total_atendimentos_urgencia": 772
+    },
+    {
+        "ano": 2014,
+        "estado": "Pará",
+        "total_consultas_agendadas": 5865,
+        "total_consultas_no_dia": 2868,
+        "total_atendimentos_urgencia": 216
+    },
+    {
+        "ano": 2014,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 35717,
+        "total_consultas_no_dia": 52447,
+        "total_atendimentos_urgencia": 881
+    },
+    {
+        "ano": 2014,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 18453,
+        "total_consultas_no_dia": 13202,
+        "total_atendimentos_urgencia": 324
+    },
+    {
+        "ano": 2014,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 12639,
+        "total_consultas_no_dia": 11582,
+        "total_atendimentos_urgencia": 187
+    },
+    {
+        "ano": 2014,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 7584,
+        "total_consultas_no_dia": 5116,
+        "total_atendimentos_urgencia": 204
+    },
+    {
+        "ano": 2014,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 7949,
+        "total_consultas_no_dia": 3701,
+        "total_atendimentos_urgencia": 276
+    },
+    {
+        "ano": 2014,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 23360,
+        "total_consultas_no_dia": 12266,
+        "total_atendimentos_urgencia": 651
+    },
+    {
+        "ano": 2014,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 21432,
+        "total_consultas_no_dia": 42431,
+        "total_atendimentos_urgencia": 447
+    },
+    {
+        "ano": 2014,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 1341,
+        "total_consultas_no_dia": 1473,
+        "total_atendimentos_urgencia": 10
+    },
+    {
+        "ano": 2014,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 132,
+        "total_consultas_no_dia": 10,
+        "total_atendimentos_urgencia": 1
+    },
+    {
+        "ano": 2014,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 5790,
+        "total_consultas_no_dia": 5390,
+        "total_atendimentos_urgencia": 221
+    },
+    {
+        "ano": 2014,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 53071,
+        "total_consultas_no_dia": 19372,
+        "total_atendimentos_urgencia": 1897
+    },
+    {
+        "ano": 2014,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 8574,
+        "total_consultas_no_dia": 3972,
+        "total_atendimentos_urgencia": 537
+    },
+    {
+        "ano": 2014,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 4052,
+        "total_consultas_no_dia": 3722,
+        "total_atendimentos_urgencia": 215
+    },
+    {
+        "ano": 2015,
+        "estado": "Acre",
+        "total_consultas_agendadas": 2204,
+        "total_consultas_no_dia": 2633,
+        "total_atendimentos_urgencia": 33
+    },
+    {
+        "ano": 2015,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 23092,
+        "total_consultas_no_dia": 9124,
+        "total_atendimentos_urgencia": 1033
+    },
+    {
+        "ano": 2015,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 1550,
+        "total_consultas_no_dia": 583,
+        "total_atendimentos_urgencia": 18
+    },
+    {
+        "ano": 2015,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 8793,
+        "total_consultas_no_dia": 4308,
+        "total_atendimentos_urgencia": 114
+    },
+    {
+        "ano": 2015,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 67857,
+        "total_consultas_no_dia": 34121,
+        "total_atendimentos_urgencia": 1805
+    },
+    {
+        "ano": 2015,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 53612,
+        "total_consultas_no_dia": 91561,
+        "total_atendimentos_urgencia": 1362
+    },
+    {
+        "ano": 2015,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 49459,
+        "total_consultas_no_dia": 17612,
+        "total_atendimentos_urgencia": 964
+    },
+    {
+        "ano": 2015,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 43117,
+        "total_consultas_no_dia": 46977,
+        "total_atendimentos_urgencia": 1054
+    },
+    {
+        "ano": 2015,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 25405,
+        "total_consultas_no_dia": 11608,
+        "total_atendimentos_urgencia": 298
+    },
+    {
+        "ano": 2015,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 7791,
+        "total_consultas_no_dia": 11019,
+        "total_atendimentos_urgencia": 197
+    },
+    {
+        "ano": 2015,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 17012,
+        "total_consultas_no_dia": 20211,
+        "total_atendimentos_urgencia": 270
+    },
+    {
+        "ano": 2015,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 290393,
+        "total_consultas_no_dia": 173164,
+        "total_atendimentos_urgencia": 6698
+    },
+    {
+        "ano": 2015,
+        "estado": "Pará",
+        "total_consultas_agendadas": 25817,
+        "total_consultas_no_dia": 12019,
+        "total_atendimentos_urgencia": 486
+    },
+    {
+        "ano": 2015,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 98327,
+        "total_consultas_no_dia": 130023,
+        "total_atendimentos_urgencia": 1824
+    },
+    {
+        "ano": 2015,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 65689,
+        "total_consultas_no_dia": 90048,
+        "total_atendimentos_urgencia": 1067
+    },
+    {
+        "ano": 2015,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 68037,
+        "total_consultas_no_dia": 49003,
+        "total_atendimentos_urgencia": 1644
+    },
+    {
+        "ano": 2015,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 23162,
+        "total_consultas_no_dia": 20214,
+        "total_atendimentos_urgencia": 528
+    },
+    {
+        "ano": 2015,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 42861,
+        "total_consultas_no_dia": 77737,
+        "total_atendimentos_urgencia": 1409
+    },
+    {
+        "ano": 2015,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 54349,
+        "total_consultas_no_dia": 37937,
+        "total_atendimentos_urgencia": 1723
+    },
+    {
+        "ano": 2015,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 115894,
+        "total_consultas_no_dia": 196090,
+        "total_atendimentos_urgencia": 3123
+    },
+    {
+        "ano": 2015,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 9895,
+        "total_consultas_no_dia": 9109,
+        "total_atendimentos_urgencia": 59
+    },
+    {
+        "ano": 2015,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 1037,
+        "total_consultas_no_dia": 847,
+        "total_atendimentos_urgencia": 5
+    },
+    {
+        "ano": 2015,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 163369,
+        "total_consultas_no_dia": 95463,
+        "total_atendimentos_urgencia": 7612
+    },
+    {
+        "ano": 2015,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 29306,
+        "total_consultas_no_dia": 13047,
+        "total_atendimentos_urgencia": 861
+    },
+    {
+        "ano": 2015,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 12223,
+        "total_consultas_no_dia": 10643,
+        "total_atendimentos_urgencia": 337
+    },
+    {
+        "ano": 2016,
+        "estado": "Acre",
+        "total_consultas_agendadas": 6827,
+        "total_consultas_no_dia": 6849,
+        "total_atendimentos_urgencia": 56
+    },
+    {
+        "ano": 2016,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 96723,
+        "total_consultas_no_dia": 35388,
+        "total_atendimentos_urgencia": 3787
+    },
+    {
+        "ano": 2016,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 4835,
+        "total_consultas_no_dia": 814,
+        "total_atendimentos_urgencia": 29
+    },
+    {
+        "ano": 2016,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 18508,
+        "total_consultas_no_dia": 9764,
+        "total_atendimentos_urgencia": 258
+    },
+    {
+        "ano": 2016,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 139165,
+        "total_consultas_no_dia": 65325,
+        "total_atendimentos_urgencia": 3912
+    },
+    {
+        "ano": 2016,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 137281,
+        "total_consultas_no_dia": 212481,
+        "total_atendimentos_urgencia": 2810
+    },
+    {
+        "ano": 2016,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 97116,
+        "total_consultas_no_dia": 32614,
+        "total_atendimentos_urgencia": 1664
+    },
+    {
+        "ano": 2016,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 115420,
+        "total_consultas_no_dia": 111109,
+        "total_atendimentos_urgencia": 1928
+    },
+    {
+        "ano": 2016,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 40827,
+        "total_consultas_no_dia": 20712,
+        "total_atendimentos_urgencia": 397
+    },
+    {
+        "ano": 2016,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 47832,
+        "total_consultas_no_dia": 50122,
+        "total_atendimentos_urgencia": 2086
+    },
+    {
+        "ano": 2016,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 40000,
+        "total_consultas_no_dia": 62221,
+        "total_atendimentos_urgencia": 591
+    },
+    {
+        "ano": 2016,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 625554,
+        "total_consultas_no_dia": 347537,
+        "total_atendimentos_urgencia": 17566
+    },
+    {
+        "ano": 2016,
+        "estado": "Pará",
+        "total_consultas_agendadas": 43256,
+        "total_consultas_no_dia": 18814,
+        "total_atendimentos_urgencia": 603
+    },
+    {
+        "ano": 2016,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 121844,
+        "total_consultas_no_dia": 172017,
+        "total_atendimentos_urgencia": 2135
+    },
+    {
+        "ano": 2016,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 130001,
+        "total_consultas_no_dia": 205393,
+        "total_atendimentos_urgencia": 2020
+    },
+    {
+        "ano": 2016,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 209622,
+        "total_consultas_no_dia": 135534,
+        "total_atendimentos_urgencia": 5061
+    },
+    {
+        "ano": 2016,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 49824,
+        "total_consultas_no_dia": 38957,
+        "total_atendimentos_urgencia": 961
+    },
+    {
+        "ano": 2016,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 134411,
+        "total_consultas_no_dia": 351126,
+        "total_atendimentos_urgencia": 2316
+    },
+    {
+        "ano": 2016,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 85900,
+        "total_consultas_no_dia": 58928,
+        "total_atendimentos_urgencia": 1870
+    },
+    {
+        "ano": 2016,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 213365,
+        "total_consultas_no_dia": 339769,
+        "total_atendimentos_urgencia": 5034
+    },
+    {
+        "ano": 2016,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 27381,
+        "total_consultas_no_dia": 28409,
+        "total_atendimentos_urgencia": 277
+    },
+    {
+        "ano": 2016,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 2100,
+        "total_consultas_no_dia": 1090,
+        "total_atendimentos_urgencia": 24
+    },
+    {
+        "ano": 2016,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 309060,
+        "total_consultas_no_dia": 292093,
+        "total_atendimentos_urgencia": 8526
+    },
+    {
+        "ano": 2016,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 406795,
+        "total_consultas_no_dia": 242753,
+        "total_atendimentos_urgencia": 13251
+    },
+    {
+        "ano": 2016,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 51204,
+        "total_consultas_no_dia": 20163,
+        "total_atendimentos_urgencia": 925
+    },
+    {
+        "ano": 2016,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 29302,
+        "total_consultas_no_dia": 25336,
+        "total_atendimentos_urgencia": 786
+    },
+    {
+        "ano": 2017,
+        "estado": "Acre",
+        "total_consultas_agendadas": 9917,
+        "total_consultas_no_dia": 7744,
+        "total_atendimentos_urgencia": 89
+    },
+    {
+        "ano": 2017,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 131882,
+        "total_consultas_no_dia": 50922,
+        "total_atendimentos_urgencia": 4612
+    },
+    {
+        "ano": 2017,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 5115,
+        "total_consultas_no_dia": 1220,
+        "total_atendimentos_urgencia": 59
+    },
+    {
+        "ano": 2017,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 20030,
+        "total_consultas_no_dia": 12386,
+        "total_atendimentos_urgencia": 302
+    },
+    {
+        "ano": 2017,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 220014,
+        "total_consultas_no_dia": 101923,
+        "total_atendimentos_urgencia": 6429
+    },
+    {
+        "ano": 2017,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 187012,
+        "total_consultas_no_dia": 267456,
+        "total_atendimentos_urgencia": 3906
+    },
+    {
+        "ano": 2017,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 1060,
+        "total_consultas_no_dia": 1609,
+        "total_atendimentos_urgencia": 64
+    },
+    {
+        "ano": 2017,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 126494,
+        "total_consultas_no_dia": 41755,
+        "total_atendimentos_urgencia": 1580
+    },
+    {
+        "ano": 2017,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 131289,
+        "total_consultas_no_dia": 138133,
+        "total_atendimentos_urgencia": 1932
+    },
+    {
+        "ano": 2017,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 67393,
+        "total_consultas_no_dia": 29504,
+        "total_atendimentos_urgencia": 611
+    },
+    {
+        "ano": 2017,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 63519,
+        "total_consultas_no_dia": 69365,
+        "total_atendimentos_urgencia": 2952
+    },
+    {
+        "ano": 2017,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 50992,
+        "total_consultas_no_dia": 78970,
+        "total_atendimentos_urgencia": 1088
+    },
+    {
+        "ano": 2017,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 865411,
+        "total_consultas_no_dia": 541914,
+        "total_atendimentos_urgencia": 20917
+    },
+    {
+        "ano": 2017,
+        "estado": "Pará",
+        "total_consultas_agendadas": 63440,
+        "total_consultas_no_dia": 31726,
+        "total_atendimentos_urgencia": 1076
+    },
+    {
+        "ano": 2017,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 148109,
+        "total_consultas_no_dia": 222769,
+        "total_atendimentos_urgencia": 2985
+    },
+    {
+        "ano": 2017,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 186884,
+        "total_consultas_no_dia": 291823,
+        "total_atendimentos_urgencia": 3216
+    },
+    {
+        "ano": 2017,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 310910,
+        "total_consultas_no_dia": 202711,
+        "total_atendimentos_urgencia": 6057
+    },
+    {
+        "ano": 2017,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 68292,
+        "total_consultas_no_dia": 57172,
+        "total_atendimentos_urgencia": 1494
+    },
+    {
+        "ano": 2017,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 197139,
+        "total_consultas_no_dia": 477778,
+        "total_atendimentos_urgencia": 3485
+    },
+    {
+        "ano": 2017,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 129812,
+        "total_consultas_no_dia": 92401,
+        "total_atendimentos_urgencia": 3693
+    },
+    {
+        "ano": 2017,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 255983,
+        "total_consultas_no_dia": 360765,
+        "total_atendimentos_urgencia": 4801
+    },
+    {
+        "ano": 2017,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 32814,
+        "total_consultas_no_dia": 23934,
+        "total_atendimentos_urgencia": 208
+    },
+    {
+        "ano": 2017,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 3032,
+        "total_consultas_no_dia": 2062,
+        "total_atendimentos_urgencia": 66
+    },
+    {
+        "ano": 2017,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 297657,
+        "total_consultas_no_dia": 334456,
+        "total_atendimentos_urgencia": 9990
+    },
+    {
+        "ano": 2017,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 816153,
+        "total_consultas_no_dia": 478130,
+        "total_atendimentos_urgencia": 22362
+    },
+    {
+        "ano": 2017,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 71659,
+        "total_consultas_no_dia": 31416,
+        "total_atendimentos_urgencia": 1435
+    },
+    {
+        "ano": 2017,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 40414,
+        "total_consultas_no_dia": 27363,
+        "total_atendimentos_urgencia": 882
+    },
+    {
+        "ano": 2018,
+        "estado": "Acre",
+        "total_consultas_agendadas": 13601,
+        "total_consultas_no_dia": 8163,
+        "total_atendimentos_urgencia": 97
+    },
+    {
+        "ano": 2018,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 143427,
+        "total_consultas_no_dia": 65505,
+        "total_atendimentos_urgencia": 5529
+    },
+    {
+        "ano": 2018,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 7260,
+        "total_consultas_no_dia": 1500,
+        "total_atendimentos_urgencia": 51
+    },
+    {
+        "ano": 2018,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 32926,
+        "total_consultas_no_dia": 18350,
+        "total_atendimentos_urgencia": 483
+    },
+    {
+        "ano": 2018,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 267750,
+        "total_consultas_no_dia": 129833,
+        "total_atendimentos_urgencia": 7472
+    },
+    {
+        "ano": 2018,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 249190,
+        "total_consultas_no_dia": 292896,
+        "total_atendimentos_urgencia": 5066
+    },
+    {
+        "ano": 2018,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 23892,
+        "total_consultas_no_dia": 31549,
+        "total_atendimentos_urgencia": 1306
+    },
+    {
+        "ano": 2018,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 180148,
+        "total_consultas_no_dia": 60602,
+        "total_atendimentos_urgencia": 2042
+    },
+    {
+        "ano": 2018,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 150917,
+        "total_consultas_no_dia": 139311,
+        "total_atendimentos_urgencia": 2210
+    },
+    {
+        "ano": 2018,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 84371,
+        "total_consultas_no_dia": 42123,
+        "total_atendimentos_urgencia": 719
+    },
+    {
+        "ano": 2018,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 69469,
+        "total_consultas_no_dia": 90094,
+        "total_atendimentos_urgencia": 2480
+    },
+    {
+        "ano": 2018,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 67970,
+        "total_consultas_no_dia": 93741,
+        "total_atendimentos_urgencia": 1183
+    },
+    {
+        "ano": 2018,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 999140,
+        "total_consultas_no_dia": 648593,
+        "total_atendimentos_urgencia": 25172
+    },
+    {
+        "ano": 2018,
+        "estado": "Pará",
+        "total_consultas_agendadas": 86999,
+        "total_consultas_no_dia": 36639,
+        "total_atendimentos_urgencia": 1310
+    },
+    {
+        "ano": 2018,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 174898,
+        "total_consultas_no_dia": 238530,
+        "total_atendimentos_urgencia": 3750
+    },
+    {
+        "ano": 2018,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 217324,
+        "total_consultas_no_dia": 271186,
+        "total_atendimentos_urgencia": 5394
+    },
+    {
+        "ano": 2018,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 366210,
+        "total_consultas_no_dia": 255009,
+        "total_atendimentos_urgencia": 5895
+    },
+    {
+        "ano": 2018,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 85044,
+        "total_consultas_no_dia": 65099,
+        "total_atendimentos_urgencia": 1587
+    },
+    {
+        "ano": 2018,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 271132,
+        "total_consultas_no_dia": 556110,
+        "total_atendimentos_urgencia": 6199
+    },
+    {
+        "ano": 2018,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 138792,
+        "total_consultas_no_dia": 106085,
+        "total_atendimentos_urgencia": 3883
+    },
+    {
+        "ano": 2018,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 293937,
+        "total_consultas_no_dia": 371095,
+        "total_atendimentos_urgencia": 5375
+    },
+    {
+        "ano": 2018,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 41744,
+        "total_consultas_no_dia": 28271,
+        "total_atendimentos_urgencia": 412
+    },
+    {
+        "ano": 2018,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 2368,
+        "total_consultas_no_dia": 2944,
+        "total_atendimentos_urgencia": 37
+    },
+    {
+        "ano": 2018,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 355364,
+        "total_consultas_no_dia": 376632,
+        "total_atendimentos_urgencia": 13806
+    },
+    {
+        "ano": 2018,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 1160387,
+        "total_consultas_no_dia": 711584,
+        "total_atendimentos_urgencia": 25867
+    },
+    {
+        "ano": 2018,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 79733,
+        "total_consultas_no_dia": 40121,
+        "total_atendimentos_urgencia": 1882
+    },
+    {
+        "ano": 2018,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 43731,
+        "total_consultas_no_dia": 32198,
+        "total_atendimentos_urgencia": 810
+    },
+    {
+        "ano": 2019,
+        "estado": "Acre",
+        "total_consultas_agendadas": 14781,
+        "total_consultas_no_dia": 11170,
+        "total_atendimentos_urgencia": 99
+    },
+    {
+        "ano": 2019,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 156538,
+        "total_consultas_no_dia": 85871,
+        "total_atendimentos_urgencia": 6498
+    },
+    {
+        "ano": 2019,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 7087,
+        "total_consultas_no_dia": 1833,
+        "total_atendimentos_urgencia": 76
+    },
+    {
+        "ano": 2019,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 44948,
+        "total_consultas_no_dia": 28448,
+        "total_atendimentos_urgencia": 605
+    },
+    {
+        "ano": 2019,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 311101,
+        "total_consultas_no_dia": 151451,
+        "total_atendimentos_urgencia": 9420
+    },
+    {
+        "ano": 2019,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 307164,
+        "total_consultas_no_dia": 343778,
+        "total_atendimentos_urgencia": 6550
+    },
+    {
+        "ano": 2019,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 30264,
+        "total_consultas_no_dia": 51070,
+        "total_atendimentos_urgencia": 1723
+    },
+    {
+        "ano": 2019,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 204486,
+        "total_consultas_no_dia": 72463,
+        "total_atendimentos_urgencia": 2448
+    },
+    {
+        "ano": 2019,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 180983,
+        "total_consultas_no_dia": 145363,
+        "total_atendimentos_urgencia": 2463
+    },
+    {
+        "ano": 2019,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 98478,
+        "total_consultas_no_dia": 52062,
+        "total_atendimentos_urgencia": 959
+    },
+    {
+        "ano": 2019,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 69847,
+        "total_consultas_no_dia": 108399,
+        "total_atendimentos_urgencia": 2354
+    },
+    {
+        "ano": 2019,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 59554,
+        "total_consultas_no_dia": 103361,
+        "total_atendimentos_urgencia": 1203
+    },
+    {
+        "ano": 2019,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 1032205,
+        "total_consultas_no_dia": 760152,
+        "total_atendimentos_urgencia": 24162
+    },
+    {
+        "ano": 2019,
+        "estado": "Pará",
+        "total_consultas_agendadas": 114320,
+        "total_consultas_no_dia": 48153,
+        "total_atendimentos_urgencia": 1924
+    },
+    {
+        "ano": 2019,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 180441,
+        "total_consultas_no_dia": 254650,
+        "total_atendimentos_urgencia": 4716
+    },
+    {
+        "ano": 2019,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 228649,
+        "total_consultas_no_dia": 290943,
+        "total_atendimentos_urgencia": 6342
+    },
+    {
+        "ano": 2019,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 419663,
+        "total_consultas_no_dia": 308406,
+        "total_atendimentos_urgencia": 8971
+    },
+    {
+        "ano": 2019,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 94974,
+        "total_consultas_no_dia": 78049,
+        "total_atendimentos_urgencia": 2010
+    },
+    {
+        "ano": 2019,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 266017,
+        "total_consultas_no_dia": 393564,
+        "total_atendimentos_urgencia": 4715
+    },
+    {
+        "ano": 2019,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 146711,
+        "total_consultas_no_dia": 130162,
+        "total_atendimentos_urgencia": 4592
+    },
+    {
+        "ano": 2019,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 301635,
+        "total_consultas_no_dia": 368587,
+        "total_atendimentos_urgencia": 5471
+    },
+    {
+        "ano": 2019,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 48331,
+        "total_consultas_no_dia": 31342,
+        "total_atendimentos_urgencia": 258
+    },
+    {
+        "ano": 2019,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 3133,
+        "total_consultas_no_dia": 4680,
+        "total_atendimentos_urgencia": 73
+    },
+    {
+        "ano": 2019,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 323616,
+        "total_consultas_no_dia": 441539,
+        "total_atendimentos_urgencia": 20901
+    },
+    {
+        "ano": 2019,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 1285863,
+        "total_consultas_no_dia": 778356,
+        "total_atendimentos_urgencia": 24541
+    },
+    {
+        "ano": 2019,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 77902,
+        "total_consultas_no_dia": 55787,
+        "total_atendimentos_urgencia": 1859
+    },
+    {
+        "ano": 2019,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 45326,
+        "total_consultas_no_dia": 37246,
+        "total_atendimentos_urgencia": 681
+    },
+    {
+        "ano": 2020,
+        "estado": "Acre",
+        "total_consultas_agendadas": 13499,
+        "total_consultas_no_dia": 13309,
+        "total_atendimentos_urgencia": 153
+    },
+    {
+        "ano": 2020,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 116699,
+        "total_consultas_no_dia": 124065,
+        "total_atendimentos_urgencia": 13273
+    },
+    {
+        "ano": 2020,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 5340,
+        "total_consultas_no_dia": 1998,
+        "total_atendimentos_urgencia": 135
+    },
+    {
+        "ano": 2020,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 29952,
+        "total_consultas_no_dia": 40747,
+        "total_atendimentos_urgencia": 722
+    },
+    {
+        "ano": 2020,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 223448,
+        "total_consultas_no_dia": 248636,
+        "total_atendimentos_urgencia": 16036
+    },
+    {
+        "ano": 2020,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 261905,
+        "total_consultas_no_dia": 471463,
+        "total_atendimentos_urgencia": 13247
+    },
+    {
+        "ano": 2020,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 21021,
+        "total_consultas_no_dia": 56268,
+        "total_atendimentos_urgencia": 1492
+    },
+    {
+        "ano": 2020,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 157726,
+        "total_consultas_no_dia": 141377,
+        "total_atendimentos_urgencia": 5375
+    },
+    {
+        "ano": 2020,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 143464,
+        "total_consultas_no_dia": 211227,
+        "total_atendimentos_urgencia": 2499
+    },
+    {
+        "ano": 2020,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 73375,
+        "total_consultas_no_dia": 63192,
+        "total_atendimentos_urgencia": 2172
+    },
+    {
+        "ano": 2020,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 48514,
+        "total_consultas_no_dia": 123572,
+        "total_atendimentos_urgencia": 2476
+    },
+    {
+        "ano": 2020,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 32328,
+        "total_consultas_no_dia": 108176,
+        "total_atendimentos_urgencia": 921
+    },
+    {
+        "ano": 2020,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 746853,
+        "total_consultas_no_dia": 971183,
+        "total_atendimentos_urgencia": 27745
+    },
+    {
+        "ano": 2020,
+        "estado": "Pará",
+        "total_consultas_agendadas": 86687,
+        "total_consultas_no_dia": 72842,
+        "total_atendimentos_urgencia": 2722
+    },
+    {
+        "ano": 2020,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 126441,
+        "total_consultas_no_dia": 353424,
+        "total_atendimentos_urgencia": 6002
+    },
+    {
+        "ano": 2020,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 165723,
+        "total_consultas_no_dia": 389722,
+        "total_atendimentos_urgencia": 6944
+    },
+    {
+        "ano": 2020,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 306118,
+        "total_consultas_no_dia": 417664,
+        "total_atendimentos_urgencia": 15159
+    },
+    {
+        "ano": 2020,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 60064,
+        "total_consultas_no_dia": 97136,
+        "total_atendimentos_urgencia": 3441
+    },
+    {
+        "ano": 2020,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 168070,
+        "total_consultas_no_dia": 246486,
+        "total_atendimentos_urgencia": 5881
+    },
+    {
+        "ano": 2020,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 111448,
+        "total_consultas_no_dia": 195215,
+        "total_atendimentos_urgencia": 6596
+    },
+    {
+        "ano": 2020,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 225560,
+        "total_consultas_no_dia": 460283,
+        "total_atendimentos_urgencia": 6077
+    },
+    {
+        "ano": 2020,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 29299,
+        "total_consultas_no_dia": 37341,
+        "total_atendimentos_urgencia": 277
+    },
+    {
+        "ano": 2020,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 3117,
+        "total_consultas_no_dia": 5320,
+        "total_atendimentos_urgencia": 75
+    },
+    {
+        "ano": 2020,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 200492,
+        "total_consultas_no_dia": 579894,
+        "total_atendimentos_urgencia": 26604
+    },
+    {
+        "ano": 2020,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 1055673,
+        "total_consultas_no_dia": 1211222,
+        "total_atendimentos_urgencia": 28864
+    },
+    {
+        "ano": 2020,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 61485,
+        "total_consultas_no_dia": 91607,
+        "total_atendimentos_urgencia": 7262
+    },
+    {
+        "ano": 2020,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 32377,
+        "total_consultas_no_dia": 49168,
+        "total_atendimentos_urgencia": 902
+    },
+    {
+        "ano": 2021,
+        "estado": "Acre",
+        "total_consultas_agendadas": 18896,
+        "total_consultas_no_dia": 16686,
+        "total_atendimentos_urgencia": 65
+    },
+    {
+        "ano": 2021,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 139054,
+        "total_consultas_no_dia": 108205,
+        "total_atendimentos_urgencia": 5421
+    },
+    {
+        "ano": 2021,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 8013,
+        "total_consultas_no_dia": 3724,
+        "total_atendimentos_urgencia": 95
+    },
+    {
+        "ano": 2021,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 45153,
+        "total_consultas_no_dia": 61579,
+        "total_atendimentos_urgencia": 677
+    },
+    {
+        "ano": 2021,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 283000,
+        "total_consultas_no_dia": 262015,
+        "total_atendimentos_urgencia": 7622
+    },
+    {
+        "ano": 2021,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 287234,
+        "total_consultas_no_dia": 458036,
+        "total_atendimentos_urgencia": 7890
+    },
+    {
+        "ano": 2021,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 32146,
+        "total_consultas_no_dia": 61898,
+        "total_atendimentos_urgencia": 1350
+    },
+    {
+        "ano": 2021,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 197438,
+        "total_consultas_no_dia": 131419,
+        "total_atendimentos_urgencia": 2371
+    },
+    {
+        "ano": 2021,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 137895,
+        "total_consultas_no_dia": 226820,
+        "total_atendimentos_urgencia": 1747
+    },
+    {
+        "ano": 2021,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 97636,
+        "total_consultas_no_dia": 77006,
+        "total_atendimentos_urgencia": 1095
+    },
+    {
+        "ano": 2021,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 51517,
+        "total_consultas_no_dia": 143764,
+        "total_atendimentos_urgencia": 1863
+    },
+    {
+        "ano": 2021,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 45278,
+        "total_consultas_no_dia": 119477,
+        "total_atendimentos_urgencia": 566
+    },
+    {
+        "ano": 2021,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 839002,
+        "total_consultas_no_dia": 988558,
+        "total_atendimentos_urgencia": 19216
+    },
+    {
+        "ano": 2021,
+        "estado": "Pará",
+        "total_consultas_agendadas": 111296,
+        "total_consultas_no_dia": 76669,
+        "total_atendimentos_urgencia": 1729
+    },
+    {
+        "ano": 2021,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 119560,
+        "total_consultas_no_dia": 339953,
+        "total_atendimentos_urgencia": 2622
+    },
+    {
+        "ano": 2021,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 243632,
+        "total_consultas_no_dia": 517343,
+        "total_atendimentos_urgencia": 8336
+    },
+    {
+        "ano": 2021,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 332203,
+        "total_consultas_no_dia": 392002,
+        "total_atendimentos_urgencia": 6990
+    },
+    {
+        "ano": 2021,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 70258,
+        "total_consultas_no_dia": 109906,
+        "total_atendimentos_urgencia": 1192
+    },
+    {
+        "ano": 2021,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 195693,
+        "total_consultas_no_dia": 253908,
+        "total_atendimentos_urgencia": 4786
+    },
+    {
+        "ano": 2021,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 110249,
+        "total_consultas_no_dia": 199690,
+        "total_atendimentos_urgencia": 2586
+    },
+    {
+        "ano": 2021,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 274705,
+        "total_consultas_no_dia": 554914,
+        "total_atendimentos_urgencia": 4233
+    },
+    {
+        "ano": 2021,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 33491,
+        "total_consultas_no_dia": 35961,
+        "total_atendimentos_urgencia": 193
+    },
+    {
+        "ano": 2021,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 5381,
+        "total_consultas_no_dia": 6247,
+        "total_atendimentos_urgencia": 46
+    },
+    {
+        "ano": 2021,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 262382,
+        "total_consultas_no_dia": 685355,
+        "total_atendimentos_urgencia": 34228
+    },
+    {
+        "ano": 2021,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 1475928,
+        "total_consultas_no_dia": 1329381,
+        "total_atendimentos_urgencia": 24574
+    },
+    {
+        "ano": 2021,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 91923,
+        "total_consultas_no_dia": 89221,
+        "total_atendimentos_urgencia": 3035
+    },
+    {
+        "ano": 2021,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 39175,
+        "total_consultas_no_dia": 55185,
+        "total_atendimentos_urgencia": 613
+    },
+    {
+        "ano": 2022,
+        "estado": "Acre",
+        "total_consultas_agendadas": 14481,
+        "total_consultas_no_dia": 21037,
+        "total_atendimentos_urgencia": 68
+    },
+    {
+        "ano": 2022,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 119323,
+        "total_consultas_no_dia": 114243,
+        "total_atendimentos_urgencia": 3426
+    },
+    {
+        "ano": 2022,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 10254,
+        "total_consultas_no_dia": 4193,
+        "total_atendimentos_urgencia": 395
+    },
+    {
+        "ano": 2022,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 48835,
+        "total_consultas_no_dia": 61011,
+        "total_atendimentos_urgencia": 510
+    },
+    {
+        "ano": 2022,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 276755,
+        "total_consultas_no_dia": 278657,
+        "total_atendimentos_urgencia": 6112
+    },
+    {
+        "ano": 2022,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 305088,
+        "total_consultas_no_dia": 546104,
+        "total_atendimentos_urgencia": 4407
+    },
+    {
+        "ano": 2022,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 45646,
+        "total_consultas_no_dia": 65309,
+        "total_atendimentos_urgencia": 2032
+    },
+    {
+        "ano": 2022,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 214617,
+        "total_consultas_no_dia": 119733,
+        "total_atendimentos_urgencia": 1496
+    },
+    {
+        "ano": 2022,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 175209,
+        "total_consultas_no_dia": 269286,
+        "total_atendimentos_urgencia": 1926
+    },
+    {
+        "ano": 2022,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 97916,
+        "total_consultas_no_dia": 87568,
+        "total_atendimentos_urgencia": 870
+    },
+    {
+        "ano": 2022,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 59481,
+        "total_consultas_no_dia": 173149,
+        "total_atendimentos_urgencia": 1825
+    },
+    {
+        "ano": 2022,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 54905,
+        "total_consultas_no_dia": 128097,
+        "total_atendimentos_urgencia": 1311
+    },
+    {
+        "ano": 2022,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 983575,
+        "total_consultas_no_dia": 1093661,
+        "total_atendimentos_urgencia": 18371
+    },
+    {
+        "ano": 2022,
+        "estado": "Pará",
+        "total_consultas_agendadas": 121713,
+        "total_consultas_no_dia": 94665,
+        "total_atendimentos_urgencia": 1878
+    },
+    {
+        "ano": 2022,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 83803,
+        "total_consultas_no_dia": 305762,
+        "total_atendimentos_urgencia": 1581
+    },
+    {
+        "ano": 2022,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 380198,
+        "total_consultas_no_dia": 693147,
+        "total_atendimentos_urgencia": 7876
+    },
+    {
+        "ano": 2022,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 290203,
+        "total_consultas_no_dia": 395425,
+        "total_atendimentos_urgencia": 5716
+    },
+    {
+        "ano": 2022,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 59878,
+        "total_consultas_no_dia": 114229,
+        "total_atendimentos_urgencia": 603
+    },
+    {
+        "ano": 2022,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 263155,
+        "total_consultas_no_dia": 549165,
+        "total_atendimentos_urgencia": 5601
+    },
+    {
+        "ano": 2022,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 112943,
+        "total_consultas_no_dia": 219576,
+        "total_atendimentos_urgencia": 1991
+    },
+    {
+        "ano": 2022,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 331649,
+        "total_consultas_no_dia": 662082,
+        "total_atendimentos_urgencia": 4233
+    },
+    {
+        "ano": 2022,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 46381,
+        "total_consultas_no_dia": 37070,
+        "total_atendimentos_urgencia": 235
+    },
+    {
+        "ano": 2022,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 8061,
+        "total_consultas_no_dia": 10225,
+        "total_atendimentos_urgencia": 34
+    },
+    {
+        "ano": 2022,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 316775,
+        "total_consultas_no_dia": 761619,
+        "total_atendimentos_urgencia": 30061
+    },
+    {
+        "ano": 2022,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 1939906,
+        "total_consultas_no_dia": 1553412,
+        "total_atendimentos_urgencia": 22692
+    },
+    {
+        "ano": 2022,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 89060,
+        "total_consultas_no_dia": 99184,
+        "total_atendimentos_urgencia": 3402
+    },
+    {
+        "ano": 2022,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 45576,
+        "total_consultas_no_dia": 63031,
+        "total_atendimentos_urgencia": 597
+    },
+    {
+        "ano": 2023,
+        "estado": "Acre",
+        "total_consultas_agendadas": 11348,
+        "total_consultas_no_dia": 17518,
+        "total_atendimentos_urgencia": 65
+    },
+    {
+        "ano": 2023,
+        "estado": "Alagoas",
+        "total_consultas_agendadas": 80899,
+        "total_consultas_no_dia": 92701,
+        "total_atendimentos_urgencia": 2289
+    },
+    {
+        "ano": 2023,
+        "estado": "Amapá",
+        "total_consultas_agendadas": 8573,
+        "total_consultas_no_dia": 4678,
+        "total_atendimentos_urgencia": 586
+    },
+    {
+        "ano": 2023,
+        "estado": "Amazonas",
+        "total_consultas_agendadas": 34743,
+        "total_consultas_no_dia": 47336,
+        "total_atendimentos_urgencia": 706
+    },
+    {
+        "ano": 2023,
+        "estado": "Bahia",
+        "total_consultas_agendadas": 198154,
+        "total_consultas_no_dia": 207522,
+        "total_atendimentos_urgencia": 4827
+    },
+    {
+        "ano": 2023,
+        "estado": "Ceará",
+        "total_consultas_agendadas": 238542,
+        "total_consultas_no_dia": 470105,
+        "total_atendimentos_urgencia": 3126
+    },
+    {
+        "ano": 2023,
+        "estado": "Distrito Federal",
+        "total_consultas_agendadas": 43450,
+        "total_consultas_no_dia": 52682,
+        "total_atendimentos_urgencia": 2807
+    },
+    {
+        "ano": 2023,
+        "estado": "Espírito Santo",
+        "total_consultas_agendadas": 159406,
+        "total_consultas_no_dia": 79914,
+        "total_atendimentos_urgencia": 2182
+    },
+    {
+        "ano": 2023,
+        "estado": "Goiás",
+        "total_consultas_agendadas": 148080,
+        "total_consultas_no_dia": 223095,
+        "total_atendimentos_urgencia": 1513
+    },
+    {
+        "ano": 2023,
+        "estado": "Maranhão",
+        "total_consultas_agendadas": 60796,
+        "total_consultas_no_dia": 67061,
+        "total_atendimentos_urgencia": 648
+    },
+    {
+        "ano": 2023,
+        "estado": "Mato Grosso",
+        "total_consultas_agendadas": 44093,
+        "total_consultas_no_dia": 121775,
+        "total_atendimentos_urgencia": 1063
+    },
+    {
+        "ano": 2023,
+        "estado": "Mato Grosso do Sul",
+        "total_consultas_agendadas": 41825,
+        "total_consultas_no_dia": 95202,
+        "total_atendimentos_urgencia": 1379
+    },
+    {
+        "ano": 2023,
+        "estado": "Minas Gerais",
+        "total_consultas_agendadas": 775492,
+        "total_consultas_no_dia": 872155,
+        "total_atendimentos_urgencia": 13189
+    },
+    {
+        "ano": 2023,
+        "estado": "Pará",
+        "total_consultas_agendadas": 83750,
+        "total_consultas_no_dia": 78080,
+        "total_atendimentos_urgencia": 1196
+    },
+    {
+        "ano": 2023,
+        "estado": "Paraíba",
+        "total_consultas_agendadas": 47673,
+        "total_consultas_no_dia": 199716,
+        "total_atendimentos_urgencia": 890
+    },
+    {
+        "ano": 2023,
+        "estado": "Paraná",
+        "total_consultas_agendadas": 355496,
+        "total_consultas_no_dia": 595892,
+        "total_atendimentos_urgencia": 7042
+    },
+    {
+        "ano": 2023,
+        "estado": "Pernambuco",
+        "total_consultas_agendadas": 183343,
+        "total_consultas_no_dia": 267578,
+        "total_atendimentos_urgencia": 3511
+    },
+    {
+        "ano": 2023,
+        "estado": "Piauí",
+        "total_consultas_agendadas": 44311,
+        "total_consultas_no_dia": 88861,
+        "total_atendimentos_urgencia": 375
+    },
+    {
+        "ano": 2023,
+        "estado": "Rio de Janeiro",
+        "total_consultas_agendadas": 244343,
+        "total_consultas_no_dia": 550772,
+        "total_atendimentos_urgencia": 4157
+    },
+    {
+        "ano": 2023,
+        "estado": "Rio Grande do Norte",
+        "total_consultas_agendadas": 72454,
+        "total_consultas_no_dia": 163230,
+        "total_atendimentos_urgencia": 627
+    },
+    {
+        "ano": 2023,
+        "estado": "Rio Grande do Sul",
+        "total_consultas_agendadas": 287624,
+        "total_consultas_no_dia": 563732,
+        "total_atendimentos_urgencia": 3921
+    },
+    {
+        "ano": 2023,
+        "estado": "Rondônia",
+        "total_consultas_agendadas": 36462,
+        "total_consultas_no_dia": 26426,
+        "total_atendimentos_urgencia": 151
+    },
+    {
+        "ano": 2023,
+        "estado": "Roraima",
+        "total_consultas_agendadas": 5460,
+        "total_consultas_no_dia": 9096,
+        "total_atendimentos_urgencia": 25
+    },
+    {
+        "ano": 2023,
+        "estado": "Santa Catarina",
+        "total_consultas_agendadas": 268024,
+        "total_consultas_no_dia": 584193,
+        "total_atendimentos_urgencia": 18620
+    },
+    {
+        "ano": 2023,
+        "estado": "São Paulo",
+        "total_consultas_agendadas": 1709447,
+        "total_consultas_no_dia": 1277083,
+        "total_atendimentos_urgencia": 22109
+    },
+    {
+        "ano": 2023,
+        "estado": "Sergipe",
+        "total_consultas_agendadas": 58818,
+        "total_consultas_no_dia": 70820,
+        "total_atendimentos_urgencia": 2534
+    },
+    {
+        "ano": 2023,
+        "estado": "Tocantins",
+        "total_consultas_agendadas": 35185,
+        "total_consultas_no_dia": 45037,
+        "total_atendimentos_urgencia": 486
+    }
+]

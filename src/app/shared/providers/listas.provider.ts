@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { API } from 'src/environments/environment';
+import { API_P, API } from 'src/environments/environment';
 import { BaseHttpProvider } from './base-http.provider';
 
+//Dashboards repositórios
 @Injectable({ providedIn: 'root' })
 export class ListasProvider {
   listAnos: any[] = [];
@@ -77,4 +78,55 @@ export class ListasProvider {
   private sort(a, b) {
     return a - b;
   }
+
+  conteudo: string [] = [
+    'Internações',
+    'Atenção básica'];
+  anos: string[] = [`2013`, `2014`, `2015`, `2016`, `2017`, `2018`, `2019`, `2020`, `2021`, `2022`, `2023`];
+  siglaestado: string[] = [
+    'AC', 'AL', 'AP', 'AM', 'BA',
+    'CE', 'DF', 'ES', 'GO', 'MA',
+    'MT', 'MS', 'MG', 'PA', 'PB',
+    'PR', 'PE', 'PI', 'RJ', 'RN',
+    'RS', 'RO', 'RR', 'SC', 'SP',
+    'SE', 'TO'
+  ];
+  estado_por_extenso: string[] = [
+    'Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 
+    'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 
+    'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 
+    'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 
+    'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 
+    'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'
+  ]
+  morbidades: string[] = [
+    'Demência',
+    'Transt. mentais e comportamentais (uso de álcool)',
+    'Transt. mentais e comportamentais (outras subst. psicoativas)',
+    'Esquizofrenia, transtornos esquizotípicos e delirantes',
+    'Transt. de humor [afetivos]',
+    'Transt. neuróticos, relacionados com "stress" e somatoformes',
+    'Retardo mental',
+    'Outros transtornos mentais e comportamentais'
+  ];
+  tipoAtendimento: string[] = [
+    'Consulta no dia',
+    'Consulta agendada',
+    'Atendimento de urgência'
+  ]
+
+  getListasP() {
+    return {
+      conteudo: this.conteudo,
+      anos: this.anos,
+      siglaestado: this.siglaestado,
+      estado: this.estado_por_extenso,
+      morbidades: this.morbidades,
+      tipoAtendimento: this.tipoAtendimento,
+    };
+  }
 }
+
+
+
+

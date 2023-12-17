@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'public',
+    redirectTo: 'saude-publica',
     pathMatch: 'full',
   },
   {
@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/public/public.module').then((r) => r.PublicModule),
   },
+  {
+    path: '**',
+    redirectTo: 'public',
+  }
 ];
 
 @NgModule({

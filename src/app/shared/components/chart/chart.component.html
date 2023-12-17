@@ -1,5 +1,5 @@
 <ng-container *ngIf="id">
-  <div class="relative h-80">
+  <div [ngClass]="classe">
     <canvas attr.id="chart-{{id}}"></canvas>
   </div>
 </ng-container>

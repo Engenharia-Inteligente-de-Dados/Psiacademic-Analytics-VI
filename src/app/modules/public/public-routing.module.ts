@@ -23,6 +23,10 @@ const routes: Routes = [
          import('../consults/consults.module').then((r) => r.ConsultsModule),
       },
       {
+        path: 'saude-publica',
+        loadChildren: () => import('../saude-publica/saude-publica.module').then(m => m.SaudePublicaModule),
+      },
+      {
         path: '**',
         redirectTo: 'analytics',
       }

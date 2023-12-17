@@ -11,7 +11,6 @@ export class CardComponent implements OnInit {
   @Input() colorBg?: string = `bg-white`;
   @Input() textColor?: string = 'text-gray-700';
 
-
   constructor() { }
 
   ngOnInit(): void {

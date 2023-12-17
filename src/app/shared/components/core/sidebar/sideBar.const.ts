@@ -1,22 +1,29 @@
 import { ConsultaType } from 'src/app/shared/enums/types.enums';
 export const TEXTOS = {
-  Title: 'PsiAcademic Analytics',
+  Title: 'Saúde Mental Analytics',
 };
 
 export const MAIN_ROUTES = [
   {
     Icon: 'fas fa-chart-line',
     Route: 'analytics',
-    Label: 'Analytics',
+    Label: 'Dashboard',
     Hash:'#menuAnalytics',
     InUse: true,
     SubRoutes: [
       {
-        Label: 'Dashboard',
+        Label: 'Repositórios',
         Route: [`analytics/dashboard/`],
         InUse: true,
         Icon: `fas fa-chart-line`,
-        Hash:'#menuAnalyticsDashboard',
+        Hash:'#menuDashboardRepositorios',
+      },
+      {
+        Label: 'Dados Públicos',
+        Route: [`saude-publica/dashboard/`],
+        InUse: true,
+        Icon: `fas fa-chart-pie`,
+        Hash:'#menuDashboardDadosPublicos',
       },
     ],
   },
