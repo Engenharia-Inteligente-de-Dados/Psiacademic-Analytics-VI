@@ -59,7 +59,7 @@ export class GeoChartComponent {
       { Estado: 'AL', Casos: 'Faixa 3: 30.343 - 48.475', Quantidade: 'AL: 40.663' },
       { Estado: 'AP', Casos: 'Faixa 1: 0 - 15.094', Quantidade: 'AP: 874' },
       { Estado: 'AM', Casos: 'Faixa 1: 0 - 15.094', Quantidade: 'AM: 6.697' },
-      { Estado: 'BA', Casos: 'Faixa 3: 30.343 - 48.475', Quantidade: 'BA: 55.565' },
+      { Estado: 'BA', Casos: 'Faixa 4: 48.476 - 119.753', Quantidade: 'BA: 55.565' },
       { Estado: 'CE', Casos: 'Faixa 4: 48.476 - 119.753', Quantidade: 'CE: 87.668' },
       { Estado: 'DF', Casos: 'Faixa 3: 30.343 - 48.475', Quantidade: 'DF: 46.348' },
       { Estado: 'ES', Casos: 'Faixa 2: 15.095 - 30.342', Quantidade: 'ES: 26.563' },
