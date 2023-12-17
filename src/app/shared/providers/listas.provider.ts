@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { API_P } from 'src/environments/environment';
+import { API_P, API } from 'src/environments/environment';
 import { BaseHttpProvider } from './base-http.provider';
 
 //Dashboards repositórios
@@ -64,15 +64,15 @@ export class ListasProvider {
   }
 
   async getAnos(): Promise<any> {
-    return await this.http.get(`${API_P}/lista/anos`);
+    return await this.http.get(`${API}/lista/anos`);
   }
 
   async getRepositorios(): Promise<any> {
-    return await this.http.get(`${API_P}/lista/repositorios`);
+    return await this.http.get(`${API}/lista/repositorios`);
   }
 
   async getTrasntornos(): Promise<any> {
-    return await this.http.get(`${API_P}/lista/transtornos`);
+    return await this.http.get(`${API}/lista/transtornos`);
   }
 
   private sort(a, b) {

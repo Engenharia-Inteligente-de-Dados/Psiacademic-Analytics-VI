@@ -461,7 +461,6 @@ const DADOS_CONTEUDO_CHARTJS: IChartjs = {
   options: {
     maintainAspectRatio: false,
     responsive: true,
-    
     plugins: {
       legend: {
         display: true,
@@ -477,7 +476,7 @@ const DADOS_CONTEUDO_CHARTJS: IChartjs = {
           },
         }
       },
-    }
+    },
   }
 }
 
