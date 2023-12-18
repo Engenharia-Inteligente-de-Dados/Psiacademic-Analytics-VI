@@ -100,7 +100,7 @@ export class DashboardPublicoComponent implements OnInit {
       })
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
-      dataset.label = "Estados"
+      dataset.label = "Casos"
       chart.Chart.data.datasets[0] = dataset;
       this.Charts[this.DashPubElem.qtdCasosPorEstado] = { ...chart };
       this.Charts[this.DashPubElem.qtdCasosPorEstado].Loading = false
