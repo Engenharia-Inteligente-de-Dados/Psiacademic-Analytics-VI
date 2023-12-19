@@ -81,6 +81,9 @@ export class DashboardPublicoComponent implements OnInit {
     const chart = changedChart
     this.Charts[this.DashPubElem.qtdCasosPorEstado].Loading = true
     try {
+      if(event.label === 'Ano'){
+        chart.Actions.Filters[1].Value = event.newValue;
+      }
       if (event.newValue === 'Internações') {
         chart.Url = NUMERO_CASO_ESTADO_DATASUS;
         chart.Keys = { labelName: 'siglaestado', valueName: 'total_casos', dinamic: true };
