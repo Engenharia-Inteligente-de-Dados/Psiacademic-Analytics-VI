@@ -81,6 +81,9 @@ export class DashboardPublicoComponent implements OnInit {
     const chart = changedChart
     this.Charts[this.DashPubElem.qtdCasosPorEstado].Loading = true
     try {
+      if(event.label === 'Ano'){
+        chart.Actions.Filters[1].Value = event.newValue;
+      }
       if (event.newValue === 'Internações') {
         chart.Url = NUMERO_CASO_ESTADO_DATASUS;
         chart.Keys = { labelName: 'siglaestado', valueName: 'total_casos', dinamic: true };
@@ -100,7 +103,7 @@ export class DashboardPublicoComponent implements OnInit {
       })
       const { labels, dataset } = formatChartData(resp, chart.Keys, chart.DatasetConfig);
       chart.Chart.data.labels = labels;
-      dataset.label = "Estados"
+      dataset.label = "Casos"
       chart.Chart.data.datasets[0] = dataset;
       this.Charts[this.DashPubElem.qtdCasosPorEstado] = { ...chart };
       this.Charts[this.DashPubElem.qtdCasosPorEstado].Loading = false
@@ -164,7 +167,7 @@ export class DashboardPublicoComponent implements OnInit {
     const { conteudo, estado, morbidades, tipoAtendimento } = this.ListasProvider.getListasP();
 
     chart.Actions.Filters.forEach((item) => {
-      if (item.Label.toLowerCase() === event.label.toLowerCase()) { 
+      if (item.Label.toLowerCase() === event.label.toLowerCase()) {
         item.Value = event.newValue
       }
     });
@@ -212,13 +215,13 @@ export class DashboardPublicoComponent implements OnInit {
 
       chart.Actions.Filters.forEach(filter => {
         if(event.newValue === 'Atenção básica'){
-          if(['tipo_atendimento', 'conteudo', 'estado'].includes(filter.Key)) 
+          if(['tipo_atendimento', 'conteudo', 'estado'].includes(filter.Key))
             filter.Visible = true
           else
             filter.Visible = false
         }
         if(event.newValue === 'Internações'){
-          if(['morbidade', 'conteudo', 'estado'].includes(filter.Key)) 
+          if(['morbidade', 'conteudo', 'estado'].includes(filter.Key))
             filter.Visible = true
             else
               filter.Visible = false
