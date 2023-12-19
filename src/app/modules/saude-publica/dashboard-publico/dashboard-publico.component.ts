@@ -167,7 +167,7 @@ export class DashboardPublicoComponent implements OnInit {
     const { conteudo, estado, morbidades, tipoAtendimento } = this.ListasProvider.getListasP();
 
     chart.Actions.Filters.forEach((item) => {
-      if (item.Label.toLowerCase() === event.label.toLowerCase()) { 
+      if (item.Label.toLowerCase() === event.label.toLowerCase()) {
         item.Value = event.newValue
       }
     });
@@ -215,13 +215,13 @@ export class DashboardPublicoComponent implements OnInit {
 
       chart.Actions.Filters.forEach(filter => {
         if(event.newValue === 'Atenção básica'){
-          if(['tipo_atendimento', 'conteudo', 'estado'].includes(filter.Key)) 
+          if(['tipo_atendimento', 'conteudo', 'estado'].includes(filter.Key))
             filter.Visible = true
           else
             filter.Visible = false
         }
         if(event.newValue === 'Internações'){
-          if(['morbidade', 'conteudo', 'estado'].includes(filter.Key)) 
+          if(['morbidade', 'conteudo', 'estado'].includes(filter.Key))
             filter.Visible = true
             else
               filter.Visible = false
